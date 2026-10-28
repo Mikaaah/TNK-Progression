@@ -1,5 +1,5 @@
 {
-  "version": "0.4.2-beta.1",
+  "version": "0.5.0-beta.1",
   "levelBase": 150,
   "levelFactor": 45,
   "levelExponent": 1.35,
@@ -65,5 +65,8 @@
   },
   "mobLevelSource": "nearest_living_survival_adventure_player_same_dimension",
   "mobLevelVariance": 4,
-  "mobLevelWithoutPlayer": 1
+  "mobLevelWithoutPlayer": 1,
+  "skillPointsAtLevel100": 175,
+  "skillPointFormula": "level + floor(3 * level / 4)",
+  "skillTreeNodes": 588
 }

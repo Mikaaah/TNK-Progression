@@ -2,6 +2,8 @@ package dev.mikaaah.tnkprogression;
 /** Pure balance rules. All thresholds use additional work, not character levels. */
 public final class ProgressionMath {
  private ProgressionMath() {}
+ /** Absolute entitlement, reused at login/respec; never an incremental point award. */
+ public static int skillPoints(int level){int value=Math.clamp(level,1,100);return value+value*3/4;}
  public static long levelCost(int level) {var c=BalanceConfig.current;return BalanceConfig.bounded(c.levelBase+c.levelFactor*Math.pow(Math.max(1,level),c.levelExponent));}
  public static long taskCost(long base,long completed){var c=BalanceConfig.current;return BalanceConfig.bounded(base*Math.pow(1+Math.max(0,completed)*c.activityGrowth,c.requirementExponent)+Math.max(0,completed));}
  public static long taskReward(long base,long completed){var c=BalanceConfig.current;return BalanceConfig.bounded(base*Math.pow(1+Math.max(0,completed)*c.activityGrowth,c.rewardExponent));}

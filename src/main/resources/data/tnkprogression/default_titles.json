@@ -161,11 +161,11 @@
       "artwork": "WANDERER",
       "style": "DIAMENT",
       "colour": "4BD6ED",
-      "description": "Unlock the Wayfarer outer milestone in the character tree.",
+      "description": "Unlock hunter subclass 1 mastery in the character tree.",
       "skillCategory": "tnk:character",
       "minSpentPoints": 0,
       "requiredSkills": [
-        "wayfarer_10"
+        "hunter_subclass_1_mastery"
       ]
     },
     {
@@ -174,11 +174,11 @@
       "artwork": "ADAMANT",
       "style": "MIEDŹ",
       "colour": "DD873A",
-      "description": "Unlock the Delver outer milestone in the character tree.",
+      "description": "Unlock miner mastery in the character tree.",
       "skillCategory": "tnk:character",
       "minSpentPoints": 0,
       "requiredSkills": [
-        "delver_10"
+        "miner_mastery"
       ]
     },
     {
@@ -187,11 +187,11 @@
       "artwork": "CARETAKER",
       "style": "SZMARAGD",
       "colour": "51D975",
-      "description": "Unlock the Homesteader outer milestone in the character tree.",
+      "description": "Unlock cook mastery in the character tree.",
       "skillCategory": "tnk:character",
       "minSpentPoints": 0,
       "requiredSkills": [
-        "homesteader_10"
+        "cook_mastery"
       ]
     },
     {
@@ -200,11 +200,11 @@
       "artwork": "CREATOR",
       "style": "ZŁOTO",
       "colour": "EDC74B",
-      "description": "Unlock the Artificer outer milestone in the character tree.",
+      "description": "Unlock blacksmith mastery in the character tree.",
       "skillCategory": "tnk:character",
       "minSpentPoints": 0,
       "requiredSkills": [
-        "artificer_10"
+        "blacksmith_mastery"
       ]
     },
     {
@@ -213,11 +213,11 @@
       "artwork": "UNBROKEN",
       "style": "KWARC",
       "colour": "F3EADA",
-      "description": "Unlock the Survivor outer milestone in the character tree.",
+      "description": "Unlock blacksmith defensive keystone 1 in the character tree.",
       "skillCategory": "tnk:character",
       "minSpentPoints": 0,
       "requiredSkills": [
-        "survivor_10"
+        "blacksmith_defensive_keystone_1"
       ]
     },
     {
@@ -226,11 +226,11 @@
       "artwork": "ADVENTURER",
       "style": "RUBIN",
       "colour": "EF5D8C",
-      "description": "Unlock the Adventurer outer milestone in the character tree.",
+      "description": "Unlock hunter mastery in the character tree.",
       "skillCategory": "tnk:character",
       "minSpentPoints": 0,
       "requiredSkills": [
-        "adventurer_10"
+        "hunter_mastery"
       ]
     },
     {

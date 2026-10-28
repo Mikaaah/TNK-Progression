@@ -42,7 +42,7 @@ public final class TitleSmoke {
         var loaded=ProgressionData.load(saved,p.registryAccess()).entry("player:"+p.getUUID());
         check(loaded.getCompound("titles_unlocked").getBoolean("tnk:ars_mystic") && loaded.getString("title_selected").equals("tnk:ars_mystic"),"titles and selection persist");
         var skill=TitleConfig.get("tnk:skill_wayfarer").orElseThrow();
-        check(!TitleConfig.qualifies(skill,100,Set.of()) && TitleConfig.qualifies(skill,40,Set.of("wayfarer_10")),"node titles require actual skill unlock");
+        check(!TitleConfig.qualifies(skill,100,Set.of()) && TitleConfig.qualifies(skill,40,Set.of("hunter_subclass_1_mastery")),"node titles require actual converted skill unlock");
         var points=TitleConfig.get("tnk:paragon").orElseThrow();
         check(!TitleConfig.qualifies(points,99,Set.of()) && TitleConfig.qualifies(points,100,Set.of()),"spent points title threshold");
         Titles.checkSkills(p); // Missing optional Pufferfish never awards a substitute character-level title.

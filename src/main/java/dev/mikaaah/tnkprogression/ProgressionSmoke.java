@@ -24,6 +24,7 @@ public final class ProgressionSmoke {
    long before=n.getLong("xp");check(ProgressionAPI.rewardOnce(p,"test:reward",25),"first quest claim");check(!ProgressionAPI.rewardOnce(p,"test:reward",25),"duplicate quest rejected");check(n.getLong("xp")==before+25,"reward paid once");
    ProgressionAPI.unlock(p,100);ProgressionAPI.awardXp(p,1000000000);check(ProgressionAPI.level(p)==100,"max level");check(n.getLong("xp")==0,"max level XP zero");
    check(ProgressionAPI.rarityCap(p)==5,"endgame rarity access");
+   check(CharacterState.snapshot(p).pointsEarned()==175,"level 100 HUD exposes 175 earned skill points");
    check(p.getDisplayName().getString().startsWith(LevelBadges.glyph(100)+" "),"three digit badge");
    var tag=ProgressionData.get(p.server).save(new CompoundTag(),p.registryAccess());
    var loaded=ProgressionData.load(tag,p.registryAccess());check(loaded.entry("player:"+p.getUUID()).getInt("level")==100,"save reload");
@@ -32,6 +33,7 @@ public final class ProgressionSmoke {
    TitleSmoke.run(e.getServer());
    CharacterSmoke.run(e.getServer());
    MobLevelSmoke.run(e.getServer());
+   TreeSmoke.run(e.getServer());
    TnkProgression.LOG.info("TNK_PROGRESSION_SMOKE_OK");
   }catch(Throwable t){TnkProgression.LOG.error("TNK_PROGRESSION_SMOKE_FAILED",t);}
   e.getServer().halt(false);

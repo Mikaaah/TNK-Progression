@@ -28,7 +28,7 @@ public final class SkillBridge {
    Optional<?> category=(Optional<?>)api.getMethod("getCategory",ResourceLocation.class).invoke(null,ResourceLocation.parse(ProgressionConfig.current.skillCategory));
    if(category.isEmpty())return;
    Class<?> type=Class.forName("net.puffish.skillsmod.api.Category");
-   type.getMethod("setPoints",ServerPlayer.class,ResourceLocation.class,int.class).invoke(category.get(),p,ResourceLocation.parse("tnkprogression:character_level"),ProgressionAPI.level(p));
+   type.getMethod("setPoints",ServerPlayer.class,ResourceLocation.class,int.class).invoke(category.get(),p,ResourceLocation.parse("tnkprogression:character_level"),ProgressionMath.skillPoints(ProgressionAPI.level(p)));
   }catch(ReflectiveOperationException|RuntimeException e){if(!warned){warned=true;TnkProgression.LOG.warn("Pufferfish API unavailable: check installed version/category; no command fallback or duplicate awards",e);}}
  }
 }

@@ -1,4 +1,4 @@
-# Towns & Kingdoms Progression — 0.4.3-beta.1
+# Towns & Kingdoms Progression — 0.5.0-beta.1
 
 Minecraft **1.21.1**, NeoForge **21.1.262+**, Java **21**. Original implementation; no Auto Leveling or Just Leveling code is bundled. This is an initial pack beta; tune the balance in a test world.
 
@@ -12,7 +12,7 @@ See [character HUD, perks, balance and migration](docs/CHARACTER-HUD.md). The nu
 
 ## Progression
 
-Personal character level 1–100. Level 1 supplies one skill point, with one more per earned level: 100 total. Vanilla XP remains independent. Mining, weighted combat, fishing, farming, audited crafting, engineering and discovery of unique chunks contribute to indefinitely repeatable activity milestones. Their work requirements grow faster than their rewards under the configured release curves. The release curve costs `floor(150 + 45 * level^1.35)` XP per level. These initial values deliberately favor a mixed playstyle; a single repeatable activity can still supply all XP.
+Personal character level 1–100. Skill-point entitlement is `level + floor(3 × level / 4)`: 1 point at level 1, 17 at level 10, 87 at level 50 and **175 at level 100**. The same named point source is set absolutely on login/level-up, so existing characters catch up and reconnects/respecs cannot multiply awards. Vanilla XP remains independent. Mining, weighted combat, fishing, farming, audited crafting, engineering and discovery of unique chunks contribute to indefinitely repeatable activity milestones. Their work requirements grow faster than their rewards under the configured release curves. The release curve costs `floor(150 + 45 * level^1.35)` XP per level. These initial values deliberately favor a mixed playstyle; a single repeatable activity can still supply all XP.
 
 `config/tnkprogression.json` controls activity starting costs/rewards, level ceilings, team sharing, skill category, mob attribute scaling and nearest-player level variance. `/tnkprogress reload` atomically validates and reloads it. Default level ceilings: 10, 30, 50, 70, 80, 94, 100. Default highest eligible rarity by ceiling: Uncommon, Rare, Epic, Legendary, Legendary, Mythic, Mythic. These are starting balance proposals, not fixed campaign decisions.
 
@@ -34,7 +34,9 @@ FTB Teams is optional. When installed, milestones are stored by team UUID and im
 
 ## Pufferfish's Skills
 
-Optional bridge targets the public 0.19.2 API on the 1.21 branch. Configure the exact existing tree category ID (default `tnk:character`). Disable that category's native experience and point exchange sources. This mod sets **total earned entitlement**, not unspent points, under `tnkprogression:character_level`, at login and level-up. Respecs and reconnects do not add points. Remove old point sources during migration; this mod does not destroy existing skill data automatically. Missing/API-incompatible integration logs a warning. The reduced tree itself must be authored separately from this mod.
+**The complete 588-node tree is now embedded in the mod JAR**, with all 669 source links, six roots, one point per node and a 175-point spending limit. It retains TNK's existing HAS icons, custom frames and warm background. No separate skilltree datapack or icon resource pack is required. The uploaded tree's original icons and space background are not copied. See [the conversion guide](skilltree/rebuilt588/README.md). Remove any old external datapack/config defining `tnk:character`, which otherwise overrides the bundled tree.
+
+Optional bridge targets the public 0.19.2 API on the 1.21 branch. Configure the exact existing tree category ID (default `tnk:character`). Disable that category's native experience and point exchange sources. This mod sets **total earned entitlement**, not unspent points, under `tnkprogression:character_level`, at login and level-up. Respecs and reconnects do not add points. Remove old point sources during migration; this mod does not destroy existing skill data automatically. Missing/API-incompatible integration logs a warning. The category is bundled by this mod. Iron's Spells, Ars Nouveau, Apothic Attributes and Pufferfish's Attributes bonuses are optional rewards; missing optional mods do not remove route nodes. Runtime conditional passives use reversible native Pufferfish tag rewards.
 
 ## Player level badges
 

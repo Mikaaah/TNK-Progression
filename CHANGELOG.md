@@ -1,3 +1,14 @@
+# 0.5.0-beta.1
+
+- Replace the basic 240-node draft with the supplied 588-node topology and all 669 original links, retaining six disciplines and roots. Use the existing TNK icons, frame states and warm background; do not port the original space background or original mod sprites.
+- Embed the complete Pufferfish configuration and TNK skilltree assets directly into the mod. Keep original number/title PNGs embedded in the private release. No companion datapack or resource pack is required.
+- Raise absolute level-based skill-point entitlement to 175 at level 100, update HUD/status/level messages and the category spending limit, and retain the same source ID to avoid duplicate awards. Each node costs one point.
+- Add actual optional Iron's Spells mana, regeneration, spell power, resistance, school power, summon damage, casting speed and cooldown attributes, plus Ars Nouveau capacity/regeneration/damage/warding.
+- Modernize old-mod-only crafting, enchantment, XP-per-minute, gem/socket and duplication mechanics into supported personal perks. Ship a full per-node conversion catalogue rather than claiming unsupported original effects still exist.
+- Add reversible tagged conditional passives: shield guard, bounded evasion, burning-target/beneficial-effect/well-fed/longshot damage, combat recovery, ignite, food recovery, beneficial potion duration and Second Wind with saved cooldown.
+- Migrate six known old tree-title requirements to valid converted node IDs without revoking earned titles or changing custom unrelated conditions.
+- Add graph/assets/points checks, passive-rule tests and an isolated check through the official Pufferfish 0.19.2 parser and native attribute/tag update/respec implementations. Also load the actual Pufferfish mods in a disposable server to verify 175-point sync and live respec. Full-pack client integration remains to be playtested.
+
 # 0.4.3-beta.1
 
 - Correct the delivered private JAR to use the supplied Advanced Pack number/title artwork by default, without requiring an enabled companion resource pack.
