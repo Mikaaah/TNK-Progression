@@ -23,7 +23,7 @@ public final class LevelBadges {
     public static String glyph(int level) { return String.valueOf((char) (0xE000 + clamp(level))); }
     public static Component badge(int level) {
         int value = clamp(level);
-        return Component.literal(glyph(value)).withStyle(Style.EMPTY.withFont(FONT).withColor(0xFFFFFF)
+        return Component.literal(value == 0 ? "0" : glyph(value)).withStyle(Style.EMPTY.withFont(value == 0 ? ResourceLocation.withDefaultNamespace("default") : FONT).withColor(0xFFFFFF)
             .withBold(false).withItalic(false)
             .withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Component.literal("Character level " + value))));
     }

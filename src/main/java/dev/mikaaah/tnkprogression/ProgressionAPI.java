@@ -33,14 +33,26 @@ public final class ProgressionAPI {
   TeamBridge.key(p).ifPresent(k->{CompoundTag t=ProgressionData.get(p.server).entry(k);t.putInt("ceiling",Math.max(cap,t.getInt("ceiling")));});
   ProgressionData.get(p.server).setDirty();
  }
+ /** Fractional weighted work persists; a teammate's small share is never rounded away per kill. */
+ public static void activityFractional(ServerPlayer p,String key,double units){
+  if(!ActivityGuard.player(p) || !Double.isFinite(units) || units<=0 || level(p)>=ceiling(p) || level(p)>=100)return;
+  CompoundTag n=profile(p); double total=n.getDouble(key+"_fraction")+units;
+  long whole=(long)Math.floor(total); n.putDouble(key+"_fraction",total-whole);
+  if(whole>0)activity(p,key,whole); ProgressionData.get(p.server).setDirty();
+ }
+ public static boolean engineeringObjective(ServerPlayer p,String id){
+  Double units=ProgressionConfig.current.engineeringObjectives.get(id);if(units==null)return false;
+  CompoundTag n=profile(p),claims=n.getCompound("engineering_claims");if(claims.getBoolean(id))return false;
+  claims.putBoolean(id,true);n.put("engineering_claims",claims);activityFractional(p,"engineering",units);ProgressionData.get(p.server).setDirty();return true;
+ }
  public static void activity(ServerPlayer p,String key,long units){
-  if(units<=0 || level(p)>=ceiling(p) || level(p)>=100)return;
+  if(!ActivityGuard.player(p) || units<=0 || level(p)>=ceiling(p) || level(p)>=100)return;
   var a=ProgressionConfig.current.activities.get(key);if(a==null)return;
   CompoundTag n=profile(p);long rank=Math.max(0,n.getLong(key+"_rank")),work=Math.max(0,n.getLong(key+"_work"));
   work=units>Long.MAX_VALUE-work?Long.MAX_VALUE:work+units;
   while(work>=ProgressionMath.taskCost(a.initialRequirement(),rank)){
    work-=ProgressionMath.taskCost(a.initialRequirement(),rank);awardXp(p,ProgressionMath.taskReward(a.initialXp(),rank));if(rank<Long.MAX_VALUE)rank++;
-   if(level(p)>=ceiling(p) || level(p)>=100){work=0;break;}
+   if(level(p)>=ceiling(p) || level(p)>=100){work=0;n.putDouble(key+"_fraction",0);break;}
   }
   n.putLong(key+"_rank",rank);n.putLong(key+"_work",work);ProgressionData.get(p.server).setDirty();
  }

@@ -27,6 +27,8 @@ public final class ProgressionSmoke {
    check(p.getDisplayName().getString().startsWith(LevelBadges.glyph(100)+" "),"three digit badge");
    var tag=ProgressionData.get(p.server).save(new CompoundTag(),p.registryAccess());
    var loaded=ProgressionData.load(tag,p.registryAccess());check(loaded.entry("player:"+p.getUUID()).getInt("level")==100,"save reload");
+   check(!ActivityGuard.player(p),"fake players cannot earn activity work");
+   ActivitySmoke.run(e.getServer());
    TnkProgression.LOG.info("TNK_PROGRESSION_SMOKE_OK");
   }catch(Throwable t){TnkProgression.LOG.error("TNK_PROGRESSION_SMOKE_FAILED",t);}
   e.getServer().halt(false);
