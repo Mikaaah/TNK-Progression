@@ -10,6 +10,10 @@ jobs:
           distribution: temurin
           java-version: '21'
       - uses: gradle/actions/setup-gradle@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tools/check_title_bindings.cjs
       - run: ./gradlew build --stacktrace
       - name: Dedicated server assertions
         run: |
@@ -17,6 +21,7 @@ jobs:
           printf 'eula=true\n' > run/eula.txt
           JAVA_TOOL_OPTIONS=-Dtnkprogression.smoke=true timeout 300 ./gradlew runServer 2>&1 | tee smoke.log
           grep -q TNK_PROGRESSION_SMOKE_OK smoke.log
+          grep -q TNK_TITLES_SMOKE_OK smoke.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:

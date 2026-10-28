@@ -1,4 +1,4 @@
-# Towns & Kingdoms Progression — 0.2.0-beta.1
+# Towns & Kingdoms Progression — 0.3.0-beta.1
 
 Minecraft **1.21.1**, NeoForge **21.1.262+**, Java **21**. Original implementation; no Auto Leveling or Just Leveling code is bundled. This is an initial pack beta; tune the balance in a test world.
 
@@ -30,13 +30,25 @@ Optional bridge targets the public 0.19.2 API on the 1.21 branch. Configure the 
 
 ## Player level badges
 
-The optional **TNK Number Prefixes 0.2.0** client resource pack replaces the original bronze `LVL` artwork with the user's supplied number-only Advanced Pack images. All 100 images are copied byte-for-byte, without recolouring or modifying pixels. Eleven colour brackets cover 1–9, each ten-level range, and a separate quartz-white 100. No zero image exists in the supplied pack; level 0 uses plain `0` text. Actual progression still starts at 1.
+The optional **TNK Number and Title Prefixes 0.3.0** client resource pack replaces the original bronze `LVL` artwork with the user's supplied number-only Advanced Pack images. All 100 images are copied byte-for-byte, without recolouring or modifying pixels. Eleven colour brackets cover 1–9, each ten-level range, and a separate quartz-white 100. No zero image exists in the supplied pack; level 0 uses plain `0` text. Actual progression still starts at 1.
 
 Enable the resource pack above older prefix packs. The mod's existing bundled bronze artwork remains a fallback if that pack is absent. Install the updated mod on server and clients. Authoritative level sync, normal chat and overhead display-name integration are unchanged; other chat/nameplate mods still need client verification. Tab-list prefixes are not enabled.
 
 `python tools/package_number_prefixes.py advancedpack.zip output.zip` generates the private resource pack from the original user-owned input. The supplied artwork is not redistributed in this source repository. The existing `tools/build_level_badges.py` regenerates only the original bronze fallback.
 
 See [activity implementation](docs/ACTIVITY-UPDATE.md), [design explanations](docs/DESIGN-EXPLAINED.md), and [quest-rank proposal](docs/QUEST-ROLES.md).
+
+## Earned titles
+
+Collect **43 configurable cosmetic titles** from quests and actual skilltree achievements. Equip one in chat and overhead names, or hide it without losing it. Titles persist personally across death, team changes and respecs. The first title equips automatically; new rewards preserve an existing selection. Titles provide no attribute, XP, skill-point or permission bonuses.
+
+- FTB Command Reward (permission 2): `tnkprogress title grant {p} tnk:ars_mystic`
+- Player collection: `/tnkprogress title list`; equip with `/tnkprogress title select <id>` or click an earned title; hide with `/tnkprogress title clear`.
+- Server catalog: `config/tnk-titles.json`; reload with `/tnkprogress title reload`.
+- Optional KubeJS quest bridge includes 24 rules using real current quest IDs, plus inactive templates for chapters/boss quests not present in the source. Pufferfish milestones use actual spent points and purchased nodes.
+- Combined private resource pack copies all 100 number images and 43 title sprites unchanged. Missing artwork uses readable title text. Both server and client must update to the new protocol.
+
+See [full setup, commands and catalog](docs/TITLES.md) for chapter semantics, original-art packaging, permanence and revocation. The old [quest-role proposal](docs/QUEST-ROLES.md) is historical; the title system uses completed chapters as described in the catalog.
 
 ## Mob levels
 

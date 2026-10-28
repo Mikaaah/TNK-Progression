@@ -33,8 +33,12 @@ public final class LevelBadges {
         Integer level = event.getEntity() instanceof ServerPlayer player
             ? ProgressionAPI.level(player) : CLIENT_LEVELS.get(event.getEntity().getUUID());
         // A newly arriving client entity can briefly have no snapshot yet; never invent a level.
-        if (level != null) event.setDisplayname(Component.empty().append(badge(level))
-            .append(Component.literal(" ")).append(event.getDisplayname()));
+        if (level != null) {
+            Component title=event.getEntity() instanceof ServerPlayer p?Titles.display(p):Titles.client(event.getEntity().getUUID());
+            var name=Component.empty().append(badge(level)).append(Component.literal(" "));
+            if(!title.equals(Component.empty()))name.append(title).append(Component.literal(" "));
+            event.setDisplayname(name.append(event.getDisplayname()));
+        }
     }
 
     public static void accept(UUID id, int level, net.minecraft.world.entity.player.Player viewer) {
@@ -42,16 +46,19 @@ public final class LevelBadges {
         var target = viewer.level().getPlayerByUUID(id);
         if (target != null) target.refreshDisplayName();
     }
-    public static void clearClient() { CLIENT_LEVELS.clear(); }
+    public static void clearClient() { CLIENT_LEVELS.clear(); Titles.clearClient(); }
 
     public static void changed(ServerPlayer player) {
         player.refreshDisplayName();
         PacketDistributor.sendToAllPlayers(new LevelBadgePayload(player.getUUID(), ProgressionAPI.level(player)));
+        PacketDistributor.sendToAllPlayers(new TitleBadgePayload(player.getUUID(),Titles.display(player)));
     }
     @SubscribeEvent public static void login(PlayerEvent.PlayerLoggedInEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
-        for (ServerPlayer online : player.server.getPlayerList().getPlayers())
+        for (ServerPlayer online : player.server.getPlayerList().getPlayers()) {
             PacketDistributor.sendToPlayer(player, new LevelBadgePayload(online.getUUID(), ProgressionAPI.level(online)));
+            PacketDistributor.sendToPlayer(player, new TitleBadgePayload(online.getUUID(),Titles.display(online)));
+        }
         changed(player);
     }
     @SubscribeEvent public static void respawn(PlayerEvent.PlayerRespawnEvent event) {

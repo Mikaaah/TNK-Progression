@@ -1,0 +1,307 @@
+{
+  "version": 1,
+  "packSourceCommit": "e9ce1934d32d385c0423941fc679912089dab0c3",
+  "bindings": [
+    {
+      "title": "tnk:apprentice",
+      "quests": [
+        "B0A94968CD02DE8A"
+      ],
+      "required": 1,
+      "source": "Complete production chapter 1"
+    },
+    {
+      "title": "tnk:technician",
+      "quests": [
+        "60278B0905A64DC9"
+      ],
+      "required": 1,
+      "source": "Complete production chapter 2"
+    },
+    {
+      "title": "tnk:engineer",
+      "quests": [
+        "B81077B20C8371D3"
+      ],
+      "required": 1,
+      "source": "Complete production chapter 3"
+    },
+    {
+      "title": "tnk:specialist",
+      "quests": [
+        "1CD504854E287D44"
+      ],
+      "required": 1,
+      "source": "Complete production chapter 4"
+    },
+    {
+      "title": "tnk:expert",
+      "quests": [
+        "4B5E0820B553B7C9"
+      ],
+      "required": 1,
+      "source": "Complete production chapter 5"
+    },
+    {
+      "title": "tnk:master",
+      "quests": [
+        "DCEB2AF9B398CAEB"
+      ],
+      "required": 1,
+      "source": "Complete production chapter 6"
+    },
+    {
+      "title": "tnk:grandmaster",
+      "quests": [
+        "BCC05513E2AD3BA9"
+      ],
+      "required": 1,
+      "source": "Complete production chapter 7"
+    },
+    {
+      "title": "tnk:champion",
+      "quests": [
+        "91CC6BEFB3017B3F"
+      ],
+      "required": 1,
+      "source": "Complete production chapter 8"
+    },
+    {
+      "title": "tnk:legend",
+      "quests": [
+        "DD2408B49260ECA5"
+      ],
+      "required": 1,
+      "source": "Complete production chapter 9"
+    },
+    {
+      "title": "tnk:monarch",
+      "quests": [
+        "502988B461C73519"
+      ],
+      "required": 1,
+      "source": "Complete production chapter 10"
+    },
+    {
+      "title": "tnk:board_recruit",
+      "quests": [
+        "0CA9A1A234F4E043",
+        "526C465358930220",
+        "51102544A98CD812",
+        "3C81767A4499AD8E",
+        "1139DA158CD685AE",
+        "7E4312F28D41AA58",
+        "41180601E897DDA7"
+      ],
+      "required": 1,
+      "source": "Complete one of the seven shared project-board assignments"
+    },
+    {
+      "title": "tnk:board_citizen",
+      "quests": [
+        "0CA9A1A234F4E043",
+        "526C465358930220",
+        "51102544A98CD812",
+        "3C81767A4499AD8E",
+        "1139DA158CD685AE",
+        "7E4312F28D41AA58",
+        "41180601E897DDA7"
+      ],
+      "required": 3,
+      "source": "Complete three shared project-board assignments"
+    },
+    {
+      "title": "tnk:board_taskmaster",
+      "quests": [
+        "0CA9A1A234F4E043",
+        "526C465358930220",
+        "51102544A98CD812",
+        "3C81767A4499AD8E",
+        "1139DA158CD685AE",
+        "7E4312F28D41AA58",
+        "41180601E897DDA7"
+      ],
+      "required": 7,
+      "source": "Complete all seven shared project-board assignments"
+    },
+    {
+      "title": "tnk:irons_arcane",
+      "quests": [
+        "1734C8B9EC584093",
+        "67564F0CEE5FF10C",
+        "7A1EDD7FEF5AE53D",
+        "27088544AB5A7B7E",
+        "58E7B91E9FC3F988",
+        "6C6FF048DC8F1A8A",
+        "5077E82C56904527",
+        "1ECC89779AD08841",
+        "6D2BA0F7EF423407",
+        "516923EFBE3E1099"
+      ],
+      "required": 10,
+      "source": "Finish all spells guide quests (uses the existing quest task semantics)"
+    },
+    {
+      "title": "tnk:ars_mystic",
+      "quests": [
+        "217B1848E6453CAD",
+        "04959E0FC9641AD0",
+        "0FE3519293895ABD",
+        "447275F4492FB0AC",
+        "13BD43BF8BC6197B",
+        "1E65FDD48E0BD757",
+        "4640DACA2970A575",
+        "14611BCC84919F75",
+        "51C77A50622FA337",
+        "3FD9C996C3ED542D"
+      ],
+      "required": 10,
+      "source": "Finish all ars guide quests (uses the existing quest task semantics)"
+    },
+    {
+      "title": "tnk:witchery_oracle",
+      "quests": [
+        "65535A425066AACD",
+        "163048D43E40CDEB",
+        "601899D9C14CC416",
+        "790074E82FEA916D",
+        "791777E26C131A0D",
+        "63AF6B3DE70AC1EB"
+      ],
+      "required": 6,
+      "source": "Finish all witchery guide quests (uses the existing quest task semantics)"
+    },
+    {
+      "title": "tnk:architect",
+      "quests": [
+        "692C289D7B40C0C9",
+        "41EAB777014AEBC5",
+        "4A5512309A93E914",
+        "618FAF002821E437",
+        "60EBE4046B861179",
+        "389D065A21C0981B"
+      ],
+      "required": 6,
+      "source": "Finish all building guide quests (uses the existing quest task semantics)"
+    },
+    {
+      "title": "tnk:prepared",
+      "quests": [
+        "345DF7DDC2EBADDE",
+        "144A770BFAD4170E",
+        "2D993B872C3B51E0"
+      ],
+      "required": 3,
+      "source": "Obtain backpack, Hopper Upgrade and Pickup Upgrade quests"
+    },
+    {
+      "title": "tnk:planner",
+      "quests": [
+        "1C810133157B5A8C",
+        "345DF7DDC2EBADDE",
+        "144A770BFAD4170E",
+        "2D993B872C3B51E0",
+        "4920B0FADC82FEB2",
+        "6EEBF048369C6E7C",
+        "284A2C06A402A811",
+        "73E65ED5F8E16ACF"
+      ],
+      "required": 8,
+      "source": "Finish all storage guide quests"
+    },
+    {
+      "title": "tnk:lich_phantom",
+      "quests": [
+        "D5FDACA2A14DE92D"
+      ],
+      "required": 1,
+      "source": "Actual kill task: twilightforest:lich"
+    },
+    {
+      "title": "tnk:harbinger_conqueror",
+      "quests": [
+        "B1EC8B5E18AF1A4E"
+      ],
+      "required": 1,
+      "source": "Actual kill task: cataclysm:the_harbinger"
+    },
+    {
+      "title": "tnk:ignis_inferno",
+      "quests": [
+        "92F27CBC4799C649"
+      ],
+      "required": 1,
+      "source": "Actual kill task: cataclysm:ignis"
+    },
+    {
+      "title": "tnk:dragon_slayer",
+      "quests": [
+        "4585DD0797591621"
+      ],
+      "required": 1,
+      "source": "Actual kill task: minecraft:ender_dragon"
+    },
+    {
+      "title": "tnk:guardian_sentinel",
+      "quests": [
+        "1EAF5BC1918535CA"
+      ],
+      "required": 1,
+      "source": "Actual kill task: cataclysm:ender_guardian"
+    },
+    {
+      "title": "tnk:letsdo_creator",
+      "quests": [],
+      "required": 1,
+      "source": "Unbound: set real quest IDs for Let’s Do Bakery/Brewery"
+    },
+    {
+      "title": "tnk:letsdo_host",
+      "quests": [],
+      "required": 1,
+      "source": "Unbound: set real quest IDs for Let’s Do Candlelight"
+    },
+    {
+      "title": "tnk:letsdo_caretaker",
+      "quests": [],
+      "required": 1,
+      "source": "Unbound: set real quest IDs for Let’s Do Farm & Charm/Meadow"
+    },
+    {
+      "title": "tnk:letsdo_expert",
+      "quests": [],
+      "required": 1,
+      "source": "Unbound: set real quest IDs for Let’s Do Vinery"
+    },
+    {
+      "title": "tnk:wither_vanquisher",
+      "quests": [],
+      "required": 1,
+      "source": "Unbound: set real quest IDs for Wither kill"
+    },
+    {
+      "title": "tnk:leviathan_tidal",
+      "quests": [],
+      "required": 1,
+      "source": "Unbound: set real quest IDs for Leviathan kill"
+    },
+    {
+      "title": "tnk:monstrosity_titanium",
+      "quests": [],
+      "required": 1,
+      "source": "Unbound: set real quest IDs for Netherite Monstrosity kill"
+    },
+    {
+      "title": "tnk:remnant_ancient",
+      "quests": [],
+      "required": 1,
+      "source": "Unbound: set real quest IDs for Ancient Remnant kill"
+    },
+    {
+      "title": "tnk:naga_hunter",
+      "quests": [],
+      "required": 1,
+      "source": "Unbound: set real quest IDs for Naga kill"
+    }
+  ]
+}

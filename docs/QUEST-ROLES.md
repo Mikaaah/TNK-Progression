@@ -1,4 +1,6 @@
-# Quest ranks using the supplied artwork — proposal
+# Quest ranks using the supplied artwork — historical proposal
+
+The implemented collectible title system is documented in [TITLES.md](TITLES.md). Its campaign titles reward completing a chapter; this earlier tier-entry proposal is retained as design context.
 
 The Advanced Pack contains 18 colour styles and existing English role labels, so these require no image editing. Roles are a campaign identity, separate from character level: a level-80 dedicated miner can still be an early-tier Technician until their quest team advances. Keep the number-only level prefix as requested; do not automatically add these role labels beside it until a separate rank display is wanted.
 

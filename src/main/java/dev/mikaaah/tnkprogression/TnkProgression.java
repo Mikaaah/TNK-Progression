@@ -6,5 +6,5 @@ import org.slf4j.Logger;
 @Mod("tnkprogression")
 public final class TnkProgression {
  public static final Logger LOG=LogUtils.getLogger();
- public TnkProgression(net.neoforged.bus.api.IEventBus modBus){ProgressionConfig.reload();NeoForge.EVENT_BUS.register(ProgressionEvents.class);NeoForge.EVENT_BUS.register(LevelBadges.class);NeoForge.EVENT_BUS.register(ActivityEvents.class);NeoForge.EVENT_BUS.register(CombatProgression.class);modBus.addListener(LevelBadgePayload::register);NeoForge.EVENT_BUS.addListener(ProgressionCommands::register);NeoForge.EVENT_BUS.addListener(ProgressionSmoke::run);}
+ public TnkProgression(net.neoforged.bus.api.IEventBus modBus){ProgressionConfig.reload();TitleConfig.reload();NeoForge.EVENT_BUS.register(ProgressionEvents.class);NeoForge.EVENT_BUS.register(LevelBadges.class);NeoForge.EVENT_BUS.register(Titles.class);NeoForge.EVENT_BUS.register(ActivityEvents.class);NeoForge.EVENT_BUS.register(CombatProgression.class);modBus.addListener(LevelBadgePayload::register);NeoForge.EVENT_BUS.addListener(ProgressionCommands::register);NeoForge.EVENT_BUS.addListener(ProgressionSmoke::run);}
 }

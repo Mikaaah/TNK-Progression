@@ -1,3 +1,14 @@
+# 0.3.0-beta.1
+
+- Add 43 personal, collectible cosmetic titles with server-validated unlock, equip, hide, revoke and restore commands.
+- Show the equipped title beside the character level in standard chat and overhead display names. Preserve the selection when new titles unlock; retain readable text without an artwork pack.
+- Persist title ownership, selection and automatic-revocation blocks across restarts, death and team changes; earned skill achievements remain after respec.
+- Add a configurable, atomically validated title catalog and actual Pufferfish spent-point/node achievement checks.
+- Add 24 quest-binding rules using verified campaign, project-board, equipment, magic-guide and actual boss-kill quest IDs, with inactive templates for absent Let's Do/boss chapters.
+- Package unchanged original number/title PNG files in one private client resource pack; add server-authoritative title snapshots and network protocol version 2.
+- Correct namespaced IDs in title, engineering and one-time quest XP commands, preserving legacy reward IDs.
+- Add title server assertions, three title-rule unit tests and an executable quest-bridge fixture check.
+
 # 0.2.0-beta.1
 
 - Add repeatable farming, audited crafting and engineering activity milestones; retain mining, fishing, exploration and combat.

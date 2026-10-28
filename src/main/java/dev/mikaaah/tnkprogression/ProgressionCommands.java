@@ -7,12 +7,20 @@ import com.mojang.brigadier.arguments.*;
 public final class ProgressionCommands {
  public static void register(RegisterCommandsEvent e){
   e.getDispatcher().register(Commands.literal("tnkprogress")
+   .then(TitleCommands.tree())
    .then(Commands.literal("status").executes(c->{var p=c.getSource().getPlayerOrException();var n=ProgressionAPI.profile(p);c.getSource().sendSuccess(()->Component.literal("Level "+ProgressionAPI.level(p)+" / ceiling "+ProgressionAPI.ceiling(p)+" | XP "+n.getLong("xp")+" / "+ProgressionMath.levelCost(ProgressionAPI.level(p))+" | points "+ProgressionAPI.level(p)),false);return 1;}))
-   .then(Commands.literal("engineering").requires(s->s.hasPermission(2)).then(Commands.argument("player",EntityArgument.player()).then(Commands.argument("objective",StringArgumentType.word()).executes(c->{boolean ok=ProgressionAPI.engineeringObjective(EntityArgument.getPlayer(c,"player"),StringArgumentType.getString(c,"objective"));if(!ok)c.getSource().sendFailure(Component.literal("Unknown or already claimed engineering objective"));return ok?1:0;}))))
+   .then(Commands.literal("engineering").requires(s->s.hasPermission(2)).then(Commands.argument("player",EntityArgument.player()).then(Commands.argument("objective",StringArgumentType.greedyString()).executes(c->{boolean ok=ProgressionAPI.engineeringObjective(EntityArgument.getPlayer(c,"player"),StringArgumentType.getString(c,"objective").trim());if(!ok)c.getSource().sendFailure(Component.literal("Unknown or already claimed engineering objective"));return ok?1:0;}))))
    .then(Commands.literal("activities").executes(c->{var p=c.getSource().getPlayerOrException();var n=ProgressionAPI.profile(p);for(var key:ProgressionConfig.defaults().keySet().stream().sorted().toList()){var a=ProgressionConfig.current.activities.get(key);c.getSource().sendSuccess(()->Component.literal(key+": milestone "+(n.getLong(key+"_rank")+1)+" | "+n.getLong(key+"_work")+" / "+ProgressionMath.taskCost(a.initialRequirement(),n.getLong(key+"_rank"))+" work"),false);}return 1;}))
    .then(Commands.literal("reload").requires(s->s.hasPermission(2)).executes(c->ProgressionConfig.reload()?1:0))
    .then(Commands.literal("xp").requires(s->s.hasPermission(2)).then(Commands.argument("player",EntityArgument.player()).then(Commands.argument("amount",LongArgumentType.longArg(1,1000000000L)).executes(c->{ProgressionAPI.awardXp(EntityArgument.getPlayer(c,"player"),LongArgumentType.getLong(c,"amount"));return 1;}))))
-   .then(Commands.literal("reward").requires(s->s.hasPermission(2)).then(Commands.argument("player",EntityArgument.player()).then(Commands.argument("id",StringArgumentType.word()).then(Commands.argument("amount",LongArgumentType.longArg(1,1000000000L)).executes(c->ProgressionAPI.rewardOnce(EntityArgument.getPlayer(c,"player"),StringArgumentType.getString(c,"id"),LongArgumentType.getLong(c,"amount"))?1:0)))))
+   .then(Commands.literal("reward").requires(s->s.hasPermission(2)).then(Commands.argument("player",EntityArgument.player()).then(Commands.argument("reward",StringArgumentType.greedyString()).executes(c->{
+    String raw=StringArgumentType.getString(c,"reward").trim();int split=raw.lastIndexOf(' ');
+    if(split<1){c.getSource().sendFailure(Component.literal("Expected <reward_id> <amount>"));return 0;}
+    String id=raw.substring(0,split).trim();long amount;
+    try{amount=Long.parseLong(raw.substring(split+1));}catch(NumberFormatException invalid){c.getSource().sendFailure(Component.literal("Invalid reward amount"));return 0;}
+    if(!id.matches("[-A-Za-z0-9_.:/+]{1,128}") || amount<1 || amount>1000000000L){c.getSource().sendFailure(Component.literal("Invalid reward ID or amount"));return 0;}
+    return ProgressionAPI.rewardOnce(EntityArgument.getPlayer(c,"player"),id,amount)?1:0;
+   }))))
    .then(Commands.literal("unlock").requires(s->s.hasPermission(2)).then(Commands.argument("player",EntityArgument.player()).then(Commands.argument("ceiling",IntegerArgumentType.integer(1,100)).executes(c->{int cap=IntegerArgumentType.getInteger(c,"ceiling");if(java.util.Arrays.stream(ProgressionConfig.current.ceilings).noneMatch(v->v==cap)){c.getSource().sendFailure(Component.literal("Not a configured level ceiling"));return 0;}ProgressionAPI.unlock(EntityArgument.getPlayer(c,"player"),cap);return 1;})))));
  }
 }
