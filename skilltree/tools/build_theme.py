@@ -50,7 +50,7 @@ def build():
     for role in ROLES:
         for state in STATES:make_frame(role,state).save(target/f'{role}_{state}.png')
     theme={
-      'background':{'texture':'tnk:textures/gui/character_atlas.png','width':1254,'height':1254,'position':'fill'},
+      'background':{'texture':'tnk:textures/gui/character_background.png','width':1254,'height':1254,'position':'fill'},
       'colors':{'connections':{
        'locked':{'fill':'#775c3b','stroke':'#49331f'},
        'available':{'fill':'#b38c4f','stroke':'#50371f'},
@@ -60,7 +60,7 @@ def build():
        'points':{'fill':'#f4e2bc','stroke':'#493422'}},
       'frames':{role:frame_config(role) for role in ROLES},
       'node_sizes':{'minor':1.15,'notable':1.35,'hub':1.6,'keystone':1.8},
-      'background_generation':{'mode':'built-in imagegen','prompt_summary':'Quiet warm parchment atlas, hand-inked mountains and medieval landscapes near the outer edges, open low-contrast centre, no text or UI.'}
+      'background_generation':{'mode':'built-in imagegen','prompt_summary':'Nearly solid muted warm brown, exceptionally faint fine paper grain, uniform colour, no scenery, map details, ornaments, border, stains or text.'}
     }
     (ROOT/'theme.json').write_text(json.dumps(theme,indent=2)+'\n')
     return theme

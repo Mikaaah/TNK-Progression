@@ -1,4 +1,4 @@
-# TNK Character Web — 0.2.1 theme draft
+# TNK Character Web — 0.2.2 simple theme draft
 
 Minecraft 1.21.1 datapack for Pufferfish's Skills and Pufferfish's Attributes. TNK Progression supplies the character-level point entitlement to category `tnk:character`. Just Leveling is not required.
 
@@ -11,21 +11,21 @@ The old tree screenshot supplied by the user is a visual layout reference only. 
 ## Install
 
 1. Back up the world and existing player skill data. If an earlier draft has been used, respec through Pufferfish before swapping packs. The original 80 node IDs remain, but costs and routing have changed; this release does not perform an automatic build migration.
-2. Replace the earlier character-tree datapack with `TNK-Character-Web-0.2.1-draft.zip` in the world's `datapacks` directory. Do not enable two packs defining `tnk:character`.
-3. Place `TNK-Skilltree-Icons-0.2.1.zip` in each client's `resourcepacks` directory and enable it. Servers can distribute this using normal server-resource-pack configuration. The selected sprite files are the same ones used in the preceding icon draft.
+2. Replace the earlier character-tree datapack with `TNK-Character-Web-0.2.2-draft.zip` in the world's `datapacks` directory. Do not enable two packs defining `tnk:character`.
+3. Place `TNK-Skilltree-Icons-0.2.2.zip` in each client's `resourcepacks` directory and enable it. Servers can distribute this using normal server-resource-pack configuration. The selected sprite files are the same ones used in the preceding icon draft.
 4. Run `/reload` and reconnect so TNK Progression synchronizes points. Leave its `skillCategory` set to `tnk:character`.
 
 The category supplies zero starting points and has no native experience or exchange config. TNK Progression grants one earned point per character level, including the starting point at level 1. Its milestone ceilings and loot eligibility remain separate from this tree.
 
 ## Preview and editor
 
-`TNK-Character-Web-Preview.jpg` draws the real node positions, links and packaged sprites. `TNK-Wayfarer-Closeup.jpg` gives a closer view of one branch. These are layout diagrams, not game captures. They now load the exact packaged 26px custom frame textures and atlas background, with the same 26:16 frame-to-icon ratio used by Pufferfish. `TNK-Frame-States.jpg` shows all 20 frame sprites at enlarged pixel scale. The in-game configuration selects these real textures rather than vanilla advancement frames or sandstone.
+`TNK-Character-Web-Preview.jpg` draws the real node positions, links and packaged sprites. `TNK-Wayfarer-Closeup.jpg` gives a closer view of one branch. These are layout diagrams, not game captures. They now load the exact packaged 26px custom frame textures and subtle warm-brown background, with the same 26:16 frame-to-icon ratio used by Pufferfish. `TNK-Frame-States.jpg` shows all 20 frame sprites at enlarged pixel scale. The in-game configuration selects these real textures rather than vanilla advancement frames or sandstone.
 
 Import `definitions.json`, `skills.json` and `connections.json`, in that order, from `datapack/data/tnk/puffish_skills/categories/character/` into https://puffish.net/skillsmod/editor/. This editor uses generated symbols rather than the custom Minecraft texture icons. Export skills/connections after editing. All normal links are bidirectional, so return paths and sideways movement work.
 
 ## Rebuild
 
-`python3 skilltree/tools/build_tree.py` regenerates config, catalogue, layout metadata, icon map, validation summary and both installable ZIPs. `python3 skilltree/tools/render_preview.py` regenerates the previews (requires Pillow). `tools/web_rewards.py` holds the new small passives. `tools/build_theme.py` generates native 26x26 frames for four node roles across five states, plus frame/background/connection-colour config. The generated atlas PNG is a separate project asset retained in the resource pack. Pillow is now required to build the theme. Manual JSON/editor changes must also be reflected in these generators before regeneration.
+`python3 skilltree/tools/build_tree.py` regenerates config, catalogue, layout metadata, icon map, validation summary and both installable ZIPs. `python3 skilltree/tools/render_preview.py` regenerates the previews (requires Pillow). `tools/web_rewards.py` holds the new small passives. `tools/build_theme.py` generates native 26x26 frames for four node roles across five states, plus frame/background/connection-colour config. The generated background PNG is a separate project asset retained in the resource pack. Pillow is now required to build the theme. Manual JSON/editor changes must also be reflected in these generators before regeneration.
 
 Every node has an actual attribute reward. Original 80 rewards are retained, with 160 smaller foundation, branch and hybrid rewards added; the outdated original full-branch bonus descriptions have been removed. The icon map reuses selected HAS sprites for related effects. No extra source asset archive is required to rebuild.
 
@@ -41,8 +41,12 @@ Skill icons: Aleksandr Makarov / @IKnowKingRabbit, from the user's HAS IconPack 
 
 ## 0.2.1 theme verification
 
-The exact uploaded `puffish_skills-0.19.2-1.21-neoforge.jar` accepted all four custom frame definitions (20 state textures), the background definition and colour configuration through its own Java parsers. Its renderer was inspected to confirm 26px frame and 16px icon dimensions. All 1,200 node-state references resolve to 20 RGBA PNGs, and the background reference resolves to the opaque atlas PNG. Rewards, all one-point costs, IDs, positions and 362 links are unchanged from 0.2.0; visual node sizes are slightly larger for icon readability. This does not establish a successful Minecraft client launch.
+The exact uploaded `puffish_skills-0.19.2-1.21-neoforge.jar` accepted all four custom frame definitions (20 state textures), the background definition and colour configuration through its own Java parsers. Its renderer was inspected to confirm 26px frame and 16px icon dimensions. All 1,200 node-state references resolve to 20 RGBA PNGs, and the background reference resolves to the opaque background PNG. Rewards, all one-point costs, IDs, positions and 362 links are unchanged from 0.2.0; visual node sizes are slightly larger for icon readability. This does not establish a successful Minecraft client launch.
 
 **Version note:** the uploaded JAR declares Minecraft `[1.21,1.21.1)`, which excludes 1.21.1. A pack on 1.21.1 needs a compatible Pufferfish build. The JAR is not modified or redistributed in this bundle.
 
-The background is original artwork generated with the built-in image tool for this tree; the frame textures are reproducible pixel UI assets. See `ART-DIRECTION.md`. No class, progression or loot behaviour changes are included.
+The simple background is original artwork generated with the built-in image tool for this tree; the frame textures are reproducible pixel UI assets. See `ART-DIRECTION.md`. No class, progression or loot behaviour changes are included.
+
+## 0.2.2 simplification
+
+Replaces the detailed atlas with a nearly solid warm-brown background and very faint paper grain. Existing node borders, icons, rewards, point costs and connections are unchanged. Both updated packs are included in the bundle.

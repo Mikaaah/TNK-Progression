@@ -1,4 +1,4 @@
-# TNK Character Web — 0.2.1 theme draft
+# TNK Character Web — 0.2.2 simple theme draft
 
 240 nodes. Every node costs 1 point. Spend up to 100. Six branches of 34 nodes, 12 foundation nodes and 24 hybrid crossroad nodes.
 

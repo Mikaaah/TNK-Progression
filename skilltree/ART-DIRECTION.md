@@ -1,7 +1,7 @@
-# TNK atlas theme
+# TNK simple warm-brown theme
 
-Background generation mode: built-in imagegen, opaque new image. Project file: `resourcepack/assets/tnk/textures/gui/character_atlas.png`. The selected image is copied without visual edits.
+Background generation mode: built-in imagegen, opaque new image. Project file: `resourcepack/assets/tnk/textures/gui/character_background.png`. The selected image is copied without visual edits.
 
-Prompt: A square old cartographer's parchment atlas for a Minecraft fantasy RPG skill tree, warm muted honey-tan and mid-brown parchment with restrained charcoal-brown ink. Quiet hand-inked topographic contours and tiny medieval landscape sketches: fir forests, mountain ridges, a ruined keep and river bends near the outer edges. A faint compass rose at a far corner. Keep the central 75 percent open, smooth and low contrast for 240 colourful pixel skill icons and connecting routes. Warm leather-brown edge vignette, no solid black, no large stains, no torn paper, no external frame, no photographic props. Flat top-down 2D texture. No text, letters, numerals, labels or watermark.
+Prompt: Production UI background texture, one square opaque image. A nearly solid plain muted warm-brown field, approximate sRGB #594936, with exceptionally faint fine paper grain. Flat and uniform across the canvas. Colour variation within only a few brightness levels, visually reading as solid colour. No scenery, maps, contours, mountains, forests, compass, ornaments, frame, border, stains, seams, creases, visible vignette, spotlight, gradient, text or objects. Matte brown with slight paper texture only.
 
-Frames: native 26x26 transparent PNGs, matching Pufferfish 0.19.2's renderer. Bronze octagonal small nodes, violet notables, gold hubs, copper/gold star keystones. Locked frames use muted metal. Affordable frames receive light bevels. Purchased frames receive two jade pips. Excluded frames use grey metal and a lower mark. All icons remain the user's HAS artwork, and all nodes still cost one point.
+The existing native 26px bronze, violet and gold frame textures and all five visual states are retained. HAS icons remain unmodified. The tree still contains 240 one-point nodes and a 100-point spending limit.

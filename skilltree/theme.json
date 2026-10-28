@@ -1,6 +1,6 @@
 {
   "background": {
-    "texture": "tnk:textures/gui/character_atlas.png",
+    "texture": "tnk:textures/gui/character_background.png",
     "width": 1254,
     "height": 1254,
     "position": "fill"
@@ -83,6 +83,6 @@
   },
   "background_generation": {
     "mode": "built-in imagegen",
-    "prompt_summary": "Quiet warm parchment atlas, hand-inked mountains and medieval landscapes near the outer edges, open low-contrast centre, no text or UI."
+    "prompt_summary": "Nearly solid muted warm brown, exceptionally faint fine paper grain, uniform colour, no scenery, map details, ornaments, border, stains or text."
   }
 }

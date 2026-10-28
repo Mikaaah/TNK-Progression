@@ -62,7 +62,7 @@ from collections import deque
 
 from build_theme import build as build_theme
 THEME=build_theme()
-VERSION='0.2.1'
+VERSION='0.2.2'
 defs,skills,layout,edges,rows,used_icons={},{},{},set(),[],{}
 
 def link(a,b):
@@ -178,7 +178,7 @@ minimum=min(math.hypot(a['x']-b['x'],a['y']-b['y']) for i,a in enumerate(skills.
 assert minimum>=35,minimum
 summary={'nodes':240,'edges':len(edges),'independent_cycles':cycles,'root_count':1,'maximum_shortest_path':max(dist.values()),'minimum_node_distance':round(minimum,2),'node_cost':1,'spending_limit':100,'foundation_nodes':12,'nodes_per_branch':34,'crossroad_nodes':24}
 save(ROOT/'validation-summary.json',summary)
-(ROOT/'NODE-CATALOGUE.md').write_text('# TNK Character Web — 0.2.1 theme draft\n\n240 nodes. Every node costs 1 point. Spend up to 100. Six branches of 34 nodes, 12 foundation nodes and 24 hybrid crossroad nodes.\n\n| ID | Branch | Node | Cost | Effect |\n|---|---|---|---:|---|\n'+''.join('| '+' | '.join(map(str,row))+' |\n' for row in rows))
+(ROOT/'NODE-CATALOGUE.md').write_text('# TNK Character Web — 0.2.2 simple theme draft\n\n240 nodes. Every node costs 1 point. Spend up to 100. Six branches of 34 nodes, 12 foundation nodes and 24 hybrid crossroad nodes.\n\n| ID | Branch | Node | Cost | Effect |\n|---|---|---|---:|---|\n'+''.join('| '+' | '.join(map(str,row))+' |\n' for row in rows))
 for source,name in [(PACK,f'TNK-Character-Web-{VERSION}-draft.zip'),(ROOT/'resourcepack',f'TNK-Skilltree-Icons-{VERSION}.zip')]:
     with zipfile.ZipFile(ROOT/name,'w',zipfile.ZIP_DEFLATED) as z:
         for p in source.rglob('*'):
