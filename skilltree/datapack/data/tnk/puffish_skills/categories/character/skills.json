@@ -1,0 +1,482 @@
+{
+  "foundation_0": {
+    "x": 0,
+    "y": 0,
+    "definition": "foundation_0",
+    "root": true
+  },
+  "foundation_1": {
+    "x": 0,
+    "y": -80,
+    "definition": "foundation_1",
+    "root": false
+  },
+  "foundation_2": {
+    "x": 69,
+    "y": -40,
+    "definition": "foundation_2",
+    "root": false
+  },
+  "foundation_3": {
+    "x": 69,
+    "y": 40,
+    "definition": "foundation_3",
+    "root": false
+  },
+  "foundation_4": {
+    "x": 0,
+    "y": 80,
+    "definition": "foundation_4",
+    "root": false
+  },
+  "foundation_5": {
+    "x": -69,
+    "y": 40,
+    "definition": "foundation_5",
+    "root": false
+  },
+  "foundation_6": {
+    "x": -69,
+    "y": -40,
+    "definition": "foundation_6",
+    "root": false
+  },
+  "foundation_7": {
+    "x": 40,
+    "y": 0,
+    "definition": "foundation_7",
+    "root": false
+  },
+  "wayfarer_01": {
+    "x": -48,
+    "y": -144,
+    "definition": "wayfarer_01",
+    "root": false
+  },
+  "wayfarer_02": {
+    "x": 0,
+    "y": -144,
+    "definition": "wayfarer_02",
+    "root": false
+  },
+  "wayfarer_03": {
+    "x": 48,
+    "y": -144,
+    "definition": "wayfarer_03",
+    "root": false
+  },
+  "wayfarer_04": {
+    "x": -48,
+    "y": -224,
+    "definition": "wayfarer_04",
+    "root": false
+  },
+  "wayfarer_05": {
+    "x": 0,
+    "y": -224,
+    "definition": "wayfarer_05",
+    "root": false
+  },
+  "wayfarer_06": {
+    "x": 48,
+    "y": -224,
+    "definition": "wayfarer_06",
+    "root": false
+  },
+  "wayfarer_07": {
+    "x": -48,
+    "y": -304,
+    "definition": "wayfarer_07",
+    "root": false
+  },
+  "wayfarer_08": {
+    "x": 0,
+    "y": -304,
+    "definition": "wayfarer_08",
+    "root": false
+  },
+  "wayfarer_09": {
+    "x": 48,
+    "y": -304,
+    "definition": "wayfarer_09",
+    "root": false
+  },
+  "wayfarer_10": {
+    "x": -48,
+    "y": -384,
+    "definition": "wayfarer_10",
+    "root": false
+  },
+  "wayfarer_11": {
+    "x": 0,
+    "y": -384,
+    "definition": "wayfarer_11",
+    "root": false
+  },
+  "wayfarer_12": {
+    "x": 48,
+    "y": -384,
+    "definition": "wayfarer_12",
+    "root": false
+  },
+  "delver_01": {
+    "x": 101,
+    "y": -114,
+    "definition": "delver_01",
+    "root": false
+  },
+  "delver_02": {
+    "x": 125,
+    "y": -72,
+    "definition": "delver_02",
+    "root": false
+  },
+  "delver_03": {
+    "x": 149,
+    "y": -30,
+    "definition": "delver_03",
+    "root": false
+  },
+  "delver_04": {
+    "x": 170,
+    "y": -154,
+    "definition": "delver_04",
+    "root": false
+  },
+  "delver_05": {
+    "x": 194,
+    "y": -112,
+    "definition": "delver_05",
+    "root": false
+  },
+  "delver_06": {
+    "x": 218,
+    "y": -70,
+    "definition": "delver_06",
+    "root": false
+  },
+  "delver_07": {
+    "x": 239,
+    "y": -194,
+    "definition": "delver_07",
+    "root": false
+  },
+  "delver_08": {
+    "x": 263,
+    "y": -152,
+    "definition": "delver_08",
+    "root": false
+  },
+  "delver_09": {
+    "x": 287,
+    "y": -110,
+    "definition": "delver_09",
+    "root": false
+  },
+  "delver_10": {
+    "x": 309,
+    "y": -234,
+    "definition": "delver_10",
+    "root": false
+  },
+  "delver_11": {
+    "x": 333,
+    "y": -192,
+    "definition": "delver_11",
+    "root": false
+  },
+  "delver_12": {
+    "x": 357,
+    "y": -150,
+    "definition": "delver_12",
+    "root": false
+  },
+  "homesteader_01": {
+    "x": 149,
+    "y": 30,
+    "definition": "homesteader_01",
+    "root": false
+  },
+  "homesteader_02": {
+    "x": 125,
+    "y": 72,
+    "definition": "homesteader_02",
+    "root": false
+  },
+  "homesteader_03": {
+    "x": 101,
+    "y": 114,
+    "definition": "homesteader_03",
+    "root": false
+  },
+  "homesteader_04": {
+    "x": 218,
+    "y": 70,
+    "definition": "homesteader_04",
+    "root": false
+  },
+  "homesteader_05": {
+    "x": 194,
+    "y": 112,
+    "definition": "homesteader_05",
+    "root": false
+  },
+  "homesteader_06": {
+    "x": 170,
+    "y": 154,
+    "definition": "homesteader_06",
+    "root": false
+  },
+  "homesteader_07": {
+    "x": 287,
+    "y": 110,
+    "definition": "homesteader_07",
+    "root": false
+  },
+  "homesteader_08": {
+    "x": 263,
+    "y": 152,
+    "definition": "homesteader_08",
+    "root": false
+  },
+  "homesteader_09": {
+    "x": 239,
+    "y": 194,
+    "definition": "homesteader_09",
+    "root": false
+  },
+  "homesteader_10": {
+    "x": 357,
+    "y": 150,
+    "definition": "homesteader_10",
+    "root": false
+  },
+  "homesteader_11": {
+    "x": 333,
+    "y": 192,
+    "definition": "homesteader_11",
+    "root": false
+  },
+  "homesteader_12": {
+    "x": 309,
+    "y": 234,
+    "definition": "homesteader_12",
+    "root": false
+  },
+  "artificer_01": {
+    "x": 48,
+    "y": 144,
+    "definition": "artificer_01",
+    "root": false
+  },
+  "artificer_02": {
+    "x": 0,
+    "y": 144,
+    "definition": "artificer_02",
+    "root": false
+  },
+  "artificer_03": {
+    "x": -48,
+    "y": 144,
+    "definition": "artificer_03",
+    "root": false
+  },
+  "artificer_04": {
+    "x": 48,
+    "y": 224,
+    "definition": "artificer_04",
+    "root": false
+  },
+  "artificer_05": {
+    "x": 0,
+    "y": 224,
+    "definition": "artificer_05",
+    "root": false
+  },
+  "artificer_06": {
+    "x": -48,
+    "y": 224,
+    "definition": "artificer_06",
+    "root": false
+  },
+  "artificer_07": {
+    "x": 48,
+    "y": 304,
+    "definition": "artificer_07",
+    "root": false
+  },
+  "artificer_08": {
+    "x": 0,
+    "y": 304,
+    "definition": "artificer_08",
+    "root": false
+  },
+  "artificer_09": {
+    "x": -48,
+    "y": 304,
+    "definition": "artificer_09",
+    "root": false
+  },
+  "artificer_10": {
+    "x": 48,
+    "y": 384,
+    "definition": "artificer_10",
+    "root": false
+  },
+  "artificer_11": {
+    "x": 0,
+    "y": 384,
+    "definition": "artificer_11",
+    "root": false
+  },
+  "artificer_12": {
+    "x": -48,
+    "y": 384,
+    "definition": "artificer_12",
+    "root": false
+  },
+  "survivor_01": {
+    "x": -101,
+    "y": 114,
+    "definition": "survivor_01",
+    "root": false
+  },
+  "survivor_02": {
+    "x": -125,
+    "y": 72,
+    "definition": "survivor_02",
+    "root": false
+  },
+  "survivor_03": {
+    "x": -149,
+    "y": 30,
+    "definition": "survivor_03",
+    "root": false
+  },
+  "survivor_04": {
+    "x": -170,
+    "y": 154,
+    "definition": "survivor_04",
+    "root": false
+  },
+  "survivor_05": {
+    "x": -194,
+    "y": 112,
+    "definition": "survivor_05",
+    "root": false
+  },
+  "survivor_06": {
+    "x": -218,
+    "y": 70,
+    "definition": "survivor_06",
+    "root": false
+  },
+  "survivor_07": {
+    "x": -239,
+    "y": 194,
+    "definition": "survivor_07",
+    "root": false
+  },
+  "survivor_08": {
+    "x": -263,
+    "y": 152,
+    "definition": "survivor_08",
+    "root": false
+  },
+  "survivor_09": {
+    "x": -287,
+    "y": 110,
+    "definition": "survivor_09",
+    "root": false
+  },
+  "survivor_10": {
+    "x": -309,
+    "y": 234,
+    "definition": "survivor_10",
+    "root": false
+  },
+  "survivor_11": {
+    "x": -333,
+    "y": 192,
+    "definition": "survivor_11",
+    "root": false
+  },
+  "survivor_12": {
+    "x": -357,
+    "y": 150,
+    "definition": "survivor_12",
+    "root": false
+  },
+  "adventurer_01": {
+    "x": -149,
+    "y": -30,
+    "definition": "adventurer_01",
+    "root": false
+  },
+  "adventurer_02": {
+    "x": -125,
+    "y": -72,
+    "definition": "adventurer_02",
+    "root": false
+  },
+  "adventurer_03": {
+    "x": -101,
+    "y": -114,
+    "definition": "adventurer_03",
+    "root": false
+  },
+  "adventurer_04": {
+    "x": -218,
+    "y": -70,
+    "definition": "adventurer_04",
+    "root": false
+  },
+  "adventurer_05": {
+    "x": -194,
+    "y": -112,
+    "definition": "adventurer_05",
+    "root": false
+  },
+  "adventurer_06": {
+    "x": -170,
+    "y": -154,
+    "definition": "adventurer_06",
+    "root": false
+  },
+  "adventurer_07": {
+    "x": -287,
+    "y": -110,
+    "definition": "adventurer_07",
+    "root": false
+  },
+  "adventurer_08": {
+    "x": -263,
+    "y": -152,
+    "definition": "adventurer_08",
+    "root": false
+  },
+  "adventurer_09": {
+    "x": -239,
+    "y": -194,
+    "definition": "adventurer_09",
+    "root": false
+  },
+  "adventurer_10": {
+    "x": -357,
+    "y": -150,
+    "definition": "adventurer_10",
+    "root": false
+  },
+  "adventurer_11": {
+    "x": -333,
+    "y": -192,
+    "definition": "adventurer_11",
+    "root": false
+  },
+  "adventurer_12": {
+    "x": -309,
+    "y": -234,
+    "definition": "adventurer_12",
+    "root": false
+  }
+}

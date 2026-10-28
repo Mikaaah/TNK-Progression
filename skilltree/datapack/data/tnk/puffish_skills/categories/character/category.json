@@ -1,0 +1,16 @@
+{
+  "title": "Towns & Kingdoms",
+  "description": "Shape your journey. Character levels award up to 100 points.",
+  "icon": {
+    "type": "item",
+    "data": {
+      "item": "minecraft:compass"
+    }
+  },
+  "background": "minecraft:textures/block/sandstone_top.png",
+  "unlocked_by_default": true,
+  "starting_points": 0,
+  "exclusive_root": false,
+  "spent_points_limit": 100,
+  "erase_on_death": false
+}

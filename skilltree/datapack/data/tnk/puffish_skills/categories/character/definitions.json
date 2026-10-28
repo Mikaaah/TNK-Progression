@@ -1,0 +1,1934 @@
+{
+  "foundation_0": {
+    "title": "First Steps",
+    "description": "+2% exhaustion capacity.",
+    "extra_description": "Foundation | Cost: 1 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:compass"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "foundation_1": {
+    "title": "Healthy Habits",
+    "description": "+1 maximum health (half a heart).",
+    "extra_description": "Foundation | Cost: 1 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:apple"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "minecraft:generic.max_health",
+          "value": 1,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "foundation_2": {
+    "title": "Good Pace",
+    "description": "+1% sprinting speed.",
+    "extra_description": "Foundation | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:leather_boots"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:sprinting_speed",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "foundation_3": {
+    "title": "Careful Landing",
+    "description": "Reduce effective fall distance by 0.25 blocks.",
+    "extra_description": "Foundation | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:feather"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:fall_reduction",
+          "value": 0.25,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "foundation_4": {
+    "title": "Basic Tools",
+    "description": "+2% mining speed with the correct tool.",
+    "extra_description": "Foundation | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:stone_pickaxe"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:mining_speed",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "foundation_5": {
+    "title": "Rest and Recover",
+    "description": "+2% healing from natural regeneration.",
+    "extra_description": "Foundation | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:bread"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:natural_regeneration",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "foundation_6": {
+    "title": "Firm Stance",
+    "description": "+0.02 knockback resistance.",
+    "extra_description": "Foundation | Cost: 3 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:shield"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 3,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "minecraft:generic.knockback_resistance",
+          "value": 0.02,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "foundation_7": {
+    "title": "Ready for Adventure",
+    "description": "+4% exhaustion capacity.",
+    "extra_description": "Foundation | Cost: 3 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:map"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 3,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.04,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "wayfarer_01": {
+    "title": "Quick Step",
+    "description": "+2% sprinting speed.",
+    "extra_description": "Wayfarer | Cost: 1 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:leather_boots"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:sprinting_speed",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "wayfarer_02": {
+    "title": "Sure Footing",
+    "description": "Reduce effective fall distance by 0.5 blocks.",
+    "extra_description": "Wayfarer | Cost: 1 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:leather_boots"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:fall_reduction",
+          "value": 0.5,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "wayfarer_03": {
+    "title": "Trail Rations",
+    "description": "+4% exhaustion capacity before food or saturation is consumed.",
+    "extra_description": "Wayfarer | Cost: 1 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:leather_boots"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.04,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "wayfarer_04": {
+    "title": "Open Road",
+    "description": "+2% sprinting speed.",
+    "extra_description": "Wayfarer | Cost: 1 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:leather_boots"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:sprinting_speed",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "wayfarer_05": {
+    "title": "Soft Landing",
+    "description": "Reduce effective fall distance by 0.5 blocks.",
+    "extra_description": "Wayfarer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:leather_boots"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:fall_reduction",
+          "value": 0.5,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "wayfarer_06": {
+    "title": "Long Journey",
+    "description": "+6% exhaustion capacity.",
+    "extra_description": "Wayfarer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:leather_boots"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.06,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "wayfarer_07": {
+    "title": "Quiet Passage",
+    "description": "Reduce enemy detection distance by 1 block.",
+    "extra_description": "Wayfarer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:leather_boots"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stealth",
+          "value": 1,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "wayfarer_08": {
+    "title": "Spring in Your Step",
+    "description": "+3% jump height.",
+    "extra_description": "Wayfarer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:leather_boots"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:jump",
+          "value": 0.03,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "wayfarer_09": {
+    "title": "Travelling Light",
+    "description": "+2% movement speed.",
+    "extra_description": "Wayfarer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:leather_boots"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "minecraft:generic.movement_speed",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "wayfarer_10": {
+    "title": "Pathfinder",
+    "description": "+5% sprinting speed.",
+    "extra_description": "Wayfarer | Cost: 4 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:leather_boots"
+      }
+    },
+    "frame": "challenge",
+    "size": 1.2,
+    "cost": 4,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:sprinting_speed",
+          "value": 0.05,
+          "operation": "multiply_base"
+        }
+      }
+    ],
+    "required_spent_points": 20
+  },
+  "wayfarer_11": {
+    "title": "Featherfoot",
+    "description": "Reduce effective fall distance by 1 block.",
+    "extra_description": "Wayfarer | Cost: 4 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:leather_boots"
+      }
+    },
+    "frame": "challenge",
+    "size": 1.2,
+    "cost": 4,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:fall_reduction",
+          "value": 1,
+          "operation": "addition"
+        }
+      }
+    ],
+    "required_spent_points": 20
+  },
+  "wayfarer_12": {
+    "title": "Wanderer",
+    "description": "+8% exhaustion capacity.",
+    "extra_description": "Wayfarer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:leather_boots"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.08,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "delver_01": {
+    "title": "Stone Sense",
+    "description": "+3% pickaxe mining speed.",
+    "extra_description": "Delver | Cost: 1 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:iron_pickaxe"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:pickaxe_speed",
+          "value": 0.03,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "delver_02": {
+    "title": "Earth Mover",
+    "description": "+4% shovel mining speed.",
+    "extra_description": "Delver | Cost: 1 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:iron_pickaxe"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:shovel_speed",
+          "value": 0.04,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "delver_03": {
+    "title": "Steady Swing",
+    "description": "+3% axe mining speed.",
+    "extra_description": "Delver | Cost: 1 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:iron_pickaxe"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:axe_speed",
+          "value": 0.03,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "delver_04": {
+    "title": "Clean Cut",
+    "description": "+3% pickaxe mining speed.",
+    "extra_description": "Delver | Cost: 1 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:iron_pickaxe"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:pickaxe_speed",
+          "value": 0.03,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "delver_05": {
+    "title": "Excavator",
+    "description": "+6% shovel mining speed.",
+    "extra_description": "Delver | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:iron_pickaxe"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:shovel_speed",
+          "value": 0.06,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "delver_06": {
+    "title": "Timber Hand",
+    "description": "+5% axe mining speed.",
+    "extra_description": "Delver | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:iron_pickaxe"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:axe_speed",
+          "value": 0.05,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "delver_07": {
+    "title": "Deep Work",
+    "description": "+4% mining speed when using the correct tool.",
+    "extra_description": "Delver | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:iron_pickaxe"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:mining_speed",
+          "value": 0.04,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "delver_08": {
+    "title": "Miner's Luck",
+    "description": "+0.10 Fortune for block drops; fractional levels are rolled by Pufferfish.",
+    "extra_description": "Delver | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:iron_pickaxe"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:fortune",
+          "value": 0.1,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "delver_09": {
+    "title": "Tunnel Legs",
+    "description": "+6% exhaustion capacity.",
+    "extra_description": "Delver | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:iron_pickaxe"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.06,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "delver_10": {
+    "title": "Master Delver",
+    "description": "+8% pickaxe mining speed.",
+    "extra_description": "Delver | Cost: 4 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:iron_pickaxe"
+      }
+    },
+    "frame": "challenge",
+    "size": 1.2,
+    "cost": 4,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:pickaxe_speed",
+          "value": 0.08,
+          "operation": "multiply_base"
+        }
+      }
+    ],
+    "required_spent_points": 20
+  },
+  "delver_11": {
+    "title": "Prospector",
+    "description": "+0.15 Fortune for block drops. Does not affect equipment loot.",
+    "extra_description": "Delver | Cost: 4 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:iron_pickaxe"
+      }
+    },
+    "frame": "challenge",
+    "size": 1.2,
+    "cost": 4,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:fortune",
+          "value": 0.15,
+          "operation": "addition"
+        }
+      }
+    ],
+    "required_spent_points": 20
+  },
+  "delver_12": {
+    "title": "Practical Tools",
+    "description": "+4% mining speed with the correct tool.",
+    "extra_description": "Delver | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:iron_pickaxe"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:mining_speed",
+          "value": 0.04,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "homesteader_01": {
+    "title": "Packed Lunch",
+    "description": "+4% exhaustion capacity.",
+    "extra_description": "Homesteader | Cost: 1 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:wheat"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.04,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "homesteader_02": {
+    "title": "Fresh Air",
+    "description": "+3% healing from natural regeneration.",
+    "extra_description": "Homesteader | Cost: 1 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:wheat"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:natural_regeneration",
+          "value": 0.03,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "homesteader_03": {
+    "title": "Faithful Friend",
+    "description": "+3% damage dealt by your tamed creatures.",
+    "extra_description": "Homesteader | Cost: 1 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:wheat"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:tamed_damage",
+          "value": 0.03,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "homesteader_04": {
+    "title": "Hearty Meal",
+    "description": "+4% exhaustion capacity.",
+    "extra_description": "Homesteader | Cost: 1 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:wheat"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.04,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "homesteader_05": {
+    "title": "Home Remedies",
+    "description": "+4% healing received.",
+    "extra_description": "Homesteader | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:wheat"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:healing",
+          "value": 0.04,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "homesteader_06": {
+    "title": "Animal Care",
+    "description": "Reduce damage taken by your tamed creatures by 3% of base damage.",
+    "extra_description": "Homesteader | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:wheat"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:tamed_resistance",
+          "value": 0.03,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "homesteader_07": {
+    "title": "A Good Rest",
+    "description": "+5% healing from natural regeneration.",
+    "extra_description": "Homesteader | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:wheat"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:natural_regeneration",
+          "value": 0.05,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "homesteader_08": {
+    "title": "Well Fed",
+    "description": "+8% exhaustion capacity.",
+    "extra_description": "Homesteader | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:wheat"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.08,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "homesteader_09": {
+    "title": "Working Hands",
+    "description": "+5% axe mining speed.",
+    "extra_description": "Homesteader | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:wheat"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:axe_speed",
+          "value": 0.05,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "homesteader_10": {
+    "title": "Comforts of Home",
+    "description": "+8% healing received.",
+    "extra_description": "Homesteader | Cost: 4 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:wheat"
+      }
+    },
+    "frame": "challenge",
+    "size": 1.2,
+    "cost": 4,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:healing",
+          "value": 0.08,
+          "operation": "multiply_base"
+        }
+      }
+    ],
+    "required_spent_points": 20
+  },
+  "homesteader_11": {
+    "title": "Trusted Companion",
+    "description": "Reduce damage taken by your tamed creatures by 6% of base damage.",
+    "extra_description": "Homesteader | Cost: 4 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:wheat"
+      }
+    },
+    "frame": "challenge",
+    "size": 1.2,
+    "cost": 4,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:tamed_resistance",
+          "value": 0.06,
+          "operation": "multiply_base"
+        }
+      }
+    ],
+    "required_spent_points": 20
+  },
+  "homesteader_12": {
+    "title": "Garden Paths",
+    "description": "+6% shovel mining speed.",
+    "extra_description": "Homesteader | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:wheat"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:shovel_speed",
+          "value": 0.06,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_01": {
+    "title": "Apprentice Smith",
+    "description": "-2% anvil XP cost. Does not change identification costs.",
+    "extra_description": "Artificer | Cost: 1 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:anvil"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:repair_cost",
+          "value": -0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_02": {
+    "title": "Keen Student",
+    "description": "+2% vanilla XP from collected orbs. No character XP bonus.",
+    "extra_description": "Artificer | Cost: 1 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:anvil"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:experience",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_03": {
+    "title": "Workshop Hands",
+    "description": "+3% axe mining speed.",
+    "extra_description": "Artificer | Cost: 1 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:anvil"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:axe_speed",
+          "value": 0.03,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_04": {
+    "title": "Measured Repairs",
+    "description": "-3% anvil XP cost.",
+    "extra_description": "Artificer | Cost: 1 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:anvil"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:repair_cost",
+          "value": -0.03,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_05": {
+    "title": "Patient Study",
+    "description": "+3% vanilla XP from collected orbs.",
+    "extra_description": "Artificer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:anvil"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:experience",
+          "value": 0.03,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_06": {
+    "title": "Prepared Workspace",
+    "description": "+6% exhaustion capacity.",
+    "extra_description": "Artificer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:anvil"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.06,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_07": {
+    "title": "Efficient Smith",
+    "description": "-5% anvil XP cost.",
+    "extra_description": "Artificer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:anvil"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:repair_cost",
+          "value": -0.05,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_08": {
+    "title": "Applied Knowledge",
+    "description": "+4% vanilla XP from collected orbs.",
+    "extra_description": "Artificer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:anvil"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:experience",
+          "value": 0.04,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_09": {
+    "title": "Material Handling",
+    "description": "+4% mining speed with the correct tool.",
+    "extra_description": "Artificer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:anvil"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:mining_speed",
+          "value": 0.04,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_10": {
+    "title": "Master Smith",
+    "description": "-10% anvil XP cost. The full branch totals -20% before other modifiers.",
+    "extra_description": "Artificer | Cost: 4 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:anvil"
+      }
+    },
+    "frame": "challenge",
+    "size": 1.2,
+    "cost": 4,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:repair_cost",
+          "value": -0.1,
+          "operation": "multiply_base"
+        }
+      }
+    ],
+    "required_spent_points": 20
+  },
+  "artificer_11": {
+    "title": "Lifelong Learner",
+    "description": "+6% vanilla XP from collected orbs. The full branch totals +15%.",
+    "extra_description": "Artificer | Cost: 4 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:anvil"
+      }
+    },
+    "frame": "challenge",
+    "size": 1.2,
+    "cost": 4,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:experience",
+          "value": 0.06,
+          "operation": "multiply_base"
+        }
+      }
+    ],
+    "required_spent_points": 20
+  },
+  "artificer_12": {
+    "title": "Fine Tools",
+    "description": "+5% pickaxe mining speed.",
+    "extra_description": "Artificer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:anvil"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:pickaxe_speed",
+          "value": 0.05,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "survivor_01": {
+    "title": "Hardy",
+    "description": "+1 maximum health (half a heart).",
+    "extra_description": "Survivor | Cost: 1 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:shield"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "minecraft:generic.max_health",
+          "value": 1,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "survivor_02": {
+    "title": "Recovery",
+    "description": "+3% healing from natural regeneration.",
+    "extra_description": "Survivor | Cost: 1 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:shield"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:natural_regeneration",
+          "value": 0.03,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "survivor_03": {
+    "title": "Hold Ground",
+    "description": "+0.02 knockback resistance.",
+    "extra_description": "Survivor | Cost: 1 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:shield"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "minecraft:generic.knockback_resistance",
+          "value": 0.02,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "survivor_04": {
+    "title": "Second Breath",
+    "description": "+3% healing received; this is a permanent bonus, not an emergency trigger.",
+    "extra_description": "Survivor | Cost: 1 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:shield"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:healing",
+          "value": 0.03,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "survivor_05": {
+    "title": "Weathered",
+    "description": "Reduce incoming damage by 1% of base damage.",
+    "extra_description": "Survivor | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:shield"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:resistance",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "survivor_06": {
+    "title": "Brace",
+    "description": "+0.03 knockback resistance.",
+    "extra_description": "Survivor | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:shield"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "minecraft:generic.knockback_resistance",
+          "value": 0.03,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "survivor_07": {
+    "title": "Close Guard",
+    "description": "Reduce incoming melee damage by 2% of base damage.",
+    "extra_description": "Survivor | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:shield"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:melee_resistance",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "survivor_08": {
+    "title": "Arrow Guard",
+    "description": "Reduce incoming ranged damage by 2% of base damage.",
+    "extra_description": "Survivor | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:shield"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:ranged_resistance",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "survivor_09": {
+    "title": "Warding",
+    "description": "Reduce qualifying magic damage by 2% of base damage.",
+    "extra_description": "Survivor | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:shield"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:magic_resistance",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "survivor_10": {
+    "title": "Unbroken",
+    "description": "+2 maximum health (one heart).",
+    "extra_description": "Survivor | Cost: 4 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:shield"
+      }
+    },
+    "frame": "challenge",
+    "size": 1.2,
+    "cost": 4,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "minecraft:generic.max_health",
+          "value": 2,
+          "operation": "addition"
+        }
+      }
+    ],
+    "required_spent_points": 20
+  },
+  "survivor_11": {
+    "title": "Resilient",
+    "description": "Reduce incoming damage by 2% of base damage.",
+    "extra_description": "Survivor | Cost: 4 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:shield"
+      }
+    },
+    "frame": "challenge",
+    "size": 1.2,
+    "cost": 4,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:resistance",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ],
+    "required_spent_points": 20
+  },
+  "survivor_12": {
+    "title": "Steady Recovery",
+    "description": "+5% healing from natural regeneration.",
+    "extra_description": "Survivor | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:shield"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:natural_regeneration",
+          "value": 0.05,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_01": {
+    "title": "Practised Blade",
+    "description": "+2% melee damage.",
+    "extra_description": "Adventurer | Cost: 1 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:iron_sword"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:melee_damage",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_02": {
+    "title": "Steady Aim",
+    "description": "+2% qualifying ranged damage.",
+    "extra_description": "Adventurer | Cost: 1 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:iron_sword"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:ranged_damage",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_03": {
+    "title": "Arcane Basics",
+    "description": "+2% qualifying magic damage. Coverage depends on damage-type tags.",
+    "extra_description": "Adventurer | Cost: 1 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:iron_sword"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:magic_damage",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_04": {
+    "title": "Balanced Grip",
+    "description": "+1% attack speed.",
+    "extra_description": "Adventurer | Cost: 1 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:iron_sword"
+      }
+    },
+    "frame": "task",
+    "size": 1.0,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "minecraft:generic.attack_speed",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_05": {
+    "title": "True Flight",
+    "description": "+4% bow projectile speed.",
+    "extra_description": "Adventurer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:iron_sword"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:bow_projectile_speed",
+          "value": 0.04,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_06": {
+    "title": "Focused Casting",
+    "description": "+3% qualifying magic damage.",
+    "extra_description": "Adventurer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:iron_sword"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:magic_damage",
+          "value": 0.03,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_07": {
+    "title": "Sword Familiarity",
+    "description": "+3% sword damage.",
+    "extra_description": "Adventurer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:iron_sword"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:sword_damage",
+          "value": 0.03,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_08": {
+    "title": "Crossbow Drill",
+    "description": "+5% crossbow projectile speed.",
+    "extra_description": "Adventurer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:iron_sword"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:crossbow_projectile_speed",
+          "value": 0.05,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_09": {
+    "title": "Arcane Ward",
+    "description": "Reduce qualifying incoming magic damage by 2% of base damage.",
+    "extra_description": "Adventurer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:iron_sword"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:magic_resistance",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_10": {
+    "title": "Seasoned Fighter",
+    "description": "+4% melee damage.",
+    "extra_description": "Adventurer | Cost: 4 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:iron_sword"
+      }
+    },
+    "frame": "challenge",
+    "size": 1.2,
+    "cost": 4,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:melee_damage",
+          "value": 0.04,
+          "operation": "multiply_base"
+        }
+      }
+    ],
+    "required_spent_points": 20
+  },
+  "adventurer_11": {
+    "title": "Seasoned Marksman",
+    "description": "+4% qualifying ranged damage.",
+    "extra_description": "Adventurer | Cost: 4 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:iron_sword"
+      }
+    },
+    "frame": "challenge",
+    "size": 1.2,
+    "cost": 4,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:ranged_damage",
+          "value": 0.04,
+          "operation": "multiply_base"
+        }
+      }
+    ],
+    "required_spent_points": 20
+  },
+  "adventurer_12": {
+    "title": "Arcane Familiarity",
+    "description": "+3% qualifying magic damage.",
+    "extra_description": "Adventurer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "icon": {
+      "type": "item",
+      "data": {
+        "item": "minecraft:iron_sword"
+      }
+    },
+    "frame": "goal",
+    "size": 1.0,
+    "cost": 2,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:magic_damage",
+          "value": 0.03,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  }
+}
