@@ -2,9 +2,9 @@
   "title": "Towns & Kingdoms",
   "description": "Shape your journey. Character levels award up to 100 points.",
   "icon": {
-    "type": "item",
+    "type": "texture",
     "data": {
-      "item": "minecraft:compass"
+      "texture": "tnk:textures/skilltree/foundation_0.png"
     }
   },
   "background": "minecraft:textures/block/sandstone_top.png",

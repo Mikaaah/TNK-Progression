@@ -4,9 +4,9 @@
     "description": "+2% exhaustion capacity.",
     "extra_description": "Foundation | Cost: 1 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:compass"
+        "texture": "tnk:textures/skilltree/foundation_0.png"
       }
     },
     "frame": "task",
@@ -28,9 +28,9 @@
     "description": "+1 maximum health (half a heart).",
     "extra_description": "Foundation | Cost: 1 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:apple"
+        "texture": "tnk:textures/skilltree/foundation_1.png"
       }
     },
     "frame": "task",
@@ -52,9 +52,9 @@
     "description": "+1% sprinting speed.",
     "extra_description": "Foundation | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:leather_boots"
+        "texture": "tnk:textures/skilltree/foundation_2.png"
       }
     },
     "frame": "goal",
@@ -76,9 +76,9 @@
     "description": "Reduce effective fall distance by 0.25 blocks.",
     "extra_description": "Foundation | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:feather"
+        "texture": "tnk:textures/skilltree/foundation_3.png"
       }
     },
     "frame": "goal",
@@ -100,9 +100,9 @@
     "description": "+2% mining speed with the correct tool.",
     "extra_description": "Foundation | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:stone_pickaxe"
+        "texture": "tnk:textures/skilltree/foundation_4.png"
       }
     },
     "frame": "goal",
@@ -124,9 +124,9 @@
     "description": "+2% healing from natural regeneration.",
     "extra_description": "Foundation | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:bread"
+        "texture": "tnk:textures/skilltree/foundation_5.png"
       }
     },
     "frame": "goal",
@@ -148,9 +148,9 @@
     "description": "+0.02 knockback resistance.",
     "extra_description": "Foundation | Cost: 3 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:shield"
+        "texture": "tnk:textures/skilltree/foundation_6.png"
       }
     },
     "frame": "task",
@@ -172,9 +172,9 @@
     "description": "+4% exhaustion capacity.",
     "extra_description": "Foundation | Cost: 3 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:map"
+        "texture": "tnk:textures/skilltree/foundation_7.png"
       }
     },
     "frame": "task",
@@ -196,9 +196,9 @@
     "description": "+2% sprinting speed.",
     "extra_description": "Wayfarer | Cost: 1 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:leather_boots"
+        "texture": "tnk:textures/skilltree/wayfarer_01.png"
       }
     },
     "frame": "task",
@@ -220,9 +220,9 @@
     "description": "Reduce effective fall distance by 0.5 blocks.",
     "extra_description": "Wayfarer | Cost: 1 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:leather_boots"
+        "texture": "tnk:textures/skilltree/wayfarer_02.png"
       }
     },
     "frame": "task",
@@ -244,9 +244,9 @@
     "description": "+4% exhaustion capacity before food or saturation is consumed.",
     "extra_description": "Wayfarer | Cost: 1 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:leather_boots"
+        "texture": "tnk:textures/skilltree/wayfarer_03.png"
       }
     },
     "frame": "task",
@@ -268,9 +268,9 @@
     "description": "+2% sprinting speed.",
     "extra_description": "Wayfarer | Cost: 1 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:leather_boots"
+        "texture": "tnk:textures/skilltree/wayfarer_04.png"
       }
     },
     "frame": "task",
@@ -292,9 +292,9 @@
     "description": "Reduce effective fall distance by 0.5 blocks.",
     "extra_description": "Wayfarer | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:leather_boots"
+        "texture": "tnk:textures/skilltree/wayfarer_05.png"
       }
     },
     "frame": "goal",
@@ -316,9 +316,9 @@
     "description": "+6% exhaustion capacity.",
     "extra_description": "Wayfarer | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:leather_boots"
+        "texture": "tnk:textures/skilltree/wayfarer_06.png"
       }
     },
     "frame": "goal",
@@ -340,9 +340,9 @@
     "description": "Reduce enemy detection distance by 1 block.",
     "extra_description": "Wayfarer | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:leather_boots"
+        "texture": "tnk:textures/skilltree/wayfarer_07.png"
       }
     },
     "frame": "goal",
@@ -364,9 +364,9 @@
     "description": "+3% jump height.",
     "extra_description": "Wayfarer | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:leather_boots"
+        "texture": "tnk:textures/skilltree/wayfarer_08.png"
       }
     },
     "frame": "goal",
@@ -388,9 +388,9 @@
     "description": "+2% movement speed.",
     "extra_description": "Wayfarer | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:leather_boots"
+        "texture": "tnk:textures/skilltree/wayfarer_09.png"
       }
     },
     "frame": "goal",
@@ -412,9 +412,9 @@
     "description": "+5% sprinting speed.",
     "extra_description": "Wayfarer | Cost: 4 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:leather_boots"
+        "texture": "tnk:textures/skilltree/wayfarer_10.png"
       }
     },
     "frame": "challenge",
@@ -437,9 +437,9 @@
     "description": "Reduce effective fall distance by 1 block.",
     "extra_description": "Wayfarer | Cost: 4 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:leather_boots"
+        "texture": "tnk:textures/skilltree/wayfarer_11.png"
       }
     },
     "frame": "challenge",
@@ -462,9 +462,9 @@
     "description": "+8% exhaustion capacity.",
     "extra_description": "Wayfarer | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:leather_boots"
+        "texture": "tnk:textures/skilltree/wayfarer_12.png"
       }
     },
     "frame": "goal",
@@ -486,9 +486,9 @@
     "description": "+3% pickaxe mining speed.",
     "extra_description": "Delver | Cost: 1 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:iron_pickaxe"
+        "texture": "tnk:textures/skilltree/delver_01.png"
       }
     },
     "frame": "task",
@@ -510,9 +510,9 @@
     "description": "+4% shovel mining speed.",
     "extra_description": "Delver | Cost: 1 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:iron_pickaxe"
+        "texture": "tnk:textures/skilltree/delver_02.png"
       }
     },
     "frame": "task",
@@ -534,9 +534,9 @@
     "description": "+3% axe mining speed.",
     "extra_description": "Delver | Cost: 1 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:iron_pickaxe"
+        "texture": "tnk:textures/skilltree/delver_03.png"
       }
     },
     "frame": "task",
@@ -558,9 +558,9 @@
     "description": "+3% pickaxe mining speed.",
     "extra_description": "Delver | Cost: 1 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:iron_pickaxe"
+        "texture": "tnk:textures/skilltree/delver_04.png"
       }
     },
     "frame": "task",
@@ -582,9 +582,9 @@
     "description": "+6% shovel mining speed.",
     "extra_description": "Delver | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:iron_pickaxe"
+        "texture": "tnk:textures/skilltree/delver_05.png"
       }
     },
     "frame": "goal",
@@ -606,9 +606,9 @@
     "description": "+5% axe mining speed.",
     "extra_description": "Delver | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:iron_pickaxe"
+        "texture": "tnk:textures/skilltree/delver_06.png"
       }
     },
     "frame": "goal",
@@ -630,9 +630,9 @@
     "description": "+4% mining speed when using the correct tool.",
     "extra_description": "Delver | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:iron_pickaxe"
+        "texture": "tnk:textures/skilltree/delver_07.png"
       }
     },
     "frame": "goal",
@@ -654,9 +654,9 @@
     "description": "+0.10 Fortune for block drops; fractional levels are rolled by Pufferfish.",
     "extra_description": "Delver | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:iron_pickaxe"
+        "texture": "tnk:textures/skilltree/delver_08.png"
       }
     },
     "frame": "goal",
@@ -678,9 +678,9 @@
     "description": "+6% exhaustion capacity.",
     "extra_description": "Delver | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:iron_pickaxe"
+        "texture": "tnk:textures/skilltree/delver_09.png"
       }
     },
     "frame": "goal",
@@ -702,9 +702,9 @@
     "description": "+8% pickaxe mining speed.",
     "extra_description": "Delver | Cost: 4 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:iron_pickaxe"
+        "texture": "tnk:textures/skilltree/delver_10.png"
       }
     },
     "frame": "challenge",
@@ -727,9 +727,9 @@
     "description": "+0.15 Fortune for block drops. Does not affect equipment loot.",
     "extra_description": "Delver | Cost: 4 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:iron_pickaxe"
+        "texture": "tnk:textures/skilltree/delver_11.png"
       }
     },
     "frame": "challenge",
@@ -752,9 +752,9 @@
     "description": "+4% mining speed with the correct tool.",
     "extra_description": "Delver | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:iron_pickaxe"
+        "texture": "tnk:textures/skilltree/delver_12.png"
       }
     },
     "frame": "goal",
@@ -776,9 +776,9 @@
     "description": "+4% exhaustion capacity.",
     "extra_description": "Homesteader | Cost: 1 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:wheat"
+        "texture": "tnk:textures/skilltree/homesteader_01.png"
       }
     },
     "frame": "task",
@@ -800,9 +800,9 @@
     "description": "+3% healing from natural regeneration.",
     "extra_description": "Homesteader | Cost: 1 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:wheat"
+        "texture": "tnk:textures/skilltree/homesteader_02.png"
       }
     },
     "frame": "task",
@@ -824,9 +824,9 @@
     "description": "+3% damage dealt by your tamed creatures.",
     "extra_description": "Homesteader | Cost: 1 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:wheat"
+        "texture": "tnk:textures/skilltree/homesteader_03.png"
       }
     },
     "frame": "task",
@@ -848,9 +848,9 @@
     "description": "+4% exhaustion capacity.",
     "extra_description": "Homesteader | Cost: 1 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:wheat"
+        "texture": "tnk:textures/skilltree/homesteader_04.png"
       }
     },
     "frame": "task",
@@ -872,9 +872,9 @@
     "description": "+4% healing received.",
     "extra_description": "Homesteader | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:wheat"
+        "texture": "tnk:textures/skilltree/homesteader_05.png"
       }
     },
     "frame": "goal",
@@ -896,9 +896,9 @@
     "description": "Reduce damage taken by your tamed creatures by 3% of base damage.",
     "extra_description": "Homesteader | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:wheat"
+        "texture": "tnk:textures/skilltree/homesteader_06.png"
       }
     },
     "frame": "goal",
@@ -920,9 +920,9 @@
     "description": "+5% healing from natural regeneration.",
     "extra_description": "Homesteader | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:wheat"
+        "texture": "tnk:textures/skilltree/homesteader_07.png"
       }
     },
     "frame": "goal",
@@ -944,9 +944,9 @@
     "description": "+8% exhaustion capacity.",
     "extra_description": "Homesteader | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:wheat"
+        "texture": "tnk:textures/skilltree/homesteader_08.png"
       }
     },
     "frame": "goal",
@@ -968,9 +968,9 @@
     "description": "+5% axe mining speed.",
     "extra_description": "Homesteader | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:wheat"
+        "texture": "tnk:textures/skilltree/homesteader_09.png"
       }
     },
     "frame": "goal",
@@ -992,9 +992,9 @@
     "description": "+8% healing received.",
     "extra_description": "Homesteader | Cost: 4 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:wheat"
+        "texture": "tnk:textures/skilltree/homesteader_10.png"
       }
     },
     "frame": "challenge",
@@ -1017,9 +1017,9 @@
     "description": "Reduce damage taken by your tamed creatures by 6% of base damage.",
     "extra_description": "Homesteader | Cost: 4 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:wheat"
+        "texture": "tnk:textures/skilltree/homesteader_11.png"
       }
     },
     "frame": "challenge",
@@ -1042,9 +1042,9 @@
     "description": "+6% shovel mining speed.",
     "extra_description": "Homesteader | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:wheat"
+        "texture": "tnk:textures/skilltree/homesteader_12.png"
       }
     },
     "frame": "goal",
@@ -1066,9 +1066,9 @@
     "description": "-2% anvil XP cost. Does not change identification costs.",
     "extra_description": "Artificer | Cost: 1 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:anvil"
+        "texture": "tnk:textures/skilltree/artificer_01.png"
       }
     },
     "frame": "task",
@@ -1090,9 +1090,9 @@
     "description": "+2% vanilla XP from collected orbs. No character XP bonus.",
     "extra_description": "Artificer | Cost: 1 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:anvil"
+        "texture": "tnk:textures/skilltree/artificer_02.png"
       }
     },
     "frame": "task",
@@ -1114,9 +1114,9 @@
     "description": "+3% axe mining speed.",
     "extra_description": "Artificer | Cost: 1 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:anvil"
+        "texture": "tnk:textures/skilltree/artificer_03.png"
       }
     },
     "frame": "task",
@@ -1138,9 +1138,9 @@
     "description": "-3% anvil XP cost.",
     "extra_description": "Artificer | Cost: 1 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:anvil"
+        "texture": "tnk:textures/skilltree/artificer_04.png"
       }
     },
     "frame": "task",
@@ -1162,9 +1162,9 @@
     "description": "+3% vanilla XP from collected orbs.",
     "extra_description": "Artificer | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:anvil"
+        "texture": "tnk:textures/skilltree/artificer_05.png"
       }
     },
     "frame": "goal",
@@ -1186,9 +1186,9 @@
     "description": "+6% exhaustion capacity.",
     "extra_description": "Artificer | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:anvil"
+        "texture": "tnk:textures/skilltree/artificer_06.png"
       }
     },
     "frame": "goal",
@@ -1210,9 +1210,9 @@
     "description": "-5% anvil XP cost.",
     "extra_description": "Artificer | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:anvil"
+        "texture": "tnk:textures/skilltree/artificer_07.png"
       }
     },
     "frame": "goal",
@@ -1234,9 +1234,9 @@
     "description": "+4% vanilla XP from collected orbs.",
     "extra_description": "Artificer | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:anvil"
+        "texture": "tnk:textures/skilltree/artificer_08.png"
       }
     },
     "frame": "goal",
@@ -1258,9 +1258,9 @@
     "description": "+4% mining speed with the correct tool.",
     "extra_description": "Artificer | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:anvil"
+        "texture": "tnk:textures/skilltree/artificer_09.png"
       }
     },
     "frame": "goal",
@@ -1282,9 +1282,9 @@
     "description": "-10% anvil XP cost. The full branch totals -20% before other modifiers.",
     "extra_description": "Artificer | Cost: 4 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:anvil"
+        "texture": "tnk:textures/skilltree/artificer_10.png"
       }
     },
     "frame": "challenge",
@@ -1307,9 +1307,9 @@
     "description": "+6% vanilla XP from collected orbs. The full branch totals +15%.",
     "extra_description": "Artificer | Cost: 4 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:anvil"
+        "texture": "tnk:textures/skilltree/artificer_11.png"
       }
     },
     "frame": "challenge",
@@ -1332,9 +1332,9 @@
     "description": "+5% pickaxe mining speed.",
     "extra_description": "Artificer | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:anvil"
+        "texture": "tnk:textures/skilltree/artificer_12.png"
       }
     },
     "frame": "goal",
@@ -1356,9 +1356,9 @@
     "description": "+1 maximum health (half a heart).",
     "extra_description": "Survivor | Cost: 1 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:shield"
+        "texture": "tnk:textures/skilltree/survivor_01.png"
       }
     },
     "frame": "task",
@@ -1380,9 +1380,9 @@
     "description": "+3% healing from natural regeneration.",
     "extra_description": "Survivor | Cost: 1 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:shield"
+        "texture": "tnk:textures/skilltree/survivor_02.png"
       }
     },
     "frame": "task",
@@ -1404,9 +1404,9 @@
     "description": "+0.02 knockback resistance.",
     "extra_description": "Survivor | Cost: 1 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:shield"
+        "texture": "tnk:textures/skilltree/survivor_03.png"
       }
     },
     "frame": "task",
@@ -1428,9 +1428,9 @@
     "description": "+3% healing received; this is a permanent bonus, not an emergency trigger.",
     "extra_description": "Survivor | Cost: 1 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:shield"
+        "texture": "tnk:textures/skilltree/survivor_04.png"
       }
     },
     "frame": "task",
@@ -1452,9 +1452,9 @@
     "description": "Reduce incoming damage by 1% of base damage.",
     "extra_description": "Survivor | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:shield"
+        "texture": "tnk:textures/skilltree/survivor_05.png"
       }
     },
     "frame": "goal",
@@ -1476,9 +1476,9 @@
     "description": "+0.03 knockback resistance.",
     "extra_description": "Survivor | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:shield"
+        "texture": "tnk:textures/skilltree/survivor_06.png"
       }
     },
     "frame": "goal",
@@ -1500,9 +1500,9 @@
     "description": "Reduce incoming melee damage by 2% of base damage.",
     "extra_description": "Survivor | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:shield"
+        "texture": "tnk:textures/skilltree/survivor_07.png"
       }
     },
     "frame": "goal",
@@ -1524,9 +1524,9 @@
     "description": "Reduce incoming ranged damage by 2% of base damage.",
     "extra_description": "Survivor | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:shield"
+        "texture": "tnk:textures/skilltree/survivor_08.png"
       }
     },
     "frame": "goal",
@@ -1548,9 +1548,9 @@
     "description": "Reduce qualifying magic damage by 2% of base damage.",
     "extra_description": "Survivor | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:shield"
+        "texture": "tnk:textures/skilltree/survivor_09.png"
       }
     },
     "frame": "goal",
@@ -1572,9 +1572,9 @@
     "description": "+2 maximum health (one heart).",
     "extra_description": "Survivor | Cost: 4 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:shield"
+        "texture": "tnk:textures/skilltree/survivor_10.png"
       }
     },
     "frame": "challenge",
@@ -1597,9 +1597,9 @@
     "description": "Reduce incoming damage by 2% of base damage.",
     "extra_description": "Survivor | Cost: 4 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:shield"
+        "texture": "tnk:textures/skilltree/survivor_11.png"
       }
     },
     "frame": "challenge",
@@ -1622,9 +1622,9 @@
     "description": "+5% healing from natural regeneration.",
     "extra_description": "Survivor | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:shield"
+        "texture": "tnk:textures/skilltree/survivor_12.png"
       }
     },
     "frame": "goal",
@@ -1646,9 +1646,9 @@
     "description": "+2% melee damage.",
     "extra_description": "Adventurer | Cost: 1 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:iron_sword"
+        "texture": "tnk:textures/skilltree/adventurer_01.png"
       }
     },
     "frame": "task",
@@ -1670,9 +1670,9 @@
     "description": "+2% qualifying ranged damage.",
     "extra_description": "Adventurer | Cost: 1 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:iron_sword"
+        "texture": "tnk:textures/skilltree/adventurer_02.png"
       }
     },
     "frame": "task",
@@ -1694,9 +1694,9 @@
     "description": "+2% qualifying magic damage. Coverage depends on damage-type tags.",
     "extra_description": "Adventurer | Cost: 1 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:iron_sword"
+        "texture": "tnk:textures/skilltree/adventurer_03.png"
       }
     },
     "frame": "task",
@@ -1718,9 +1718,9 @@
     "description": "+1% attack speed.",
     "extra_description": "Adventurer | Cost: 1 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:iron_sword"
+        "texture": "tnk:textures/skilltree/adventurer_04.png"
       }
     },
     "frame": "task",
@@ -1742,9 +1742,9 @@
     "description": "+4% bow projectile speed.",
     "extra_description": "Adventurer | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:iron_sword"
+        "texture": "tnk:textures/skilltree/adventurer_05.png"
       }
     },
     "frame": "goal",
@@ -1766,9 +1766,9 @@
     "description": "+3% qualifying magic damage.",
     "extra_description": "Adventurer | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:iron_sword"
+        "texture": "tnk:textures/skilltree/adventurer_06.png"
       }
     },
     "frame": "goal",
@@ -1790,9 +1790,9 @@
     "description": "+3% sword damage.",
     "extra_description": "Adventurer | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:iron_sword"
+        "texture": "tnk:textures/skilltree/adventurer_07.png"
       }
     },
     "frame": "goal",
@@ -1814,9 +1814,9 @@
     "description": "+5% crossbow projectile speed.",
     "extra_description": "Adventurer | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:iron_sword"
+        "texture": "tnk:textures/skilltree/adventurer_08.png"
       }
     },
     "frame": "goal",
@@ -1838,9 +1838,9 @@
     "description": "Reduce qualifying incoming magic damage by 2% of base damage.",
     "extra_description": "Adventurer | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:iron_sword"
+        "texture": "tnk:textures/skilltree/adventurer_09.png"
       }
     },
     "frame": "goal",
@@ -1862,9 +1862,9 @@
     "description": "+4% melee damage.",
     "extra_description": "Adventurer | Cost: 4 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:iron_sword"
+        "texture": "tnk:textures/skilltree/adventurer_10.png"
       }
     },
     "frame": "challenge",
@@ -1887,9 +1887,9 @@
     "description": "+4% qualifying ranged damage.",
     "extra_description": "Adventurer | Cost: 4 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:iron_sword"
+        "texture": "tnk:textures/skilltree/adventurer_11.png"
       }
     },
     "frame": "challenge",
@@ -1912,9 +1912,9 @@
     "description": "+3% qualifying magic damage.",
     "extra_description": "Adventurer | Cost: 2 point(s). Bonuses are removed on respec.",
     "icon": {
-      "type": "item",
+      "type": "texture",
       "data": {
-        "item": "minecraft:iron_sword"
+        "texture": "tnk:textures/skilltree/adventurer_12.png"
       }
     },
     "frame": "goal",

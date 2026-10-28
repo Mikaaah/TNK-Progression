@@ -1,0 +1,5 @@
+Skilltree icon artwork: Aleksandr Makarov / @IKnowKingRabbit
+Source: user-supplied HAS IconPack (v.1.2), Skills sheet.
+Selected sprites are included as part of the Towns & Kingdoms skilltree.
+See HAS-LICENSE.txt for the original artwork terms.
+No changes to the artwork beyond exact 16x16 sprite extraction.

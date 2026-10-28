@@ -6,6 +6,13 @@ ROOT = Path(__file__).resolve().parents[1]
 PACK = ROOT / 'datapack'
 OUT = PACK / 'data/tnk/puffish_skills/categories/character'
 OUT.mkdir(parents=True, exist_ok=True)
+ICON_MAP = json.loads((ROOT / 'icon-map.json').read_text())
+
+def icon_for(key):
+    texture = ICON_MAP[key]['texture']
+    namespace, path = texture.split(':', 1)
+    assert (ROOT / 'resourcepack/assets' / namespace / path).is_file(), texture
+    return {'type': 'texture', 'data': {'texture': texture}}
 
 def attr(name, value, operation='multiply_base'):
     return {'type':'puffish_skills:attribute','data':{'attribute':name if ':' in name else 'puffish_attributes:'+name,'value':value,'operation':operation}}
@@ -50,7 +57,7 @@ BRANCHES = {
 defs, skills, edges, rows = {}, {}, [], []
 def add(key, data, cost, x, y, branch, root=False, keystone=False):
     title,a,v,desc,op,item=data
-    defs[key]={'title':title,'description':desc,'extra_description':f'{branch} | Cost: {cost} point(s). Bonuses are removed on respec.','icon':{'type':'item','data':{'item':'minecraft:'+(item or 'book')}},'frame':'challenge' if keystone else 'goal' if cost==2 else 'task','size':1.2 if keystone else 1.0,'cost':cost,'rewards':[attr(a,v,op)]}
+    defs[key]={'title':title,'description':desc,'extra_description':f'{branch} | Cost: {cost} point(s). Bonuses are removed on respec.','icon':icon_for(key),'frame':'challenge' if keystone else 'goal' if cost==2 else 'task','size':1.2 if keystone else 1.0,'cost':cost,'rewards':[attr(a,v,op)]}
     if keystone: defs[key]['required_spent_points']=20
     skills[key]={'x':round(x),'y':round(y),'definition':key,'root':root}
     if root: skills[key]['root']=True
@@ -75,7 +82,7 @@ def save(path,value):
     path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(value,indent=2)+'\n')
 save(PACK/'pack.mcmeta',{'pack':{'pack_format':48,'description':'TNK Character Tree — 80 nodes / 100-point limit — attribute draft'}})
 save(PACK/'data/tnk/puffish_skills/config.json',{'version':2,'categories':['character']})
-save(OUT/'category.json',{'title':'Towns & Kingdoms','description':'Shape your journey. Character levels award up to 100 points.','icon':{'type':'item','data':{'item':'minecraft:compass'}},'background':'minecraft:textures/block/sandstone_top.png','unlocked_by_default':True,'starting_points':0,'exclusive_root':False,'spent_points_limit':100,'erase_on_death':False})
+save(OUT/'category.json',{'title':'Towns & Kingdoms','description':'Shape your journey. Character levels award up to 100 points.','icon':icon_for('foundation_0'),'background':'minecraft:textures/block/sandstone_top.png','unlocked_by_default':True,'starting_points':0,'exclusive_root':False,'spent_points_limit':100,'erase_on_death':False})
 save(OUT/'definitions.json',defs);save(OUT/'skills.json',skills)
 save(OUT/'connections.json',{'normal':{'unidirectional':edges}})
 assert len(skills)==80 and sum(d['cost'] for d in defs.values())==160
@@ -88,7 +95,10 @@ while True:
 assert len(reachable)==80
 for slug in BRANCHES: assert sum(d['cost'] for k,d in defs.items() if k.startswith(slug+'_'))==24
 (ROOT/'NODE-CATALOGUE.md').write_text('# TNK Character Tree — attribute draft\n\n80 nodes; 160 points of choices; 100-point spending cap. Foundation costs 16; each branch costs 24. One category: `tnk:character`.\n\n| ID | Branch | Node | Cost | Effect |\n|---|---|---|---:|---|\n'+''.join('| '+' | '.join(map(str,row))+' |\n' for row in rows))
-with zipfile.ZipFile(ROOT/'TNK-Character-Tree-0.1.0-draft.zip','w',zipfile.ZIP_DEFLATED) as z:
+with zipfile.ZipFile(ROOT/'TNK-Character-Tree-0.1.1-draft.zip','w',zipfile.ZIP_DEFLATED) as z:
     for p in PACK.rglob('*'):
         if p.is_file():z.write(p,p.relative_to(PACK))
+with zipfile.ZipFile(ROOT/'TNK-Skilltree-Icons-0.1.1.zip','w',zipfile.ZIP_DEFLATED) as z:
+    for p in (ROOT/'resourcepack').rglob('*'):
+        if p.is_file():z.write(p,p.relative_to(ROOT/'resourcepack'))
 print('Validated: 80 distinct nodes, 79 directed connections, all reachable, 160 total points, 100-point cap.')
