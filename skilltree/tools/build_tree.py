@@ -60,7 +60,9 @@ core=[node('First Steps','stamina',.02,'+2% exhaustion capacity.',icon='compass'
 from web_rewards import EXTRA
 from collections import deque
 
-VERSION='0.2.0'
+from build_theme import build as build_theme
+THEME=build_theme()
+VERSION='0.2.1'
 defs,skills,layout,edges,rows,used_icons={},{},{},set(),[],{}
 
 def link(a,b):
@@ -71,7 +73,7 @@ def add(key,data,x,y,branch,alias,role='minor',root=False):
     title,a,v,desc,op,*_=data
     # Original descriptions referring to the old 12-node branch totals are obsolete.
     desc=desc.split(' The full branch totals')[0]
-    defs[key]={'title':title,'description':desc,'extra_description':f'{branch} | Costs 1 point. Removed on respec.','icon':icon_for(alias),'frame':'challenge' if role=='keystone' else 'goal' if role in ('notable','hub') else 'task','size':1.35 if role=='keystone' else 1.18 if role=='hub' else 1.05 if role=='notable' else .85,'cost':1,'rewards':[attr(a,v,op)]}
+    defs[key]={'title':title,'description':desc,'extra_description':f'{branch} | Costs 1 point. Removed on respec.','icon':icon_for(alias),'frame':THEME['frames'][role],'size':THEME['node_sizes'][role],'cost':1,'rewards':[attr(a,v,op)]}
     if role=='keystone':defs[key]['required_spent_points']=40
     skills[key]={'x':round(x),'y':round(y),'definition':key,'root':root}
     layout[key]={'branch':branch,'role':role,'icon_alias':alias}
@@ -154,7 +156,7 @@ def save(path,value):
 
 save(PACK/'pack.mcmeta',{'pack':{'pack_format':48,'description':'TNK Character Web — 240 nodes / every node costs 1 / spend up to 100'}})
 save(PACK/'data/tnk/puffish_skills/config.json',{'version':2,'categories':['character']})
-save(OUT/'category.json',{'title':'Towns & Kingdoms','description':'240 skills. Every skill costs 1 point. Spend up to 100.','icon':icon_for('foundation_0'),'background':'minecraft:textures/block/sandstone_top.png','unlocked_by_default':True,'starting_points':0,'exclusive_root':False,'spent_points_limit':100,'erase_on_death':False})
+save(OUT/'category.json',{'title':'Towns & Kingdoms','description':'240 skills. Every skill costs 1 point. Spend up to 100.','icon':icon_for('foundation_0'),'background':THEME['background'],'colors':THEME['colors'],'unlocked_by_default':True,'starting_points':0,'exclusive_root':False,'spent_points_limit':100,'erase_on_death':False})
 save(OUT/'definitions.json',defs);save(OUT/'skills.json',skills)
 save(OUT/'connections.json',{'normal':{'bidirectional':[list(e) for e in sorted(edges)]}})
 save(ROOT/'layout-metadata.json',layout);save(ROOT/'icon-map.json',used_icons)
@@ -176,7 +178,7 @@ minimum=min(math.hypot(a['x']-b['x'],a['y']-b['y']) for i,a in enumerate(skills.
 assert minimum>=35,minimum
 summary={'nodes':240,'edges':len(edges),'independent_cycles':cycles,'root_count':1,'maximum_shortest_path':max(dist.values()),'minimum_node_distance':round(minimum,2),'node_cost':1,'spending_limit':100,'foundation_nodes':12,'nodes_per_branch':34,'crossroad_nodes':24}
 save(ROOT/'validation-summary.json',summary)
-(ROOT/'NODE-CATALOGUE.md').write_text('# TNK Character Web — 0.2.0 draft\n\n240 nodes. Every node costs 1 point. Spend up to 100. Six branches of 34 nodes, 12 foundation nodes and 24 hybrid crossroad nodes.\n\n| ID | Branch | Node | Cost | Effect |\n|---|---|---|---:|---|\n'+''.join('| '+' | '.join(map(str,row))+' |\n' for row in rows))
+(ROOT/'NODE-CATALOGUE.md').write_text('# TNK Character Web — 0.2.1 theme draft\n\n240 nodes. Every node costs 1 point. Spend up to 100. Six branches of 34 nodes, 12 foundation nodes and 24 hybrid crossroad nodes.\n\n| ID | Branch | Node | Cost | Effect |\n|---|---|---|---:|---|\n'+''.join('| '+' | '.join(map(str,row))+' |\n' for row in rows))
 for source,name in [(PACK,f'TNK-Character-Web-{VERSION}-draft.zip'),(ROOT/'resourcepack',f'TNK-Skilltree-Icons-{VERSION}.zip')]:
     with zipfile.ZipFile(ROOT/name,'w',zipfile.ZIP_DEFLATED) as z:
         for p in source.rglob('*'):

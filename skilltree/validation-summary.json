@@ -10,6 +10,14 @@
   "foundation_nodes": 12,
   "nodes_per_branch": 34,
   "crossroad_nodes": 24,
-  "editor_roundtrip_verified": true,
-  "original_80_rewards_preserved": true
+  "theme_parser": "Uploaded puffish_skills-0.19.2-1.21-neoforge.jar: frame, background and colours accepted",
+  "frame_textures": 20,
+  "frame_dimensions": [
+    26,
+    26
+  ],
+  "theme_only_change": true,
+  "runtime_gui_verified": false,
+  "uploaded_jar_minecraft_range": "[1.21,1.21.1)",
+  "theme_parser_jar_sha256": "d96e4b5735bd05c7210892f75bf078a0a4cac67a8d99f28076e5a4a57fd4e2cd"
 }
