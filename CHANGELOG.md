@@ -1,3 +1,9 @@
+# 0.5.4-beta.1
+
+- Use TNK purple for primary character accents, the Activities tab and former blue fishing accents; keep warm parchment, brown frames and distinct activity colors.
+- Add restrained vertical gradients to panels, selected buttons, section ribbons and progress fills, plus a soft plum player backdrop. Preserve the clipped pixel corners and readable text.
+- Appearance-only update; retain protocol 4, the existing external skilltree config and original unmodified number/title sprites.
+
 # 0.5.3-beta.1
 
 - Replace the survival inventory's recipe-book button with a player portrait that opens Character. Close previously open inventory recipe books before layout, keep the inventory centered, and return to inventory when closing Character. The I key remains available.

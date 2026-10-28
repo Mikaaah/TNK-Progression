@@ -1,4 +1,4 @@
-# Character screen, inventory shortcut and mob badges — 0.5.3-beta.1
+# Character screen, inventory shortcut and mob badges — 0.5.4-beta.1
 
 Minecraft 1.21.1 · NeoForge 21.1.262+ · Java 21. Replace the progression JAR on both server and clients; network protocol is **4**.
 
@@ -10,7 +10,7 @@ Press **I** to open Character directly from the world; this route closes back to
 
 ## Appearance and navigation
 
-Warm parchment, dark brown framing, softened pixel corners, a fine inset highlight and colored accents follow the pack's existing visual style. Teal marks Character, muted rose marks Titles and blue marks Activities. Headings, tab labels and buttons use bold text. Active tabs and pinned/selected choices have a colored fill. Activity rows have item icons and distinct matching progress colors. Milestone is consistently capitalized, including entries saved by previous versions.
+Warm parchment, dark brown framing, softened pixel corners, a fine inset highlight and colored accents follow the pack's existing visual style. TNK purple marks Character and Activities; muted rose marks Titles. Gentle vertical gradients shade parchment, colored tabs, section ribbons and progress fills, with a soft plum backdrop behind the player. Headings, tab labels and buttons use bold text. Active tabs and pinned/selected choices have a colored fill. Activity rows have item icons and distinct matching progress colors. Milestone is consistently capitalized, including entries saved by previous versions.
 
 The actual player model shows the client's skin and equipment. The original embedded number artwork appears on the character sheet and compact HUD. Mouse hitboxes and model clipping follow the sheet's scaled layout. The title image remains the original unchanged artwork.
 

@@ -6,7 +6,7 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.network.chat.Component;
 
 public final class ParchmentButton extends Button {
- private boolean selected;private int accent=CharacterTheme.TEAL;
+ private boolean selected;private int accent=CharacterTheme.PURPLE;
  public ParchmentButton(int x,int y,int w,int h,Component title,OnPress action){super(x,y,w,h,title,action,DEFAULT_NARRATION);}
  public ParchmentButton selected(boolean value){selected=value;return this;}
  public ParchmentButton accent(int colour){accent=colour;return this;}

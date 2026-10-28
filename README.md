@@ -1,10 +1,10 @@
-# Towns & Kingdoms Progression — 0.5.3-beta.1
+# Towns & Kingdoms Progression — 0.5.4-beta.1
 
 Minecraft **1.21.1**, NeoForge **21.1.262+**, Java **21**. Original implementation; no Auto Leveling or Just Leveling code is bundled. This is an initial pack beta; tune the balance in a test world.
 
 ## Character screen and HUD
 
-Open the survival inventory and click the **player portrait replacing the recipe-book button**, or press **I** (rebind in Controls → Towns & Kingdoms). The warm parchment screen uses colored headers, bold labels, softened corners and activity icons. It shows your live player model, character XP/ceiling, seven activity tracks, milestone journal and title collection. Equip/hide titles and pin an activity directly with buttons. A compact player/XP/activity HUD can be toggled from the screen. Use **Skill Tree** beside the point counter to open the configured Pufferfish category. Closing a screen opened from inventory returns to inventory. No command is needed. Update server and clients together (protocol 4).
+Open the survival inventory and click the **player portrait replacing the recipe-book button**, or press **I** (rebind in Controls → Towns & Kingdoms). The warm parchment screen uses TNK purple accents, subtle gradients, colored headers, bold labels, softened corners and activity icons. It shows your live player model, character XP/ceiling, seven activity tracks, milestone journal and title collection. Equip/hide titles and pin an activity directly with buttons. A compact player/XP/activity HUD can be toggled from the screen. Use **Skill Tree** beside the point counter to open the configured Pufferfish category. Closing a screen opened from inventory returns to inventory. No command is needed. Update server and clients together (protocol 4).
 
 **Equipped title perks replace aptitudes:** only one title applies at a time, with a server-enforced 30-second swap cooldown, no stacking and no healing from swaps. Identification discounts are not implemented. The external skilltree also includes bounded conditional abilities such as Second Wind.
 
