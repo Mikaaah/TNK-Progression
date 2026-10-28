@@ -1,7 +1,7 @@
 {
   "nodes": 240,
-  "edges": 362,
-  "independent_cycles": 123,
+  "edges": 358,
+  "independent_cycles": 119,
   "root_count": 1,
   "maximum_shortest_path": 12,
   "minimum_node_distance": 47.85,
@@ -10,8 +10,7 @@
   "foundation_nodes": 12,
   "nodes_per_branch": 34,
   "crossroad_nodes": 24,
-  "background_only_change": true,
-  "node_definitions_unchanged": true,
-  "background_dimensions_checked": true,
-  "runtime_gui_verified": false
+  "crossing_link_pairs": 0,
+  "overlapping_link_pairs": 0,
+  "links_through_unrelated_nodes": 0
 }

@@ -62,7 +62,7 @@ from collections import deque
 
 from build_theme import build as build_theme
 THEME=build_theme()
-VERSION='0.2.2'
+VERSION='0.2.3'
 defs,skills,layout,edges,rows,used_icons={},{},{},set(),[],{}
 
 def link(a,b):
@@ -94,13 +94,10 @@ for i,(title,a,v,desc,alias) in enumerate([
     angle=-math.pi/3+(i-7)*math.pi/3
     add(f'foundation_{i}',node(title,a,v,desc),72*math.cos(angle),72*math.sin(angle),'Foundation',alias)
     link('foundation_0',f'foundation_{i}')
-for i in range(6):
-    # Small inner loop and routes into the two nearest branch hubs.
-    mid=7+i if i<5 else 7
-    if i<5:link(f'foundation_{mid}',f'foundation_{mid+1}' if i<4 else 'foundation_7')
-    if i<5:
-        link(f'foundation_{mid}',f'foundation_{i+1}')
-        link(f'foundation_{mid}',f'foundation_{(i+1)%6+1}')
+# Connect only angular neighbours around the root. Connecting the smaller
+# inner nodes directly to one another cut across the root-to-hub spokes.
+centre_ring=sorted((key for key in skills if key!='foundation_0'),key=lambda key:math.atan2(skills[key]['y'],skills[key]['x']))
+for i,key in enumerate(centre_ring):link(key,centre_ring[(i+1)%len(centre_ring)])
 
 # Local coordinates are radial distance and lateral offset. Each sector has
 # multiple diamonds, two side loops, two outer loops and two distinct tips.
@@ -176,9 +173,12 @@ cycles=len(edges)-len(skills)+1
 assert cycles>=60
 minimum=min(math.hypot(a['x']-b['x'],a['y']-b['y']) for i,a in enumerate(skills.values()) for b in list(skills.values())[i+1:])
 assert minimum>=35,minimum
-summary={'nodes':240,'edges':len(edges),'independent_cycles':cycles,'root_count':1,'maximum_shortest_path':max(dist.values()),'minimum_node_distance':round(minimum,2),'node_cost':1,'spending_limit':100,'foundation_nodes':12,'nodes_per_branch':34,'crossroad_nodes':24}
+from layout_checks import inspect_links
+geometry=inspect_links(skills,defs,sorted(edges))
+assert not any(geometry.values()),geometry
+summary={'nodes':240,'edges':len(edges),'independent_cycles':cycles,'root_count':1,'maximum_shortest_path':max(dist.values()),'minimum_node_distance':round(minimum,2),'node_cost':1,'spending_limit':100,'foundation_nodes':12,'nodes_per_branch':34,'crossroad_nodes':24,'crossing_link_pairs':0,'overlapping_link_pairs':0,'links_through_unrelated_nodes':0}
 save(ROOT/'validation-summary.json',summary)
-(ROOT/'NODE-CATALOGUE.md').write_text('# TNK Character Web — 0.2.2 simple theme draft\n\n240 nodes. Every node costs 1 point. Spend up to 100. Six branches of 34 nodes, 12 foundation nodes and 24 hybrid crossroad nodes.\n\n| ID | Branch | Node | Cost | Effect |\n|---|---|---|---:|---|\n'+''.join('| '+' | '.join(map(str,row))+' |\n' for row in rows))
+(ROOT/'NODE-CATALOGUE.md').write_text('# TNK Character Web — 0.2.3 routing fix\n\n240 nodes. Every node costs 1 point. Spend up to 100. Six branches of 34 nodes, 12 foundation nodes and 24 hybrid crossroad nodes.\n\n| ID | Branch | Node | Cost | Effect |\n|---|---|---|---:|---|\n'+''.join('| '+' | '.join(map(str,row))+' |\n' for row in rows))
 for source,name in [(PACK,f'TNK-Character-Web-{VERSION}-draft.zip'),(ROOT/'resourcepack',f'TNK-Skilltree-Icons-{VERSION}.zip')]:
     with zipfile.ZipFile(ROOT/name,'w',zipfile.ZIP_DEFLATED) as z:
         for p in source.rglob('*'):

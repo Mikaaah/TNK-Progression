@@ -36,6 +36,7 @@ d.text((cx,2925),'Quiet warm-brown background • native pixel frames • all no
 d.text((cx,2985),'Preview rendered from the packaged assets — not an in-game screenshot',font=f(23),fill='#cfbc99',anchor='mt',stroke_width=1,stroke_fill='#3b2d21')
 d.text((cx,3030),'Icons: Aleksandr Makarov / HAS IconPack',font=f(21),fill='#cfbc99',anchor='mt',stroke_width=1,stroke_fill='#3b2d21')
 im.save(ROOT/'TNK-Character-Web-Preview.jpg',quality=94,subsampling=0)
+im.crop((1120,1185,1780,1845)).save(ROOT/'TNK-Centre-Detail.png')
 im.crop((1000,200,1900,1395)).resize((1350,1793),Image.Resampling.NEAREST).save(ROOT/'TNK-Wayfarer-Closeup.jpg',quality=95,subsampling=0)
 # Literal contact sheet of all 20 client frame sprites, with HAS icons overlaid.
 canvas=ImageOps.fit(background,(1660,1060),method=Image.Resampling.LANCZOS);draw=ImageDraw.Draw(canvas)
