@@ -1,9 +1,749 @@
 {
   "normal": {
-    "unidirectional": [
+    "bidirectional": [
+      [
+        "adventurer_01",
+        "adventurer_13"
+      ],
+      [
+        "adventurer_01",
+        "adventurer_14"
+      ],
+      [
+        "adventurer_01",
+        "foundation_6"
+      ],
+      [
+        "adventurer_02",
+        "adventurer_13"
+      ],
+      [
+        "adventurer_02",
+        "adventurer_14"
+      ],
+      [
+        "adventurer_02",
+        "adventurer_17"
+      ],
+      [
+        "adventurer_02",
+        "adventurer_18"
+      ],
+      [
+        "adventurer_03",
+        "adventurer_17"
+      ],
+      [
+        "adventurer_03",
+        "adventurer_18"
+      ],
+      [
+        "adventurer_03",
+        "adventurer_22"
+      ],
+      [
+        "adventurer_03",
+        "adventurer_26"
+      ],
+      [
+        "adventurer_04",
+        "adventurer_15"
+      ],
+      [
+        "adventurer_04",
+        "adventurer_19"
+      ],
+      [
+        "adventurer_04",
+        "adventurer_22"
+      ],
+      [
+        "adventurer_05",
+        "adventurer_16"
+      ],
+      [
+        "adventurer_05",
+        "adventurer_23"
+      ],
+      [
+        "adventurer_05",
+        "adventurer_26"
+      ],
+      [
+        "adventurer_06",
+        "adventurer_07"
+      ],
+      [
+        "adventurer_06",
+        "adventurer_08"
+      ],
+      [
+        "adventurer_06",
+        "adventurer_09"
+      ],
+      [
+        "adventurer_06",
+        "adventurer_12"
+      ],
+      [
+        "adventurer_06",
+        "adventurer_21"
+      ],
+      [
+        "adventurer_06",
+        "adventurer_25"
+      ],
+      [
+        "adventurer_07",
+        "adventurer_09"
+      ],
+      [
+        "adventurer_07",
+        "adventurer_21"
+      ],
+      [
+        "adventurer_07",
+        "adventurer_27"
+      ],
+      [
+        "adventurer_08",
+        "adventurer_12"
+      ],
+      [
+        "adventurer_08",
+        "adventurer_25"
+      ],
+      [
+        "adventurer_08",
+        "adventurer_30"
+      ],
+      [
+        "adventurer_09",
+        "adventurer_12"
+      ],
+      [
+        "adventurer_09",
+        "adventurer_29"
+      ],
+      [
+        "adventurer_10",
+        "adventurer_33"
+      ],
+      [
+        "adventurer_11",
+        "adventurer_34"
+      ],
+      [
+        "adventurer_12",
+        "adventurer_32"
+      ],
+      [
+        "adventurer_13",
+        "adventurer_15"
+      ],
+      [
+        "adventurer_14",
+        "adventurer_16"
+      ],
+      [
+        "adventurer_15",
+        "adventurer_17"
+      ],
+      [
+        "adventurer_16",
+        "adventurer_18"
+      ],
+      [
+        "adventurer_19",
+        "adventurer_20"
+      ],
+      [
+        "adventurer_19",
+        "bridge_survivor_adventurer_4"
+      ],
+      [
+        "adventurer_20",
+        "adventurer_21"
+      ],
+      [
+        "adventurer_21",
+        "adventurer_22"
+      ],
+      [
+        "adventurer_23",
+        "adventurer_24"
+      ],
+      [
+        "adventurer_23",
+        "bridge_adventurer_wayfarer_1"
+      ],
+      [
+        "adventurer_24",
+        "adventurer_25"
+      ],
+      [
+        "adventurer_25",
+        "adventurer_26"
+      ],
+      [
+        "adventurer_27",
+        "adventurer_28"
+      ],
+      [
+        "adventurer_28",
+        "adventurer_29"
+      ],
+      [
+        "adventurer_28",
+        "adventurer_33"
+      ],
+      [
+        "adventurer_29",
+        "adventurer_32"
+      ],
+      [
+        "adventurer_30",
+        "adventurer_31"
+      ],
+      [
+        "adventurer_31",
+        "adventurer_32"
+      ],
+      [
+        "adventurer_31",
+        "adventurer_34"
+      ],
+      [
+        "artificer_01",
+        "artificer_13"
+      ],
+      [
+        "artificer_01",
+        "artificer_14"
+      ],
+      [
+        "artificer_01",
+        "foundation_4"
+      ],
+      [
+        "artificer_02",
+        "artificer_13"
+      ],
+      [
+        "artificer_02",
+        "artificer_14"
+      ],
+      [
+        "artificer_02",
+        "artificer_17"
+      ],
+      [
+        "artificer_02",
+        "artificer_18"
+      ],
+      [
+        "artificer_03",
+        "artificer_17"
+      ],
+      [
+        "artificer_03",
+        "artificer_18"
+      ],
+      [
+        "artificer_03",
+        "artificer_22"
+      ],
+      [
+        "artificer_03",
+        "artificer_26"
+      ],
+      [
+        "artificer_04",
+        "artificer_15"
+      ],
+      [
+        "artificer_04",
+        "artificer_19"
+      ],
+      [
+        "artificer_04",
+        "artificer_22"
+      ],
+      [
+        "artificer_05",
+        "artificer_16"
+      ],
+      [
+        "artificer_05",
+        "artificer_23"
+      ],
+      [
+        "artificer_05",
+        "artificer_26"
+      ],
+      [
+        "artificer_06",
+        "artificer_07"
+      ],
+      [
+        "artificer_06",
+        "artificer_08"
+      ],
+      [
+        "artificer_06",
+        "artificer_09"
+      ],
+      [
+        "artificer_06",
+        "artificer_12"
+      ],
+      [
+        "artificer_06",
+        "artificer_21"
+      ],
+      [
+        "artificer_06",
+        "artificer_25"
+      ],
+      [
+        "artificer_07",
+        "artificer_09"
+      ],
+      [
+        "artificer_07",
+        "artificer_21"
+      ],
+      [
+        "artificer_07",
+        "artificer_27"
+      ],
+      [
+        "artificer_08",
+        "artificer_12"
+      ],
+      [
+        "artificer_08",
+        "artificer_25"
+      ],
+      [
+        "artificer_08",
+        "artificer_30"
+      ],
+      [
+        "artificer_09",
+        "artificer_12"
+      ],
+      [
+        "artificer_09",
+        "artificer_29"
+      ],
+      [
+        "artificer_10",
+        "artificer_33"
+      ],
+      [
+        "artificer_11",
+        "artificer_34"
+      ],
+      [
+        "artificer_12",
+        "artificer_32"
+      ],
+      [
+        "artificer_13",
+        "artificer_15"
+      ],
+      [
+        "artificer_14",
+        "artificer_16"
+      ],
+      [
+        "artificer_15",
+        "artificer_17"
+      ],
+      [
+        "artificer_16",
+        "artificer_18"
+      ],
+      [
+        "artificer_19",
+        "artificer_20"
+      ],
+      [
+        "artificer_19",
+        "bridge_homesteader_artificer_4"
+      ],
+      [
+        "artificer_20",
+        "artificer_21"
+      ],
+      [
+        "artificer_21",
+        "artificer_22"
+      ],
+      [
+        "artificer_23",
+        "artificer_24"
+      ],
+      [
+        "artificer_23",
+        "bridge_artificer_survivor_1"
+      ],
+      [
+        "artificer_24",
+        "artificer_25"
+      ],
+      [
+        "artificer_25",
+        "artificer_26"
+      ],
+      [
+        "artificer_27",
+        "artificer_28"
+      ],
+      [
+        "artificer_28",
+        "artificer_29"
+      ],
+      [
+        "artificer_28",
+        "artificer_33"
+      ],
+      [
+        "artificer_29",
+        "artificer_32"
+      ],
+      [
+        "artificer_30",
+        "artificer_31"
+      ],
+      [
+        "artificer_31",
+        "artificer_32"
+      ],
+      [
+        "artificer_31",
+        "artificer_34"
+      ],
+      [
+        "bridge_adventurer_wayfarer_1",
+        "bridge_adventurer_wayfarer_2"
+      ],
+      [
+        "bridge_adventurer_wayfarer_2",
+        "bridge_adventurer_wayfarer_3"
+      ],
+      [
+        "bridge_adventurer_wayfarer_3",
+        "bridge_adventurer_wayfarer_4"
+      ],
+      [
+        "bridge_adventurer_wayfarer_4",
+        "wayfarer_19"
+      ],
+      [
+        "bridge_artificer_survivor_1",
+        "bridge_artificer_survivor_2"
+      ],
+      [
+        "bridge_artificer_survivor_2",
+        "bridge_artificer_survivor_3"
+      ],
+      [
+        "bridge_artificer_survivor_3",
+        "bridge_artificer_survivor_4"
+      ],
+      [
+        "bridge_artificer_survivor_4",
+        "survivor_19"
+      ],
+      [
+        "bridge_delver_homesteader_1",
+        "bridge_delver_homesteader_2"
+      ],
+      [
+        "bridge_delver_homesteader_1",
+        "delver_23"
+      ],
+      [
+        "bridge_delver_homesteader_2",
+        "bridge_delver_homesteader_3"
+      ],
+      [
+        "bridge_delver_homesteader_3",
+        "bridge_delver_homesteader_4"
+      ],
+      [
+        "bridge_delver_homesteader_4",
+        "homesteader_19"
+      ],
+      [
+        "bridge_homesteader_artificer_1",
+        "bridge_homesteader_artificer_2"
+      ],
+      [
+        "bridge_homesteader_artificer_1",
+        "homesteader_23"
+      ],
+      [
+        "bridge_homesteader_artificer_2",
+        "bridge_homesteader_artificer_3"
+      ],
+      [
+        "bridge_homesteader_artificer_3",
+        "bridge_homesteader_artificer_4"
+      ],
+      [
+        "bridge_survivor_adventurer_1",
+        "bridge_survivor_adventurer_2"
+      ],
+      [
+        "bridge_survivor_adventurer_1",
+        "survivor_23"
+      ],
+      [
+        "bridge_survivor_adventurer_2",
+        "bridge_survivor_adventurer_3"
+      ],
+      [
+        "bridge_survivor_adventurer_3",
+        "bridge_survivor_adventurer_4"
+      ],
+      [
+        "bridge_wayfarer_delver_1",
+        "bridge_wayfarer_delver_2"
+      ],
+      [
+        "bridge_wayfarer_delver_1",
+        "wayfarer_23"
+      ],
+      [
+        "bridge_wayfarer_delver_2",
+        "bridge_wayfarer_delver_3"
+      ],
+      [
+        "bridge_wayfarer_delver_3",
+        "bridge_wayfarer_delver_4"
+      ],
+      [
+        "bridge_wayfarer_delver_4",
+        "delver_19"
+      ],
+      [
+        "delver_01",
+        "delver_13"
+      ],
+      [
+        "delver_01",
+        "delver_14"
+      ],
+      [
+        "delver_01",
+        "foundation_2"
+      ],
+      [
+        "delver_02",
+        "delver_13"
+      ],
+      [
+        "delver_02",
+        "delver_14"
+      ],
+      [
+        "delver_02",
+        "delver_17"
+      ],
+      [
+        "delver_02",
+        "delver_18"
+      ],
+      [
+        "delver_03",
+        "delver_17"
+      ],
+      [
+        "delver_03",
+        "delver_18"
+      ],
+      [
+        "delver_03",
+        "delver_22"
+      ],
+      [
+        "delver_03",
+        "delver_26"
+      ],
+      [
+        "delver_04",
+        "delver_15"
+      ],
+      [
+        "delver_04",
+        "delver_19"
+      ],
+      [
+        "delver_04",
+        "delver_22"
+      ],
+      [
+        "delver_05",
+        "delver_16"
+      ],
+      [
+        "delver_05",
+        "delver_23"
+      ],
+      [
+        "delver_05",
+        "delver_26"
+      ],
+      [
+        "delver_06",
+        "delver_07"
+      ],
+      [
+        "delver_06",
+        "delver_08"
+      ],
+      [
+        "delver_06",
+        "delver_09"
+      ],
+      [
+        "delver_06",
+        "delver_12"
+      ],
+      [
+        "delver_06",
+        "delver_21"
+      ],
+      [
+        "delver_06",
+        "delver_25"
+      ],
+      [
+        "delver_07",
+        "delver_09"
+      ],
+      [
+        "delver_07",
+        "delver_21"
+      ],
+      [
+        "delver_07",
+        "delver_27"
+      ],
+      [
+        "delver_08",
+        "delver_12"
+      ],
+      [
+        "delver_08",
+        "delver_25"
+      ],
+      [
+        "delver_08",
+        "delver_30"
+      ],
+      [
+        "delver_09",
+        "delver_12"
+      ],
+      [
+        "delver_09",
+        "delver_29"
+      ],
+      [
+        "delver_10",
+        "delver_33"
+      ],
+      [
+        "delver_11",
+        "delver_34"
+      ],
+      [
+        "delver_12",
+        "delver_32"
+      ],
+      [
+        "delver_13",
+        "delver_15"
+      ],
+      [
+        "delver_14",
+        "delver_16"
+      ],
+      [
+        "delver_15",
+        "delver_17"
+      ],
+      [
+        "delver_16",
+        "delver_18"
+      ],
+      [
+        "delver_19",
+        "delver_20"
+      ],
+      [
+        "delver_20",
+        "delver_21"
+      ],
+      [
+        "delver_21",
+        "delver_22"
+      ],
+      [
+        "delver_23",
+        "delver_24"
+      ],
+      [
+        "delver_24",
+        "delver_25"
+      ],
+      [
+        "delver_25",
+        "delver_26"
+      ],
+      [
+        "delver_27",
+        "delver_28"
+      ],
+      [
+        "delver_28",
+        "delver_29"
+      ],
+      [
+        "delver_28",
+        "delver_33"
+      ],
+      [
+        "delver_29",
+        "delver_32"
+      ],
+      [
+        "delver_30",
+        "delver_31"
+      ],
+      [
+        "delver_31",
+        "delver_32"
+      ],
+      [
+        "delver_31",
+        "delver_34"
+      ],
       [
         "foundation_0",
         "foundation_1"
+      ],
+      [
+        "foundation_0",
+        "foundation_10"
+      ],
+      [
+        "foundation_0",
+        "foundation_11"
       ],
       [
         "foundation_0",
@@ -30,131 +770,155 @@
         "foundation_7"
       ],
       [
+        "foundation_0",
+        "foundation_8"
+      ],
+      [
+        "foundation_0",
+        "foundation_9"
+      ],
+      [
+        "foundation_1",
+        "foundation_7"
+      ],
+      [
         "foundation_1",
         "wayfarer_01"
       ],
       [
-        "foundation_1",
-        "wayfarer_02"
+        "foundation_10",
+        "foundation_11"
       ],
       [
-        "foundation_1",
-        "wayfarer_03"
+        "foundation_10",
+        "foundation_4"
       ],
       [
-        "wayfarer_01",
-        "wayfarer_04"
+        "foundation_10",
+        "foundation_5"
       ],
       [
-        "wayfarer_02",
-        "wayfarer_05"
+        "foundation_10",
+        "foundation_9"
       ],
       [
-        "wayfarer_03",
-        "wayfarer_06"
+        "foundation_11",
+        "foundation_5"
       ],
       [
-        "wayfarer_04",
-        "wayfarer_07"
+        "foundation_11",
+        "foundation_6"
       ],
       [
-        "wayfarer_05",
-        "wayfarer_08"
-      ],
-      [
-        "wayfarer_06",
-        "wayfarer_09"
-      ],
-      [
-        "wayfarer_07",
-        "wayfarer_10"
-      ],
-      [
-        "wayfarer_08",
-        "wayfarer_11"
-      ],
-      [
-        "wayfarer_09",
-        "wayfarer_12"
+        "foundation_11",
+        "foundation_7"
       ],
       [
         "foundation_2",
-        "delver_01"
+        "foundation_7"
       ],
       [
         "foundation_2",
-        "delver_02"
+        "foundation_8"
       ],
       [
-        "foundation_2",
-        "delver_03"
+        "foundation_3",
+        "foundation_8"
       ],
       [
-        "delver_01",
-        "delver_04"
-      ],
-      [
-        "delver_02",
-        "delver_05"
-      ],
-      [
-        "delver_03",
-        "delver_06"
-      ],
-      [
-        "delver_04",
-        "delver_07"
-      ],
-      [
-        "delver_05",
-        "delver_08"
-      ],
-      [
-        "delver_06",
-        "delver_09"
-      ],
-      [
-        "delver_07",
-        "delver_10"
-      ],
-      [
-        "delver_08",
-        "delver_11"
-      ],
-      [
-        "delver_09",
-        "delver_12"
+        "foundation_3",
+        "foundation_9"
       ],
       [
         "foundation_3",
         "homesteader_01"
       ],
       [
-        "foundation_3",
-        "homesteader_02"
+        "foundation_4",
+        "foundation_9"
       ],
       [
-        "foundation_3",
-        "homesteader_03"
+        "foundation_5",
+        "survivor_01"
+      ],
+      [
+        "foundation_7",
+        "foundation_8"
+      ],
+      [
+        "foundation_8",
+        "foundation_9"
       ],
       [
         "homesteader_01",
-        "homesteader_04"
+        "homesteader_13"
+      ],
+      [
+        "homesteader_01",
+        "homesteader_14"
       ],
       [
         "homesteader_02",
-        "homesteader_05"
+        "homesteader_13"
+      ],
+      [
+        "homesteader_02",
+        "homesteader_14"
+      ],
+      [
+        "homesteader_02",
+        "homesteader_17"
+      ],
+      [
+        "homesteader_02",
+        "homesteader_18"
       ],
       [
         "homesteader_03",
-        "homesteader_06"
+        "homesteader_17"
+      ],
+      [
+        "homesteader_03",
+        "homesteader_18"
+      ],
+      [
+        "homesteader_03",
+        "homesteader_22"
+      ],
+      [
+        "homesteader_03",
+        "homesteader_26"
       ],
       [
         "homesteader_04",
-        "homesteader_07"
+        "homesteader_15"
+      ],
+      [
+        "homesteader_04",
+        "homesteader_19"
+      ],
+      [
+        "homesteader_04",
+        "homesteader_22"
       ],
       [
         "homesteader_05",
+        "homesteader_16"
+      ],
+      [
+        "homesteader_05",
+        "homesteader_23"
+      ],
+      [
+        "homesteader_05",
+        "homesteader_26"
+      ],
+      [
+        "homesteader_06",
+        "homesteader_07"
+      ],
+      [
+        "homesteader_06",
         "homesteader_08"
       ],
       [
@@ -162,95 +926,199 @@
         "homesteader_09"
       ],
       [
+        "homesteader_06",
+        "homesteader_12"
+      ],
+      [
+        "homesteader_06",
+        "homesteader_21"
+      ],
+      [
+        "homesteader_06",
+        "homesteader_25"
+      ],
+      [
         "homesteader_07",
-        "homesteader_10"
+        "homesteader_09"
+      ],
+      [
+        "homesteader_07",
+        "homesteader_21"
+      ],
+      [
+        "homesteader_07",
+        "homesteader_27"
       ],
       [
         "homesteader_08",
-        "homesteader_11"
+        "homesteader_12"
+      ],
+      [
+        "homesteader_08",
+        "homesteader_25"
+      ],
+      [
+        "homesteader_08",
+        "homesteader_30"
       ],
       [
         "homesteader_09",
         "homesteader_12"
       ],
       [
-        "foundation_4",
-        "artificer_01"
+        "homesteader_09",
+        "homesteader_29"
       ],
       [
-        "foundation_4",
-        "artificer_02"
+        "homesteader_10",
+        "homesteader_33"
       ],
       [
-        "foundation_4",
-        "artificer_03"
+        "homesteader_11",
+        "homesteader_34"
       ],
       [
-        "artificer_01",
-        "artificer_04"
+        "homesteader_12",
+        "homesteader_32"
       ],
       [
-        "artificer_02",
-        "artificer_05"
+        "homesteader_13",
+        "homesteader_15"
       ],
       [
-        "artificer_03",
-        "artificer_06"
+        "homesteader_14",
+        "homesteader_16"
       ],
       [
-        "artificer_04",
-        "artificer_07"
+        "homesteader_15",
+        "homesteader_17"
       ],
       [
-        "artificer_05",
-        "artificer_08"
+        "homesteader_16",
+        "homesteader_18"
       ],
       [
-        "artificer_06",
-        "artificer_09"
+        "homesteader_19",
+        "homesteader_20"
       ],
       [
-        "artificer_07",
-        "artificer_10"
+        "homesteader_20",
+        "homesteader_21"
       ],
       [
-        "artificer_08",
-        "artificer_11"
+        "homesteader_21",
+        "homesteader_22"
       ],
       [
-        "artificer_09",
-        "artificer_12"
+        "homesteader_23",
+        "homesteader_24"
       ],
       [
-        "foundation_5",
-        "survivor_01"
+        "homesteader_24",
+        "homesteader_25"
       ],
       [
-        "foundation_5",
-        "survivor_02"
+        "homesteader_25",
+        "homesteader_26"
       ],
       [
-        "foundation_5",
-        "survivor_03"
+        "homesteader_27",
+        "homesteader_28"
+      ],
+      [
+        "homesteader_28",
+        "homesteader_29"
+      ],
+      [
+        "homesteader_28",
+        "homesteader_33"
+      ],
+      [
+        "homesteader_29",
+        "homesteader_32"
+      ],
+      [
+        "homesteader_30",
+        "homesteader_31"
+      ],
+      [
+        "homesteader_31",
+        "homesteader_32"
+      ],
+      [
+        "homesteader_31",
+        "homesteader_34"
       ],
       [
         "survivor_01",
-        "survivor_04"
+        "survivor_13"
+      ],
+      [
+        "survivor_01",
+        "survivor_14"
       ],
       [
         "survivor_02",
-        "survivor_05"
+        "survivor_13"
+      ],
+      [
+        "survivor_02",
+        "survivor_14"
+      ],
+      [
+        "survivor_02",
+        "survivor_17"
+      ],
+      [
+        "survivor_02",
+        "survivor_18"
       ],
       [
         "survivor_03",
-        "survivor_06"
+        "survivor_17"
+      ],
+      [
+        "survivor_03",
+        "survivor_18"
+      ],
+      [
+        "survivor_03",
+        "survivor_22"
+      ],
+      [
+        "survivor_03",
+        "survivor_26"
       ],
       [
         "survivor_04",
-        "survivor_07"
+        "survivor_15"
+      ],
+      [
+        "survivor_04",
+        "survivor_19"
+      ],
+      [
+        "survivor_04",
+        "survivor_22"
       ],
       [
         "survivor_05",
+        "survivor_16"
+      ],
+      [
+        "survivor_05",
+        "survivor_23"
+      ],
+      [
+        "survivor_05",
+        "survivor_26"
+      ],
+      [
+        "survivor_06",
+        "survivor_07"
+      ],
+      [
+        "survivor_06",
         "survivor_08"
       ],
       [
@@ -258,64 +1126,328 @@
         "survivor_09"
       ],
       [
+        "survivor_06",
+        "survivor_12"
+      ],
+      [
+        "survivor_06",
+        "survivor_21"
+      ],
+      [
+        "survivor_06",
+        "survivor_25"
+      ],
+      [
         "survivor_07",
-        "survivor_10"
+        "survivor_09"
+      ],
+      [
+        "survivor_07",
+        "survivor_21"
+      ],
+      [
+        "survivor_07",
+        "survivor_27"
       ],
       [
         "survivor_08",
-        "survivor_11"
+        "survivor_12"
+      ],
+      [
+        "survivor_08",
+        "survivor_25"
+      ],
+      [
+        "survivor_08",
+        "survivor_30"
       ],
       [
         "survivor_09",
         "survivor_12"
       ],
       [
-        "foundation_6",
-        "adventurer_01"
+        "survivor_09",
+        "survivor_29"
       ],
       [
-        "foundation_6",
-        "adventurer_02"
+        "survivor_10",
+        "survivor_33"
       ],
       [
-        "foundation_6",
-        "adventurer_03"
+        "survivor_11",
+        "survivor_34"
       ],
       [
-        "adventurer_01",
-        "adventurer_04"
+        "survivor_12",
+        "survivor_32"
       ],
       [
-        "adventurer_02",
-        "adventurer_05"
+        "survivor_13",
+        "survivor_15"
       ],
       [
-        "adventurer_03",
-        "adventurer_06"
+        "survivor_14",
+        "survivor_16"
       ],
       [
-        "adventurer_04",
-        "adventurer_07"
+        "survivor_15",
+        "survivor_17"
       ],
       [
-        "adventurer_05",
-        "adventurer_08"
+        "survivor_16",
+        "survivor_18"
       ],
       [
-        "adventurer_06",
-        "adventurer_09"
+        "survivor_19",
+        "survivor_20"
       ],
       [
-        "adventurer_07",
-        "adventurer_10"
+        "survivor_20",
+        "survivor_21"
       ],
       [
-        "adventurer_08",
-        "adventurer_11"
+        "survivor_21",
+        "survivor_22"
       ],
       [
-        "adventurer_09",
-        "adventurer_12"
+        "survivor_23",
+        "survivor_24"
+      ],
+      [
+        "survivor_24",
+        "survivor_25"
+      ],
+      [
+        "survivor_25",
+        "survivor_26"
+      ],
+      [
+        "survivor_27",
+        "survivor_28"
+      ],
+      [
+        "survivor_28",
+        "survivor_29"
+      ],
+      [
+        "survivor_28",
+        "survivor_33"
+      ],
+      [
+        "survivor_29",
+        "survivor_32"
+      ],
+      [
+        "survivor_30",
+        "survivor_31"
+      ],
+      [
+        "survivor_31",
+        "survivor_32"
+      ],
+      [
+        "survivor_31",
+        "survivor_34"
+      ],
+      [
+        "wayfarer_01",
+        "wayfarer_13"
+      ],
+      [
+        "wayfarer_01",
+        "wayfarer_14"
+      ],
+      [
+        "wayfarer_02",
+        "wayfarer_13"
+      ],
+      [
+        "wayfarer_02",
+        "wayfarer_14"
+      ],
+      [
+        "wayfarer_02",
+        "wayfarer_17"
+      ],
+      [
+        "wayfarer_02",
+        "wayfarer_18"
+      ],
+      [
+        "wayfarer_03",
+        "wayfarer_17"
+      ],
+      [
+        "wayfarer_03",
+        "wayfarer_18"
+      ],
+      [
+        "wayfarer_03",
+        "wayfarer_22"
+      ],
+      [
+        "wayfarer_03",
+        "wayfarer_26"
+      ],
+      [
+        "wayfarer_04",
+        "wayfarer_15"
+      ],
+      [
+        "wayfarer_04",
+        "wayfarer_19"
+      ],
+      [
+        "wayfarer_04",
+        "wayfarer_22"
+      ],
+      [
+        "wayfarer_05",
+        "wayfarer_16"
+      ],
+      [
+        "wayfarer_05",
+        "wayfarer_23"
+      ],
+      [
+        "wayfarer_05",
+        "wayfarer_26"
+      ],
+      [
+        "wayfarer_06",
+        "wayfarer_07"
+      ],
+      [
+        "wayfarer_06",
+        "wayfarer_08"
+      ],
+      [
+        "wayfarer_06",
+        "wayfarer_09"
+      ],
+      [
+        "wayfarer_06",
+        "wayfarer_12"
+      ],
+      [
+        "wayfarer_06",
+        "wayfarer_21"
+      ],
+      [
+        "wayfarer_06",
+        "wayfarer_25"
+      ],
+      [
+        "wayfarer_07",
+        "wayfarer_09"
+      ],
+      [
+        "wayfarer_07",
+        "wayfarer_21"
+      ],
+      [
+        "wayfarer_07",
+        "wayfarer_27"
+      ],
+      [
+        "wayfarer_08",
+        "wayfarer_12"
+      ],
+      [
+        "wayfarer_08",
+        "wayfarer_25"
+      ],
+      [
+        "wayfarer_08",
+        "wayfarer_30"
+      ],
+      [
+        "wayfarer_09",
+        "wayfarer_12"
+      ],
+      [
+        "wayfarer_09",
+        "wayfarer_29"
+      ],
+      [
+        "wayfarer_10",
+        "wayfarer_33"
+      ],
+      [
+        "wayfarer_11",
+        "wayfarer_34"
+      ],
+      [
+        "wayfarer_12",
+        "wayfarer_32"
+      ],
+      [
+        "wayfarer_13",
+        "wayfarer_15"
+      ],
+      [
+        "wayfarer_14",
+        "wayfarer_16"
+      ],
+      [
+        "wayfarer_15",
+        "wayfarer_17"
+      ],
+      [
+        "wayfarer_16",
+        "wayfarer_18"
+      ],
+      [
+        "wayfarer_19",
+        "wayfarer_20"
+      ],
+      [
+        "wayfarer_20",
+        "wayfarer_21"
+      ],
+      [
+        "wayfarer_21",
+        "wayfarer_22"
+      ],
+      [
+        "wayfarer_23",
+        "wayfarer_24"
+      ],
+      [
+        "wayfarer_24",
+        "wayfarer_25"
+      ],
+      [
+        "wayfarer_25",
+        "wayfarer_26"
+      ],
+      [
+        "wayfarer_27",
+        "wayfarer_28"
+      ],
+      [
+        "wayfarer_28",
+        "wayfarer_29"
+      ],
+      [
+        "wayfarer_28",
+        "wayfarer_33"
+      ],
+      [
+        "wayfarer_29",
+        "wayfarer_32"
+      ],
+      [
+        "wayfarer_30",
+        "wayfarer_31"
+      ],
+      [
+        "wayfarer_31",
+        "wayfarer_32"
+      ],
+      [
+        "wayfarer_31",
+        "wayfarer_34"
       ]
     ]
   }

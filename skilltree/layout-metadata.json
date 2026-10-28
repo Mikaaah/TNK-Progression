@@ -1,0 +1,1202 @@
+{
+  "foundation_0": {
+    "branch": "Foundation",
+    "role": "hub",
+    "icon_alias": "foundation_0"
+  },
+  "foundation_1": {
+    "branch": "Foundation",
+    "role": "hub",
+    "icon_alias": "foundation_1"
+  },
+  "foundation_2": {
+    "branch": "Foundation",
+    "role": "hub",
+    "icon_alias": "foundation_2"
+  },
+  "foundation_3": {
+    "branch": "Foundation",
+    "role": "hub",
+    "icon_alias": "foundation_3"
+  },
+  "foundation_4": {
+    "branch": "Foundation",
+    "role": "hub",
+    "icon_alias": "foundation_4"
+  },
+  "foundation_5": {
+    "branch": "Foundation",
+    "role": "hub",
+    "icon_alias": "foundation_5"
+  },
+  "foundation_6": {
+    "branch": "Foundation",
+    "role": "hub",
+    "icon_alias": "foundation_6"
+  },
+  "foundation_7": {
+    "branch": "Foundation",
+    "role": "minor",
+    "icon_alias": "foundation_7"
+  },
+  "foundation_8": {
+    "branch": "Foundation",
+    "role": "minor",
+    "icon_alias": "foundation_5"
+  },
+  "foundation_9": {
+    "branch": "Foundation",
+    "role": "minor",
+    "icon_alias": "foundation_0"
+  },
+  "foundation_10": {
+    "branch": "Foundation",
+    "role": "minor",
+    "icon_alias": "foundation_4"
+  },
+  "foundation_11": {
+    "branch": "Foundation",
+    "role": "minor",
+    "icon_alias": "foundation_2"
+  },
+  "wayfarer_01": {
+    "branch": "Wayfarer",
+    "role": "minor",
+    "icon_alias": "wayfarer_01"
+  },
+  "wayfarer_13": {
+    "branch": "Wayfarer",
+    "role": "minor",
+    "icon_alias": "wayfarer_01"
+  },
+  "wayfarer_14": {
+    "branch": "Wayfarer",
+    "role": "minor",
+    "icon_alias": "wayfarer_03"
+  },
+  "wayfarer_15": {
+    "branch": "Wayfarer",
+    "role": "minor",
+    "icon_alias": "wayfarer_02"
+  },
+  "wayfarer_02": {
+    "branch": "Wayfarer",
+    "role": "minor",
+    "icon_alias": "wayfarer_02"
+  },
+  "wayfarer_16": {
+    "branch": "Wayfarer",
+    "role": "minor",
+    "icon_alias": "wayfarer_07"
+  },
+  "wayfarer_17": {
+    "branch": "Wayfarer",
+    "role": "minor",
+    "icon_alias": "wayfarer_09"
+  },
+  "wayfarer_18": {
+    "branch": "Wayfarer",
+    "role": "minor",
+    "icon_alias": "wayfarer_04"
+  },
+  "wayfarer_03": {
+    "branch": "Wayfarer",
+    "role": "hub",
+    "icon_alias": "wayfarer_03"
+  },
+  "wayfarer_04": {
+    "branch": "Wayfarer",
+    "role": "notable",
+    "icon_alias": "wayfarer_04"
+  },
+  "wayfarer_19": {
+    "branch": "Wayfarer",
+    "role": "minor",
+    "icon_alias": "wayfarer_11"
+  },
+  "wayfarer_20": {
+    "branch": "Wayfarer",
+    "role": "minor",
+    "icon_alias": "wayfarer_06"
+  },
+  "wayfarer_21": {
+    "branch": "Wayfarer",
+    "role": "minor",
+    "icon_alias": "wayfarer_07"
+  },
+  "wayfarer_22": {
+    "branch": "Wayfarer",
+    "role": "minor",
+    "icon_alias": "wayfarer_08"
+  },
+  "wayfarer_05": {
+    "branch": "Wayfarer",
+    "role": "notable",
+    "icon_alias": "wayfarer_05"
+  },
+  "wayfarer_23": {
+    "branch": "Wayfarer",
+    "role": "minor",
+    "icon_alias": "wayfarer_10"
+  },
+  "wayfarer_24": {
+    "branch": "Wayfarer",
+    "role": "minor",
+    "icon_alias": "wayfarer_02"
+  },
+  "wayfarer_25": {
+    "branch": "Wayfarer",
+    "role": "minor",
+    "icon_alias": "wayfarer_12"
+  },
+  "wayfarer_26": {
+    "branch": "Wayfarer",
+    "role": "minor",
+    "icon_alias": "wayfarer_09"
+  },
+  "wayfarer_06": {
+    "branch": "Wayfarer",
+    "role": "hub",
+    "icon_alias": "wayfarer_06"
+  },
+  "wayfarer_07": {
+    "branch": "Wayfarer",
+    "role": "notable",
+    "icon_alias": "wayfarer_07"
+  },
+  "wayfarer_27": {
+    "branch": "Wayfarer",
+    "role": "minor",
+    "icon_alias": "wayfarer_08"
+  },
+  "wayfarer_28": {
+    "branch": "Wayfarer",
+    "role": "minor",
+    "icon_alias": "wayfarer_07"
+  },
+  "wayfarer_29": {
+    "branch": "Wayfarer",
+    "role": "minor",
+    "icon_alias": "wayfarer_03"
+  },
+  "wayfarer_09": {
+    "branch": "Wayfarer",
+    "role": "notable",
+    "icon_alias": "wayfarer_09"
+  },
+  "wayfarer_08": {
+    "branch": "Wayfarer",
+    "role": "notable",
+    "icon_alias": "wayfarer_08"
+  },
+  "wayfarer_30": {
+    "branch": "Wayfarer",
+    "role": "minor",
+    "icon_alias": "wayfarer_04"
+  },
+  "wayfarer_31": {
+    "branch": "Wayfarer",
+    "role": "minor",
+    "icon_alias": "wayfarer_09"
+  },
+  "wayfarer_32": {
+    "branch": "Wayfarer",
+    "role": "minor",
+    "icon_alias": "wayfarer_11"
+  },
+  "wayfarer_12": {
+    "branch": "Wayfarer",
+    "role": "notable",
+    "icon_alias": "wayfarer_12"
+  },
+  "wayfarer_33": {
+    "branch": "Wayfarer",
+    "role": "minor",
+    "icon_alias": "wayfarer_06"
+  },
+  "wayfarer_10": {
+    "branch": "Wayfarer",
+    "role": "keystone",
+    "icon_alias": "wayfarer_10"
+  },
+  "wayfarer_34": {
+    "branch": "Wayfarer",
+    "role": "minor",
+    "icon_alias": "wayfarer_10"
+  },
+  "wayfarer_11": {
+    "branch": "Wayfarer",
+    "role": "keystone",
+    "icon_alias": "wayfarer_11"
+  },
+  "delver_01": {
+    "branch": "Delver",
+    "role": "minor",
+    "icon_alias": "delver_01"
+  },
+  "delver_13": {
+    "branch": "Delver",
+    "role": "minor",
+    "icon_alias": "delver_01"
+  },
+  "delver_14": {
+    "branch": "Delver",
+    "role": "minor",
+    "icon_alias": "delver_02"
+  },
+  "delver_15": {
+    "branch": "Delver",
+    "role": "minor",
+    "icon_alias": "delver_03"
+  },
+  "delver_02": {
+    "branch": "Delver",
+    "role": "minor",
+    "icon_alias": "delver_02"
+  },
+  "delver_16": {
+    "branch": "Delver",
+    "role": "minor",
+    "icon_alias": "delver_09"
+  },
+  "delver_17": {
+    "branch": "Delver",
+    "role": "minor",
+    "icon_alias": "delver_04"
+  },
+  "delver_18": {
+    "branch": "Delver",
+    "role": "minor",
+    "icon_alias": "delver_08"
+  },
+  "delver_03": {
+    "branch": "Delver",
+    "role": "hub",
+    "icon_alias": "delver_03"
+  },
+  "delver_04": {
+    "branch": "Delver",
+    "role": "notable",
+    "icon_alias": "delver_04"
+  },
+  "delver_19": {
+    "branch": "Delver",
+    "role": "minor",
+    "icon_alias": "delver_06"
+  },
+  "delver_20": {
+    "branch": "Delver",
+    "role": "minor",
+    "icon_alias": "delver_05"
+  },
+  "delver_21": {
+    "branch": "Delver",
+    "role": "minor",
+    "icon_alias": "delver_07"
+  },
+  "delver_22": {
+    "branch": "Delver",
+    "role": "minor",
+    "icon_alias": "delver_09"
+  },
+  "delver_05": {
+    "branch": "Delver",
+    "role": "notable",
+    "icon_alias": "delver_05"
+  },
+  "delver_23": {
+    "branch": "Delver",
+    "role": "minor",
+    "icon_alias": "delver_10"
+  },
+  "delver_24": {
+    "branch": "Delver",
+    "role": "minor",
+    "icon_alias": "delver_11"
+  },
+  "delver_25": {
+    "branch": "Delver",
+    "role": "minor",
+    "icon_alias": "delver_03"
+  },
+  "delver_26": {
+    "branch": "Delver",
+    "role": "minor",
+    "icon_alias": "delver_12"
+  },
+  "delver_06": {
+    "branch": "Delver",
+    "role": "hub",
+    "icon_alias": "delver_06"
+  },
+  "delver_07": {
+    "branch": "Delver",
+    "role": "notable",
+    "icon_alias": "delver_07"
+  },
+  "delver_27": {
+    "branch": "Delver",
+    "role": "minor",
+    "icon_alias": "delver_02"
+  },
+  "delver_28": {
+    "branch": "Delver",
+    "role": "minor",
+    "icon_alias": "delver_09"
+  },
+  "delver_29": {
+    "branch": "Delver",
+    "role": "minor",
+    "icon_alias": "delver_04"
+  },
+  "delver_09": {
+    "branch": "Delver",
+    "role": "notable",
+    "icon_alias": "delver_09"
+  },
+  "delver_08": {
+    "branch": "Delver",
+    "role": "notable",
+    "icon_alias": "delver_08"
+  },
+  "delver_30": {
+    "branch": "Delver",
+    "role": "minor",
+    "icon_alias": "delver_08"
+  },
+  "delver_31": {
+    "branch": "Delver",
+    "role": "minor",
+    "icon_alias": "delver_06"
+  },
+  "delver_32": {
+    "branch": "Delver",
+    "role": "minor",
+    "icon_alias": "delver_05"
+  },
+  "delver_12": {
+    "branch": "Delver",
+    "role": "notable",
+    "icon_alias": "delver_12"
+  },
+  "delver_33": {
+    "branch": "Delver",
+    "role": "minor",
+    "icon_alias": "delver_07"
+  },
+  "delver_10": {
+    "branch": "Delver",
+    "role": "keystone",
+    "icon_alias": "delver_10"
+  },
+  "delver_34": {
+    "branch": "Delver",
+    "role": "minor",
+    "icon_alias": "delver_11"
+  },
+  "delver_11": {
+    "branch": "Delver",
+    "role": "keystone",
+    "icon_alias": "delver_11"
+  },
+  "homesteader_01": {
+    "branch": "Homesteader",
+    "role": "minor",
+    "icon_alias": "homesteader_01"
+  },
+  "homesteader_13": {
+    "branch": "Homesteader",
+    "role": "minor",
+    "icon_alias": "homesteader_01"
+  },
+  "homesteader_14": {
+    "branch": "Homesteader",
+    "role": "minor",
+    "icon_alias": "homesteader_02"
+  },
+  "homesteader_15": {
+    "branch": "Homesteader",
+    "role": "minor",
+    "icon_alias": "homesteader_03"
+  },
+  "homesteader_02": {
+    "branch": "Homesteader",
+    "role": "minor",
+    "icon_alias": "homesteader_02"
+  },
+  "homesteader_16": {
+    "branch": "Homesteader",
+    "role": "minor",
+    "icon_alias": "homesteader_04"
+  },
+  "homesteader_17": {
+    "branch": "Homesteader",
+    "role": "minor",
+    "icon_alias": "homesteader_05"
+  },
+  "homesteader_18": {
+    "branch": "Homesteader",
+    "role": "minor",
+    "icon_alias": "homesteader_06"
+  },
+  "homesteader_03": {
+    "branch": "Homesteader",
+    "role": "hub",
+    "icon_alias": "homesteader_03"
+  },
+  "homesteader_04": {
+    "branch": "Homesteader",
+    "role": "notable",
+    "icon_alias": "homesteader_04"
+  },
+  "homesteader_19": {
+    "branch": "Homesteader",
+    "role": "minor",
+    "icon_alias": "homesteader_07"
+  },
+  "homesteader_20": {
+    "branch": "Homesteader",
+    "role": "minor",
+    "icon_alias": "homesteader_08"
+  },
+  "homesteader_21": {
+    "branch": "Homesteader",
+    "role": "minor",
+    "icon_alias": "homesteader_09"
+  },
+  "homesteader_22": {
+    "branch": "Homesteader",
+    "role": "minor",
+    "icon_alias": "homesteader_12"
+  },
+  "homesteader_05": {
+    "branch": "Homesteader",
+    "role": "notable",
+    "icon_alias": "homesteader_05"
+  },
+  "homesteader_23": {
+    "branch": "Homesteader",
+    "role": "minor",
+    "icon_alias": "homesteader_10"
+  },
+  "homesteader_24": {
+    "branch": "Homesteader",
+    "role": "minor",
+    "icon_alias": "homesteader_11"
+  },
+  "homesteader_25": {
+    "branch": "Homesteader",
+    "role": "minor",
+    "icon_alias": "homesteader_03"
+  },
+  "homesteader_26": {
+    "branch": "Homesteader",
+    "role": "minor",
+    "icon_alias": "homesteader_04"
+  },
+  "homesteader_06": {
+    "branch": "Homesteader",
+    "role": "hub",
+    "icon_alias": "homesteader_06"
+  },
+  "homesteader_07": {
+    "branch": "Homesteader",
+    "role": "notable",
+    "icon_alias": "homesteader_07"
+  },
+  "homesteader_27": {
+    "branch": "Homesteader",
+    "role": "minor",
+    "icon_alias": "homesteader_07"
+  },
+  "homesteader_28": {
+    "branch": "Homesteader",
+    "role": "minor",
+    "icon_alias": "homesteader_12"
+  },
+  "homesteader_29": {
+    "branch": "Homesteader",
+    "role": "minor",
+    "icon_alias": "homesteader_05"
+  },
+  "homesteader_09": {
+    "branch": "Homesteader",
+    "role": "notable",
+    "icon_alias": "homesteader_09"
+  },
+  "homesteader_08": {
+    "branch": "Homesteader",
+    "role": "notable",
+    "icon_alias": "homesteader_08"
+  },
+  "homesteader_30": {
+    "branch": "Homesteader",
+    "role": "minor",
+    "icon_alias": "homesteader_06"
+  },
+  "homesteader_31": {
+    "branch": "Homesteader",
+    "role": "minor",
+    "icon_alias": "homesteader_09"
+  },
+  "homesteader_32": {
+    "branch": "Homesteader",
+    "role": "minor",
+    "icon_alias": "homesteader_01"
+  },
+  "homesteader_12": {
+    "branch": "Homesteader",
+    "role": "notable",
+    "icon_alias": "homesteader_12"
+  },
+  "homesteader_33": {
+    "branch": "Homesteader",
+    "role": "minor",
+    "icon_alias": "homesteader_03"
+  },
+  "homesteader_10": {
+    "branch": "Homesteader",
+    "role": "keystone",
+    "icon_alias": "homesteader_10"
+  },
+  "homesteader_34": {
+    "branch": "Homesteader",
+    "role": "minor",
+    "icon_alias": "homesteader_02"
+  },
+  "homesteader_11": {
+    "branch": "Homesteader",
+    "role": "keystone",
+    "icon_alias": "homesteader_11"
+  },
+  "artificer_01": {
+    "branch": "Artificer",
+    "role": "minor",
+    "icon_alias": "artificer_01"
+  },
+  "artificer_13": {
+    "branch": "Artificer",
+    "role": "minor",
+    "icon_alias": "artificer_01"
+  },
+  "artificer_14": {
+    "branch": "Artificer",
+    "role": "minor",
+    "icon_alias": "artificer_02"
+  },
+  "artificer_15": {
+    "branch": "Artificer",
+    "role": "minor",
+    "icon_alias": "artificer_06"
+  },
+  "artificer_02": {
+    "branch": "Artificer",
+    "role": "minor",
+    "icon_alias": "artificer_02"
+  },
+  "artificer_16": {
+    "branch": "Artificer",
+    "role": "minor",
+    "icon_alias": "artificer_03"
+  },
+  "artificer_17": {
+    "branch": "Artificer",
+    "role": "minor",
+    "icon_alias": "artificer_04"
+  },
+  "artificer_18": {
+    "branch": "Artificer",
+    "role": "minor",
+    "icon_alias": "artificer_05"
+  },
+  "artificer_03": {
+    "branch": "Artificer",
+    "role": "hub",
+    "icon_alias": "artificer_03"
+  },
+  "artificer_04": {
+    "branch": "Artificer",
+    "role": "notable",
+    "icon_alias": "artificer_04"
+  },
+  "artificer_19": {
+    "branch": "Artificer",
+    "role": "minor",
+    "icon_alias": "artificer_09"
+  },
+  "artificer_20": {
+    "branch": "Artificer",
+    "role": "minor",
+    "icon_alias": "artificer_12"
+  },
+  "artificer_21": {
+    "branch": "Artificer",
+    "role": "minor",
+    "icon_alias": "artificer_07"
+  },
+  "artificer_22": {
+    "branch": "Artificer",
+    "role": "minor",
+    "icon_alias": "artificer_08"
+  },
+  "artificer_05": {
+    "branch": "Artificer",
+    "role": "notable",
+    "icon_alias": "artificer_05"
+  },
+  "artificer_23": {
+    "branch": "Artificer",
+    "role": "minor",
+    "icon_alias": "artificer_06"
+  },
+  "artificer_24": {
+    "branch": "Artificer",
+    "role": "minor",
+    "icon_alias": "artificer_03"
+  },
+  "artificer_25": {
+    "branch": "Artificer",
+    "role": "minor",
+    "icon_alias": "artificer_12"
+  },
+  "artificer_26": {
+    "branch": "Artificer",
+    "role": "minor",
+    "icon_alias": "artificer_10"
+  },
+  "artificer_06": {
+    "branch": "Artificer",
+    "role": "hub",
+    "icon_alias": "artificer_06"
+  },
+  "artificer_07": {
+    "branch": "Artificer",
+    "role": "notable",
+    "icon_alias": "artificer_07"
+  },
+  "artificer_27": {
+    "branch": "Artificer",
+    "role": "minor",
+    "icon_alias": "artificer_11"
+  },
+  "artificer_28": {
+    "branch": "Artificer",
+    "role": "minor",
+    "icon_alias": "artificer_06"
+  },
+  "artificer_29": {
+    "branch": "Artificer",
+    "role": "minor",
+    "icon_alias": "artificer_09"
+  },
+  "artificer_09": {
+    "branch": "Artificer",
+    "role": "notable",
+    "icon_alias": "artificer_09"
+  },
+  "artificer_08": {
+    "branch": "Artificer",
+    "role": "notable",
+    "icon_alias": "artificer_08"
+  },
+  "artificer_30": {
+    "branch": "Artificer",
+    "role": "minor",
+    "icon_alias": "artificer_04"
+  },
+  "artificer_31": {
+    "branch": "Artificer",
+    "role": "minor",
+    "icon_alias": "artificer_08"
+  },
+  "artificer_32": {
+    "branch": "Artificer",
+    "role": "minor",
+    "icon_alias": "artificer_12"
+  },
+  "artificer_12": {
+    "branch": "Artificer",
+    "role": "notable",
+    "icon_alias": "artificer_12"
+  },
+  "artificer_33": {
+    "branch": "Artificer",
+    "role": "minor",
+    "icon_alias": "artificer_03"
+  },
+  "artificer_10": {
+    "branch": "Artificer",
+    "role": "keystone",
+    "icon_alias": "artificer_10"
+  },
+  "artificer_34": {
+    "branch": "Artificer",
+    "role": "minor",
+    "icon_alias": "artificer_07"
+  },
+  "artificer_11": {
+    "branch": "Artificer",
+    "role": "keystone",
+    "icon_alias": "artificer_11"
+  },
+  "survivor_01": {
+    "branch": "Survivor",
+    "role": "minor",
+    "icon_alias": "survivor_01"
+  },
+  "survivor_13": {
+    "branch": "Survivor",
+    "role": "minor",
+    "icon_alias": "survivor_03"
+  },
+  "survivor_14": {
+    "branch": "Survivor",
+    "role": "minor",
+    "icon_alias": "survivor_02"
+  },
+  "survivor_15": {
+    "branch": "Survivor",
+    "role": "minor",
+    "icon_alias": "foundation_0"
+  },
+  "survivor_02": {
+    "branch": "Survivor",
+    "role": "minor",
+    "icon_alias": "survivor_02"
+  },
+  "survivor_16": {
+    "branch": "Survivor",
+    "role": "minor",
+    "icon_alias": "survivor_07"
+  },
+  "survivor_17": {
+    "branch": "Survivor",
+    "role": "minor",
+    "icon_alias": "survivor_08"
+  },
+  "survivor_18": {
+    "branch": "Survivor",
+    "role": "minor",
+    "icon_alias": "survivor_09"
+  },
+  "survivor_03": {
+    "branch": "Survivor",
+    "role": "hub",
+    "icon_alias": "survivor_03"
+  },
+  "survivor_04": {
+    "branch": "Survivor",
+    "role": "notable",
+    "icon_alias": "survivor_04"
+  },
+  "survivor_19": {
+    "branch": "Survivor",
+    "role": "minor",
+    "icon_alias": "survivor_04"
+  },
+  "survivor_20": {
+    "branch": "Survivor",
+    "role": "minor",
+    "icon_alias": "survivor_06"
+  },
+  "survivor_21": {
+    "branch": "Survivor",
+    "role": "minor",
+    "icon_alias": "survivor_05"
+  },
+  "survivor_22": {
+    "branch": "Survivor",
+    "role": "minor",
+    "icon_alias": "survivor_12"
+  },
+  "survivor_05": {
+    "branch": "Survivor",
+    "role": "notable",
+    "icon_alias": "survivor_05"
+  },
+  "survivor_23": {
+    "branch": "Survivor",
+    "role": "minor",
+    "icon_alias": "survivor_07"
+  },
+  "survivor_24": {
+    "branch": "Survivor",
+    "role": "minor",
+    "icon_alias": "survivor_08"
+  },
+  "survivor_25": {
+    "branch": "Survivor",
+    "role": "minor",
+    "icon_alias": "survivor_09"
+  },
+  "survivor_26": {
+    "branch": "Survivor",
+    "role": "minor",
+    "icon_alias": "survivor_04"
+  },
+  "survivor_06": {
+    "branch": "Survivor",
+    "role": "hub",
+    "icon_alias": "survivor_06"
+  },
+  "survivor_07": {
+    "branch": "Survivor",
+    "role": "notable",
+    "icon_alias": "survivor_07"
+  },
+  "survivor_27": {
+    "branch": "Survivor",
+    "role": "minor",
+    "icon_alias": "survivor_03"
+  },
+  "survivor_28": {
+    "branch": "Survivor",
+    "role": "minor",
+    "icon_alias": "survivor_11"
+  },
+  "survivor_29": {
+    "branch": "Survivor",
+    "role": "minor",
+    "icon_alias": "survivor_02"
+  },
+  "survivor_09": {
+    "branch": "Survivor",
+    "role": "notable",
+    "icon_alias": "survivor_09"
+  },
+  "survivor_08": {
+    "branch": "Survivor",
+    "role": "notable",
+    "icon_alias": "survivor_08"
+  },
+  "survivor_30": {
+    "branch": "Survivor",
+    "role": "minor",
+    "icon_alias": "survivor_07"
+  },
+  "survivor_31": {
+    "branch": "Survivor",
+    "role": "minor",
+    "icon_alias": "survivor_08"
+  },
+  "survivor_32": {
+    "branch": "Survivor",
+    "role": "minor",
+    "icon_alias": "survivor_09"
+  },
+  "survivor_12": {
+    "branch": "Survivor",
+    "role": "notable",
+    "icon_alias": "survivor_12"
+  },
+  "survivor_33": {
+    "branch": "Survivor",
+    "role": "minor",
+    "icon_alias": "foundation_0"
+  },
+  "survivor_10": {
+    "branch": "Survivor",
+    "role": "keystone",
+    "icon_alias": "survivor_10"
+  },
+  "survivor_34": {
+    "branch": "Survivor",
+    "role": "minor",
+    "icon_alias": "survivor_06"
+  },
+  "survivor_11": {
+    "branch": "Survivor",
+    "role": "keystone",
+    "icon_alias": "survivor_11"
+  },
+  "adventurer_01": {
+    "branch": "Adventurer",
+    "role": "minor",
+    "icon_alias": "adventurer_01"
+  },
+  "adventurer_13": {
+    "branch": "Adventurer",
+    "role": "minor",
+    "icon_alias": "adventurer_01"
+  },
+  "adventurer_14": {
+    "branch": "Adventurer",
+    "role": "minor",
+    "icon_alias": "adventurer_02"
+  },
+  "adventurer_15": {
+    "branch": "Adventurer",
+    "role": "minor",
+    "icon_alias": "adventurer_03"
+  },
+  "adventurer_02": {
+    "branch": "Adventurer",
+    "role": "minor",
+    "icon_alias": "adventurer_02"
+  },
+  "adventurer_16": {
+    "branch": "Adventurer",
+    "role": "minor",
+    "icon_alias": "adventurer_04"
+  },
+  "adventurer_17": {
+    "branch": "Adventurer",
+    "role": "minor",
+    "icon_alias": "adventurer_05"
+  },
+  "adventurer_18": {
+    "branch": "Adventurer",
+    "role": "minor",
+    "icon_alias": "adventurer_08"
+  },
+  "adventurer_03": {
+    "branch": "Adventurer",
+    "role": "hub",
+    "icon_alias": "adventurer_03"
+  },
+  "adventurer_04": {
+    "branch": "Adventurer",
+    "role": "notable",
+    "icon_alias": "adventurer_04"
+  },
+  "adventurer_19": {
+    "branch": "Adventurer",
+    "role": "minor",
+    "icon_alias": "adventurer_07"
+  },
+  "adventurer_20": {
+    "branch": "Adventurer",
+    "role": "minor",
+    "icon_alias": "adventurer_09"
+  },
+  "adventurer_21": {
+    "branch": "Adventurer",
+    "role": "minor",
+    "icon_alias": "adventurer_10"
+  },
+  "adventurer_22": {
+    "branch": "Adventurer",
+    "role": "minor",
+    "icon_alias": "adventurer_11"
+  },
+  "adventurer_05": {
+    "branch": "Adventurer",
+    "role": "notable",
+    "icon_alias": "adventurer_05"
+  },
+  "adventurer_23": {
+    "branch": "Adventurer",
+    "role": "minor",
+    "icon_alias": "adventurer_12"
+  },
+  "adventurer_24": {
+    "branch": "Adventurer",
+    "role": "minor",
+    "icon_alias": "adventurer_04"
+  },
+  "adventurer_25": {
+    "branch": "Adventurer",
+    "role": "minor",
+    "icon_alias": "adventurer_05"
+  },
+  "adventurer_26": {
+    "branch": "Adventurer",
+    "role": "minor",
+    "icon_alias": "adventurer_08"
+  },
+  "adventurer_06": {
+    "branch": "Adventurer",
+    "role": "hub",
+    "icon_alias": "adventurer_06"
+  },
+  "adventurer_07": {
+    "branch": "Adventurer",
+    "role": "notable",
+    "icon_alias": "adventurer_07"
+  },
+  "adventurer_27": {
+    "branch": "Adventurer",
+    "role": "minor",
+    "icon_alias": "adventurer_07"
+  },
+  "adventurer_28": {
+    "branch": "Adventurer",
+    "role": "minor",
+    "icon_alias": "adventurer_09"
+  },
+  "adventurer_29": {
+    "branch": "Adventurer",
+    "role": "minor",
+    "icon_alias": "adventurer_01"
+  },
+  "adventurer_09": {
+    "branch": "Adventurer",
+    "role": "notable",
+    "icon_alias": "adventurer_09"
+  },
+  "adventurer_08": {
+    "branch": "Adventurer",
+    "role": "notable",
+    "icon_alias": "adventurer_08"
+  },
+  "adventurer_30": {
+    "branch": "Adventurer",
+    "role": "minor",
+    "icon_alias": "adventurer_02"
+  },
+  "adventurer_31": {
+    "branch": "Adventurer",
+    "role": "minor",
+    "icon_alias": "adventurer_03"
+  },
+  "adventurer_32": {
+    "branch": "Adventurer",
+    "role": "minor",
+    "icon_alias": "adventurer_04"
+  },
+  "adventurer_12": {
+    "branch": "Adventurer",
+    "role": "notable",
+    "icon_alias": "adventurer_12"
+  },
+  "adventurer_33": {
+    "branch": "Adventurer",
+    "role": "minor",
+    "icon_alias": "adventurer_05"
+  },
+  "adventurer_10": {
+    "branch": "Adventurer",
+    "role": "keystone",
+    "icon_alias": "adventurer_10"
+  },
+  "adventurer_34": {
+    "branch": "Adventurer",
+    "role": "minor",
+    "icon_alias": "foundation_0"
+  },
+  "adventurer_11": {
+    "branch": "Adventurer",
+    "role": "keystone",
+    "icon_alias": "adventurer_11"
+  },
+  "bridge_wayfarer_delver_1": {
+    "branch": "Crossroads",
+    "role": "minor",
+    "icon_alias": "wayfarer_01"
+  },
+  "bridge_wayfarer_delver_2": {
+    "branch": "Crossroads",
+    "role": "minor",
+    "icon_alias": "delver_01"
+  },
+  "bridge_wayfarer_delver_3": {
+    "branch": "Crossroads",
+    "role": "minor",
+    "icon_alias": "wayfarer_01"
+  },
+  "bridge_wayfarer_delver_4": {
+    "branch": "Crossroads",
+    "role": "minor",
+    "icon_alias": "delver_01"
+  },
+  "bridge_delver_homesteader_1": {
+    "branch": "Crossroads",
+    "role": "minor",
+    "icon_alias": "delver_01"
+  },
+  "bridge_delver_homesteader_2": {
+    "branch": "Crossroads",
+    "role": "minor",
+    "icon_alias": "homesteader_01"
+  },
+  "bridge_delver_homesteader_3": {
+    "branch": "Crossroads",
+    "role": "minor",
+    "icon_alias": "delver_01"
+  },
+  "bridge_delver_homesteader_4": {
+    "branch": "Crossroads",
+    "role": "minor",
+    "icon_alias": "homesteader_01"
+  },
+  "bridge_homesteader_artificer_1": {
+    "branch": "Crossroads",
+    "role": "minor",
+    "icon_alias": "homesteader_01"
+  },
+  "bridge_homesteader_artificer_2": {
+    "branch": "Crossroads",
+    "role": "minor",
+    "icon_alias": "artificer_01"
+  },
+  "bridge_homesteader_artificer_3": {
+    "branch": "Crossroads",
+    "role": "minor",
+    "icon_alias": "homesteader_01"
+  },
+  "bridge_homesteader_artificer_4": {
+    "branch": "Crossroads",
+    "role": "minor",
+    "icon_alias": "artificer_01"
+  },
+  "bridge_artificer_survivor_1": {
+    "branch": "Crossroads",
+    "role": "minor",
+    "icon_alias": "artificer_01"
+  },
+  "bridge_artificer_survivor_2": {
+    "branch": "Crossroads",
+    "role": "minor",
+    "icon_alias": "survivor_03"
+  },
+  "bridge_artificer_survivor_3": {
+    "branch": "Crossroads",
+    "role": "minor",
+    "icon_alias": "artificer_01"
+  },
+  "bridge_artificer_survivor_4": {
+    "branch": "Crossroads",
+    "role": "minor",
+    "icon_alias": "survivor_03"
+  },
+  "bridge_survivor_adventurer_1": {
+    "branch": "Crossroads",
+    "role": "minor",
+    "icon_alias": "survivor_03"
+  },
+  "bridge_survivor_adventurer_2": {
+    "branch": "Crossroads",
+    "role": "minor",
+    "icon_alias": "adventurer_01"
+  },
+  "bridge_survivor_adventurer_3": {
+    "branch": "Crossroads",
+    "role": "minor",
+    "icon_alias": "survivor_03"
+  },
+  "bridge_survivor_adventurer_4": {
+    "branch": "Crossroads",
+    "role": "minor",
+    "icon_alias": "adventurer_01"
+  },
+  "bridge_adventurer_wayfarer_1": {
+    "branch": "Crossroads",
+    "role": "minor",
+    "icon_alias": "adventurer_01"
+  },
+  "bridge_adventurer_wayfarer_2": {
+    "branch": "Crossroads",
+    "role": "minor",
+    "icon_alias": "wayfarer_01"
+  },
+  "bridge_adventurer_wayfarer_3": {
+    "branch": "Crossroads",
+    "role": "minor",
+    "icon_alias": "adventurer_01"
+  },
+  "bridge_adventurer_wayfarer_4": {
+    "branch": "Crossroads",
+    "role": "minor",
+    "icon_alias": "wayfarer_01"
+  }
+}

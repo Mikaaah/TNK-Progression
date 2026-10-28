@@ -1,5 +1,5 @@
 """Generate the TNK 1.21.1 Pufferfish attribute-tree draft, reproducibly."""
-import json, math, zipfile
+import json, math, zipfile, re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -20,7 +20,7 @@ def attr(name, value, operation='multiply_base'):
 def node(title, attribute, value, description, operation='multiply_base', icon=None):
     return title, attribute, value, description, operation, icon
 
-# Each column is an independent short path. Values are individual node bonuses.
+# Original passives retained as anchors in the expanded web. Values are individual node bonuses.
 BRANCHES = {
  'wayfarer': ('Wayfarer','leather_boots',[
   node('Quick Step','sprinting_speed',.02,'+2% sprinting speed.'), node('Sure Footing','fall_reduction',.5,'Reduce effective fall distance by 0.5 blocks.','addition'), node('Trail Rations','stamina',.04,'+4% exhaustion capacity before food or saturation is consumed.'),
@@ -54,51 +54,131 @@ BRANCHES = {
   node('Seasoned Fighter','melee_damage',.04,'+4% melee damage.'), node('Seasoned Marksman','ranged_damage',.04,'+4% qualifying ranged damage.'), node('Arcane Familiarity','magic_damage',.03,'+3% qualifying magic damage.')])
 }
 
-defs, skills, edges, rows = {}, {}, [], []
-def add(key, data, cost, x, y, branch, root=False, keystone=False):
-    title,a,v,desc,op,item=data
-    defs[key]={'title':title,'description':desc,'extra_description':f'{branch} | Cost: {cost} point(s). Bonuses are removed on respec.','icon':icon_for(key),'frame':'challenge' if keystone else 'goal' if cost==2 else 'task','size':1.2 if keystone else 1.0,'cost':cost,'rewards':[attr(a,v,op)]}
-    if keystone: defs[key]['required_spent_points']=20
-    skills[key]={'x':round(x),'y':round(y),'definition':key,'root':root}
-    if root: skills[key]['root']=True
-    rows.append((key,branch,title,cost,desc))
-
 core=[node('First Steps','stamina',.02,'+2% exhaustion capacity.',icon='compass'),node('Healthy Habits','minecraft:generic.max_health',1,'+1 maximum health (half a heart).','addition','apple'),node('Good Pace','sprinting_speed',.01,'+1% sprinting speed.',icon='leather_boots'),node('Careful Landing','fall_reduction',.25,'Reduce effective fall distance by 0.25 blocks.','addition','feather'),node('Basic Tools','mining_speed',.02,'+2% mining speed with the correct tool.',icon='stone_pickaxe'),node('Rest and Recover','natural_regeneration',.02,'+2% healing from natural regeneration.',icon='bread'),node('Firm Stance','minecraft:generic.knockback_resistance',.02,'+0.02 knockback resistance.','addition','shield'),node('Ready for Adventure','stamina',.04,'+4% exhaustion capacity.',icon='map')]
+
+# The old reward IDs remain stable; this generator expands the layout around them.
+from web_rewards import EXTRA
+from collections import deque
+
+VERSION='0.2.0'
+defs,skills,layout,edges,rows,used_icons={},{},{},set(),[],{}
+
+def link(a,b):
+    assert a!=b
+    edges.add(tuple(sorted((a,b))))
+
+def add(key,data,x,y,branch,alias,role='minor',root=False):
+    title,a,v,desc,op,*_=data
+    # Original descriptions referring to the old 12-node branch totals are obsolete.
+    desc=desc.split(' The full branch totals')[0]
+    defs[key]={'title':title,'description':desc,'extra_description':f'{branch} | Costs 1 point. Removed on respec.','icon':icon_for(alias),'frame':'challenge' if role=='keystone' else 'goal' if role in ('notable','hub') else 'task','size':1.35 if role=='keystone' else 1.18 if role=='hub' else 1.05 if role=='notable' else .85,'cost':1,'rewards':[attr(a,v,op)]}
+    if role=='keystone':defs[key]['required_spent_points']=40
+    skills[key]={'x':round(x),'y':round(y),'definition':key,'root':root}
+    layout[key]={'branch':branch,'role':role,'icon_alias':alias}
+    used_icons[key]=ICON_MAP[alias]
+    rows.append((key,branch,title,1,desc))
+
+# Centre plus a small inner constellation, with six independent entry hubs.
 for i,data in enumerate(core):
     angle=-math.pi/2+(i-1)*math.pi/3
-    add('foundation_'+str(i),data,[1,1,2,2,2,2,3,3][i],0 if i==0 else 40 if i==7 else 80*math.cos(angle),0 if i in (0,7) else 80*math.sin(angle),'Foundation',root=i==0)
-    if i: edges.append(['foundation_0','foundation_'+str(i)])
+    x,y=(0,0) if i==0 else (72*math.cos(-math.pi/3),72*math.sin(-math.pi/3)) if i==7 else (120*math.cos(angle),120*math.sin(angle))
+    add(f'foundation_{i}',data,x,y,'Foundation',f'foundation_{i}',role='hub' if i<=6 else 'minor',root=i==0)
+    if i:link('foundation_0',f'foundation_{i}')
+for i,(title,a,v,desc,alias) in enumerate([
+ ('Fresh Start','natural_regeneration',.01,'+1% healing from natural regeneration.','foundation_5'),
+ ('Prepared Traveller','stamina',.02,'+2% exhaustion capacity.','foundation_0'),
+ ('Work Rhythm','mining_speed',.01,'+1% mining speed with the correct tool.','foundation_4'),
+ ('Measured Pace','sprinting_speed',.005,'+0.5% sprinting speed.','foundation_2')],8):
+    angle=-math.pi/3+(i-7)*math.pi/3
+    add(f'foundation_{i}',node(title,a,v,desc),72*math.cos(angle),72*math.sin(angle),'Foundation',alias)
+    link('foundation_0',f'foundation_{i}')
+for i in range(6):
+    # Small inner loop and routes into the two nearest branch hubs.
+    mid=7+i if i<5 else 7
+    if i<5:link(f'foundation_{mid}',f'foundation_{mid+1}' if i<4 else 'foundation_7')
+    if i<5:
+        link(f'foundation_{mid}',f'foundation_{i+1}')
+        link(f'foundation_{mid}',f'foundation_{(i+1)%6+1}')
 
-costs=[1,1,1,1,2,2,2,2,2,4,4,2]
-for b,(slug,(label,icon,nodes)) in enumerate(BRANCHES.items()):
+# Local coordinates are radial distance and lateral offset. Each sector has
+# multiple diamonds, two side loops, two outer loops and two distinct tips.
+POINTS=[(210,0),(285,-65),(285,65),(365,-100),(365,0),(365,100),(445,-65),(445,65),(520,0),
+ (515,-150),(600,-190),(685,-150),(690,-65),(605,-60),
+ (515,150),(600,190),(685,150),(690,65),(605,60),(760,0),
+ (780,-160),(855,-200),(930,-160),(930,-60),(855,-40),
+ (780,160),(855,200),(930,160),(930,60),(855,40),
+ (1015,-130),(1080,-180),(1015,130),(1080,180)]
+LOCAL_EDGES=[(0,1),(0,2),(1,3),(1,4),(2,4),(2,5),(3,6),(4,6),(4,7),(5,7),(6,8),(7,8),
+ (3,9),(9,10),(10,11),(11,12),(12,13),(13,9),(5,14),(14,15),(15,16),(16,17),(17,18),(18,14),
+ (8,13),(8,18),(12,19),(17,19),(19,20),(19,25),(12,20),(17,25),
+ (20,21),(21,22),(22,23),(23,24),(24,20),(25,26),(26,27),(27,28),(28,29),(29,25),
+ (24,19),(29,19),(24,29),(23,28),(22,30),(30,31),(27,32),(32,33)]
+ANCHORS=[0,4,8,9,14,19,20,25,24,31,33,29]
+SECTORS=list(BRANCHES)
+ids={}
+for b,(slug,(label,_,nodes)) in enumerate(BRANCHES.items()):
+    assert len(EXTRA[slug])==22
     angle=-math.pi/2+b*math.pi/3
-    for i,data in enumerate(nodes):
-        depth,lane=divmod(i,3);r=144+depth*80;t=(lane-1)*48
-        key=f'{slug}_{i+1:02}'
-        add(key,(*data[:5],data[5] or icon),costs[i],r*math.cos(angle)-t*math.sin(angle),r*math.sin(angle)+t*math.cos(angle),label,keystone=i in (9,10))
-        edges.append(['foundation_'+str(b+1) if depth==0 else f'{slug}_{i-2:02}',key])
+    remaining=iter(EXTRA[slug]);extra_i=13
+    for p,(r,t) in enumerate(POINTS):
+        if p in ANCHORS:
+            i=ANCHORS.index(p);key=f'{slug}_{i+1:02}';data=nodes[i];alias=key
+        else:
+            data=next(remaining);alias=data[5];key=f'{slug}_{extra_i:02}';extra_i+=1
+        role='keystone' if p in (31,33) else 'hub' if p in (8,19) else 'notable' if p in (9,14,20,25,24,29) else 'minor'
+        add(key,data,r*math.cos(angle)-t*math.sin(angle),r*math.sin(angle)+t*math.cos(angle),label,alias,role)
+        ids[b,p]=key
+    link(f'foundation_{b+1}',ids[b,0])
+    for p,q in LOCAL_EDGES:link(ids[b,p],ids[b,q])
+
+# Four-node hybrid routes join adjacent sectors away from the central hub.
+# They form a traversable ring: builds can move sideways, not only outwards.
+for b,slug in enumerate(SECTORS):
+    nxt=(b+1)%6;other=SECTORS[nxt]
+    source_a=EXTRA[slug][0];source_b=EXTRA[other][0]
+    prev=ids[b,15]
+    for j,offset in enumerate((23,28,33,38)):
+        key=f'bridge_{slug}_{other}_{j+1}'
+        angle=-math.pi/2+b*math.pi/3+math.radians(offset)
+        data=source_a if j%2==0 else source_b
+        title=f'{BRANCHES[slug][0]} / {BRANCHES[other][0]}: '+['Shared Practice','Cross Training','Fieldcraft','Common Ground'][j]
+        v=data[2]/2
+        desc='Hybrid route: '+re.sub(r'[+-]?\d+(?:\.\d+)?',lambda m:f'{float(m.group())/2:+g}' if m.group().startswith(('+','-')) else f'{float(m.group())/2:g}',data[3],count=1)
+        actual=(title,data[1],v,desc,data[4],data[5])
+        add(key,actual,630*math.cos(angle),630*math.sin(angle),'Crossroads',data[5],role='minor')
+        link(prev,key);prev=key
+    link(prev,ids[nxt,10])
 
 def save(path,value):
     path.parent.mkdir(parents=True,exist_ok=True);path.write_text(json.dumps(value,indent=2)+'\n')
-save(PACK/'pack.mcmeta',{'pack':{'pack_format':48,'description':'TNK Character Tree — 80 nodes / 100-point limit — attribute draft'}})
+
+save(PACK/'pack.mcmeta',{'pack':{'pack_format':48,'description':'TNK Character Web — 240 nodes / every node costs 1 / spend up to 100'}})
 save(PACK/'data/tnk/puffish_skills/config.json',{'version':2,'categories':['character']})
-save(OUT/'category.json',{'title':'Towns & Kingdoms','description':'Shape your journey. Character levels award up to 100 points.','icon':icon_for('foundation_0'),'background':'minecraft:textures/block/sandstone_top.png','unlocked_by_default':True,'starting_points':0,'exclusive_root':False,'spent_points_limit':100,'erase_on_death':False})
+save(OUT/'category.json',{'title':'Towns & Kingdoms','description':'240 skills. Every skill costs 1 point. Spend up to 100.','icon':icon_for('foundation_0'),'background':'minecraft:textures/block/sandstone_top.png','unlocked_by_default':True,'starting_points':0,'exclusive_root':False,'spent_points_limit':100,'erase_on_death':False})
 save(OUT/'definitions.json',defs);save(OUT/'skills.json',skills)
-save(OUT/'connections.json',{'normal':{'unidirectional':edges}})
-assert len(skills)==80 and sum(d['cost'] for d in defs.values())==160
-assert len({(s['x'],s['y']) for s in skills.values()})==80
-reachable={'foundation_0'}
-while True:
-    more={v for u,v in edges if u in reachable}-reachable
-    if not more:break
-    reachable|=more
-assert len(reachable)==80
-for slug in BRANCHES: assert sum(d['cost'] for k,d in defs.items() if k.startswith(slug+'_'))==24
-(ROOT/'NODE-CATALOGUE.md').write_text('# TNK Character Tree — attribute draft\n\n80 nodes; 160 points of choices; 100-point spending cap. Foundation costs 16; each branch costs 24. One category: `tnk:character`.\n\n| ID | Branch | Node | Cost | Effect |\n|---|---|---|---:|---|\n'+''.join('| '+' | '.join(map(str,row))+' |\n' for row in rows))
-with zipfile.ZipFile(ROOT/'TNK-Character-Tree-0.1.1-draft.zip','w',zipfile.ZIP_DEFLATED) as z:
-    for p in PACK.rglob('*'):
-        if p.is_file():z.write(p,p.relative_to(PACK))
-with zipfile.ZipFile(ROOT/'TNK-Skilltree-Icons-0.1.1.zip','w',zipfile.ZIP_DEFLATED) as z:
-    for p in (ROOT/'resourcepack').rglob('*'):
-        if p.is_file():z.write(p,p.relative_to(ROOT/'resourcepack'))
-print('Validated: 80 distinct nodes, 79 directed connections, all reachable, 160 total points, 100-point cap.')
+save(OUT/'connections.json',{'normal':{'bidirectional':[list(e) for e in sorted(edges)]}})
+save(ROOT/'layout-metadata.json',layout);save(ROOT/'icon-map.json',used_icons)
+assert len(skills)==240 and len(defs)==240
+assert all(d['cost']==1 for d in defs.values())
+assert len({(s['x'],s['y']) for s in skills.values()})==240
+neighbors={k:set() for k in skills}
+for a,b in edges:neighbors[a].add(b);neighbors[b].add(a)
+dist={'foundation_0':0};queue=deque(dist)
+while queue:
+    for v in neighbors[queue.popleft()]:
+        if v not in dist:dist[v]=min(dist[n]+1 for n in neighbors[v] if n in dist);queue.append(v)
+assert len(dist)==240 and max(dist.values())<100
+assert sum(s['root'] for s in skills.values())==1
+assert all(sum(k.startswith(slug+'_') for k in skills)==34 for slug in SECTORS)
+cycles=len(edges)-len(skills)+1
+assert cycles>=60
+minimum=min(math.hypot(a['x']-b['x'],a['y']-b['y']) for i,a in enumerate(skills.values()) for b in list(skills.values())[i+1:])
+assert minimum>=35,minimum
+summary={'nodes':240,'edges':len(edges),'independent_cycles':cycles,'root_count':1,'maximum_shortest_path':max(dist.values()),'minimum_node_distance':round(minimum,2),'node_cost':1,'spending_limit':100,'foundation_nodes':12,'nodes_per_branch':34,'crossroad_nodes':24}
+save(ROOT/'validation-summary.json',summary)
+(ROOT/'NODE-CATALOGUE.md').write_text('# TNK Character Web — 0.2.0 draft\n\n240 nodes. Every node costs 1 point. Spend up to 100. Six branches of 34 nodes, 12 foundation nodes and 24 hybrid crossroad nodes.\n\n| ID | Branch | Node | Cost | Effect |\n|---|---|---|---:|---|\n'+''.join('| '+' | '.join(map(str,row))+' |\n' for row in rows))
+for source,name in [(PACK,f'TNK-Character-Web-{VERSION}-draft.zip'),(ROOT/'resourcepack',f'TNK-Skilltree-Icons-{VERSION}.zip')]:
+    with zipfile.ZipFile(ROOT/name,'w',zipfile.ZIP_DEFLATED) as z:
+        for p in source.rglob('*'):
+            if p.is_file():z.write(p,p.relative_to(source))
+print(json.dumps(summary))

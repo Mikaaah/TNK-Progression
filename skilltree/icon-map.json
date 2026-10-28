@@ -87,12 +87,89 @@
       16
     ]
   },
+  "foundation_8": {
+    "texture": "tnk:textures/skilltree/foundation_5.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 25,
+    "rect": [
+      64,
+      16,
+      16,
+      16
+    ]
+  },
+  "foundation_9": {
+    "texture": "tnk:textures/skilltree/foundation_0.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 39,
+    "rect": [
+      288,
+      16,
+      16,
+      16
+    ]
+  },
+  "foundation_10": {
+    "texture": "tnk:textures/skilltree/foundation_4.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 37,
+    "rect": [
+      256,
+      16,
+      16,
+      16
+    ]
+  },
+  "foundation_11": {
+    "texture": "tnk:textures/skilltree/foundation_2.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 33,
+    "rect": [
+      192,
+      16,
+      16,
+      16
+    ]
+  },
   "wayfarer_01": {
     "texture": "tnk:textures/skilltree/wayfarer_01.png",
     "source": "IconPack 1.2/Skills/Skills.png",
     "tile": 33,
     "rect": [
       192,
+      16,
+      16,
+      16
+    ]
+  },
+  "wayfarer_13": {
+    "texture": "tnk:textures/skilltree/wayfarer_01.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 33,
+    "rect": [
+      192,
+      16,
+      16,
+      16
+    ]
+  },
+  "wayfarer_14": {
+    "texture": "tnk:textures/skilltree/wayfarer_03.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 34,
+    "rect": [
+      208,
+      16,
+      16,
+      16
+    ]
+  },
+  "wayfarer_15": {
+    "texture": "tnk:textures/skilltree/wayfarer_02.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 41,
+    "rect": [
+      320,
       16,
       16,
       16
@@ -105,6 +182,39 @@
     "rect": [
       320,
       16,
+      16,
+      16
+    ]
+  },
+  "wayfarer_16": {
+    "texture": "tnk:textures/skilltree/wayfarer_07.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 28,
+    "rect": [
+      112,
+      16,
+      16,
+      16
+    ]
+  },
+  "wayfarer_17": {
+    "texture": "tnk:textures/skilltree/wayfarer_09.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 90,
+    "rect": [
+      96,
+      64,
+      16,
+      16
+    ]
+  },
+  "wayfarer_18": {
+    "texture": "tnk:textures/skilltree/wayfarer_04.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 117,
+    "rect": [
+      192,
+      80,
       16,
       16
     ]
@@ -131,6 +241,50 @@
       16
     ]
   },
+  "wayfarer_19": {
+    "texture": "tnk:textures/skilltree/wayfarer_11.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 128,
+    "rect": [
+      32,
+      96,
+      16,
+      16
+    ]
+  },
+  "wayfarer_20": {
+    "texture": "tnk:textures/skilltree/wayfarer_06.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 100,
+    "rect": [
+      256,
+      64,
+      16,
+      16
+    ]
+  },
+  "wayfarer_21": {
+    "texture": "tnk:textures/skilltree/wayfarer_07.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 28,
+    "rect": [
+      112,
+      16,
+      16,
+      16
+    ]
+  },
+  "wayfarer_22": {
+    "texture": "tnk:textures/skilltree/wayfarer_08.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 35,
+    "rect": [
+      224,
+      16,
+      16,
+      16
+    ]
+  },
   "wayfarer_05": {
     "texture": "tnk:textures/skilltree/wayfarer_05.png",
     "source": "IconPack 1.2/Skills/Skills.png",
@@ -138,6 +292,50 @@
     "rect": [
       0,
       96,
+      16,
+      16
+    ]
+  },
+  "wayfarer_23": {
+    "texture": "tnk:textures/skilltree/wayfarer_10.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 119,
+    "rect": [
+      224,
+      80,
+      16,
+      16
+    ]
+  },
+  "wayfarer_24": {
+    "texture": "tnk:textures/skilltree/wayfarer_02.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 41,
+    "rect": [
+      320,
+      16,
+      16,
+      16
+    ]
+  },
+  "wayfarer_25": {
+    "texture": "tnk:textures/skilltree/wayfarer_12.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 157,
+    "rect": [
+      160,
+      112,
+      16,
+      16
+    ]
+  },
+  "wayfarer_26": {
+    "texture": "tnk:textures/skilltree/wayfarer_09.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 90,
+    "rect": [
+      96,
+      64,
       16,
       16
     ]
@@ -164,12 +362,34 @@
       16
     ]
   },
-  "wayfarer_08": {
+  "wayfarer_27": {
     "texture": "tnk:textures/skilltree/wayfarer_08.png",
     "source": "IconPack 1.2/Skills/Skills.png",
     "tile": 35,
     "rect": [
       224,
+      16,
+      16,
+      16
+    ]
+  },
+  "wayfarer_28": {
+    "texture": "tnk:textures/skilltree/wayfarer_07.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 28,
+    "rect": [
+      112,
+      16,
+      16,
+      16
+    ]
+  },
+  "wayfarer_29": {
+    "texture": "tnk:textures/skilltree/wayfarer_03.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 34,
+    "rect": [
+      208,
       16,
       16,
       16
@@ -186,18 +406,40 @@
       16
     ]
   },
-  "wayfarer_10": {
-    "texture": "tnk:textures/skilltree/wayfarer_10.png",
+  "wayfarer_08": {
+    "texture": "tnk:textures/skilltree/wayfarer_08.png",
     "source": "IconPack 1.2/Skills/Skills.png",
-    "tile": 119,
+    "tile": 35,
     "rect": [
       224,
+      16,
+      16,
+      16
+    ]
+  },
+  "wayfarer_30": {
+    "texture": "tnk:textures/skilltree/wayfarer_04.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 117,
+    "rect": [
+      192,
       80,
       16,
       16
     ]
   },
-  "wayfarer_11": {
+  "wayfarer_31": {
+    "texture": "tnk:textures/skilltree/wayfarer_09.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 90,
+    "rect": [
+      96,
+      64,
+      16,
+      16
+    ]
+  },
+  "wayfarer_32": {
     "texture": "tnk:textures/skilltree/wayfarer_11.png",
     "source": "IconPack 1.2/Skills/Skills.png",
     "tile": 128,
@@ -219,6 +461,50 @@
       16
     ]
   },
+  "wayfarer_33": {
+    "texture": "tnk:textures/skilltree/wayfarer_06.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 100,
+    "rect": [
+      256,
+      64,
+      16,
+      16
+    ]
+  },
+  "wayfarer_10": {
+    "texture": "tnk:textures/skilltree/wayfarer_10.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 119,
+    "rect": [
+      224,
+      80,
+      16,
+      16
+    ]
+  },
+  "wayfarer_34": {
+    "texture": "tnk:textures/skilltree/wayfarer_10.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 119,
+    "rect": [
+      224,
+      80,
+      16,
+      16
+    ]
+  },
+  "wayfarer_11": {
+    "texture": "tnk:textures/skilltree/wayfarer_11.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 128,
+    "rect": [
+      32,
+      96,
+      16,
+      16
+    ]
+  },
   "delver_01": {
     "texture": "tnk:textures/skilltree/delver_01.png",
     "source": "IconPack 1.2/Skills/Skills.png",
@@ -230,6 +516,39 @@
       16
     ]
   },
+  "delver_13": {
+    "texture": "tnk:textures/skilltree/delver_01.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 37,
+    "rect": [
+      256,
+      16,
+      16,
+      16
+    ]
+  },
+  "delver_14": {
+    "texture": "tnk:textures/skilltree/delver_02.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 135,
+    "rect": [
+      144,
+      96,
+      16,
+      16
+    ]
+  },
+  "delver_15": {
+    "texture": "tnk:textures/skilltree/delver_03.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 136,
+    "rect": [
+      160,
+      96,
+      16,
+      16
+    ]
+  },
   "delver_02": {
     "texture": "tnk:textures/skilltree/delver_02.png",
     "source": "IconPack 1.2/Skills/Skills.png",
@@ -237,6 +556,39 @@
     "rect": [
       144,
       96,
+      16,
+      16
+    ]
+  },
+  "delver_16": {
+    "texture": "tnk:textures/skilltree/delver_09.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 34,
+    "rect": [
+      208,
+      16,
+      16,
+      16
+    ]
+  },
+  "delver_17": {
+    "texture": "tnk:textures/skilltree/delver_04.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 104,
+    "rect": [
+      320,
+      64,
+      16,
+      16
+    ]
+  },
+  "delver_18": {
+    "texture": "tnk:textures/skilltree/delver_08.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 28,
+    "rect": [
+      112,
+      16,
       16,
       16
     ]
@@ -263,6 +615,50 @@
       16
     ]
   },
+  "delver_19": {
+    "texture": "tnk:textures/skilltree/delver_06.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 151,
+    "rect": [
+      64,
+      112,
+      16,
+      16
+    ]
+  },
+  "delver_20": {
+    "texture": "tnk:textures/skilltree/delver_05.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 137,
+    "rect": [
+      176,
+      96,
+      16,
+      16
+    ]
+  },
+  "delver_21": {
+    "texture": "tnk:textures/skilltree/delver_07.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 120,
+    "rect": [
+      240,
+      80,
+      16,
+      16
+    ]
+  },
+  "delver_22": {
+    "texture": "tnk:textures/skilltree/delver_09.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 34,
+    "rect": [
+      208,
+      16,
+      16,
+      16
+    ]
+  },
   "delver_05": {
     "texture": "tnk:textures/skilltree/delver_05.png",
     "source": "IconPack 1.2/Skills/Skills.png",
@@ -270,6 +666,50 @@
     "rect": [
       176,
       96,
+      16,
+      16
+    ]
+  },
+  "delver_23": {
+    "texture": "tnk:textures/skilltree/delver_10.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 152,
+    "rect": [
+      80,
+      112,
+      16,
+      16
+    ]
+  },
+  "delver_24": {
+    "texture": "tnk:textures/skilltree/delver_11.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 125,
+    "rect": [
+      320,
+      80,
+      16,
+      16
+    ]
+  },
+  "delver_25": {
+    "texture": "tnk:textures/skilltree/delver_03.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 136,
+    "rect": [
+      160,
+      96,
+      16,
+      16
+    ]
+  },
+  "delver_26": {
+    "texture": "tnk:textures/skilltree/delver_12.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 122,
+    "rect": [
+      272,
+      80,
       16,
       16
     ]
@@ -296,13 +736,35 @@
       16
     ]
   },
-  "delver_08": {
-    "texture": "tnk:textures/skilltree/delver_08.png",
+  "delver_27": {
+    "texture": "tnk:textures/skilltree/delver_02.png",
     "source": "IconPack 1.2/Skills/Skills.png",
-    "tile": 28,
+    "tile": 135,
     "rect": [
-      112,
+      144,
+      96,
       16,
+      16
+    ]
+  },
+  "delver_28": {
+    "texture": "tnk:textures/skilltree/delver_09.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 34,
+    "rect": [
+      208,
+      16,
+      16,
+      16
+    ]
+  },
+  "delver_29": {
+    "texture": "tnk:textures/skilltree/delver_04.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 104,
+    "rect": [
+      320,
+      64,
       16,
       16
     ]
@@ -318,6 +780,72 @@
       16
     ]
   },
+  "delver_08": {
+    "texture": "tnk:textures/skilltree/delver_08.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 28,
+    "rect": [
+      112,
+      16,
+      16,
+      16
+    ]
+  },
+  "delver_30": {
+    "texture": "tnk:textures/skilltree/delver_08.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 28,
+    "rect": [
+      112,
+      16,
+      16,
+      16
+    ]
+  },
+  "delver_31": {
+    "texture": "tnk:textures/skilltree/delver_06.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 151,
+    "rect": [
+      64,
+      112,
+      16,
+      16
+    ]
+  },
+  "delver_32": {
+    "texture": "tnk:textures/skilltree/delver_05.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 137,
+    "rect": [
+      176,
+      96,
+      16,
+      16
+    ]
+  },
+  "delver_12": {
+    "texture": "tnk:textures/skilltree/delver_12.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 122,
+    "rect": [
+      272,
+      80,
+      16,
+      16
+    ]
+  },
+  "delver_33": {
+    "texture": "tnk:textures/skilltree/delver_07.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 120,
+    "rect": [
+      240,
+      80,
+      16,
+      16
+    ]
+  },
   "delver_10": {
     "texture": "tnk:textures/skilltree/delver_10.png",
     "source": "IconPack 1.2/Skills/Skills.png",
@@ -329,7 +857,7 @@
       16
     ]
   },
-  "delver_11": {
+  "delver_34": {
     "texture": "tnk:textures/skilltree/delver_11.png",
     "source": "IconPack 1.2/Skills/Skills.png",
     "tile": 125,
@@ -340,12 +868,12 @@
       16
     ]
   },
-  "delver_12": {
-    "texture": "tnk:textures/skilltree/delver_12.png",
+  "delver_11": {
+    "texture": "tnk:textures/skilltree/delver_11.png",
     "source": "IconPack 1.2/Skills/Skills.png",
-    "tile": 122,
+    "tile": 125,
     "rect": [
-      272,
+      320,
       80,
       16,
       16
@@ -362,6 +890,39 @@
       16
     ]
   },
+  "homesteader_13": {
+    "texture": "tnk:textures/skilltree/homesteader_01.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 34,
+    "rect": [
+      208,
+      16,
+      16,
+      16
+    ]
+  },
+  "homesteader_14": {
+    "texture": "tnk:textures/skilltree/homesteader_02.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 108,
+    "rect": [
+      48,
+      80,
+      16,
+      16
+    ]
+  },
+  "homesteader_15": {
+    "texture": "tnk:textures/skilltree/homesteader_03.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 42,
+    "rect": [
+      0,
+      32,
+      16,
+      16
+    ]
+  },
   "homesteader_02": {
     "texture": "tnk:textures/skilltree/homesteader_02.png",
     "source": "IconPack 1.2/Skills/Skills.png",
@@ -369,6 +930,39 @@
     "rect": [
       48,
       80,
+      16,
+      16
+    ]
+  },
+  "homesteader_16": {
+    "texture": "tnk:textures/skilltree/homesteader_04.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 100,
+    "rect": [
+      256,
+      64,
+      16,
+      16
+    ]
+  },
+  "homesteader_17": {
+    "texture": "tnk:textures/skilltree/homesteader_05.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 25,
+    "rect": [
+      64,
+      16,
+      16,
+      16
+    ]
+  },
+  "homesteader_18": {
+    "texture": "tnk:textures/skilltree/homesteader_06.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 22,
+    "rect": [
+      16,
+      16,
       16,
       16
     ]
@@ -395,6 +989,50 @@
       16
     ]
   },
+  "homesteader_19": {
+    "texture": "tnk:textures/skilltree/homesteader_07.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 110,
+    "rect": [
+      80,
+      80,
+      16,
+      16
+    ]
+  },
+  "homesteader_20": {
+    "texture": "tnk:textures/skilltree/homesteader_08.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 157,
+    "rect": [
+      160,
+      112,
+      16,
+      16
+    ]
+  },
+  "homesteader_21": {
+    "texture": "tnk:textures/skilltree/homesteader_09.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 37,
+    "rect": [
+      256,
+      16,
+      16,
+      16
+    ]
+  },
+  "homesteader_22": {
+    "texture": "tnk:textures/skilltree/homesteader_12.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 137,
+    "rect": [
+      176,
+      96,
+      16,
+      16
+    ]
+  },
   "homesteader_05": {
     "texture": "tnk:textures/skilltree/homesteader_05.png",
     "source": "IconPack 1.2/Skills/Skills.png",
@@ -402,6 +1040,50 @@
     "rect": [
       64,
       16,
+      16,
+      16
+    ]
+  },
+  "homesteader_23": {
+    "texture": "tnk:textures/skilltree/homesteader_10.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 36,
+    "rect": [
+      240,
+      16,
+      16,
+      16
+    ]
+  },
+  "homesteader_24": {
+    "texture": "tnk:textures/skilltree/homesteader_11.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 143,
+    "rect": [
+      272,
+      96,
+      16,
+      16
+    ]
+  },
+  "homesteader_25": {
+    "texture": "tnk:textures/skilltree/homesteader_03.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 42,
+    "rect": [
+      0,
+      32,
+      16,
+      16
+    ]
+  },
+  "homesteader_26": {
+    "texture": "tnk:textures/skilltree/homesteader_04.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 100,
+    "rect": [
+      256,
+      64,
       16,
       16
     ]
@@ -428,13 +1110,35 @@
       16
     ]
   },
-  "homesteader_08": {
-    "texture": "tnk:textures/skilltree/homesteader_08.png",
+  "homesteader_27": {
+    "texture": "tnk:textures/skilltree/homesteader_07.png",
     "source": "IconPack 1.2/Skills/Skills.png",
-    "tile": 157,
+    "tile": 110,
     "rect": [
-      160,
-      112,
+      80,
+      80,
+      16,
+      16
+    ]
+  },
+  "homesteader_28": {
+    "texture": "tnk:textures/skilltree/homesteader_12.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 137,
+    "rect": [
+      176,
+      96,
+      16,
+      16
+    ]
+  },
+  "homesteader_29": {
+    "texture": "tnk:textures/skilltree/homesteader_05.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 25,
+    "rect": [
+      64,
+      16,
       16,
       16
     ]
@@ -450,6 +1154,72 @@
       16
     ]
   },
+  "homesteader_08": {
+    "texture": "tnk:textures/skilltree/homesteader_08.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 157,
+    "rect": [
+      160,
+      112,
+      16,
+      16
+    ]
+  },
+  "homesteader_30": {
+    "texture": "tnk:textures/skilltree/homesteader_06.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 22,
+    "rect": [
+      16,
+      16,
+      16,
+      16
+    ]
+  },
+  "homesteader_31": {
+    "texture": "tnk:textures/skilltree/homesteader_09.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 37,
+    "rect": [
+      256,
+      16,
+      16,
+      16
+    ]
+  },
+  "homesteader_32": {
+    "texture": "tnk:textures/skilltree/homesteader_01.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 34,
+    "rect": [
+      208,
+      16,
+      16,
+      16
+    ]
+  },
+  "homesteader_12": {
+    "texture": "tnk:textures/skilltree/homesteader_12.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 137,
+    "rect": [
+      176,
+      96,
+      16,
+      16
+    ]
+  },
+  "homesteader_33": {
+    "texture": "tnk:textures/skilltree/homesteader_03.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 42,
+    "rect": [
+      0,
+      32,
+      16,
+      16
+    ]
+  },
   "homesteader_10": {
     "texture": "tnk:textures/skilltree/homesteader_10.png",
     "source": "IconPack 1.2/Skills/Skills.png",
@@ -461,23 +1231,23 @@
       16
     ]
   },
+  "homesteader_34": {
+    "texture": "tnk:textures/skilltree/homesteader_02.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 108,
+    "rect": [
+      48,
+      80,
+      16,
+      16
+    ]
+  },
   "homesteader_11": {
     "texture": "tnk:textures/skilltree/homesteader_11.png",
     "source": "IconPack 1.2/Skills/Skills.png",
     "tile": 143,
     "rect": [
       272,
-      96,
-      16,
-      16
-    ]
-  },
-  "homesteader_12": {
-    "texture": "tnk:textures/skilltree/homesteader_12.png",
-    "source": "IconPack 1.2/Skills/Skills.png",
-    "tile": 137,
-    "rect": [
-      176,
       96,
       16,
       16
@@ -494,6 +1264,39 @@
       16
     ]
   },
+  "artificer_13": {
+    "texture": "tnk:textures/skilltree/artificer_01.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 40,
+    "rect": [
+      304,
+      16,
+      16,
+      16
+    ]
+  },
+  "artificer_14": {
+    "texture": "tnk:textures/skilltree/artificer_02.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 24,
+    "rect": [
+      48,
+      16,
+      16,
+      16
+    ]
+  },
+  "artificer_15": {
+    "texture": "tnk:textures/skilltree/artificer_06.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 34,
+    "rect": [
+      208,
+      16,
+      16,
+      16
+    ]
+  },
   "artificer_02": {
     "texture": "tnk:textures/skilltree/artificer_02.png",
     "source": "IconPack 1.2/Skills/Skills.png",
@@ -501,6 +1304,39 @@
     "rect": [
       48,
       16,
+      16,
+      16
+    ]
+  },
+  "artificer_16": {
+    "texture": "tnk:textures/skilltree/artificer_03.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 37,
+    "rect": [
+      256,
+      16,
+      16,
+      16
+    ]
+  },
+  "artificer_17": {
+    "texture": "tnk:textures/skilltree/artificer_04.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 111,
+    "rect": [
+      96,
+      80,
+      16,
+      16
+    ]
+  },
+  "artificer_18": {
+    "texture": "tnk:textures/skilltree/artificer_05.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 117,
+    "rect": [
+      192,
+      80,
       16,
       16
     ]
@@ -527,12 +1363,100 @@
       16
     ]
   },
+  "artificer_19": {
+    "texture": "tnk:textures/skilltree/artificer_09.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 120,
+    "rect": [
+      240,
+      80,
+      16,
+      16
+    ]
+  },
+  "artificer_20": {
+    "texture": "tnk:textures/skilltree/artificer_12.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 122,
+    "rect": [
+      272,
+      80,
+      16,
+      16
+    ]
+  },
+  "artificer_21": {
+    "texture": "tnk:textures/skilltree/artificer_07.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 112,
+    "rect": [
+      112,
+      80,
+      16,
+      16
+    ]
+  },
+  "artificer_22": {
+    "texture": "tnk:textures/skilltree/artificer_08.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 118,
+    "rect": [
+      208,
+      80,
+      16,
+      16
+    ]
+  },
   "artificer_05": {
     "texture": "tnk:textures/skilltree/artificer_05.png",
     "source": "IconPack 1.2/Skills/Skills.png",
     "tile": 117,
     "rect": [
       192,
+      80,
+      16,
+      16
+    ]
+  },
+  "artificer_23": {
+    "texture": "tnk:textures/skilltree/artificer_06.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 34,
+    "rect": [
+      208,
+      16,
+      16,
+      16
+    ]
+  },
+  "artificer_24": {
+    "texture": "tnk:textures/skilltree/artificer_03.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 37,
+    "rect": [
+      256,
+      16,
+      16,
+      16
+    ]
+  },
+  "artificer_25": {
+    "texture": "tnk:textures/skilltree/artificer_12.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 122,
+    "rect": [
+      272,
+      80,
+      16,
+      16
+    ]
+  },
+  "artificer_26": {
+    "texture": "tnk:textures/skilltree/artificer_10.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 113,
+    "rect": [
+      128,
       80,
       16,
       16
@@ -560,12 +1484,34 @@
       16
     ]
   },
-  "artificer_08": {
-    "texture": "tnk:textures/skilltree/artificer_08.png",
+  "artificer_27": {
+    "texture": "tnk:textures/skilltree/artificer_11.png",
     "source": "IconPack 1.2/Skills/Skills.png",
-    "tile": 118,
+    "tile": 119,
+    "rect": [
+      224,
+      80,
+      16,
+      16
+    ]
+  },
+  "artificer_28": {
+    "texture": "tnk:textures/skilltree/artificer_06.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 34,
     "rect": [
       208,
+      16,
+      16,
+      16
+    ]
+  },
+  "artificer_29": {
+    "texture": "tnk:textures/skilltree/artificer_09.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 120,
+    "rect": [
+      240,
       80,
       16,
       16
@@ -582,23 +1528,45 @@
       16
     ]
   },
-  "artificer_10": {
-    "texture": "tnk:textures/skilltree/artificer_10.png",
+  "artificer_08": {
+    "texture": "tnk:textures/skilltree/artificer_08.png",
     "source": "IconPack 1.2/Skills/Skills.png",
-    "tile": 113,
+    "tile": 118,
     "rect": [
-      128,
+      208,
       80,
       16,
       16
     ]
   },
-  "artificer_11": {
-    "texture": "tnk:textures/skilltree/artificer_11.png",
+  "artificer_30": {
+    "texture": "tnk:textures/skilltree/artificer_04.png",
     "source": "IconPack 1.2/Skills/Skills.png",
-    "tile": 119,
+    "tile": 111,
     "rect": [
-      224,
+      96,
+      80,
+      16,
+      16
+    ]
+  },
+  "artificer_31": {
+    "texture": "tnk:textures/skilltree/artificer_08.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 118,
+    "rect": [
+      208,
+      80,
+      16,
+      16
+    ]
+  },
+  "artificer_32": {
+    "texture": "tnk:textures/skilltree/artificer_12.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 122,
+    "rect": [
+      272,
       80,
       16,
       16
@@ -615,6 +1583,50 @@
       16
     ]
   },
+  "artificer_33": {
+    "texture": "tnk:textures/skilltree/artificer_03.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 37,
+    "rect": [
+      256,
+      16,
+      16,
+      16
+    ]
+  },
+  "artificer_10": {
+    "texture": "tnk:textures/skilltree/artificer_10.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 113,
+    "rect": [
+      128,
+      80,
+      16,
+      16
+    ]
+  },
+  "artificer_34": {
+    "texture": "tnk:textures/skilltree/artificer_07.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 112,
+    "rect": [
+      112,
+      80,
+      16,
+      16
+    ]
+  },
+  "artificer_11": {
+    "texture": "tnk:textures/skilltree/artificer_11.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 119,
+    "rect": [
+      224,
+      80,
+      16,
+      16
+    ]
+  },
   "survivor_01": {
     "texture": "tnk:textures/skilltree/survivor_01.png",
     "source": "IconPack 1.2/Skills/Skills.png",
@@ -626,6 +1638,39 @@
       16
     ]
   },
+  "survivor_13": {
+    "texture": "tnk:textures/skilltree/survivor_03.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 22,
+    "rect": [
+      16,
+      16,
+      16,
+      16
+    ]
+  },
+  "survivor_14": {
+    "texture": "tnk:textures/skilltree/survivor_02.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 25,
+    "rect": [
+      64,
+      16,
+      16,
+      16
+    ]
+  },
+  "survivor_15": {
+    "texture": "tnk:textures/skilltree/foundation_0.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 39,
+    "rect": [
+      288,
+      16,
+      16,
+      16
+    ]
+  },
   "survivor_02": {
     "texture": "tnk:textures/skilltree/survivor_02.png",
     "source": "IconPack 1.2/Skills/Skills.png",
@@ -633,6 +1678,39 @@
     "rect": [
       64,
       16,
+      16,
+      16
+    ]
+  },
+  "survivor_16": {
+    "texture": "tnk:textures/skilltree/survivor_07.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 90,
+    "rect": [
+      96,
+      64,
+      16,
+      16
+    ]
+  },
+  "survivor_17": {
+    "texture": "tnk:textures/skilltree/survivor_08.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 91,
+    "rect": [
+      112,
+      64,
+      16,
+      16
+    ]
+  },
+  "survivor_18": {
+    "texture": "tnk:textures/skilltree/survivor_09.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 93,
+    "rect": [
+      144,
+      64,
       16,
       16
     ]
@@ -659,12 +1737,100 @@
       16
     ]
   },
+  "survivor_19": {
+    "texture": "tnk:textures/skilltree/survivor_04.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 36,
+    "rect": [
+      240,
+      16,
+      16,
+      16
+    ]
+  },
+  "survivor_20": {
+    "texture": "tnk:textures/skilltree/survivor_06.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 141,
+    "rect": [
+      240,
+      96,
+      16,
+      16
+    ]
+  },
+  "survivor_21": {
+    "texture": "tnk:textures/skilltree/survivor_05.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 32,
+    "rect": [
+      176,
+      16,
+      16,
+      16
+    ]
+  },
+  "survivor_22": {
+    "texture": "tnk:textures/skilltree/survivor_12.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 158,
+    "rect": [
+      176,
+      112,
+      16,
+      16
+    ]
+  },
   "survivor_05": {
     "texture": "tnk:textures/skilltree/survivor_05.png",
     "source": "IconPack 1.2/Skills/Skills.png",
     "tile": 32,
     "rect": [
       176,
+      16,
+      16,
+      16
+    ]
+  },
+  "survivor_23": {
+    "texture": "tnk:textures/skilltree/survivor_07.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 90,
+    "rect": [
+      96,
+      64,
+      16,
+      16
+    ]
+  },
+  "survivor_24": {
+    "texture": "tnk:textures/skilltree/survivor_08.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 91,
+    "rect": [
+      112,
+      64,
+      16,
+      16
+    ]
+  },
+  "survivor_25": {
+    "texture": "tnk:textures/skilltree/survivor_09.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 93,
+    "rect": [
+      144,
+      64,
+      16,
+      16
+    ]
+  },
+  "survivor_26": {
+    "texture": "tnk:textures/skilltree/survivor_04.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 36,
+    "rect": [
+      240,
       16,
       16,
       16
@@ -692,13 +1858,35 @@
       16
     ]
   },
-  "survivor_08": {
-    "texture": "tnk:textures/skilltree/survivor_08.png",
+  "survivor_27": {
+    "texture": "tnk:textures/skilltree/survivor_03.png",
     "source": "IconPack 1.2/Skills/Skills.png",
-    "tile": 91,
+    "tile": 22,
     "rect": [
-      112,
+      16,
+      16,
+      16,
+      16
+    ]
+  },
+  "survivor_28": {
+    "texture": "tnk:textures/skilltree/survivor_11.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 143,
+    "rect": [
+      272,
+      96,
+      16,
+      16
+    ]
+  },
+  "survivor_29": {
+    "texture": "tnk:textures/skilltree/survivor_02.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 25,
+    "rect": [
       64,
+      16,
       16,
       16
     ]
@@ -714,24 +1902,46 @@
       16
     ]
   },
-  "survivor_10": {
-    "texture": "tnk:textures/skilltree/survivor_10.png",
+  "survivor_08": {
+    "texture": "tnk:textures/skilltree/survivor_08.png",
     "source": "IconPack 1.2/Skills/Skills.png",
-    "tile": 110,
+    "tile": 91,
     "rect": [
-      80,
-      80,
+      112,
+      64,
       16,
       16
     ]
   },
-  "survivor_11": {
-    "texture": "tnk:textures/skilltree/survivor_11.png",
+  "survivor_30": {
+    "texture": "tnk:textures/skilltree/survivor_07.png",
     "source": "IconPack 1.2/Skills/Skills.png",
-    "tile": 143,
+    "tile": 90,
     "rect": [
-      272,
       96,
+      64,
+      16,
+      16
+    ]
+  },
+  "survivor_31": {
+    "texture": "tnk:textures/skilltree/survivor_08.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 91,
+    "rect": [
+      112,
+      64,
+      16,
+      16
+    ]
+  },
+  "survivor_32": {
+    "texture": "tnk:textures/skilltree/survivor_09.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 93,
+    "rect": [
+      144,
+      64,
       16,
       16
     ]
@@ -747,12 +1957,89 @@
       16
     ]
   },
+  "survivor_33": {
+    "texture": "tnk:textures/skilltree/foundation_0.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 39,
+    "rect": [
+      288,
+      16,
+      16,
+      16
+    ]
+  },
+  "survivor_10": {
+    "texture": "tnk:textures/skilltree/survivor_10.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 110,
+    "rect": [
+      80,
+      80,
+      16,
+      16
+    ]
+  },
+  "survivor_34": {
+    "texture": "tnk:textures/skilltree/survivor_06.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 141,
+    "rect": [
+      240,
+      96,
+      16,
+      16
+    ]
+  },
+  "survivor_11": {
+    "texture": "tnk:textures/skilltree/survivor_11.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 143,
+    "rect": [
+      272,
+      96,
+      16,
+      16
+    ]
+  },
   "adventurer_01": {
     "texture": "tnk:textures/skilltree/adventurer_01.png",
     "source": "IconPack 1.2/Skills/Skills.png",
     "tile": 31,
     "rect": [
       160,
+      16,
+      16,
+      16
+    ]
+  },
+  "adventurer_13": {
+    "texture": "tnk:textures/skilltree/adventurer_01.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 31,
+    "rect": [
+      160,
+      16,
+      16,
+      16
+    ]
+  },
+  "adventurer_14": {
+    "texture": "tnk:textures/skilltree/adventurer_02.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 38,
+    "rect": [
+      272,
+      16,
+      16,
+      16
+    ]
+  },
+  "adventurer_15": {
+    "texture": "tnk:textures/skilltree/adventurer_03.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 23,
+    "rect": [
+      32,
       16,
       16,
       16
@@ -765,6 +2052,39 @@
     "rect": [
       272,
       16,
+      16,
+      16
+    ]
+  },
+  "adventurer_16": {
+    "texture": "tnk:textures/skilltree/adventurer_04.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 30,
+    "rect": [
+      144,
+      16,
+      16,
+      16
+    ]
+  },
+  "adventurer_17": {
+    "texture": "tnk:textures/skilltree/adventurer_05.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 114,
+    "rect": [
+      144,
+      80,
+      16,
+      16
+    ]
+  },
+  "adventurer_18": {
+    "texture": "tnk:textures/skilltree/adventurer_08.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 116,
+    "rect": [
+      176,
+      80,
       16,
       16
     ]
@@ -791,12 +2111,100 @@
       16
     ]
   },
+  "adventurer_19": {
+    "texture": "tnk:textures/skilltree/adventurer_07.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 31,
+    "rect": [
+      160,
+      16,
+      16,
+      16
+    ]
+  },
+  "adventurer_20": {
+    "texture": "tnk:textures/skilltree/adventurer_09.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 95,
+    "rect": [
+      176,
+      64,
+      16,
+      16
+    ]
+  },
+  "adventurer_21": {
+    "texture": "tnk:textures/skilltree/adventurer_10.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 132,
+    "rect": [
+      96,
+      96,
+      16,
+      16
+    ]
+  },
+  "adventurer_22": {
+    "texture": "tnk:textures/skilltree/adventurer_11.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 131,
+    "rect": [
+      80,
+      96,
+      16,
+      16
+    ]
+  },
   "adventurer_05": {
     "texture": "tnk:textures/skilltree/adventurer_05.png",
     "source": "IconPack 1.2/Skills/Skills.png",
     "tile": 114,
     "rect": [
       144,
+      80,
+      16,
+      16
+    ]
+  },
+  "adventurer_23": {
+    "texture": "tnk:textures/skilltree/adventurer_12.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 89,
+    "rect": [
+      80,
+      64,
+      16,
+      16
+    ]
+  },
+  "adventurer_24": {
+    "texture": "tnk:textures/skilltree/adventurer_04.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 30,
+    "rect": [
+      144,
+      16,
+      16,
+      16
+    ]
+  },
+  "adventurer_25": {
+    "texture": "tnk:textures/skilltree/adventurer_05.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 114,
+    "rect": [
+      144,
+      80,
+      16,
+      16
+    ]
+  },
+  "adventurer_26": {
+    "texture": "tnk:textures/skilltree/adventurer_08.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 116,
+    "rect": [
+      176,
       80,
       16,
       16
@@ -824,13 +2232,35 @@
       16
     ]
   },
-  "adventurer_08": {
-    "texture": "tnk:textures/skilltree/adventurer_08.png",
+  "adventurer_27": {
+    "texture": "tnk:textures/skilltree/adventurer_07.png",
     "source": "IconPack 1.2/Skills/Skills.png",
-    "tile": 116,
+    "tile": 31,
+    "rect": [
+      160,
+      16,
+      16,
+      16
+    ]
+  },
+  "adventurer_28": {
+    "texture": "tnk:textures/skilltree/adventurer_09.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 95,
     "rect": [
       176,
-      80,
+      64,
+      16,
+      16
+    ]
+  },
+  "adventurer_29": {
+    "texture": "tnk:textures/skilltree/adventurer_01.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 31,
+    "rect": [
+      160,
+      16,
       16,
       16
     ]
@@ -846,6 +2276,72 @@
       16
     ]
   },
+  "adventurer_08": {
+    "texture": "tnk:textures/skilltree/adventurer_08.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 116,
+    "rect": [
+      176,
+      80,
+      16,
+      16
+    ]
+  },
+  "adventurer_30": {
+    "texture": "tnk:textures/skilltree/adventurer_02.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 38,
+    "rect": [
+      272,
+      16,
+      16,
+      16
+    ]
+  },
+  "adventurer_31": {
+    "texture": "tnk:textures/skilltree/adventurer_03.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 23,
+    "rect": [
+      32,
+      16,
+      16,
+      16
+    ]
+  },
+  "adventurer_32": {
+    "texture": "tnk:textures/skilltree/adventurer_04.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 30,
+    "rect": [
+      144,
+      16,
+      16,
+      16
+    ]
+  },
+  "adventurer_12": {
+    "texture": "tnk:textures/skilltree/adventurer_12.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 89,
+    "rect": [
+      80,
+      64,
+      16,
+      16
+    ]
+  },
+  "adventurer_33": {
+    "texture": "tnk:textures/skilltree/adventurer_05.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 114,
+    "rect": [
+      144,
+      80,
+      16,
+      16
+    ]
+  },
   "adventurer_10": {
     "texture": "tnk:textures/skilltree/adventurer_10.png",
     "source": "IconPack 1.2/Skills/Skills.png",
@@ -853,6 +2349,17 @@
     "rect": [
       96,
       96,
+      16,
+      16
+    ]
+  },
+  "adventurer_34": {
+    "texture": "tnk:textures/skilltree/foundation_0.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 39,
+    "rect": [
+      288,
+      16,
       16,
       16
     ]
@@ -868,13 +2375,266 @@
       16
     ]
   },
-  "adventurer_12": {
-    "texture": "tnk:textures/skilltree/adventurer_12.png",
+  "bridge_wayfarer_delver_1": {
+    "texture": "tnk:textures/skilltree/wayfarer_01.png",
     "source": "IconPack 1.2/Skills/Skills.png",
-    "tile": 89,
+    "tile": 33,
     "rect": [
-      80,
-      64,
+      192,
+      16,
+      16,
+      16
+    ]
+  },
+  "bridge_wayfarer_delver_2": {
+    "texture": "tnk:textures/skilltree/delver_01.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 37,
+    "rect": [
+      256,
+      16,
+      16,
+      16
+    ]
+  },
+  "bridge_wayfarer_delver_3": {
+    "texture": "tnk:textures/skilltree/wayfarer_01.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 33,
+    "rect": [
+      192,
+      16,
+      16,
+      16
+    ]
+  },
+  "bridge_wayfarer_delver_4": {
+    "texture": "tnk:textures/skilltree/delver_01.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 37,
+    "rect": [
+      256,
+      16,
+      16,
+      16
+    ]
+  },
+  "bridge_delver_homesteader_1": {
+    "texture": "tnk:textures/skilltree/delver_01.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 37,
+    "rect": [
+      256,
+      16,
+      16,
+      16
+    ]
+  },
+  "bridge_delver_homesteader_2": {
+    "texture": "tnk:textures/skilltree/homesteader_01.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 34,
+    "rect": [
+      208,
+      16,
+      16,
+      16
+    ]
+  },
+  "bridge_delver_homesteader_3": {
+    "texture": "tnk:textures/skilltree/delver_01.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 37,
+    "rect": [
+      256,
+      16,
+      16,
+      16
+    ]
+  },
+  "bridge_delver_homesteader_4": {
+    "texture": "tnk:textures/skilltree/homesteader_01.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 34,
+    "rect": [
+      208,
+      16,
+      16,
+      16
+    ]
+  },
+  "bridge_homesteader_artificer_1": {
+    "texture": "tnk:textures/skilltree/homesteader_01.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 34,
+    "rect": [
+      208,
+      16,
+      16,
+      16
+    ]
+  },
+  "bridge_homesteader_artificer_2": {
+    "texture": "tnk:textures/skilltree/artificer_01.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 40,
+    "rect": [
+      304,
+      16,
+      16,
+      16
+    ]
+  },
+  "bridge_homesteader_artificer_3": {
+    "texture": "tnk:textures/skilltree/homesteader_01.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 34,
+    "rect": [
+      208,
+      16,
+      16,
+      16
+    ]
+  },
+  "bridge_homesteader_artificer_4": {
+    "texture": "tnk:textures/skilltree/artificer_01.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 40,
+    "rect": [
+      304,
+      16,
+      16,
+      16
+    ]
+  },
+  "bridge_artificer_survivor_1": {
+    "texture": "tnk:textures/skilltree/artificer_01.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 40,
+    "rect": [
+      304,
+      16,
+      16,
+      16
+    ]
+  },
+  "bridge_artificer_survivor_2": {
+    "texture": "tnk:textures/skilltree/survivor_03.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 22,
+    "rect": [
+      16,
+      16,
+      16,
+      16
+    ]
+  },
+  "bridge_artificer_survivor_3": {
+    "texture": "tnk:textures/skilltree/artificer_01.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 40,
+    "rect": [
+      304,
+      16,
+      16,
+      16
+    ]
+  },
+  "bridge_artificer_survivor_4": {
+    "texture": "tnk:textures/skilltree/survivor_03.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 22,
+    "rect": [
+      16,
+      16,
+      16,
+      16
+    ]
+  },
+  "bridge_survivor_adventurer_1": {
+    "texture": "tnk:textures/skilltree/survivor_03.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 22,
+    "rect": [
+      16,
+      16,
+      16,
+      16
+    ]
+  },
+  "bridge_survivor_adventurer_2": {
+    "texture": "tnk:textures/skilltree/adventurer_01.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 31,
+    "rect": [
+      160,
+      16,
+      16,
+      16
+    ]
+  },
+  "bridge_survivor_adventurer_3": {
+    "texture": "tnk:textures/skilltree/survivor_03.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 22,
+    "rect": [
+      16,
+      16,
+      16,
+      16
+    ]
+  },
+  "bridge_survivor_adventurer_4": {
+    "texture": "tnk:textures/skilltree/adventurer_01.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 31,
+    "rect": [
+      160,
+      16,
+      16,
+      16
+    ]
+  },
+  "bridge_adventurer_wayfarer_1": {
+    "texture": "tnk:textures/skilltree/adventurer_01.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 31,
+    "rect": [
+      160,
+      16,
+      16,
+      16
+    ]
+  },
+  "bridge_adventurer_wayfarer_2": {
+    "texture": "tnk:textures/skilltree/wayfarer_01.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 33,
+    "rect": [
+      192,
+      16,
+      16,
+      16
+    ]
+  },
+  "bridge_adventurer_wayfarer_3": {
+    "texture": "tnk:textures/skilltree/adventurer_01.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 31,
+    "rect": [
+      160,
+      16,
+      16,
+      16
+    ]
+  },
+  "bridge_adventurer_wayfarer_4": {
+    "texture": "tnk:textures/skilltree/wayfarer_01.png",
+    "source": "IconPack 1.2/Skills/Skills.png",
+    "tile": 33,
+    "rect": [
+      192,
+      16,
       16,
       16
     ]

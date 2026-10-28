@@ -1,0 +1,15 @@
+{
+  "nodes": 240,
+  "edges": 362,
+  "independent_cycles": 123,
+  "root_count": 1,
+  "maximum_shortest_path": 12,
+  "minimum_node_distance": 47.85,
+  "node_cost": 1,
+  "spending_limit": 100,
+  "foundation_nodes": 12,
+  "nodes_per_branch": 34,
+  "crossroad_nodes": 24,
+  "editor_roundtrip_verified": true,
+  "original_80_rewards_preserved": true
+}

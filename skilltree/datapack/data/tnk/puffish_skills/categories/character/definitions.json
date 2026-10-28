@@ -2,15 +2,15 @@
   "foundation_0": {
     "title": "First Steps",
     "description": "+2% exhaustion capacity.",
-    "extra_description": "Foundation | Cost: 1 point(s). Bonuses are removed on respec.",
+    "extra_description": "Foundation | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
         "texture": "tnk:textures/skilltree/foundation_0.png"
       }
     },
-    "frame": "task",
-    "size": 1.0,
+    "frame": "goal",
+    "size": 1.18,
     "cost": 1,
     "rewards": [
       {
@@ -26,15 +26,15 @@
   "foundation_1": {
     "title": "Healthy Habits",
     "description": "+1 maximum health (half a heart).",
-    "extra_description": "Foundation | Cost: 1 point(s). Bonuses are removed on respec.",
+    "extra_description": "Foundation | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
         "texture": "tnk:textures/skilltree/foundation_1.png"
       }
     },
-    "frame": "task",
-    "size": 1.0,
+    "frame": "goal",
+    "size": 1.18,
     "cost": 1,
     "rewards": [
       {
@@ -50,7 +50,7 @@
   "foundation_2": {
     "title": "Good Pace",
     "description": "+1% sprinting speed.",
-    "extra_description": "Foundation | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Foundation | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -58,8 +58,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.18,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -74,7 +74,7 @@
   "foundation_3": {
     "title": "Careful Landing",
     "description": "Reduce effective fall distance by 0.25 blocks.",
-    "extra_description": "Foundation | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Foundation | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -82,8 +82,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.18,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -98,7 +98,7 @@
   "foundation_4": {
     "title": "Basic Tools",
     "description": "+2% mining speed with the correct tool.",
-    "extra_description": "Foundation | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Foundation | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -106,8 +106,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.18,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -122,7 +122,7 @@
   "foundation_5": {
     "title": "Rest and Recover",
     "description": "+2% healing from natural regeneration.",
-    "extra_description": "Foundation | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Foundation | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -130,8 +130,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.18,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -146,16 +146,16 @@
   "foundation_6": {
     "title": "Firm Stance",
     "description": "+0.02 knockback resistance.",
-    "extra_description": "Foundation | Cost: 3 point(s). Bonuses are removed on respec.",
+    "extra_description": "Foundation | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
         "texture": "tnk:textures/skilltree/foundation_6.png"
       }
     },
-    "frame": "task",
-    "size": 1.0,
-    "cost": 3,
+    "frame": "goal",
+    "size": 1.18,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -170,7 +170,7 @@
   "foundation_7": {
     "title": "Ready for Adventure",
     "description": "+4% exhaustion capacity.",
-    "extra_description": "Foundation | Cost: 3 point(s). Bonuses are removed on respec.",
+    "extra_description": "Foundation | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -178,8 +178,8 @@
       }
     },
     "frame": "task",
-    "size": 1.0,
-    "cost": 3,
+    "size": 0.85,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -191,10 +191,106 @@
       }
     ]
   },
+  "foundation_8": {
+    "title": "Fresh Start",
+    "description": "+1% healing from natural regeneration.",
+    "extra_description": "Foundation | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/foundation_5.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:natural_regeneration",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "foundation_9": {
+    "title": "Prepared Traveller",
+    "description": "+2% exhaustion capacity.",
+    "extra_description": "Foundation | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/foundation_0.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "foundation_10": {
+    "title": "Work Rhythm",
+    "description": "+1% mining speed with the correct tool.",
+    "extra_description": "Foundation | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/foundation_4.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:mining_speed",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "foundation_11": {
+    "title": "Measured Pace",
+    "description": "+0.5% sprinting speed.",
+    "extra_description": "Foundation | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/foundation_2.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:sprinting_speed",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
   "wayfarer_01": {
     "title": "Quick Step",
     "description": "+2% sprinting speed.",
-    "extra_description": "Wayfarer | Cost: 1 point(s). Bonuses are removed on respec.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -202,7 +298,7 @@
       }
     },
     "frame": "task",
-    "size": 1.0,
+    "size": 0.85,
     "cost": 1,
     "rewards": [
       {
@@ -215,10 +311,58 @@
       }
     ]
   },
-  "wayfarer_02": {
-    "title": "Sure Footing",
-    "description": "Reduce effective fall distance by 0.5 blocks.",
-    "extra_description": "Wayfarer | Cost: 1 point(s). Bonuses are removed on respec.",
+  "wayfarer_13": {
+    "title": "Trail Rhythm",
+    "description": "+1% sprinting speed.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/wayfarer_01.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:sprinting_speed",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "wayfarer_14": {
+    "title": "Measured Stride",
+    "description": "+2% exhaustion capacity.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/wayfarer_03.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "wayfarer_15": {
+    "title": "Cushioned Boots",
+    "description": "Reduce effective fall distance by 0.25 blocks.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -226,7 +370,31 @@
       }
     },
     "frame": "task",
-    "size": 1.0,
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:fall_reduction",
+          "value": 0.25,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "wayfarer_02": {
+    "title": "Sure Footing",
+    "description": "Reduce effective fall distance by 0.5 blocks.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/wayfarer_02.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
     "cost": 1,
     "rewards": [
       {
@@ -239,18 +407,90 @@
       }
     ]
   },
+  "wayfarer_16": {
+    "title": "Hidden Footpath",
+    "description": "Reduce enemy detection distance by 0.25 blocks.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/wayfarer_07.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stealth",
+          "value": 0.25,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "wayfarer_17": {
+    "title": "Light Pack",
+    "description": "+0.5% movement speed.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/wayfarer_09.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "minecraft:generic.movement_speed",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "wayfarer_18": {
+    "title": "Ridge Runner",
+    "description": "+1% sprinting speed.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/wayfarer_04.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:sprinting_speed",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
   "wayfarer_03": {
     "title": "Trail Rations",
     "description": "+4% exhaustion capacity before food or saturation is consumed.",
-    "extra_description": "Wayfarer | Cost: 1 point(s). Bonuses are removed on respec.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
         "texture": "tnk:textures/skilltree/wayfarer_03.png"
       }
     },
-    "frame": "task",
-    "size": 1.0,
+    "frame": "goal",
+    "size": 1.18,
     "cost": 1,
     "rewards": [
       {
@@ -266,15 +506,15 @@
   "wayfarer_04": {
     "title": "Open Road",
     "description": "+2% sprinting speed.",
-    "extra_description": "Wayfarer | Cost: 1 point(s). Bonuses are removed on respec.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
         "texture": "tnk:textures/skilltree/wayfarer_04.png"
       }
     },
-    "frame": "task",
-    "size": 1.0,
+    "frame": "goal",
+    "size": 1.05,
     "cost": 1,
     "rewards": [
       {
@@ -287,10 +527,106 @@
       }
     ]
   },
+  "wayfarer_19": {
+    "title": "Cliff Sense",
+    "description": "Reduce effective fall distance by 0.25 blocks.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/wayfarer_11.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:fall_reduction",
+          "value": 0.25,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "wayfarer_20": {
+    "title": "Patient Pace",
+    "description": "+2% exhaustion capacity.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/wayfarer_06.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "wayfarer_21": {
+    "title": "Silent Approach",
+    "description": "Reduce enemy detection distance by 0.25 blocks.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/wayfarer_07.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stealth",
+          "value": 0.25,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "wayfarer_22": {
+    "title": "Trail Bound",
+    "description": "+1% jump height.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/wayfarer_08.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:jump",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
   "wayfarer_05": {
     "title": "Soft Landing",
     "description": "Reduce effective fall distance by 0.5 blocks.",
-    "extra_description": "Wayfarer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -298,8 +634,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.05,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -311,10 +647,106 @@
       }
     ]
   },
+  "wayfarer_23": {
+    "title": "Windward",
+    "description": "+1% sprinting speed.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/wayfarer_10.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:sprinting_speed",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "wayfarer_24": {
+    "title": "Sure Descent",
+    "description": "Reduce effective fall distance by 0.25 blocks.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/wayfarer_02.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:fall_reduction",
+          "value": 0.25,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "wayfarer_25": {
+    "title": "Long Haul",
+    "description": "+2% exhaustion capacity.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/wayfarer_12.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "wayfarer_26": {
+    "title": "Side Trail",
+    "description": "+0.5% movement speed.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/wayfarer_09.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "minecraft:generic.movement_speed",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
   "wayfarer_06": {
     "title": "Long Journey",
     "description": "+6% exhaustion capacity.",
-    "extra_description": "Wayfarer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -322,8 +754,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.18,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -338,7 +770,7 @@
   "wayfarer_07": {
     "title": "Quiet Passage",
     "description": "Reduce enemy detection distance by 1 block.",
-    "extra_description": "Wayfarer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -346,8 +778,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.05,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -359,25 +791,73 @@
       }
     ]
   },
-  "wayfarer_08": {
-    "title": "Spring in Your Step",
-    "description": "+3% jump height.",
-    "extra_description": "Wayfarer | Cost: 2 point(s). Bonuses are removed on respec.",
+  "wayfarer_27": {
+    "title": "Nimble Landing",
+    "description": "+1% jump height.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
         "texture": "tnk:textures/skilltree/wayfarer_08.png"
       }
     },
-    "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "puffish_attributes:jump",
-          "value": 0.03,
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "wayfarer_28": {
+    "title": "Low Profile",
+    "description": "Reduce enemy detection distance by 0.25 blocks.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/wayfarer_07.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stealth",
+          "value": 0.25,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "wayfarer_29": {
+    "title": "Road Hardened",
+    "description": "+2% exhaustion capacity.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/wayfarer_03.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.02,
           "operation": "multiply_base"
         }
       }
@@ -386,7 +866,7 @@
   "wayfarer_09": {
     "title": "Travelling Light",
     "description": "+2% movement speed.",
-    "extra_description": "Wayfarer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -394,8 +874,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.05,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -407,60 +887,106 @@
       }
     ]
   },
-  "wayfarer_10": {
-    "title": "Pathfinder",
-    "description": "+5% sprinting speed.",
-    "extra_description": "Wayfarer | Cost: 4 point(s). Bonuses are removed on respec.",
+  "wayfarer_08": {
+    "title": "Spring in Your Step",
+    "description": "+3% jump height.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "tnk:textures/skilltree/wayfarer_10.png"
+        "texture": "tnk:textures/skilltree/wayfarer_08.png"
       }
     },
-    "frame": "challenge",
-    "size": 1.2,
-    "cost": 4,
+    "frame": "goal",
+    "size": 1.05,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:jump",
+          "value": 0.03,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "wayfarer_30": {
+    "title": "Winding Road",
+    "description": "+1% sprinting speed.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/wayfarer_04.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "puffish_attributes:sprinting_speed",
-          "value": 0.05,
+          "value": 0.01,
           "operation": "multiply_base"
         }
       }
-    ],
-    "required_spent_points": 20
+    ]
   },
-  "wayfarer_11": {
-    "title": "Featherfoot",
-    "description": "Reduce effective fall distance by 1 block.",
-    "extra_description": "Wayfarer | Cost: 4 point(s). Bonuses are removed on respec.",
+  "wayfarer_31": {
+    "title": "Footwork",
+    "description": "+0.5% movement speed.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/wayfarer_09.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "minecraft:generic.movement_speed",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "wayfarer_32": {
+    "title": "Rolling Landing",
+    "description": "Reduce effective fall distance by 0.25 blocks.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
         "texture": "tnk:textures/skilltree/wayfarer_11.png"
       }
     },
-    "frame": "challenge",
-    "size": 1.2,
-    "cost": 4,
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "puffish_attributes:fall_reduction",
-          "value": 1,
+          "value": 0.25,
           "operation": "addition"
         }
       }
-    ],
-    "required_spent_points": 20
+    ]
   },
   "wayfarer_12": {
     "title": "Wanderer",
     "description": "+8% exhaustion capacity.",
-    "extra_description": "Wayfarer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -468,8 +994,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.05,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -481,10 +1007,108 @@
       }
     ]
   },
+  "wayfarer_33": {
+    "title": "Restless Traveller",
+    "description": "+2% exhaustion capacity.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/wayfarer_06.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "wayfarer_10": {
+    "title": "Pathfinder",
+    "description": "+5% sprinting speed.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/wayfarer_10.png"
+      }
+    },
+    "frame": "challenge",
+    "size": 1.35,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:sprinting_speed",
+          "value": 0.05,
+          "operation": "multiply_base"
+        }
+      }
+    ],
+    "required_spent_points": 40
+  },
+  "wayfarer_34": {
+    "title": "Beyond the Horizon",
+    "description": "+1% sprinting speed.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/wayfarer_10.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:sprinting_speed",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "wayfarer_11": {
+    "title": "Featherfoot",
+    "description": "Reduce effective fall distance by 1 block.",
+    "extra_description": "Wayfarer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/wayfarer_11.png"
+      }
+    },
+    "frame": "challenge",
+    "size": 1.35,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:fall_reduction",
+          "value": 1,
+          "operation": "addition"
+        }
+      }
+    ],
+    "required_spent_points": 40
+  },
   "delver_01": {
     "title": "Stone Sense",
     "description": "+3% pickaxe mining speed.",
-    "extra_description": "Delver | Cost: 1 point(s). Bonuses are removed on respec.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -492,7 +1116,7 @@
       }
     },
     "frame": "task",
-    "size": 1.0,
+    "size": 0.85,
     "cost": 1,
     "rewards": [
       {
@@ -505,10 +1129,34 @@
       }
     ]
   },
-  "delver_02": {
-    "title": "Earth Mover",
-    "description": "+4% shovel mining speed.",
-    "extra_description": "Delver | Cost: 1 point(s). Bonuses are removed on respec.",
+  "delver_13": {
+    "title": "Rock Face",
+    "description": "+1.5% pickaxe mining speed.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/delver_01.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:pickaxe_speed",
+          "value": 0.015,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "delver_14": {
+    "title": "Loose Soil",
+    "description": "+2% shovel mining speed.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -516,7 +1164,55 @@
       }
     },
     "frame": "task",
-    "size": 1.0,
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:shovel_speed",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "delver_15": {
+    "title": "Wood Grain",
+    "description": "+1.5% axe mining speed.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/delver_03.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:axe_speed",
+          "value": 0.015,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "delver_02": {
+    "title": "Earth Mover",
+    "description": "+4% shovel mining speed.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/delver_02.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
     "cost": 1,
     "rewards": [
       {
@@ -529,18 +1225,90 @@
       }
     ]
   },
+  "delver_16": {
+    "title": "Patient Excavation",
+    "description": "+2% exhaustion capacity.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/delver_09.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "delver_17": {
+    "title": "Ore Seams",
+    "description": "+1.5% pickaxe mining speed.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/delver_04.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:pickaxe_speed",
+          "value": 0.015,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "delver_18": {
+    "title": "Sifting",
+    "description": "+0.025 Fortune for block drops.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/delver_08.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:fortune",
+          "value": 0.025,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
   "delver_03": {
     "title": "Steady Swing",
     "description": "+3% axe mining speed.",
-    "extra_description": "Delver | Cost: 1 point(s). Bonuses are removed on respec.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
         "texture": "tnk:textures/skilltree/delver_03.png"
       }
     },
-    "frame": "task",
-    "size": 1.0,
+    "frame": "goal",
+    "size": 1.18,
     "cost": 1,
     "rewards": [
       {
@@ -556,15 +1324,15 @@
   "delver_04": {
     "title": "Clean Cut",
     "description": "+3% pickaxe mining speed.",
-    "extra_description": "Delver | Cost: 1 point(s). Bonuses are removed on respec.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
         "texture": "tnk:textures/skilltree/delver_04.png"
       }
     },
-    "frame": "task",
-    "size": 1.0,
+    "frame": "goal",
+    "size": 1.05,
     "cost": 1,
     "rewards": [
       {
@@ -577,10 +1345,106 @@
       }
     ]
   },
+  "delver_19": {
+    "title": "Cutting Edge",
+    "description": "+1.5% axe mining speed.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/delver_06.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:axe_speed",
+          "value": 0.015,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "delver_20": {
+    "title": "Spoil Heap",
+    "description": "+2% shovel mining speed.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/delver_05.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:shovel_speed",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "delver_21": {
+    "title": "Methodical Work",
+    "description": "+1% mining speed with the correct tool.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/delver_07.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:mining_speed",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "delver_22": {
+    "title": "Tunnel Endurance",
+    "description": "+2% exhaustion capacity.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/delver_09.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
   "delver_05": {
     "title": "Excavator",
     "description": "+6% shovel mining speed.",
-    "extra_description": "Delver | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -588,8 +1452,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.05,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -601,10 +1465,106 @@
       }
     ]
   },
+  "delver_23": {
+    "title": "Stoneworker",
+    "description": "+1.5% pickaxe mining speed.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/delver_10.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:pickaxe_speed",
+          "value": 0.015,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "delver_24": {
+    "title": "Finders Eye",
+    "description": "+0.025 Fortune for block drops.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/delver_11.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:fortune",
+          "value": 0.025,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "delver_25": {
+    "title": "Clearing Roots",
+    "description": "+1.5% axe mining speed.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/delver_03.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:axe_speed",
+          "value": 0.015,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "delver_26": {
+    "title": "Deep Cut",
+    "description": "+1% mining speed with the correct tool.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/delver_12.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:mining_speed",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
   "delver_06": {
     "title": "Timber Hand",
     "description": "+5% axe mining speed.",
-    "extra_description": "Delver | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -612,8 +1572,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.18,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -628,7 +1588,7 @@
   "delver_07": {
     "title": "Deep Work",
     "description": "+4% mining speed when using the correct tool.",
-    "extra_description": "Delver | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -636,8 +1596,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.05,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -649,26 +1609,74 @@
       }
     ]
   },
-  "delver_08": {
-    "title": "Miner's Luck",
-    "description": "+0.10 Fortune for block drops; fractional levels are rolled by Pufferfish.",
-    "extra_description": "Delver | Cost: 2 point(s). Bonuses are removed on respec.",
+  "delver_27": {
+    "title": "Trenchwork",
+    "description": "+2% shovel mining speed.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "tnk:textures/skilltree/delver_08.png"
+        "texture": "tnk:textures/skilltree/delver_02.png"
       }
     },
-    "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
         "data": {
-          "attribute": "puffish_attributes:fortune",
-          "value": 0.1,
-          "operation": "addition"
+          "attribute": "puffish_attributes:shovel_speed",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "delver_28": {
+    "title": "Bedrock Patience",
+    "description": "+2% exhaustion capacity.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/delver_09.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "delver_29": {
+    "title": "Fine Chisel",
+    "description": "+1.5% pickaxe mining speed.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/delver_04.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:pickaxe_speed",
+          "value": 0.015,
+          "operation": "multiply_base"
         }
       }
     ]
@@ -676,7 +1684,7 @@
   "delver_09": {
     "title": "Tunnel Legs",
     "description": "+6% exhaustion capacity.",
-    "extra_description": "Delver | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -684,8 +1692,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.05,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -697,60 +1705,106 @@
       }
     ]
   },
-  "delver_10": {
-    "title": "Master Delver",
-    "description": "+8% pickaxe mining speed.",
-    "extra_description": "Delver | Cost: 4 point(s). Bonuses are removed on respec.",
+  "delver_08": {
+    "title": "Miner's Luck",
+    "description": "+0.10 Fortune for block drops; fractional levels are rolled by Pufferfish.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "tnk:textures/skilltree/delver_10.png"
+        "texture": "tnk:textures/skilltree/delver_08.png"
       }
     },
-    "frame": "challenge",
-    "size": 1.2,
-    "cost": 4,
-    "rewards": [
-      {
-        "type": "puffish_skills:attribute",
-        "data": {
-          "attribute": "puffish_attributes:pickaxe_speed",
-          "value": 0.08,
-          "operation": "multiply_base"
-        }
-      }
-    ],
-    "required_spent_points": 20
-  },
-  "delver_11": {
-    "title": "Prospector",
-    "description": "+0.15 Fortune for block drops. Does not affect equipment loot.",
-    "extra_description": "Delver | Cost: 4 point(s). Bonuses are removed on respec.",
-    "icon": {
-      "type": "texture",
-      "data": {
-        "texture": "tnk:textures/skilltree/delver_11.png"
-      }
-    },
-    "frame": "challenge",
-    "size": 1.2,
-    "cost": 4,
+    "frame": "goal",
+    "size": 1.05,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "puffish_attributes:fortune",
-          "value": 0.15,
+          "value": 0.1,
           "operation": "addition"
         }
       }
-    ],
-    "required_spent_points": 20
+    ]
+  },
+  "delver_30": {
+    "title": "Narrow Vein",
+    "description": "+0.025 Fortune for block drops.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/delver_08.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:fortune",
+          "value": 0.025,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "delver_31": {
+    "title": "Clear Swing",
+    "description": "+1.5% axe mining speed.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/delver_06.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:axe_speed",
+          "value": 0.015,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "delver_32": {
+    "title": "Groundbreaker",
+    "description": "+2% shovel mining speed.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/delver_05.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:shovel_speed",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
   },
   "delver_12": {
     "title": "Practical Tools",
     "description": "+4% mining speed with the correct tool.",
-    "extra_description": "Delver | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -758,8 +1812,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.05,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -771,10 +1825,108 @@
       }
     ]
   },
+  "delver_33": {
+    "title": "Seasoned Tools",
+    "description": "+1% mining speed with the correct tool.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/delver_07.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:mining_speed",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "delver_10": {
+    "title": "Master Delver",
+    "description": "+8% pickaxe mining speed.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/delver_10.png"
+      }
+    },
+    "frame": "challenge",
+    "size": 1.35,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:pickaxe_speed",
+          "value": 0.08,
+          "operation": "multiply_base"
+        }
+      }
+    ],
+    "required_spent_points": 40
+  },
+  "delver_34": {
+    "title": "Buried Promise",
+    "description": "+0.025 Fortune for block drops.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/delver_11.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:fortune",
+          "value": 0.025,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "delver_11": {
+    "title": "Prospector",
+    "description": "+0.15 Fortune for block drops. Does not affect equipment loot.",
+    "extra_description": "Delver | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/delver_11.png"
+      }
+    },
+    "frame": "challenge",
+    "size": 1.35,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:fortune",
+          "value": 0.15,
+          "operation": "addition"
+        }
+      }
+    ],
+    "required_spent_points": 40
+  },
   "homesteader_01": {
     "title": "Packed Lunch",
     "description": "+4% exhaustion capacity.",
-    "extra_description": "Homesteader | Cost: 1 point(s). Bonuses are removed on respec.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -782,7 +1934,7 @@
       }
     },
     "frame": "task",
-    "size": 1.0,
+    "size": 0.85,
     "cost": 1,
     "rewards": [
       {
@@ -795,10 +1947,34 @@
       }
     ]
   },
-  "homesteader_02": {
-    "title": "Fresh Air",
-    "description": "+3% healing from natural regeneration.",
-    "extra_description": "Homesteader | Cost: 1 point(s). Bonuses are removed on respec.",
+  "homesteader_13": {
+    "title": "Morning Meal",
+    "description": "+2% exhaustion capacity.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/homesteader_01.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "homesteader_14": {
+    "title": "Gentle Recovery",
+    "description": "+1% healing from natural regeneration.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -806,7 +1982,55 @@
       }
     },
     "frame": "task",
-    "size": 1.0,
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:natural_regeneration",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "homesteader_15": {
+    "title": "Animal Training",
+    "description": "+1% damage dealt by your tamed creatures.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/homesteader_03.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:tamed_damage",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "homesteader_02": {
+    "title": "Fresh Air",
+    "description": "+3% healing from natural regeneration.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/homesteader_02.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
     "cost": 1,
     "rewards": [
       {
@@ -819,18 +2043,90 @@
       }
     ]
   },
+  "homesteader_16": {
+    "title": "Pantry Stores",
+    "description": "+2% exhaustion capacity.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/homesteader_04.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "homesteader_17": {
+    "title": "Herbal Knowledge",
+    "description": "+1% healing received.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/homesteader_05.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:healing",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "homesteader_18": {
+    "title": "Protective Bond",
+    "description": "Reduce damage taken by your tamed creatures by 1% of base damage.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/homesteader_06.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:tamed_resistance",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
   "homesteader_03": {
     "title": "Faithful Friend",
     "description": "+3% damage dealt by your tamed creatures.",
-    "extra_description": "Homesteader | Cost: 1 point(s). Bonuses are removed on respec.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
         "texture": "tnk:textures/skilltree/homesteader_03.png"
       }
     },
-    "frame": "task",
-    "size": 1.0,
+    "frame": "goal",
+    "size": 1.18,
     "cost": 1,
     "rewards": [
       {
@@ -846,15 +2142,15 @@
   "homesteader_04": {
     "title": "Hearty Meal",
     "description": "+4% exhaustion capacity.",
-    "extra_description": "Homesteader | Cost: 1 point(s). Bonuses are removed on respec.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
         "texture": "tnk:textures/skilltree/homesteader_04.png"
       }
     },
-    "frame": "task",
-    "size": 1.0,
+    "frame": "goal",
+    "size": 1.05,
     "cost": 1,
     "rewards": [
       {
@@ -867,10 +2163,106 @@
       }
     ]
   },
+  "homesteader_19": {
+    "title": "Restful Routine",
+    "description": "+1% healing from natural regeneration.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/homesteader_07.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:natural_regeneration",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "homesteader_20": {
+    "title": "Field Lunch",
+    "description": "+2% exhaustion capacity.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/homesteader_08.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "homesteader_21": {
+    "title": "Orchard Work",
+    "description": "+2% axe mining speed.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/homesteader_09.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:axe_speed",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "homesteader_22": {
+    "title": "Kitchen Garden",
+    "description": "+2% shovel mining speed.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/homesteader_12.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:shovel_speed",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
   "homesteader_05": {
     "title": "Home Remedies",
     "description": "+4% healing received.",
-    "extra_description": "Homesteader | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -878,8 +2270,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.05,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -891,10 +2283,106 @@
       }
     ]
   },
+  "homesteader_23": {
+    "title": "Comforting Care",
+    "description": "+1% healing received.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/homesteader_10.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:healing",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "homesteader_24": {
+    "title": "Loyal Guardian",
+    "description": "Reduce damage taken by your tamed creatures by 1% of base damage.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/homesteader_11.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:tamed_resistance",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "homesteader_25": {
+    "title": "Shared Routine",
+    "description": "+1% damage dealt by your tamed creatures.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/homesteader_03.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:tamed_damage",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "homesteader_26": {
+    "title": "Well Stocked",
+    "description": "+2% exhaustion capacity.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/homesteader_04.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
   "homesteader_06": {
     "title": "Animal Care",
     "description": "Reduce damage taken by your tamed creatures by 3% of base damage.",
-    "extra_description": "Homesteader | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -902,8 +2390,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.18,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -918,7 +2406,7 @@
   "homesteader_07": {
     "title": "A Good Rest",
     "description": "+5% healing from natural regeneration.",
-    "extra_description": "Homesteader | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -926,8 +2414,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.05,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -939,25 +2427,73 @@
       }
     ]
   },
-  "homesteader_08": {
-    "title": "Well Fed",
-    "description": "+8% exhaustion capacity.",
-    "extra_description": "Homesteader | Cost: 2 point(s). Bonuses are removed on respec.",
+  "homesteader_27": {
+    "title": "Evening Rest",
+    "description": "+1% healing from natural regeneration.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "tnk:textures/skilltree/homesteader_08.png"
+        "texture": "tnk:textures/skilltree/homesteader_07.png"
       }
     },
-    "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
         "data": {
-          "attribute": "puffish_attributes:stamina",
-          "value": 0.08,
+          "attribute": "puffish_attributes:natural_regeneration",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "homesteader_28": {
+    "title": "Cultivated Hands",
+    "description": "+2% shovel mining speed.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/homesteader_12.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:shovel_speed",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "homesteader_29": {
+    "title": "Steady Care",
+    "description": "+1% healing received.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/homesteader_05.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:healing",
+          "value": 0.01,
           "operation": "multiply_base"
         }
       }
@@ -966,7 +2502,7 @@
   "homesteader_09": {
     "title": "Working Hands",
     "description": "+5% axe mining speed.",
-    "extra_description": "Homesteader | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -974,8 +2510,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.05,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -987,60 +2523,106 @@
       }
     ]
   },
-  "homesteader_10": {
-    "title": "Comforts of Home",
-    "description": "+8% healing received.",
-    "extra_description": "Homesteader | Cost: 4 point(s). Bonuses are removed on respec.",
+  "homesteader_08": {
+    "title": "Well Fed",
+    "description": "+8% exhaustion capacity.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "tnk:textures/skilltree/homesteader_10.png"
+        "texture": "tnk:textures/skilltree/homesteader_08.png"
       }
     },
-    "frame": "challenge",
-    "size": 1.2,
-    "cost": 4,
+    "frame": "goal",
+    "size": 1.05,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
         "data": {
-          "attribute": "puffish_attributes:healing",
+          "attribute": "puffish_attributes:stamina",
           "value": 0.08,
           "operation": "multiply_base"
         }
       }
-    ],
-    "required_spent_points": 20
+    ]
   },
-  "homesteader_11": {
-    "title": "Trusted Companion",
-    "description": "Reduce damage taken by your tamed creatures by 6% of base damage.",
-    "extra_description": "Homesteader | Cost: 4 point(s). Bonuses are removed on respec.",
+  "homesteader_30": {
+    "title": "Pasture Companion",
+    "description": "Reduce damage taken by your tamed creatures by 1% of base damage.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "tnk:textures/skilltree/homesteader_11.png"
+        "texture": "tnk:textures/skilltree/homesteader_06.png"
       }
     },
-    "frame": "challenge",
-    "size": 1.2,
-    "cost": 4,
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "puffish_attributes:tamed_resistance",
-          "value": 0.06,
+          "value": 0.01,
           "operation": "multiply_base"
         }
       }
-    ],
-    "required_spent_points": 20
+    ]
+  },
+  "homesteader_31": {
+    "title": "Woodland Chores",
+    "description": "+2% axe mining speed.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/homesteader_09.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:axe_speed",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "homesteader_32": {
+    "title": "Farmhand Endurance",
+    "description": "+2% exhaustion capacity.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/homesteader_01.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
   },
   "homesteader_12": {
     "title": "Garden Paths",
     "description": "+6% shovel mining speed.",
-    "extra_description": "Homesteader | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -1048,8 +2630,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.05,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -1061,10 +2643,108 @@
       }
     ]
   },
+  "homesteader_33": {
+    "title": "Faithful Partnership",
+    "description": "+1% damage dealt by your tamed creatures.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/homesteader_03.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:tamed_damage",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "homesteader_10": {
+    "title": "Comforts of Home",
+    "description": "+8% healing received.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/homesteader_10.png"
+      }
+    },
+    "frame": "challenge",
+    "size": 1.35,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:healing",
+          "value": 0.08,
+          "operation": "multiply_base"
+        }
+      }
+    ],
+    "required_spent_points": 40
+  },
+  "homesteader_34": {
+    "title": "Homeward Rest",
+    "description": "+1% healing from natural regeneration.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/homesteader_02.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:natural_regeneration",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "homesteader_11": {
+    "title": "Trusted Companion",
+    "description": "Reduce damage taken by your tamed creatures by 6% of base damage.",
+    "extra_description": "Homesteader | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/homesteader_11.png"
+      }
+    },
+    "frame": "challenge",
+    "size": 1.35,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:tamed_resistance",
+          "value": 0.06,
+          "operation": "multiply_base"
+        }
+      }
+    ],
+    "required_spent_points": 40
+  },
   "artificer_01": {
     "title": "Apprentice Smith",
     "description": "-2% anvil XP cost. Does not change identification costs.",
-    "extra_description": "Artificer | Cost: 1 point(s). Bonuses are removed on respec.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -1072,7 +2752,7 @@
       }
     },
     "frame": "task",
-    "size": 1.0,
+    "size": 0.85,
     "cost": 1,
     "rewards": [
       {
@@ -1085,10 +2765,34 @@
       }
     ]
   },
-  "artificer_02": {
-    "title": "Keen Student",
-    "description": "+2% vanilla XP from collected orbs. No character XP bonus.",
-    "extra_description": "Artificer | Cost: 1 point(s). Bonuses are removed on respec.",
+  "artificer_13": {
+    "title": "Accurate Measurements",
+    "description": "-1% anvil XP cost.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/artificer_01.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:repair_cost",
+          "value": -0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_14": {
+    "title": "Margin Notes",
+    "description": "+1% vanilla XP from collected orbs; no character XP bonus.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -1096,7 +2800,55 @@
       }
     },
     "frame": "task",
-    "size": 1.0,
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:experience",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_15": {
+    "title": "Workshop Routine",
+    "description": "+2% exhaustion capacity.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/artificer_06.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_02": {
+    "title": "Keen Student",
+    "description": "+2% vanilla XP from collected orbs. No character XP bonus.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/artificer_02.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
     "cost": 1,
     "rewards": [
       {
@@ -1109,10 +2861,10 @@
       }
     ]
   },
-  "artificer_03": {
-    "title": "Workshop Hands",
-    "description": "+3% axe mining speed.",
-    "extra_description": "Artificer | Cost: 1 point(s). Bonuses are removed on respec.",
+  "artificer_16": {
+    "title": "Honed Edge",
+    "description": "+1.5% axe mining speed.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -1120,7 +2872,79 @@
       }
     },
     "frame": "task",
-    "size": 1.0,
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:axe_speed",
+          "value": 0.015,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_17": {
+    "title": "Waste Less",
+    "description": "-1% anvil XP cost.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/artificer_04.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:repair_cost",
+          "value": -0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_18": {
+    "title": "Useful Reading",
+    "description": "+1% vanilla XP from collected orbs; no character XP bonus.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/artificer_05.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:experience",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_03": {
+    "title": "Workshop Hands",
+    "description": "+3% axe mining speed.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/artificer_03.png"
+      }
+    },
+    "frame": "goal",
+    "size": 1.18,
     "cost": 1,
     "rewards": [
       {
@@ -1136,15 +2960,15 @@
   "artificer_04": {
     "title": "Measured Repairs",
     "description": "-3% anvil XP cost.",
-    "extra_description": "Artificer | Cost: 1 point(s). Bonuses are removed on respec.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
         "texture": "tnk:textures/skilltree/artificer_04.png"
       }
     },
-    "frame": "task",
-    "size": 1.0,
+    "frame": "goal",
+    "size": 1.05,
     "cost": 1,
     "rewards": [
       {
@@ -1157,10 +2981,106 @@
       }
     ]
   },
+  "artificer_19": {
+    "title": "Fine Handling",
+    "description": "+1% mining speed with the correct tool.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/artificer_09.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:mining_speed",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_20": {
+    "title": "Tool Fitting",
+    "description": "+1.5% pickaxe mining speed.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/artificer_12.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:pickaxe_speed",
+          "value": 0.015,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_21": {
+    "title": "Careful Reforging",
+    "description": "-1% anvil XP cost.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/artificer_07.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:repair_cost",
+          "value": -0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_22": {
+    "title": "Practical Notes",
+    "description": "+1% vanilla XP from collected orbs; no character XP bonus.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/artificer_08.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:experience",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
   "artificer_05": {
     "title": "Patient Study",
     "description": "+3% vanilla XP from collected orbs.",
-    "extra_description": "Artificer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -1168,8 +3088,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.05,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -1181,10 +3101,106 @@
       }
     ]
   },
+  "artificer_23": {
+    "title": "Craftsman Endurance",
+    "description": "+2% exhaustion capacity.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/artificer_06.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_24": {
+    "title": "Sharp Instruments",
+    "description": "+1.5% axe mining speed.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/artificer_03.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:axe_speed",
+          "value": 0.015,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_25": {
+    "title": "Measured Force",
+    "description": "+1.5% pickaxe mining speed.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/artificer_12.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:pickaxe_speed",
+          "value": 0.015,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_26": {
+    "title": "Patient Repairs",
+    "description": "-1% anvil XP cost.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/artificer_10.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:repair_cost",
+          "value": -0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
   "artificer_06": {
     "title": "Prepared Workspace",
     "description": "+6% exhaustion capacity.",
-    "extra_description": "Artificer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -1192,8 +3208,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.18,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -1208,7 +3224,7 @@
   "artificer_07": {
     "title": "Efficient Smith",
     "description": "-5% anvil XP cost.",
-    "extra_description": "Artificer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -1216,8 +3232,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.05,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -1229,25 +3245,73 @@
       }
     ]
   },
-  "artificer_08": {
-    "title": "Applied Knowledge",
-    "description": "+4% vanilla XP from collected orbs.",
-    "extra_description": "Artificer | Cost: 2 point(s). Bonuses are removed on respec.",
+  "artificer_27": {
+    "title": "Field Manual",
+    "description": "+1% vanilla XP from collected orbs; no character XP bonus.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "tnk:textures/skilltree/artificer_08.png"
+        "texture": "tnk:textures/skilltree/artificer_11.png"
       }
     },
-    "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "puffish_attributes:experience",
-          "value": 0.04,
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_28": {
+    "title": "Clean Workspace",
+    "description": "+2% exhaustion capacity.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/artificer_06.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_29": {
+    "title": "Workshop Discipline",
+    "description": "+1% mining speed with the correct tool.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/artificer_09.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:mining_speed",
+          "value": 0.01,
           "operation": "multiply_base"
         }
       }
@@ -1256,7 +3320,7 @@
   "artificer_09": {
     "title": "Material Handling",
     "description": "+4% mining speed with the correct tool.",
-    "extra_description": "Artificer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -1264,8 +3328,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.05,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -1277,60 +3341,106 @@
       }
     ]
   },
-  "artificer_10": {
-    "title": "Master Smith",
-    "description": "-10% anvil XP cost. The full branch totals -20% before other modifiers.",
-    "extra_description": "Artificer | Cost: 4 point(s). Bonuses are removed on respec.",
+  "artificer_08": {
+    "title": "Applied Knowledge",
+    "description": "+4% vanilla XP from collected orbs.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "tnk:textures/skilltree/artificer_10.png"
+        "texture": "tnk:textures/skilltree/artificer_08.png"
       }
     },
-    "frame": "challenge",
-    "size": 1.2,
-    "cost": 4,
-    "rewards": [
-      {
-        "type": "puffish_skills:attribute",
-        "data": {
-          "attribute": "puffish_attributes:repair_cost",
-          "value": -0.1,
-          "operation": "multiply_base"
-        }
-      }
-    ],
-    "required_spent_points": 20
-  },
-  "artificer_11": {
-    "title": "Lifelong Learner",
-    "description": "+6% vanilla XP from collected orbs. The full branch totals +15%.",
-    "extra_description": "Artificer | Cost: 4 point(s). Bonuses are removed on respec.",
-    "icon": {
-      "type": "texture",
-      "data": {
-        "texture": "tnk:textures/skilltree/artificer_11.png"
-      }
-    },
-    "frame": "challenge",
-    "size": 1.2,
-    "cost": 4,
+    "frame": "goal",
+    "size": 1.05,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
         "data": {
           "attribute": "puffish_attributes:experience",
-          "value": 0.06,
+          "value": 0.04,
           "operation": "multiply_base"
         }
       }
-    ],
-    "required_spent_points": 20
+    ]
+  },
+  "artificer_30": {
+    "title": "Economical Repairs",
+    "description": "-1% anvil XP cost.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/artificer_04.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:repair_cost",
+          "value": -0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_31": {
+    "title": "Collected Wisdom",
+    "description": "+1% vanilla XP from collected orbs; no character XP bonus.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/artificer_08.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:experience",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_32": {
+    "title": "Refined Instruments",
+    "description": "+1.5% pickaxe mining speed.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/artificer_12.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:pickaxe_speed",
+          "value": 0.015,
+          "operation": "multiply_base"
+        }
+      }
+    ]
   },
   "artificer_12": {
     "title": "Fine Tools",
     "description": "+5% pickaxe mining speed.",
-    "extra_description": "Artificer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -1338,8 +3448,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.05,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -1351,10 +3461,108 @@
       }
     ]
   },
+  "artificer_33": {
+    "title": "Polished Technique",
+    "description": "+1.5% axe mining speed.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/artificer_03.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:axe_speed",
+          "value": 0.015,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_10": {
+    "title": "Master Smith",
+    "description": "-10% anvil XP cost.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/artificer_10.png"
+      }
+    },
+    "frame": "challenge",
+    "size": 1.35,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:repair_cost",
+          "value": -0.1,
+          "operation": "multiply_base"
+        }
+      }
+    ],
+    "required_spent_points": 40
+  },
+  "artificer_34": {
+    "title": "Lasting Repairs",
+    "description": "-1% anvil XP cost.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/artificer_07.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:repair_cost",
+          "value": -0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "artificer_11": {
+    "title": "Lifelong Learner",
+    "description": "+6% vanilla XP from collected orbs.",
+    "extra_description": "Artificer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/artificer_11.png"
+      }
+    },
+    "frame": "challenge",
+    "size": 1.35,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:experience",
+          "value": 0.06,
+          "operation": "multiply_base"
+        }
+      }
+    ],
+    "required_spent_points": 40
+  },
   "survivor_01": {
     "title": "Hardy",
     "description": "+1 maximum health (half a heart).",
-    "extra_description": "Survivor | Cost: 1 point(s). Bonuses are removed on respec.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -1362,7 +3570,7 @@
       }
     },
     "frame": "task",
-    "size": 1.0,
+    "size": 0.85,
     "cost": 1,
     "rewards": [
       {
@@ -1375,10 +3583,34 @@
       }
     ]
   },
-  "survivor_02": {
-    "title": "Recovery",
-    "description": "+3% healing from natural regeneration.",
-    "extra_description": "Survivor | Cost: 1 point(s). Bonuses are removed on respec.",
+  "survivor_13": {
+    "title": "Steady Nerves",
+    "description": "+0.01 knockback resistance.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/survivor_03.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "minecraft:generic.knockback_resistance",
+          "value": 0.01,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "survivor_14": {
+    "title": "Breathing Room",
+    "description": "+1% healing from natural regeneration.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -1386,7 +3618,55 @@
       }
     },
     "frame": "task",
-    "size": 1.0,
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:natural_regeneration",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "survivor_15": {
+    "title": "Staying Power",
+    "description": "+2% exhaustion capacity.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/foundation_0.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "survivor_02": {
+    "title": "Recovery",
+    "description": "+3% healing from natural regeneration.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/survivor_02.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
     "cost": 1,
     "rewards": [
       {
@@ -1399,18 +3679,90 @@
       }
     ]
   },
+  "survivor_16": {
+    "title": "Close Cover",
+    "description": "Reduce incoming melee damage by 0.5% of base damage.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/survivor_07.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:melee_resistance",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "survivor_17": {
+    "title": "Distant Cover",
+    "description": "Reduce incoming ranged damage by 0.5% of base damage.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/survivor_08.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:ranged_resistance",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "survivor_18": {
+    "title": "Basic Wards",
+    "description": "Reduce qualifying incoming magic damage by 0.5% of base damage.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/survivor_09.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:magic_resistance",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
   "survivor_03": {
     "title": "Hold Ground",
     "description": "+0.02 knockback resistance.",
-    "extra_description": "Survivor | Cost: 1 point(s). Bonuses are removed on respec.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
         "texture": "tnk:textures/skilltree/survivor_03.png"
       }
     },
-    "frame": "task",
-    "size": 1.0,
+    "frame": "goal",
+    "size": 1.18,
     "cost": 1,
     "rewards": [
       {
@@ -1426,15 +3778,15 @@
   "survivor_04": {
     "title": "Second Breath",
     "description": "+3% healing received; this is a permanent bonus, not an emergency trigger.",
-    "extra_description": "Survivor | Cost: 1 point(s). Bonuses are removed on respec.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
         "texture": "tnk:textures/skilltree/survivor_04.png"
       }
     },
-    "frame": "task",
-    "size": 1.0,
+    "frame": "goal",
+    "size": 1.05,
     "cost": 1,
     "rewards": [
       {
@@ -1447,10 +3799,106 @@
       }
     ]
   },
+  "survivor_19": {
+    "title": "Restorative Care",
+    "description": "+1% healing received.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/survivor_04.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:healing",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "survivor_20": {
+    "title": "Firm Resolve",
+    "description": "+0.01 knockback resistance.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/survivor_06.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "minecraft:generic.knockback_resistance",
+          "value": 0.01,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "survivor_21": {
+    "title": "Hardened Skin",
+    "description": "Reduce incoming damage by 0.5% of base damage.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/survivor_05.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:resistance",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "survivor_22": {
+    "title": "Quiet Recovery",
+    "description": "+1% healing from natural regeneration.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/survivor_12.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:natural_regeneration",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
   "survivor_05": {
     "title": "Weathered",
     "description": "Reduce incoming damage by 1% of base damage.",
-    "extra_description": "Survivor | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -1458,8 +3906,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.05,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -1471,10 +3919,106 @@
       }
     ]
   },
+  "survivor_23": {
+    "title": "Watchful Guard",
+    "description": "Reduce incoming melee damage by 0.5% of base damage.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/survivor_07.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:melee_resistance",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "survivor_24": {
+    "title": "Shelter",
+    "description": "Reduce incoming ranged damage by 0.5% of base damage.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/survivor_08.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:ranged_resistance",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "survivor_25": {
+    "title": "Warding Practice",
+    "description": "Reduce qualifying incoming magic damage by 0.5% of base damage.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/survivor_09.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:magic_resistance",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "survivor_26": {
+    "title": "Patient Recovery",
+    "description": "+1% healing received.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/survivor_04.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:healing",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
   "survivor_06": {
     "title": "Brace",
     "description": "+0.03 knockback resistance.",
-    "extra_description": "Survivor | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -1482,8 +4026,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.18,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -1498,7 +4042,7 @@
   "survivor_07": {
     "title": "Close Guard",
     "description": "Reduce incoming melee damage by 2% of base damage.",
-    "extra_description": "Survivor | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -1506,8 +4050,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.05,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -1519,25 +4063,73 @@
       }
     ]
   },
-  "survivor_08": {
-    "title": "Arrow Guard",
-    "description": "Reduce incoming ranged damage by 2% of base damage.",
-    "extra_description": "Survivor | Cost: 2 point(s). Bonuses are removed on respec.",
+  "survivor_27": {
+    "title": "Grounded",
+    "description": "+0.01 knockback resistance.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "tnk:textures/skilltree/survivor_08.png"
+        "texture": "tnk:textures/skilltree/survivor_03.png"
       }
     },
-    "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
         "data": {
-          "attribute": "puffish_attributes:ranged_resistance",
-          "value": 0.02,
+          "attribute": "minecraft:generic.knockback_resistance",
+          "value": 0.01,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "survivor_28": {
+    "title": "Weather the Storm",
+    "description": "Reduce incoming damage by 0.5% of base damage.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/survivor_11.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:resistance",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "survivor_29": {
+    "title": "Rest Easy",
+    "description": "+1% healing from natural regeneration.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/survivor_02.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:natural_regeneration",
+          "value": 0.01,
           "operation": "multiply_base"
         }
       }
@@ -1546,7 +4138,7 @@
   "survivor_09": {
     "title": "Warding",
     "description": "Reduce qualifying magic damage by 2% of base damage.",
-    "extra_description": "Survivor | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -1554,8 +4146,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.05,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -1567,60 +4159,106 @@
       }
     ]
   },
-  "survivor_10": {
-    "title": "Unbroken",
-    "description": "+2 maximum health (one heart).",
-    "extra_description": "Survivor | Cost: 4 point(s). Bonuses are removed on respec.",
+  "survivor_08": {
+    "title": "Arrow Guard",
+    "description": "Reduce incoming ranged damage by 2% of base damage.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "tnk:textures/skilltree/survivor_10.png"
+        "texture": "tnk:textures/skilltree/survivor_08.png"
       }
     },
-    "frame": "challenge",
-    "size": 1.2,
-    "cost": 4,
+    "frame": "goal",
+    "size": 1.05,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
         "data": {
-          "attribute": "minecraft:generic.max_health",
-          "value": 2,
-          "operation": "addition"
-        }
-      }
-    ],
-    "required_spent_points": 20
-  },
-  "survivor_11": {
-    "title": "Resilient",
-    "description": "Reduce incoming damage by 2% of base damage.",
-    "extra_description": "Survivor | Cost: 4 point(s). Bonuses are removed on respec.",
-    "icon": {
-      "type": "texture",
-      "data": {
-        "texture": "tnk:textures/skilltree/survivor_11.png"
-      }
-    },
-    "frame": "challenge",
-    "size": 1.2,
-    "cost": 4,
-    "rewards": [
-      {
-        "type": "puffish_skills:attribute",
-        "data": {
-          "attribute": "puffish_attributes:resistance",
+          "attribute": "puffish_attributes:ranged_resistance",
           "value": 0.02,
           "operation": "multiply_base"
         }
       }
-    ],
-    "required_spent_points": 20
+    ]
+  },
+  "survivor_30": {
+    "title": "Close Defence",
+    "description": "Reduce incoming melee damage by 0.5% of base damage.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/survivor_07.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:melee_resistance",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "survivor_31": {
+    "title": "Arrow Awareness",
+    "description": "Reduce incoming ranged damage by 0.5% of base damage.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/survivor_08.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:ranged_resistance",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "survivor_32": {
+    "title": "Arcane Shelter",
+    "description": "Reduce qualifying incoming magic damage by 0.5% of base damage.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/survivor_09.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:magic_resistance",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
   },
   "survivor_12": {
     "title": "Steady Recovery",
     "description": "+5% healing from natural regeneration.",
-    "extra_description": "Survivor | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -1628,8 +4266,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.05,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -1641,10 +4279,108 @@
       }
     ]
   },
+  "survivor_33": {
+    "title": "Keep Going",
+    "description": "+2% exhaustion capacity.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/foundation_0.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "survivor_10": {
+    "title": "Unbroken",
+    "description": "+2 maximum health (one heart).",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/survivor_10.png"
+      }
+    },
+    "frame": "challenge",
+    "size": 1.35,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "minecraft:generic.max_health",
+          "value": 2,
+          "operation": "addition"
+        }
+      }
+    ],
+    "required_spent_points": 40
+  },
+  "survivor_34": {
+    "title": "Composure",
+    "description": "+0.01 knockback resistance.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/survivor_06.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "minecraft:generic.knockback_resistance",
+          "value": 0.01,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "survivor_11": {
+    "title": "Resilient",
+    "description": "Reduce incoming damage by 2% of base damage.",
+    "extra_description": "Survivor | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/survivor_11.png"
+      }
+    },
+    "frame": "challenge",
+    "size": 1.35,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:resistance",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ],
+    "required_spent_points": 40
+  },
   "adventurer_01": {
     "title": "Practised Blade",
     "description": "+2% melee damage.",
-    "extra_description": "Adventurer | Cost: 1 point(s). Bonuses are removed on respec.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -1652,7 +4388,7 @@
       }
     },
     "frame": "task",
-    "size": 1.0,
+    "size": 0.85,
     "cost": 1,
     "rewards": [
       {
@@ -1665,10 +4401,34 @@
       }
     ]
   },
-  "adventurer_02": {
-    "title": "Steady Aim",
-    "description": "+2% qualifying ranged damage.",
-    "extra_description": "Adventurer | Cost: 1 point(s). Bonuses are removed on respec.",
+  "adventurer_13": {
+    "title": "Blade Drill",
+    "description": "+0.5% melee damage.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/adventurer_01.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:melee_damage",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_14": {
+    "title": "Patient Aim",
+    "description": "+0.5% qualifying ranged damage.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -1676,7 +4436,55 @@
       }
     },
     "frame": "task",
-    "size": 1.0,
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:ranged_damage",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_15": {
+    "title": "Arcane Study",
+    "description": "+0.5% qualifying magic damage.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/adventurer_03.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:magic_damage",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_02": {
+    "title": "Steady Aim",
+    "description": "+2% qualifying ranged damage.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/adventurer_02.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
     "cost": 1,
     "rewards": [
       {
@@ -1689,18 +4497,90 @@
       }
     ]
   },
+  "adventurer_16": {
+    "title": "Grip Control",
+    "description": "+0.5% attack speed.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/adventurer_04.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "minecraft:generic.attack_speed",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_17": {
+    "title": "Bow Handling",
+    "description": "+1.5% bow projectile speed.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/adventurer_05.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:bow_projectile_speed",
+          "value": 0.015,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_18": {
+    "title": "Crossbow Handling",
+    "description": "+1.5% crossbow projectile speed.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/adventurer_08.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:crossbow_projectile_speed",
+          "value": 0.015,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
   "adventurer_03": {
     "title": "Arcane Basics",
     "description": "+2% qualifying magic damage. Coverage depends on damage-type tags.",
-    "extra_description": "Adventurer | Cost: 1 point(s). Bonuses are removed on respec.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
         "texture": "tnk:textures/skilltree/adventurer_03.png"
       }
     },
-    "frame": "task",
-    "size": 1.0,
+    "frame": "goal",
+    "size": 1.18,
     "cost": 1,
     "rewards": [
       {
@@ -1716,15 +4596,15 @@
   "adventurer_04": {
     "title": "Balanced Grip",
     "description": "+1% attack speed.",
-    "extra_description": "Adventurer | Cost: 1 point(s). Bonuses are removed on respec.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
         "texture": "tnk:textures/skilltree/adventurer_04.png"
       }
     },
-    "frame": "task",
-    "size": 1.0,
+    "frame": "goal",
+    "size": 1.05,
     "cost": 1,
     "rewards": [
       {
@@ -1737,10 +4617,106 @@
       }
     ]
   },
+  "adventurer_19": {
+    "title": "Edge Alignment",
+    "description": "+1% sword damage.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/adventurer_07.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:sword_damage",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_20": {
+    "title": "Warded Focus",
+    "description": "Reduce qualifying incoming magic damage by 0.5% of base damage.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/adventurer_09.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:magic_resistance",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_21": {
+    "title": "Melee Practice",
+    "description": "+0.5% melee damage.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/adventurer_10.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:melee_damage",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_22": {
+    "title": "Ranged Practice",
+    "description": "+0.5% qualifying ranged damage.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/adventurer_11.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:ranged_damage",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
   "adventurer_05": {
     "title": "True Flight",
     "description": "+4% bow projectile speed.",
-    "extra_description": "Adventurer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -1748,8 +4724,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.05,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -1761,10 +4737,106 @@
       }
     ]
   },
+  "adventurer_23": {
+    "title": "Spell Practice",
+    "description": "+0.5% qualifying magic damage.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/adventurer_12.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:magic_damage",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_24": {
+    "title": "Quick Hands",
+    "description": "+0.5% attack speed.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/adventurer_04.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "minecraft:generic.attack_speed",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_25": {
+    "title": "Bow Discipline",
+    "description": "+1.5% bow projectile speed.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/adventurer_05.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:bow_projectile_speed",
+          "value": 0.015,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_26": {
+    "title": "Crossbow Discipline",
+    "description": "+1.5% crossbow projectile speed.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/adventurer_08.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:crossbow_projectile_speed",
+          "value": 0.015,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
   "adventurer_06": {
     "title": "Focused Casting",
     "description": "+3% qualifying magic damage.",
-    "extra_description": "Adventurer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -1772,8 +4844,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.18,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -1788,7 +4860,7 @@
   "adventurer_07": {
     "title": "Sword Familiarity",
     "description": "+3% sword damage.",
-    "extra_description": "Adventurer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -1796,8 +4868,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.05,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -1809,25 +4881,73 @@
       }
     ]
   },
-  "adventurer_08": {
-    "title": "Crossbow Drill",
-    "description": "+5% crossbow projectile speed.",
-    "extra_description": "Adventurer | Cost: 2 point(s). Bonuses are removed on respec.",
+  "adventurer_27": {
+    "title": "Measured Cuts",
+    "description": "+1% sword damage.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "tnk:textures/skilltree/adventurer_08.png"
+        "texture": "tnk:textures/skilltree/adventurer_07.png"
       }
     },
-    "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
         "data": {
-          "attribute": "puffish_attributes:crossbow_projectile_speed",
-          "value": 0.05,
+          "attribute": "puffish_attributes:sword_damage",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_28": {
+    "title": "Arcane Composure",
+    "description": "Reduce qualifying incoming magic damage by 0.5% of base damage.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/adventurer_09.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:magic_resistance",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_29": {
+    "title": "Field Sparring",
+    "description": "+0.5% melee damage.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/adventurer_01.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:melee_damage",
+          "value": 0.005,
           "operation": "multiply_base"
         }
       }
@@ -1836,7 +4956,7 @@
   "adventurer_09": {
     "title": "Arcane Ward",
     "description": "Reduce qualifying incoming magic damage by 2% of base damage.",
-    "extra_description": "Adventurer | Cost: 2 point(s). Bonuses are removed on respec.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -1844,8 +4964,8 @@
       }
     },
     "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "size": 1.05,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -1857,10 +4977,154 @@
       }
     ]
   },
+  "adventurer_08": {
+    "title": "Crossbow Drill",
+    "description": "+5% crossbow projectile speed.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/adventurer_08.png"
+      }
+    },
+    "frame": "goal",
+    "size": 1.05,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:crossbow_projectile_speed",
+          "value": 0.05,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_30": {
+    "title": "Sight Picture",
+    "description": "+0.5% qualifying ranged damage.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/adventurer_02.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:ranged_damage",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_31": {
+    "title": "Spell Familiarity",
+    "description": "+0.5% qualifying magic damage.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/adventurer_03.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:magic_damage",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_32": {
+    "title": "Balanced Stance",
+    "description": "+0.5% attack speed.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/adventurer_04.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "minecraft:generic.attack_speed",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_12": {
+    "title": "Arcane Familiarity",
+    "description": "+3% qualifying magic damage.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/adventurer_12.png"
+      }
+    },
+    "frame": "goal",
+    "size": 1.05,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:magic_damage",
+          "value": 0.03,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "adventurer_33": {
+    "title": "Ready Quiver",
+    "description": "+1.5% bow projectile speed.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/adventurer_05.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:bow_projectile_speed",
+          "value": 0.015,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
   "adventurer_10": {
     "title": "Seasoned Fighter",
     "description": "+4% melee damage.",
-    "extra_description": "Adventurer | Cost: 4 point(s). Bonuses are removed on respec.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -1868,8 +5132,8 @@
       }
     },
     "frame": "challenge",
-    "size": 1.2,
-    "cost": 4,
+    "size": 1.35,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -1880,12 +5144,36 @@
         }
       }
     ],
-    "required_spent_points": 20
+    "required_spent_points": 40
+  },
+  "adventurer_34": {
+    "title": "Field Endurance",
+    "description": "+2% exhaustion capacity.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/foundation_0.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.02,
+          "operation": "multiply_base"
+        }
+      }
+    ]
   },
   "adventurer_11": {
     "title": "Seasoned Marksman",
     "description": "+4% qualifying ranged damage.",
-    "extra_description": "Adventurer | Cost: 4 point(s). Bonuses are removed on respec.",
+    "extra_description": "Adventurer | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
@@ -1893,8 +5181,8 @@
       }
     },
     "frame": "challenge",
-    "size": 1.2,
-    "cost": 4,
+    "size": 1.35,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
@@ -1905,27 +5193,579 @@
         }
       }
     ],
-    "required_spent_points": 20
+    "required_spent_points": 40
   },
-  "adventurer_12": {
-    "title": "Arcane Familiarity",
-    "description": "+3% qualifying magic damage.",
-    "extra_description": "Adventurer | Cost: 2 point(s). Bonuses are removed on respec.",
+  "bridge_wayfarer_delver_1": {
+    "title": "Wayfarer / Delver: Shared Practice",
+    "description": "Hybrid route: +0.5% sprinting speed.",
+    "extra_description": "Crossroads | Costs 1 point. Removed on respec.",
     "icon": {
       "type": "texture",
       "data": {
-        "texture": "tnk:textures/skilltree/adventurer_12.png"
+        "texture": "tnk:textures/skilltree/wayfarer_01.png"
       }
     },
-    "frame": "goal",
-    "size": 1.0,
-    "cost": 2,
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
     "rewards": [
       {
         "type": "puffish_skills:attribute",
         "data": {
-          "attribute": "puffish_attributes:magic_damage",
-          "value": 0.03,
+          "attribute": "puffish_attributes:sprinting_speed",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "bridge_wayfarer_delver_2": {
+    "title": "Wayfarer / Delver: Cross Training",
+    "description": "Hybrid route: +0.75% pickaxe mining speed.",
+    "extra_description": "Crossroads | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/delver_01.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:pickaxe_speed",
+          "value": 0.0075,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "bridge_wayfarer_delver_3": {
+    "title": "Wayfarer / Delver: Fieldcraft",
+    "description": "Hybrid route: +0.5% sprinting speed.",
+    "extra_description": "Crossroads | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/wayfarer_01.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:sprinting_speed",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "bridge_wayfarer_delver_4": {
+    "title": "Wayfarer / Delver: Common Ground",
+    "description": "Hybrid route: +0.75% pickaxe mining speed.",
+    "extra_description": "Crossroads | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/delver_01.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:pickaxe_speed",
+          "value": 0.0075,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "bridge_delver_homesteader_1": {
+    "title": "Delver / Homesteader: Shared Practice",
+    "description": "Hybrid route: +0.75% pickaxe mining speed.",
+    "extra_description": "Crossroads | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/delver_01.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:pickaxe_speed",
+          "value": 0.0075,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "bridge_delver_homesteader_2": {
+    "title": "Delver / Homesteader: Cross Training",
+    "description": "Hybrid route: +1% exhaustion capacity.",
+    "extra_description": "Crossroads | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/homesteader_01.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "bridge_delver_homesteader_3": {
+    "title": "Delver / Homesteader: Fieldcraft",
+    "description": "Hybrid route: +0.75% pickaxe mining speed.",
+    "extra_description": "Crossroads | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/delver_01.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:pickaxe_speed",
+          "value": 0.0075,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "bridge_delver_homesteader_4": {
+    "title": "Delver / Homesteader: Common Ground",
+    "description": "Hybrid route: +1% exhaustion capacity.",
+    "extra_description": "Crossroads | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/homesteader_01.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "bridge_homesteader_artificer_1": {
+    "title": "Homesteader / Artificer: Shared Practice",
+    "description": "Hybrid route: +1% exhaustion capacity.",
+    "extra_description": "Crossroads | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/homesteader_01.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "bridge_homesteader_artificer_2": {
+    "title": "Homesteader / Artificer: Cross Training",
+    "description": "Hybrid route: -0.5% anvil XP cost.",
+    "extra_description": "Crossroads | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/artificer_01.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:repair_cost",
+          "value": -0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "bridge_homesteader_artificer_3": {
+    "title": "Homesteader / Artificer: Fieldcraft",
+    "description": "Hybrid route: +1% exhaustion capacity.",
+    "extra_description": "Crossroads | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/homesteader_01.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:stamina",
+          "value": 0.01,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "bridge_homesteader_artificer_4": {
+    "title": "Homesteader / Artificer: Common Ground",
+    "description": "Hybrid route: -0.5% anvil XP cost.",
+    "extra_description": "Crossroads | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/artificer_01.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:repair_cost",
+          "value": -0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "bridge_artificer_survivor_1": {
+    "title": "Artificer / Survivor: Shared Practice",
+    "description": "Hybrid route: -0.5% anvil XP cost.",
+    "extra_description": "Crossroads | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/artificer_01.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:repair_cost",
+          "value": -0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "bridge_artificer_survivor_2": {
+    "title": "Artificer / Survivor: Cross Training",
+    "description": "Hybrid route: +0.005 knockback resistance.",
+    "extra_description": "Crossroads | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/survivor_03.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "minecraft:generic.knockback_resistance",
+          "value": 0.005,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "bridge_artificer_survivor_3": {
+    "title": "Artificer / Survivor: Fieldcraft",
+    "description": "Hybrid route: -0.5% anvil XP cost.",
+    "extra_description": "Crossroads | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/artificer_01.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:repair_cost",
+          "value": -0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "bridge_artificer_survivor_4": {
+    "title": "Artificer / Survivor: Common Ground",
+    "description": "Hybrid route: +0.005 knockback resistance.",
+    "extra_description": "Crossroads | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/survivor_03.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "minecraft:generic.knockback_resistance",
+          "value": 0.005,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "bridge_survivor_adventurer_1": {
+    "title": "Survivor / Adventurer: Shared Practice",
+    "description": "Hybrid route: +0.005 knockback resistance.",
+    "extra_description": "Crossroads | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/survivor_03.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "minecraft:generic.knockback_resistance",
+          "value": 0.005,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "bridge_survivor_adventurer_2": {
+    "title": "Survivor / Adventurer: Cross Training",
+    "description": "Hybrid route: +0.25% melee damage.",
+    "extra_description": "Crossroads | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/adventurer_01.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:melee_damage",
+          "value": 0.0025,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "bridge_survivor_adventurer_3": {
+    "title": "Survivor / Adventurer: Fieldcraft",
+    "description": "Hybrid route: +0.005 knockback resistance.",
+    "extra_description": "Crossroads | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/survivor_03.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "minecraft:generic.knockback_resistance",
+          "value": 0.005,
+          "operation": "addition"
+        }
+      }
+    ]
+  },
+  "bridge_survivor_adventurer_4": {
+    "title": "Survivor / Adventurer: Common Ground",
+    "description": "Hybrid route: +0.25% melee damage.",
+    "extra_description": "Crossroads | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/adventurer_01.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:melee_damage",
+          "value": 0.0025,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "bridge_adventurer_wayfarer_1": {
+    "title": "Adventurer / Wayfarer: Shared Practice",
+    "description": "Hybrid route: +0.25% melee damage.",
+    "extra_description": "Crossroads | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/adventurer_01.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:melee_damage",
+          "value": 0.0025,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "bridge_adventurer_wayfarer_2": {
+    "title": "Adventurer / Wayfarer: Cross Training",
+    "description": "Hybrid route: +0.5% sprinting speed.",
+    "extra_description": "Crossroads | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/wayfarer_01.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:sprinting_speed",
+          "value": 0.005,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "bridge_adventurer_wayfarer_3": {
+    "title": "Adventurer / Wayfarer: Fieldcraft",
+    "description": "Hybrid route: +0.25% melee damage.",
+    "extra_description": "Crossroads | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/adventurer_01.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:melee_damage",
+          "value": 0.0025,
+          "operation": "multiply_base"
+        }
+      }
+    ]
+  },
+  "bridge_adventurer_wayfarer_4": {
+    "title": "Adventurer / Wayfarer: Common Ground",
+    "description": "Hybrid route: +0.5% sprinting speed.",
+    "extra_description": "Crossroads | Costs 1 point. Removed on respec.",
+    "icon": {
+      "type": "texture",
+      "data": {
+        "texture": "tnk:textures/skilltree/wayfarer_01.png"
+      }
+    },
+    "frame": "task",
+    "size": 0.85,
+    "cost": 1,
+    "rewards": [
+      {
+        "type": "puffish_skills:attribute",
+        "data": {
+          "attribute": "puffish_attributes:sprinting_speed",
+          "value": 0.005,
           "operation": "multiply_base"
         }
       }

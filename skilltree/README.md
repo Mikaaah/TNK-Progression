@@ -1,41 +1,40 @@
-# TNK character tree — 0.1.1 icon draft
+# TNK Character Web — 0.2.0 draft
 
-Minecraft 1.21.1 data pack for Pufferfish's Skills and Pufferfish's Attributes, using the 1.21 configuration format (version 2). Integrates with TNK Progression's default category `tnk:character`. Just Leveling is not needed.
+Minecraft 1.21.1 datapack for Pufferfish's Skills and Pufferfish's Attributes. TNK Progression supplies the character-level point entitlement to category `tnk:character`. Just Leveling is not required.
 
-80 nodes: 8 foundation nodes and 12 each for Wayfarer, Delver, Homesteader, Artificer, Survivor and Adventurer. Foundation costs 16 points; each branch costs 24. There are 160 points of choices and a category spending limit of 100. No native experience/exchange files or starting points are supplied: TNK Progression owns the point entitlement. Keystones cost 4 points and require 20 points already spent in the category; this is a spending requirement, not a character-level gate.
+## The new tree
 
-## Installation
+240 selectable nodes, every one costing exactly **1 point**. Players can spend at most **100 points**. Six branches contain 34 nodes each, with 12 foundation nodes and 24 hybrid crossroads connecting neighbouring branches. The graph has 362 bidirectional links and 123 independent cycles. Multiple paths lead through each cluster; there are no mutually exclusive branches and no extra point pools. Large outer keystones also cost 1 and require 40 category points already spent. That is a spending requirement, not a character-level or quest gate.
 
-1. Back up the world and old tree/player skill data. This draft does not migrate the previous tree.
-2. Install Pufferfish's Skills, Pufferfish's Attributes and TNK Progression on the appropriate client/server sides. Match the installed Minecraft/loader versions.
-3. Generate the ZIPs with `python3 skilltree/tools/build_tree.py`, or use the supplied bundle. Put `TNK-Character-Tree-0.1.1-draft.zip` in the world's `datapacks` directory. Put `TNK-Skilltree-Icons-0.1.1.zip` in each client's `resourcepacks` directory and enable it in Resource Packs. A dedicated server can distribute that resource pack using its normal server-resource-pack configuration. Both ZIPs have `pack.mcmeta` at their root.
-4. Remove/disable the previous character tree rather than allowing it to award a second point pool. Do not load two data packs defining `tnk:character`.
-5. Run `/reload`, then reconnect so TNK Progression synchronizes the player's current level entitlement. Open Pufferfish's Skills with its configured key. Leave `skillCategory` in `config/tnkprogression.json` set to `tnk:character`.
+The old tree screenshot supplied by the user is a visual layout reference only. The configuration and effects are implemented for Pufferfish, not for the mod in that screenshot. The HAS icons and artist credit are retained.
 
-For standalone inspection without TNK Progression, an administrator can award temporary test points using Pufferfish's own commands. Those are not part of normal TNK progression and must be removed before pack testing.
+## Install
 
-## Editing
+1. Back up the world and existing player skill data. If an earlier draft has been used, respec through Pufferfish before swapping packs. The original 80 node IDs remain, but costs and routing have changed; this release does not perform an automatic build migration.
+2. Replace the earlier character-tree datapack with `TNK-Character-Web-0.2.0-draft.zip` in the world's `datapacks` directory. Do not enable two packs defining `tnk:character`.
+3. Place `TNK-Skilltree-Icons-0.2.0.zip` in each client's `resourcepacks` directory and enable it. Servers can distribute this using normal server-resource-pack configuration. The selected sprite files are the same ones used in the preceding icon draft.
+4. Run `/reload` and reconnect so TNK Progression synchronizes points. Leave its `skillCategory` set to `tnk:character`.
 
-At https://puffish.net/skillsmod/editor/ import, in order, `definitions.json`, `skills.json`, and `connections.json` from `datapack/data/tnk/puffish_skills/categories/character/`. Export skills and connections after layout changes. Edit definitions to change rewards and point costs. The web editor displays generated preview symbols; it does not render custom Minecraft texture icons. In-game definitions now reference the selected HAS icons in the accompanying resource pack. The in-game background remains warm sandstone. The icon resource pack is required on every client.
+The category supplies zero starting points and has no native experience or exchange config. TNK Progression grants one earned point per character level, including the starting point at level 1. Its milestone ceilings and loot eligibility remain separate from this tree.
 
-`tools/build_tree.py` reproduces the supplied tree and catalogue. Manual editor changes must also be reflected in the generator before regenerating, otherwise regeneration replaces them.
+## Preview and editor
 
-## Scope and balance
+`TNK-Character-Web-Preview.png` draws the real node positions, links and packaged sprites. `TNK-Wayfarer-Closeup.png` gives a closer view of one branch. These are layout diagrams, not game captures. Their decorative circular frames and colours illustrate the hierarchy; the current in-game frames use Pufferfish's advancement frame types and the warm sandstone background.
 
-Every node has an attribute reward; there are no inactive placeholder custom passives. The attribute draft intentionally uses anvil discounts and vanilla-orb XP in Artificer. It does not implement identification discounts, salvage bonuses, fishing or crop-drop bonuses, emergency cooldown passives, classes or subclasses. Those require separate implementation/design. Homesteader currently supports food endurance, recovery and tamed creatures.
+Import `definitions.json`, `skills.json` and `connections.json`, in that order, from `datapack/data/tnk/puffish_skills/categories/character/` into https://puffish.net/skillsmod/editor/. This editor uses generated symbols rather than the custom Minecraft texture icons. Export skills/connections after editing. All normal links are bidirectional, so return paths and sideways movement work.
 
-Vanilla XP bonuses do not award character XP. Fortune only affects block drops. No node changes unidentified equipment tiers, rarity eligibility, quest ceilings or character-XP rewards. Modifiers are removed by Pufferfish when their node is refunded. Interactions with Apotheosis gear and modded damage tags require pack balance testing.
+## Rebuild
 
-## Verification
+`python3 skilltree/tools/build_tree.py` regenerates config, catalogue, layout metadata, icon map, validation summary and both installable ZIPs. `python3 skilltree/tools/render_preview.py` regenerates the previews (requires Pillow). `tools/web_rewards.py` holds the new small passives. Manual JSON/editor changes must also be reflected in these generators before regeneration.
 
-- Generator checks: 80 unique node positions, all reachable, 160 total point cost, 24 per branch.
-- Imported all three files into the official live web editor and visually checked the layout.
-- Exported skills and connections from the editor; all 80 node records and 79 directed connections matched the generated configuration. Non-root `root: false` fields are explicit to match editor exports.
-- Icon update: all 80 node texture references and the category texture resolve to transparent 16x16 PNGs in the client pack. Rewards, node positions, connections, costs and spending limit are unchanged. Selected sprites match the exact source atlas pixels.
-- Reward schemas checked against the upstream 1.21 source. No in-game load, mod-version registry, respec or multiplayer verification has been completed for this data pack yet. Treat this as a reviewable draft, not a verified pack release.
+Every node has an actual attribute reward. Original 80 rewards are retained, with 160 smaller foundation, branch and hybrid rewards added; the outdated original full-branch bonus descriptions have been removed. The icon map reuses selected HAS sprites for related effects. No extra source asset archive is required to rebuild.
 
-See `NODE-CATALOGUE.md` for every effect and cost.
+## Scope and validation
 
-## Artwork credits
+This is a reviewable attribute-tree draft. It does not add class/subclass selection, custom identification/salvage discounts, emergency cooldown abilities or fishing/crop-drop mechanics. Artificer supports anvil XP costs, vanilla-orb XP and tool convenience. Homesteader supports food endurance, recovery and tamed creatures. Vanilla XP rewards do not grant character XP; Fortune affects block drops, not equipment tier or rarity.
 
-Icons from the user-supplied HAS IconPack (v.1.2), by Aleksandr Makarov / @IKnowKingRabbit. Only selected sprites integrated into the TNK skilltree are included. See `resourcepack/CREDITS.txt` and `resourcepack/HAS-LICENSE.txt`. `icon-map.json` records every source sprite rectangle for maintenance. The original purchased asset archive is not part of this repository.
+Validation checks: 240 unique positions, all rewards present, every cost exactly 1, a single root, all nodes reachable within the 100-point budget, 34 nodes per branch, at least 60 independent cycles, and at least 35 layout units between centres. The official editor import/export roundtrip preserved all 240 nodes and 362 bidirectional connections. All 240 texture references resolve, and the original 80 rewards are retained. `validation-summary.json` records measured results. In-game loading, respec behaviour, mod-version attribute registration and complete-pack balance are still unverified. Test in a disposable world first.
+
+## Credits
+
+Skill icons: Aleksandr Makarov / @IKnowKingRabbit, from the user's HAS IconPack (v.1.2). Selected sprites are included as part of the TNK skilltree. See `resourcepack/CREDITS.txt` and `resourcepack/HAS-LICENSE.txt`. The original purchased archive and the user's old-tree reference image are not distributed in this repository.
