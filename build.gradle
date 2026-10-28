@@ -1,5 +1,5 @@
 plugins { id 'java-library'; id 'net.neoforged.moddev' version '2.0.148' }
-version = '0.5.2-beta.1'
+version = '0.5.3-beta.1'
 group = 'dev.mikaaah.tnkprogression'
 base { archivesName = 'tnkprogression' }
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)

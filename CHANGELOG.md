@@ -1,3 +1,10 @@
+# 0.5.3-beta.1
+
+- Replace the survival inventory's recipe-book button with a player portrait that opens Character. Close previously open inventory recipe books before layout, keep the inventory centered, and return to inventory when closing Character. The I key remains available.
+- Refine the warm parchment GUI with softer corners, colored active tabs/section headers, bold headings, activity icons, colored progress bars and clearer point-counter spacing. Capitalize Milestone consistently, including historical journal entries. Use the original number badge on the character sheet and compact HUD.
+- Render mob labels as two centered lines: original number badge above the mob's name. Send the saved level only when entity tracking begins; use client rendering rather than generating custom names. Preserve custom/affixed names and natural despawn, remove only exact former TNK-generated names on reload, and keep nearest-player scaling/loot rules unchanged.
+- Update client/server protocol to 4. Retain all 588 skilltree nodes exclusively under config/puffish_skills; artwork remains embedded in the private JAR.
+
 # 0.5.2-beta.1
 
 - Remove the entire Pufferfish tree and passive-node data from the mod JAR. Supply it exclusively under config/puffish_skills, with native config.json and categories/character/*.json files.

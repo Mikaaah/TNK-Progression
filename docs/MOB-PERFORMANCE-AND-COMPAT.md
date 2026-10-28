@@ -4,7 +4,9 @@
 
 TNK assigns `tnk_level` and attribute modifiers once when a hostile mob first joins the world. A saved level is not a persistence flag. The mod never calls `setPersistenceRequired`, cancels a despawn event, resets a mob's inactivity timer or forces its chunk to stay loaded. Minecraft 1.21.1's `Entity.setCustomName` only updates the synchronized name field; the separate mob persistence flag controls ordinary distance despawn. A name tag also marks persistence, which is why applying a name tag and programmatically assigning a display label differ.
 
-The dedicated-server suite creates a real zombie, applies TNK's level/name/stats, saves and reloads it, then calls the actual vanilla `checkDespawn` with a player farther than the despawn distance. The zombie is removed. A second zombie with a pre-existing custom name and persistence flag retains both and is not removed. Other mods and creature-specific despawn rules can still legitimately retain their own mobs; TNK does not forcibly clear those flags.
+Since 0.5.3, TNK renders a centered original number badge above the mob name on the client, with a single level snapshot when tracking starts. It does not assign a generated custom name. Exact previous TNK-generated labels migrate on chunk load; other custom/affixed names retain their text and styling.
+
+The dedicated-server suite creates a real zombie, applies TNK's level/stats, saves and reloads it, then calls the actual vanilla `checkDespawn` with a player farther than the despawn distance. The zombie is removed. A second zombie with a pre-existing custom name and persistence flag retains both and is not removed. Other mods and creature-specific despawn rules can still legitimately retain their own mobs; TNK does not forcibly clear those flags.
 
 ## Spawn lookup cache
 

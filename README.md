@@ -1,12 +1,12 @@
-# Towns & Kingdoms Progression — 0.5.2-beta.1
+# Towns & Kingdoms Progression — 0.5.3-beta.1
 
 Minecraft **1.21.1**, NeoForge **21.1.262+**, Java **21**. Original implementation; no Auto Leveling or Just Leveling code is bundled. This is an initial pack beta; tune the balance in a test world.
 
 ## Character screen and HUD
 
-Press **I** (rebind in Controls → Towns & Kingdoms). The parchment-and-bronze screen shows your live player model, character XP/ceiling, seven activity tracks, milestone journal and title collection. Equip/hide titles and pin an activity directly with buttons. A compact player/XP/activity HUD can be toggled from the screen. Use **Skill tree** beside the point counter to open the configured Pufferfish category. No command is needed.
+Open the survival inventory and click the **player portrait replacing the recipe-book button**, or press **I** (rebind in Controls → Towns & Kingdoms). The warm parchment screen uses colored headers, bold labels, softened corners and activity icons. It shows your live player model, character XP/ceiling, seven activity tracks, milestone journal and title collection. Equip/hide titles and pin an activity directly with buttons. A compact player/XP/activity HUD can be toggled from the screen. Use **Skill Tree** beside the point counter to open the configured Pufferfish category. Closing a screen opened from inventory returns to inventory. No command is needed. Update server and clients together (protocol 4).
 
-**Equipped title perks replace aptitudes:** only one title applies at a time, with a server-enforced 30-second swap cooldown, no stacking and no healing from swaps. Identification discounts and conditional abilities are not part of this release.
+**Equipped title perks replace aptitudes:** only one title applies at a time, with a server-enforced 30-second swap cooldown, no stacking and no healing from swaps. Identification discounts are not implemented. The external skilltree also includes bounded conditional abilities such as Second Wind.
 
 See [character HUD, perks, balance and migration](docs/CHARACTER-HUD.md). The numerical release preset and pacing/passive reports are shipped alongside it; full-pack playtesting is still needed to validate the final tuning.
 
@@ -60,7 +60,7 @@ Collect **43 configurable collectible titles** from quests and actual skilltree 
 - Player collection: `/tnkprogress title list`; equip with `/tnkprogress title select <id>` or click an earned title; hide with `/tnkprogress title clear`.
 - Server catalog: `config/tnk-titles.json`; reload with `/tnkprogress title reload`.
 - Optional KubeJS quest bridge includes 24 rules using real current quest IDs, plus inactive templates for chapters/boss quests not present in the source. Pufferfish milestones use actual spent points and purchased nodes.
-- Combined private resource pack copies all 100 number images and 43 title sprites unchanged. Missing artwork uses readable title text. Both server and client must update to the new protocol.
+- The private release JAR includes all 100 number images and 43 title sprites unchanged. Missing artwork uses readable title text. Both server and client must update to the new protocol.
 
 See [full setup, commands and catalog](docs/TITLES.md) for chapter semantics, original-art packaging, permanence and revocation. The old [quest-role proposal](docs/QUEST-ROLES.md) is historical; the title system uses completed chapters as described in the catalog.
 
@@ -72,9 +72,9 @@ Hostile `Mob` entities implementing vanilla `Enemy` receive a persistent level o
 
 Nearest-player data is sampled lazily once per dimension per spawning server tick. A bounded 16×16×16 area shortlist cache reuses candidates for spawn bursts while still comparing positions at player boundaries. There are no per-mob tick scans. Login/logout, dimension changes, respawn, supported teleports and earned player level-ups invalidate the relevant snapshots; unload/server-stop releases cached worlds and players. Ordinary movement refreshes by the next spawning tick (at most one tick of position sampling), rather than leaving areas attached to a past player. See [mob performance, despawn tests and Apotheosis comparison](docs/MOB-PERFORMANCE-AND-COMPAT.md).
 
-TNK never calls `setPersistenceRequired`, resets despawn age, or cancels despawn events. The generated custom-name label alone does not enable persistence in Minecraft 1.21.1. Existing name-tag/equipment/mod persistence flags are preserved. Dedicated-server checks verify an ordinary leveled mob still distance-despawns after save/reload and an already persistent mob stays persistent.
+TNK never calls `setPersistenceRequired`, resets despawn age, or cancels despawn events. The display does not require a generated custom name. Existing name-tag/equipment/mod persistence flags are preserved. Dedicated-server checks verify an ordinary leveled mob still distance-despawns after save/reload and an already persistent mob stays persistent.
 
-Health and melee attack damage use stable modifier IDs so reloads cannot stack modifiers. Unchanged modifiers are reused on chunk rejoin rather than removed/re-added; zero modifiers are omitted. Defaults: +3% base health and +1.25% base damage per level above 1. Display uses a custom name when none existed; no client renderer is required. Existing custom mob names remain unchanged. Apotheosis attributes/equipment and World Tiers remain independent; their bonuses can combine with TNK's scaling.
+Health and melee attack damage use stable modifier IDs so reloads cannot stack modifiers. Unchanged modifiers are reused on chunk rejoin rather than removed/re-added; zero modifiers are omitted. Defaults: +3% base health and +1.25% base damage per level above 1. A centered original number badge renders **above** the mob name when targeted, or whenever its name is normally always visible. The two lines use depth testing and respect F1, invisibility and team name visibility. Existing custom/affixed names retain their content and styling. Exact old TNK-generated `Lv. N <type>` names migrate on chunk load without rerolling levels. A small server-to-client payload sends the saved level when tracking starts; there is no mob tick scan or global client entity cache. Apotheosis attributes/equipment and World Tiers remain independent; their bonuses can combine with TNK's scaling.
 
 Loot API uses `min(mob level, recipient milestone ceiling)`. Difficulty itself is not reduced by the recipient's progression. Custom creatures without the `Enemy` marker still need explicit pack integration. Combat credits recent player damage, including owned entities/projectiles and the optional Iron's Spells IMagicSummon integration. It does not globally increase vanilla XP.
 

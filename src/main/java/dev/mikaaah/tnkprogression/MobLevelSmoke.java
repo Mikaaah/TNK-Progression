@@ -61,13 +61,20 @@ public final class MobLevelSmoke {
    // Exercise vanilla despawning with the real generated label, including a saved/reloaded entity.
    var despawning=EntityType.ZOMBIE.create(world);despawning.setPos(200000,64,0);
    ProgressionEvents.join(new EntityJoinLevelEvent(despawning,world));
-   check(despawning.hasCustomName() && !despawning.isPersistenceRequired() && !despawning.requiresCustomPersistence(),"TNK label never makes a normal mob persistent");
+   check(!despawning.hasCustomName() && !despawning.isPersistenceRequired() && !despawning.requiresCustomPersistence(),"badge needs no custom name or persistence");
    var saved=despawning.saveWithoutId(new net.minecraft.nbt.CompoundTag());var loaded=EntityType.ZOMBIE.create(world);loaded.load(saved);
    ProgressionEvents.join(new EntityJoinLevelEvent(loaded,world));loaded.checkDespawn();
    check(loaded.isRemoved(),"leveled and reloaded named mob still distance-despawns");
    var persistent=EntityType.ZOMBIE.create(world);persistent.setPos(200000,64,0);persistent.setPersistenceRequired();persistent.setCustomName(net.minecraft.network.chat.Component.literal("Player named pet"));
    ProgressionEvents.join(new EntityJoinLevelEvent(persistent,world));persistent.checkDespawn();
    check(persistent.isPersistenceRequired() && !persistent.isRemoved() && persistent.getCustomName().getString().equals("Player named pet"),"existing name and persistence remain intact");
+   var legacy=EntityType.ZOMBIE.create(world);legacy.getPersistentData().putInt("tnk_level",4);legacy.setCustomName(net.minecraft.network.chat.Component.literal("Lv. 4 ").append(legacy.getType().getDescription()));
+   ProgressionEvents.join(new EntityJoinLevelEvent(legacy,world));check(!legacy.hasCustomName()&&ProgressionAPI.mobLevel(legacy)==4,"exact legacy generated label removed without reroll");
+   var custom=net.minecraft.network.chat.Component.literal("Lv. 4 Zombie King").withStyle(net.minecraft.ChatFormatting.GOLD,net.minecraft.ChatFormatting.BOLD);legacy.setCustomName(custom);ProgressionEvents.join(new EntityJoinLevelEvent(legacy,world));
+   check(custom.equals(legacy.getCustomName()),"styled boss and player names are not stripped by a prefix heuristic");
+   var buffer=new net.minecraft.network.RegistryFriendlyByteBuf(io.netty.buffer.Unpooled.buffer(),world.registryAccess());
+   try{var packet=new MobLevelPayload(12,legacy.getUUID(),4);MobLevelPayload.CODEC.encode(buffer,packet);check(packet.equals(MobLevelPayload.CODEC.decode(buffer)),"tracking badge payload round trip");}finally{buffer.release();}
+   TnkProgression.LOG.info("TNK_MOB_BADGE_MIGRATION_OK: old generated labels removed; named bosses preserved; tracking payload round trip");
    // Logout clears immediately, rather than waiting for another tick.
    MobLevels.logout(new net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedOutEvent(near));
    world.players().remove(near);check(MobLevels.nearest(world,mob)==far,"logout cannot leave a sticky cached player");

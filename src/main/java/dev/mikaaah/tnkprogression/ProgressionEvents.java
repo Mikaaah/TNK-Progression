@@ -26,8 +26,13 @@ public final class ProgressionEvents {
   scale(mob.getAttribute(Attributes.ATTACK_DAMAGE),"damage",c.damagePerLevel*(level-1));
   if(fresh)mob.setHealth(mob.getMaxHealth());
   else if(mob.getHealth()>mob.getMaxHealth())mob.setHealth(mob.getMaxHealth());
-  // Display label only: never call setPersistenceRequired or change an existing persistence flag.
-  if(!mob.hasCustomName()){mob.setCustomName(net.minecraft.network.chat.Component.literal("Lv. "+level+" ").append(mob.getType().getDescription()));}
+  // Remove only our exact old generated name. Never rename player-named or affixed mobs.
+  var old=net.minecraft.network.chat.Component.literal("Lv. "+level+" ").append(mob.getType().getDescription());
+  if(old.equals(mob.getCustomName()))mob.setCustomName(null);
+ }
+ @SubscribeEvent public static void tracking(PlayerEvent.StartTracking e){
+  if(e.getEntity() instanceof ServerPlayer p && e.getTarget() instanceof Mob mob && mob.getPersistentData().contains("tnk_level"))
+   net.neoforged.neoforge.network.PacketDistributor.sendToPlayer(p,new MobLevelPayload(mob.getId(),mob.getUUID(),ProgressionAPI.mobLevel(mob)));
  }
  private static void scale(AttributeInstance a,String key,double value){
   if(a==null)return;
