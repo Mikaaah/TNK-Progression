@@ -1,3 +1,11 @@
+# 0.4.1-beta.1
+
+- Replace distance-from-spawn, underground depth and dimension-baseline mob levels with the nearest living survival/adventure player's actual character level in the same dimension.
+- Roll a uniform −4 to +4 level offset and clamp to 1–100; configure `mobLevelVariance` (default 4). Ignore creative, spectator and fake players; use level 1 if no eligible player is present.
+- Keep assigned mob levels persistent, including existing mobs from older builds. Player movement, level-ups and chunk reloads never reroll existing mobs.
+- Remove obsolete distance/baseline config keys on reload. Keep mob stat bonuses, Apotheosis behavior, title perks, loot rules and network protocol unchanged.
+- Add level-bound unit checks and dedicated-server nearest-player/multiplayer-selection, fallback, exclusion and persistence assertions.
+
 # 0.4.0-beta.1
 
 - Add the I-key character screen with live player model, parchment/bronze controls, XP, campaign ceiling, title picker and seven activity tracks.

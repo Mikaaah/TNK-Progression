@@ -1,4 +1,4 @@
-# Character screen, HUD and title perks — 0.4.0-beta.1
+# Character screen, HUD and title perks — 0.4.1-beta.1
 
 Minecraft 1.21.1 · NeoForge 21.1.262+ · Java 21. Replace the progression JAR on server **and clients**; the network protocol is now version 3. No command is needed to open the interface.
 
@@ -51,6 +51,7 @@ The mod now ships a numerical release preset, rather than the earlier placeholde
 - Activity requirement: `floor(baseRequirement × (1 + 0.12 × completedRank)^0.65 + completedRank)`.
 - Activity reward: `floor(baseReward × (1 + 0.12 × completedRank)^0.50)`.
 - Requirements increase strictly and effort grows faster than rewards. Activities remain indefinitely repeatable with no daily/lifetime rank cap.
+- Mob levels now use the nearest living survival/adventure player in the same dimension, with a random −4 to +4 offset clamped to 1–100. Creative, spectator and fake players are excluded. Without an eligible player the level is 1. Existing saved mob levels remain fixed. No distance-from-spawn, depth or dimension baseline is used.
 - Mob scaling: +3% base maximum health and +1.25% base attack damage per saved mob level above one. At level 100 this is 3.97× base health and 2.2375× base attack damage. Existing stable modifier IDs prevent stacking.
 - Exploration records every new chunk, but credits at most one new chunk every five seconds, limiting speed/teleport XP bursts without banking skipped chunks for later.
 - The skilltree keeps all 240 nodes, one point per node and the 100-point limit. Its restrained existing values were audited with the added title budgets; no cosmetic/layout/node-ID changes or skill resets are needed.

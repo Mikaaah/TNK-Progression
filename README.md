@@ -1,4 +1,4 @@
-# Towns & Kingdoms Progression — 0.4.0-beta.1
+# Towns & Kingdoms Progression — 0.4.1-beta.1
 
 Minecraft **1.21.1**, NeoForge **21.1.262+**, Java **21**. Original implementation; no Auto Leveling or Just Leveling code is bundled. This is an initial pack beta; tune the balance in a test world.
 
@@ -14,7 +14,7 @@ See [character HUD, perks, balance and migration](docs/CHARACTER-HUD.md). The nu
 
 Personal character level 1–100. Level 1 supplies one skill point, with one more per earned level: 100 total. Vanilla XP remains independent. Mining, weighted combat, fishing, farming, audited crafting, engineering and discovery of unique chunks contribute to indefinitely repeatable activity milestones. Their work requirements grow faster than their rewards under the configured release curves. The release curve costs `floor(150 + 45 * level^1.35)` XP per level. These initial values deliberately favor a mixed playstyle; a single repeatable activity can still supply all XP.
 
-`config/tnkprogression.json` controls activity starting costs/rewards, level ceilings, team sharing, skill category, mob attribute scaling, distance scaling and dimension baselines. `/tnkprogress reload` atomically validates and reloads it. Default level ceilings: 10, 30, 50, 70, 80, 94, 100. Default highest eligible rarity by ceiling: Uncommon, Rare, Epic, Legendary, Legendary, Mythic, Mythic. These are starting balance proposals, not fixed campaign decisions.
+`config/tnkprogression.json` controls activity starting costs/rewards, level ceilings, team sharing, skill category, mob attribute scaling and nearest-player level variance. `/tnkprogress reload` atomically validates and reloads it. Default level ceilings: 10, 30, 50, 70, 80, 94, 100. Default highest eligible rarity by ceiling: Uncommon, Rare, Epic, Legendary, Legendary, Mythic, Mythic. These are starting balance proposals, not fixed campaign decisions.
 
 No XP overflow is banked at a ceiling. Activity reward progress pauses at the ceiling; unique exploration locations are still recorded, so revisiting cannot cash them in later. Quest rewards claimed while capped are consumed without banking. Finish unlock quests before claiming XP rewards.
 
@@ -60,7 +60,11 @@ See [full setup, commands and catalog](docs/TITLES.md) for chapter semantics, or
 
 ## Mob levels
 
-Hostile `Mob` entities implementing vanilla `Enemy` receive a persistent level at first join. It uses the dimension baseline plus horizontal distance from world spawn and depth below Y48, clamped to 1–100. Defaults: Overworld 1, Nether 31, End 71; +1 level per 256 blocks; +1 per 16 blocks below Y48. It does **not** belong to whichever player triggered spawning. Level is retained on chunk reload and does not change with the killer or nearby players. Health and melee attack damage use stable modifier IDs so reloads cannot stack modifiers. Defaults: +3.5% base health and +1.5% base damage per level above 1. Display uses a custom name when none existed; no client renderer is required. Existing custom mob names remain unchanged.
+Hostile `Mob` entities implementing vanilla `Enemy` receive a persistent level on first world join, based on the nearest living survival/adventure player's actual character level in the same dimension. A uniformly random offset from −4 through +4 is applied, then clamped to 1–100. Creative, spectator and fake players are ignored. Distance from world spawn, depth, dimension and campaign ceiling do not determine mob level. Distance is used only to select the nearest eligible player. If no eligible player is present in that dimension, the mob receives level 1. All dimensions use this same rule.
+
+`mobLevelVariance` in `config/tnkprogression.json` defaults to 4 (0 gives the exact nearest player's level). Obsolete `blocksPerMobLevel` and `dimensionBaseLevels` settings are removed from the configuration on reload. Existing mobs retain their saved levels, including mobs from the old distance-based build; replacements/new spawns use the new rule. Level stays fixed when players approach, leave, level up, move the mob or reload its chunk. The nearest player wins even if a higher-level player is also nearby; there is no averaging, team-level lookup or highest-level selection.
+
+Health and melee attack damage use stable modifier IDs so reloads cannot stack modifiers. Defaults: +3% base health and +1.25% base damage per level above 1. Display uses a custom name when none existed; no client renderer is required. Existing custom mob names remain unchanged. Apotheosis attributes/equipment and World Tiers remain independent; their bonuses can combine with TNK's scaling.
 
 Loot API uses `min(mob level, recipient milestone ceiling)`. Difficulty itself is not reduced by the recipient's progression. Custom creatures without the `Enemy` marker still need explicit pack integration. Combat credits recent player damage, including owned entities/projectiles and the optional Iron's Spells IMagicSummon integration. It does not globally increase vanilla XP.
 

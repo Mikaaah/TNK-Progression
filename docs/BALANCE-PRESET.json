@@ -1,5 +1,5 @@
 {
-  "version": "0.4.0-beta.1",
+  "version": "0.4.1-beta.1",
   "levelBase": 150,
   "levelFactor": 45,
   "levelExponent": 1.35,
@@ -62,5 +62,8 @@
     "6": 80,
     "8": 94,
     "10": 100
-  }
+  },
+  "mobLevelSource": "nearest_living_survival_adventure_player_same_dimension",
+  "mobLevelVariance": 4,
+  "mobLevelWithoutPlayer": 1
 }

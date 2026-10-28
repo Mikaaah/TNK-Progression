@@ -20,7 +20,7 @@ public final class ProgressionEvents {
  @SubscribeEvent public static void join(EntityJoinLevelEvent e){
   if(!(e.getLevel() instanceof ServerLevel world) || !(e.getEntity() instanceof Mob mob) || !(mob instanceof Enemy) || !ProgressionConfig.current.scaleMobs)return;
   var c=ProgressionConfig.current;CompoundTag n=mob.getPersistentData();boolean fresh=!n.contains("tnk_level");
-  if(fresh){double dx=mob.getX()-world.getSharedSpawnPos().getX(),dz=mob.getZ()-world.getSharedSpawnPos().getZ();int base=c.dimensionBaseLevels.getOrDefault(world.dimension().location().toString(),1);int level=(int)Math.min(100,base+Math.hypot(dx,dz)/c.blocksPerMobLevel+Math.max(0,48-mob.getY())/16);n.putInt("tnk_level",Math.max(1,level));}
+  if(fresh)n.putInt("tnk_level",MobLevels.assign(world,mob));
   int level=ProgressionAPI.mobLevel(mob);
   scale(mob.getAttribute(Attributes.MAX_HEALTH),"health",c.healthPerLevel*(level-1));
   scale(mob.getAttribute(Attributes.ATTACK_DAMAGE),"damage",c.damagePerLevel*(level-1));
