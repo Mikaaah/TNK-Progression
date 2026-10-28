@@ -1,5 +1,5 @@
 plugins { id 'java-library'; id 'net.neoforged.moddev' version '2.0.148' }
-version = '0.4.2-beta.1'
+version = '0.4.3-beta.1'
 group = 'dev.mikaaah.tnkprogression'
 base { archivesName = 'tnkprogression' }
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
@@ -13,3 +13,17 @@ dependencies { testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'; test
 tasks.named('test', Test) { useJUnitPlatform() }
 java { withSourcesJar() }
 tasks.named('processResources') { inputs.property('version', project.version); filesMatching('META-INF/neoforge.mods.toml') { expand(version: project.version) } }
+
+// Private release builds embed the user's licensed artwork as ordinary mod resources.
+// Example: ./gradlew jar -PtnkArtworkSource=/path/to/advancedpack.zip
+def prefixArtworkSource = providers.gradleProperty('tnkArtworkSource')
+tasks.named('jar', Jar) {
+ if (prefixArtworkSource.isPresent()) {
+  inputs.file(prefixArtworkSource.get()).withPropertyName('prefixArtwork')
+  inputs.files('tools/embed_prefix_artwork.py', 'tools/package_number_prefixes.py', 'tools/package_title_prefixes.py')
+  doLast {
+   def builtJar = archiveFile.get().asFile.absolutePath
+   project.exec { commandLine 'python3', 'tools/embed_prefix_artwork.py', builtJar, prefixArtworkSource.get(), builtJar }
+  }
+ }
+}

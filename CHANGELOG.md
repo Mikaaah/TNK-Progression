@@ -1,3 +1,10 @@
+# 0.4.3-beta.1
+
+- Correct the delivered private JAR to use the supplied Advanced Pack number/title artwork by default, without requiring an enabled companion resource pack.
+- Embed all 100 original number PNGs and 43 original title PNGs without changing any bytes. Keep the chosen ten-level colour brackets and quartz-white level 100.
+- Remove the old bronze LVL sheet from the private release JAR, override its font mapping with the original number images, and merge title glyph translations without losing keybinding labels.
+- Add a reproducible private-artwork Gradle packaging option and byte/hash/font/class validation. No gameplay, skin, keybind, network or compiled Java behavior changes in this resource-only patch.
+
 # 0.4.2-beta.1
 
 - Cache eligible player positions/levels once per dimension per spawning tick and reuse bounded chunk-section candidate shortlists during spawn bursts. Preserve nearest selection on boundaries and a separate random offset for each mob.

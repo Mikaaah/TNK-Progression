@@ -1,4 +1,4 @@
-# Towns & Kingdoms Progression — 0.4.2-beta.1
+# Towns & Kingdoms Progression — 0.4.3-beta.1
 
 Minecraft **1.21.1**, NeoForge **21.1.262+**, Java **21**. Original implementation; no Auto Leveling or Just Leveling code is bundled. This is an initial pack beta; tune the balance in a test world.
 
@@ -38,11 +38,13 @@ Optional bridge targets the public 0.19.2 API on the 1.21 branch. Configure the 
 
 ## Player level badges
 
-The optional **TNK Number and Title Prefixes 0.3.0** client resource pack replaces the original bronze `LVL` artwork with the user's supplied number-only Advanced Pack images. All 100 images are copied byte-for-byte, without recolouring or modifying pixels. Eleven colour brackets cover 1–9, each ten-level range, and a separate quartz-white 100. No zero image exists in the supplied pack; level 0 uses plain `0` text. Actual progression still starts at 1.
+The delivered private **0.4.3-beta.1 JAR includes the supplied number-only Advanced Pack artwork by default**. No companion resource pack needs to be enabled. The earlier optional-only packaging allowed Minecraft to display the old bronze `LVL` fallback when the pack was absent; this release corrects that. All 100 number PNGs and 43 title PNGs are copied byte-for-byte, without recolouring or changing pixels. Existing compatible number/title packs may stay enabled, but remove or disable any pack that deliberately overrides the font with old artwork.
 
-Enable the resource pack above older prefix packs. The mod's existing bundled bronze artwork remains a fallback if that pack is absent. Install the updated mod on server and clients. Authoritative level sync, normal chat and overhead display-name integration are unchanged; other chat/nameplate mods still need client verification. Tab-list prefixes are not enabled.
+Colours remain: 1–9 silver; 10–19 copper; 20–29 gold; 30–39 emerald; 40–49 prismarine; 50–59 diamond; 60–69 lapis; 70–79 amethyst; 80–89 ruby; 90–99 obsidian; 100 quartz white. Level zero is plain `0` because the supplied archive has no zero image. Actual progression starts at 1.
 
-`python tools/package_number_prefixes.py advancedpack.zip output.zip` generates the private resource pack from the original user-owned input. The supplied artwork is not redistributed in this source repository. The existing `tools/build_level_badges.py` regenerates only the original bronze fallback.
+Licensed private artwork is not redistributed in this public source repository. To reproduce the private release, run `./gradlew jar -PtnkArtworkSource=/absolute/path/to/advancedpack.zip`; the release hook embeds and verifies the original sprites after the normal JAR task. Source-only builds without this property retain generic repository artwork. `tools/embed_prefix_artwork.py` can also apply the same resource overlay to an already built JAR without changing any compiled class bytes. `--version` explicitly updates only the mod metadata for a resource-only release. Standard resource-pack overrides still take normal precedence.
+
+`tools/package_number_prefixes.py` and `tools/package_title_prefixes.py` remain available to generate compatible companion resource packs if wanted. Their original source images are unchanged.
 
 See [activity implementation](docs/ACTIVITY-UPDATE.md), [design explanations](docs/DESIGN-EXPLAINED.md), and [quest-rank proposal](docs/QUEST-ROLES.md).
 

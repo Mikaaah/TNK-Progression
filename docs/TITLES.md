@@ -147,3 +147,7 @@ This update also fixes namespaced IDs in engineering commands and one-time quest
 | `tnk:naga_hunter` | Hunter | Complete the Naga defeat quest. |
 | `tnk:lich_phantom` | Phantom | Complete the Twilight Lich defeat quest. |
 | `tnk:guardian_sentinel` | Sentinel | Complete the Ender Guardian defeat quest. |
+
+## Default artwork correction — 0.4.3-beta.1
+
+The delivered private mod JAR now embeds the original number/title fonts and PNGs directly. The companion resource pack is no longer required. All 143 supplied images remain byte-for-byte identical, and title translations are merged with the character key labels. This changes resources only; title ownership, perks, level rules, keybindings and networking are unchanged. Public source-only builds need the supplied archive through `-PtnkArtworkSource=/path/to/advancedpack.zip` to reproduce the private artwork.
