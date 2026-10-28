@@ -17,7 +17,7 @@ with (ROOT/'docs/BALANCE-PACING.csv').open('w') as f:
 print('XP from 1 to 100:',total)
 for row in rows:print(row)
 # Conservative full-tree attribute bounds: no 100-point build can exceed the sum across all 240 nodes.
-defs=json.loads((ROOT/'skilltree/rebuilt588/data/tnk/puffish_skills/categories/character/definitions.json').read_text());agg={}
+defs=json.loads((ROOT/'skilltree/rebuilt588/config/puffish_skills/categories/character/definitions.json').read_text());agg={}
 for node in defs.values():
  assert node['cost']==1
  for r in node.get('rewards',[]):

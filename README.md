@@ -1,10 +1,10 @@
-# Towns & Kingdoms Progression — 0.5.0-beta.1
+# Towns & Kingdoms Progression — 0.5.2-beta.1
 
 Minecraft **1.21.1**, NeoForge **21.1.262+**, Java **21**. Original implementation; no Auto Leveling or Just Leveling code is bundled. This is an initial pack beta; tune the balance in a test world.
 
 ## Character screen and HUD
 
-Press **I** (rebind in Controls → Towns & Kingdoms). The parchment-and-bronze screen shows your live player model, character XP/ceiling, seven activity tracks, milestone journal and title collection. Equip/hide titles and pin an activity directly with buttons. A compact player/XP/activity HUD can be toggled from the screen. No command is needed.
+Press **I** (rebind in Controls → Towns & Kingdoms). The parchment-and-bronze screen shows your live player model, character XP/ceiling, seven activity tracks, milestone journal and title collection. Equip/hide titles and pin an activity directly with buttons. A compact player/XP/activity HUD can be toggled from the screen. Use **Skill tree** beside the point counter to open the configured Pufferfish category. No command is needed.
 
 **Equipped title perks replace aptitudes:** only one title applies at a time, with a server-enforced 30-second swap cooldown, no stacking and no healing from swaps. Identification discounts and conditional abilities are not part of this release.
 
@@ -34,9 +34,11 @@ FTB Teams is optional. When installed, milestones are stored by team UUID and im
 
 ## Pufferfish's Skills
 
-**The complete 588-node tree is now embedded in the mod JAR**, with all 669 source links, six roots, one point per node and a 175-point spending limit. It retains TNK's existing HAS icons, custom frames and warm background. No separate skilltree datapack or icon resource pack is required. The uploaded tree's original icons and space background are not copied. See [the conversion guide](skilltree/rebuilt588/README.md). Remove any old external datapack/config defining `tnk:character`, which otherwise overrides the bundled tree.
+**The 588-node tree is supplied in `config/puffish_skills/`, outside the mod.** Its native config category is `puffish_skills:character`. All 669 source links, six roots, one-point costs and the 175-point spending limit are editable in `config/puffish_skills/categories/character/`. The JAR contains our icons, frames, warm background and supplied number/title artwork, plus runtime integration code. It contains no Pufferfish category/config JSON or passive-node table. See [the config-folder install guide](skilltree/rebuilt588/README.md).
 
-Optional bridge targets the public 0.19.2 API on the 1.21 branch. Configure the exact existing tree category ID (default `tnk:character`). Disable that category's native experience and point exchange sources. This mod sets **total earned entitlement**, not unspent points, under `tnkprogression:character_level`, at login and level-up. Respecs and reconnects do not add points. Remove old point sources during migration; this mod does not destroy existing skill data automatically. Missing/API-incompatible integration logs a warning. The category is bundled by this mod. Iron's Spells, Ars Nouveau, Apothic Attributes and Pufferfish's Attributes bonuses are optional rewards; missing optional mods do not remove route nodes. Runtime conditional passives use reversible native Pufferfish tag rewards.
+Merge the release ZIP's `config` folder into the instance/server root and replace the progression JAR in `mods`. Remove the previous JAR and any earlier external `tnk:character` datapack/config to avoid loading an obsolete category. Keep other unrelated Pufferfish categories by merging `categories` in `config/puffish_skills/config.json` if necessary. No resource pack or datapack installation is needed.
+
+Optional bridge targets the public 0.19.2 API on the 1.21 branch. Configure the exact existing tree category ID (default `puffish_skills:character`). Disable that category's native experience and point exchange sources. This mod sets **total earned entitlement**, not unspent points, under `tnkprogression:character_level`, at login and level-up. Respecs and reconnects do not add points. Remove old point sources during migration; this mod does not destroy existing skill data automatically. Missing/API-incompatible integration logs a warning. The category is loaded from the supplied config folder. Iron's Spells, Ars Nouveau, Apothic Attributes and Pufferfish's Attributes bonuses are optional rewards; missing optional mods do not remove route nodes. Runtime conditional passives use reversible native Pufferfish tag rewards.
 
 ## Player level badges
 

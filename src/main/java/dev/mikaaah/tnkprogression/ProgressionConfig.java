@@ -7,7 +7,7 @@ public final class ProgressionConfig {
  public int[] ceilings = {10,30,50,70,80,94,100};
  public int[] rarityCaps = {1,2,3,4,4,5,5};
  public boolean shareTeamUnlocks = true;
- public String skillCategory = "tnk:character";
+ public String skillCategory = "puffish_skills:character";
  public boolean scaleMobs = true;
  public int mobLevelVariance = 4;
  public int balanceVersion=2;
@@ -34,6 +34,8 @@ public final class ProgressionConfig {
    if (!Files.exists(path)) Files.writeString(path,gson.toJson(new ProgressionConfig()));
    JsonObject raw=gson.fromJson(Files.readString(path),JsonObject.class);
    ProgressionConfig c=gson.fromJson(raw,ProgressionConfig.class);
+   boolean treeMigration="tnk:character".equals(c.skillCategory);
+   if(treeMigration)c.skillCategory="puffish_skills:character";
    boolean migrate=!raw.has("balanceVersion");
    if(migrate){
     for(var entry:c.activities.entrySet())c.legacyActivityRequirements.put(entry.getKey(),entry.getValue().initialRequirement());
@@ -49,7 +51,7 @@ public final class ProgressionConfig {
    for(var rules:List.of(c.craftingRecipes,c.engineeringRecipes,c.engineeringObjectives))for(var rule:rules.entrySet())if(net.minecraft.resources.ResourceLocation.tryParse(rule.getKey())==null || rule.getValue()==null || !Double.isFinite(rule.getValue()) || rule.getValue()<=0 || rule.getValue()>1000)throw new IllegalArgumentException("Invalid activity recipe/objective");
    for(String key:defaults().keySet()) { Activity a=c.activities.get(key); if(a==null || a.initialRequirement<1 || a.initialXp<1)throw new IllegalArgumentException("Invalid activity "+key); }
    if(c.skillCategory==null || net.minecraft.resources.ResourceLocation.tryParse(c.skillCategory)==null)throw new IllegalArgumentException("Invalid skill category");
-   if(migrate || raw.has("blocksPerMobLevel") || raw.has("dimensionBaseLevels"))Files.writeString(path,gson.toJson(c));current=c; return true;
+   if(migrate || treeMigration || raw.has("blocksPerMobLevel") || raw.has("dimensionBaseLevels"))Files.writeString(path,gson.toJson(c));current=c; return true;
   } catch(Exception e){ TnkProgression.LOG.error("Keeping previous progression config",e); return false; }
  }
 }

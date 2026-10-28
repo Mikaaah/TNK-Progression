@@ -38,6 +38,7 @@ public final class CharacterScreen extends Screen {
    var equip=button(t!=null&&s.selected().equals(t.id())?"Equipped":"Equip title",340,250,164,22,b->{if(t!=null)CharacterClient.action("title",t.id());});equip.active=t!=null&&t.earned()&&(s.swapTicks()==0||s.selected().equals(t.id()));
    button("Hide title",340,277,164,19,b->CharacterClient.action("title",""));
   }else if(tab==2){for(int i=0;i<s.activities().size();i++){var a=s.activities().get(i);button(a.id().equals(s.tracked())?"Pinned":"Track",444,58+i*32,62,25,b->CharacterClient.action("track",a.id()));}}
+  else if(tab==0)button("Skill tree",392,126,112,21,b->CharacterClient.action("skills",""));
  }
  @Override public void tick(){
   var s=state();String signature=s==null?"":s.selected()+s.hud()+s.tracked()+s.titles().hashCode()+(s.swapTicks()==0);

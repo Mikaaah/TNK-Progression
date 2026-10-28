@@ -5,10 +5,11 @@ import java.io.InputStreamReader;
 import net.minecraft.server.MinecraftServer;
 public final class TreeSmoke {
  private static void check(boolean ok,String message){if(!ok)throw new AssertionError(message);}
- private static JsonObject read(String name)throws Exception{try(var in=TreeSmoke.class.getResourceAsStream("/data/tnk/puffish_skills/categories/character/"+name+".json")){check(in!=null,"bundled "+name);return JsonParser.parseReader(new InputStreamReader(in,java.nio.charset.StandardCharsets.UTF_8)).getAsJsonObject();}}
+ private static JsonObject read(String name)throws Exception{try(var reader=java.nio.file.Files.newBufferedReader(net.neoforged.fml.loading.FMLPaths.CONFIGDIR.get().resolve("puffish_skills/categories/character/"+name+".json"))){return JsonParser.parseReader(reader).getAsJsonObject();}}
  private static void texture(String id)throws Exception{String[] p=id.split(":",2);try(var in=TreeSmoke.class.getResourceAsStream("/assets/"+p[0]+"/"+p[1])){check(in!=null,"bundled texture "+id);}}
  public static void run(MinecraftServer server)throws Exception{
   var category=read("category");var skills=read("skills");var definitions=read("definitions");var connections=read("connections").getAsJsonObject("normal").getAsJsonArray("bidirectional");
+  check(TreeSmoke.class.getResource("/data/tnk/puffish_skills/config.json")==null,"no embedded Pufferfish tree definition");
   check(skills.size()==588 && definitions.size()==588 && connections.size()==669,"complete converted graph");
   check(category.get("spent_points_limit").getAsInt()==175 && category.get("starting_points").getAsInt()==0,"no extra starting-point source");
   int roots=0;Set<String> attributes=new HashSet<>();
@@ -24,7 +25,7 @@ public final class TreeSmoke {
   }
   check(roots==6,"all six source roots");texture(category.getAsJsonObject("background").get("texture").getAsString());
   check(attributes.containsAll(Set.of("irons_spellbooks:max_mana","irons_spellbooks:mana_regen","irons_spellbooks:spell_power","irons_spellbooks:cast_time_reduction","irons_spellbooks:cooldown_reduction","ars_nouveau:ars_nouveau.perk.max_mana")),"actual supported magic attribute IDs");
-  for(var title:TitleConfig.current.titles())if("tnk:character".equals(title.skillCategory()))for(String skill:title.requiredSkills())check(skills.has(skill),"title criteria reference converted skills");
+  for(var title:TitleConfig.current.titles())if(ProgressionConfig.current.skillCategory.equals(title.skillCategory()))for(String skill:title.requiredSkills())check(skills.has(skill),"title criteria reference converted skills");
   var effects=TreePassiveRules.aggregate(Set.of("tnk_tree.blacksmith_defensive_keystone_1"),TreePassives.definitions());check(effects.get("second_wind")==1,"Second Wind definition loaded");
   check(TreePassiveRules.aggregate(Set.of(),TreePassives.definitions()).isEmpty(),"respec tags remove every runtime passive");
   String checker=System.getProperty("tnkprogression.pufferfishCheckJar");
@@ -36,7 +37,7 @@ public final class TreeSmoke {
   }
   if(net.neoforged.fml.ModList.get().isLoaded("puffish_skills")){
    Class<?> api=Class.forName("net.puffish.skillsmod.api.SkillsAPI"),type=Class.forName("net.puffish.skillsmod.api.Category"),skillType=Class.forName("net.puffish.skillsmod.api.Skill");
-   var categoryApi=((Optional<?>)api.getMethod("getCategory",net.minecraft.resources.ResourceLocation.class).invoke(null,net.minecraft.resources.ResourceLocation.parse("tnk:character"))).orElseThrow();
+   var categoryApi=((Optional<?>)api.getMethod("getCategory",net.minecraft.resources.ResourceLocation.class).invoke(null,net.minecraft.resources.ResourceLocation.parse("puffish_skills:character"))).orElseThrow();
    var p=net.neoforged.neoforge.common.util.FakePlayerFactory.get(server.overworld(),new com.mojang.authlib.GameProfile(UUID.fromString("85cb6e51-0884-4bb0-92ba-8777249f6c40"),"TreeLiveCheck"));
    type.getMethod("resetSkills",net.minecraft.server.level.ServerPlayer.class).invoke(categoryApi,p);
    ProgressionAPI.profile(p).putInt("level",100);ProgressionAPI.profile(p).putInt("ceiling",100);
@@ -50,6 +51,9 @@ public final class TreeSmoke {
    type.getMethod("resetSkills",net.minecraft.server.level.ServerPlayer.class).invoke(categoryApi,p);
    check(p.getMaxHealth()==health && !p.getTags().contains("tnk_tree.alchemist_class"),"live respec removes attributes and runtime markers");
    check((int)type.getMethod("getPointsLeft",net.minecraft.server.level.ServerPlayer.class).invoke(categoryApi,p)==175,"respec retains earned 175-point budget");
+   check(CharacterState.action(p,"skills",""),"character-screen action opens the actual configured Pufferfish category");
+   check(!CharacterState.action(p,"skills","different:tree"),"open action cannot choose another category");
+   TnkProgression.LOG.info("TNK_SKILL_TREE_OPEN_SMOKE_OK: character GUI action calls the native Pufferfish openScreen API");
    var profile=new com.mojang.authlib.GameProfile(UUID.fromString("2bc4264d-dbb6-40fc-9b09-364ae30f71e2"),"SecondWindLive");
    var active=new net.minecraft.server.level.ServerPlayer(server,server.overworld(),profile,net.minecraft.server.level.ClientInformation.createDefault());
    active.connection=new net.minecraft.server.network.ServerGamePacketListenerImpl(server,new net.minecraft.network.Connection(net.minecraft.network.protocol.PacketFlow.SERVERBOUND),active,net.minecraft.server.network.CommonListenerCookie.createInitial(profile,false)){
@@ -72,6 +76,6 @@ public final class TreeSmoke {
    TnkProgression.LOG.info("TNK_SECOND_WIND_LIVE_OK: real damage, recovery and saved cooldown through respec");
    TnkProgression.LOG.info("TNK_PUFFERFISH_LIVE_POINTS_RESPEC_OK: actual loaded mod, 175 points, no duplicates, attributes/tags and full respec verified");
   }
-  TnkProgression.LOG.info("TNK_TREE_588_SMOKE_OK: 588 nodes, 669 links, 6 roots, own textures, 175 points, native tag passives and migrated title IDs");
+  TnkProgression.LOG.info("TNK_TREE_588_SMOKE_OK: config-folder tree, 588 nodes, 669 links, 6 roots, own textures, 175 points; no embedded tree");
  }
 }

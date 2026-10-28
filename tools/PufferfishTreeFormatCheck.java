@@ -18,7 +18,7 @@ public class PufferfishTreeFormatCheck {
   var fixture=constructor.newInstance(Path.of(directory),(net.puffish.skillsmod.server.network.ServerPacketSender)(p,packet)->{},platform,null);
   var instance=net.puffish.skillsmod.SkillsMod.class.getDeclaredField("instance");instance.setAccessible(true);instance.set(null,fixture);
   BuiltinRewards.register();Path root=Path.of(directory);
-  var result=CategoryConfig.parse(ResourceLocation.parse("tnk:character"),2,read(root,"category"),read(root,"definitions"),read(root,"skills"),read(root,"connections"),Optional.empty(),Optional.empty(),context);
+  var result=CategoryConfig.parse(ResourceLocation.parse("puffish_skills:character"),2,read(root,"category"),read(root,"definitions"),read(root,"skills"),read(root,"connections"),Optional.empty(),Optional.empty(),context);
   if(result.getSuccess().isEmpty())throw new AssertionError(result.getFailure().orElse(null));
   var category=result.getSuccess().orElseThrow();
   if(category.skills().getAll().size()!=588)throw new AssertionError("Missing nodes");

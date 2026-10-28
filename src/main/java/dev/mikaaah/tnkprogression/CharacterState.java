@@ -39,6 +39,7 @@ public final class CharacterState {
  public static boolean action(ServerPlayer p,String action,String value){
   return switch(action){
    case "refresh"->true;
+   case "skills"->value.isEmpty() && SkillBridge.open(p);
    case "title"->Titles.select(p,value);
    case "track"->track(p,value);
    case "hud"->{if(!value.equals("on")&&!value.equals("off"))yield false;ProgressionAPI.profile(p).putBoolean("hud_hidden",value.equals("off"));ProgressionData.get(p.server).setDirty();yield true;}

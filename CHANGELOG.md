@@ -1,3 +1,17 @@
+# 0.5.2-beta.1
+
+- Remove the entire Pufferfish tree and passive-node data from the mod JAR. Supply it exclusively under config/puffish_skills, with native config.json and categories/character/*.json files.
+- Load conditional-node coefficients from config/puffish_skills/tnk_passives.json. Keep icons, frames, warm background and original number/title artwork inside the mod.
+- Use Pufferfish's native config-folder category ID puffish_skills:character. Migrate the known former tnk:character bridge/title settings; retain 175 level-based points, all node effects and earned titles.
+- Keep the Skill tree entry point on the I-key screen and open the configured native category. Verify the JAR has no embedded tree and the actual Pufferfish mod loads all 588 nodes from config.
+
+# 0.5.1-beta.1
+
+- Add a Skill tree button beside the skill-point counter in the I-key character screen. The complete 588-node tree was already embedded in 0.5.0; this patch adds the missing direct entry point.
+- Open the configured native Pufferfish category through a server-validated GUI action, with no command or client-controlled category/player target.
+- Explain missing Pufferfish/category loading, and warn if an old datapack/config overrides the bundled 588-node tree with a different node count.
+- Keep the complete 588-node graph, 175-point entitlement, own artwork, original prefixes and all perks embedded. Add a loaded-Pufferfish openScreen assertion.
+
 # 0.5.0-beta.1
 
 - Replace the basic 240-node draft with the supplied 588-node topology and all 669 original links, retaining six disciplines and roots. Use the existing TNK icons, frame states and warm background; do not port the original space background or original mod sprites.

@@ -118,7 +118,7 @@
       "style": "ŻELAZO",
       "colour": "DADADA",
       "description": "Spend 10 points in the TNK character skilltree.",
-      "skillCategory": "tnk:character",
+      "skillCategory": "puffish_skills:character",
       "minSpentPoints": 10,
       "requiredSkills": []
     },
@@ -129,7 +129,7 @@
       "style": "MIEDŹ",
       "colour": "DD873A",
       "description": "Spend 25 points in the TNK character skilltree.",
-      "skillCategory": "tnk:character",
+      "skillCategory": "puffish_skills:character",
       "minSpentPoints": 25,
       "requiredSkills": []
     },
@@ -140,7 +140,7 @@
       "style": "AMETYST",
       "colour": "C58BF5",
       "description": "Spend 50 points in the TNK character skilltree.",
-      "skillCategory": "tnk:character",
+      "skillCategory": "puffish_skills:character",
       "minSpentPoints": 50,
       "requiredSkills": []
     },
@@ -151,7 +151,7 @@
       "style": "KWARC",
       "colour": "F3EADA",
       "description": "Spend 100 points in the TNK character skilltree.",
-      "skillCategory": "tnk:character",
+      "skillCategory": "puffish_skills:character",
       "minSpentPoints": 100,
       "requiredSkills": []
     },
@@ -162,7 +162,7 @@
       "style": "DIAMENT",
       "colour": "4BD6ED",
       "description": "Unlock hunter subclass 1 mastery in the character tree.",
-      "skillCategory": "tnk:character",
+      "skillCategory": "puffish_skills:character",
       "minSpentPoints": 0,
       "requiredSkills": [
         "hunter_subclass_1_mastery"
@@ -175,7 +175,7 @@
       "style": "MIEDŹ",
       "colour": "DD873A",
       "description": "Unlock miner mastery in the character tree.",
-      "skillCategory": "tnk:character",
+      "skillCategory": "puffish_skills:character",
       "minSpentPoints": 0,
       "requiredSkills": [
         "miner_mastery"
@@ -188,7 +188,7 @@
       "style": "SZMARAGD",
       "colour": "51D975",
       "description": "Unlock cook mastery in the character tree.",
-      "skillCategory": "tnk:character",
+      "skillCategory": "puffish_skills:character",
       "minSpentPoints": 0,
       "requiredSkills": [
         "cook_mastery"
@@ -201,7 +201,7 @@
       "style": "ZŁOTO",
       "colour": "EDC74B",
       "description": "Unlock blacksmith mastery in the character tree.",
-      "skillCategory": "tnk:character",
+      "skillCategory": "puffish_skills:character",
       "minSpentPoints": 0,
       "requiredSkills": [
         "blacksmith_mastery"
@@ -214,7 +214,7 @@
       "style": "KWARC",
       "colour": "F3EADA",
       "description": "Unlock blacksmith defensive keystone 1 in the character tree.",
-      "skillCategory": "tnk:character",
+      "skillCategory": "puffish_skills:character",
       "minSpentPoints": 0,
       "requiredSkills": [
         "blacksmith_defensive_keystone_1"
@@ -227,7 +227,7 @@
       "style": "RUBIN",
       "colour": "EF5D8C",
       "description": "Unlock hunter mastery in the character tree.",
-      "skillCategory": "tnk:character",
+      "skillCategory": "puffish_skills:character",
       "minSpentPoints": 0,
       "requiredSkills": [
         "hunter_mastery"

@@ -3,7 +3,7 @@
 import json,math
 from pathlib import Path
 from PIL import Image,ImageDraw,ImageFont,ImageOps
-ROOT=Path(__file__).resolve().parents[1];DATA=ROOT/'skilltree/rebuilt588/data/tnk/puffish_skills/categories/character'
+ROOT=Path(__file__).resolve().parents[1];DATA=ROOT/'skilltree/rebuilt588/config/puffish_skills/categories/character'
 nodes=json.loads((DATA/'skills.json').read_text());defs=json.loads((DATA/'definitions.json').read_text());cat=json.loads((DATA/'category.json').read_text());edges=json.loads((DATA/'connections.json').read_text())['normal']['bidirectional']
 def asset(id):
  ns,path=id.split(':',1);return ROOT/'skilltree/resourcepack/assets'/ns/path

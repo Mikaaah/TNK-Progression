@@ -20,6 +20,8 @@ jobs:
       - name: Dedicated server assertions
         run: |
           mkdir -p run
+          mkdir -p run/config
+          cp -r skilltree/rebuilt588/config/puffish_skills run/config/
           printf 'eula=true\n' > run/eula.txt
           JAVA_TOOL_OPTIONS=-Dtnkprogression.smoke=true timeout 300 ./gradlew runServer 2>&1 | tee smoke.log
           grep -q TNK_PROGRESSION_SMOKE_OK smoke.log

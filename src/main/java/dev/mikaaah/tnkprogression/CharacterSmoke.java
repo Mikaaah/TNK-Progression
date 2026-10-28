@@ -27,6 +27,7 @@ public final class CharacterSmoke {
   check(CharacterState.action(p,"title","tnk:prepared") && p.getHealth()==10,"re-equipping cannot refill health");
   check(!CharacterState.action(p,"title","tnk:monarch"),"GUI cannot equip locked title");
   check(!CharacterState.action(p,"xp","99999"),"GUI cannot submit XP");
+  check(!CharacterState.action(p,"skills","other:category"),"skill-tree button cannot submit a different category or target");
   check(!CharacterState.action(p,"track","invented"),"unknown activity rejected");
   check(CharacterState.action(p,"track","mining") && CharacterState.tracked(p).equals("mining"),"tracking selection persists");
   check(CharacterState.action(p,"hud","off") && !CharacterState.snapshot(p).hud(),"HUD visibility server preference");

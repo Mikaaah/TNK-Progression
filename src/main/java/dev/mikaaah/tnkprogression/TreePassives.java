@@ -21,13 +21,14 @@ public final class TreePassives {
  private static final Map<ServerPlayer,Cached> CACHE=new WeakHashMap<>();
  private static final Map<String,Map<String,Double>> DEFINITIONS=load();
  private static Map<String,Map<String,Double>> load(){
-  try(var in=TreePassives.class.getResourceAsStream("/data/tnkprogression/tree_passives.json")){
-   if(in==null)return Map.of();
-   var root=JsonParser.parseReader(new InputStreamReader(in,java.nio.charset.StandardCharsets.UTF_8)).getAsJsonObject().getAsJsonObject("skills");
+  var path=net.neoforged.fml.loading.FMLPaths.CONFIGDIR.get().resolve("puffish_skills/tnk_passives.json");
+  if(!java.nio.file.Files.exists(path))return Map.of();
+  try(var reader=java.nio.file.Files.newBufferedReader(path)){
+   var root=JsonParser.parseReader(reader).getAsJsonObject().getAsJsonObject("skills");
    Map<String,Map<String,Double>> result=new HashMap<>();
    for(var skill:root.entrySet()){Map<String,Double> values=new HashMap<>();for(var value:skill.getValue().getAsJsonObject().entrySet())values.put(value.getKey(),value.getValue().getAsDouble());result.put(skill.getKey(),Map.copyOf(values));}
    return Map.copyOf(result);
-  }catch(Exception ex){throw new IllegalStateException("Invalid bundled skill passives",ex);}
+  }catch(Exception ex){TnkProgression.LOG.error("Invalid Pufferfish passive configuration; conditional effects disabled",ex);return Map.of();}
  }
  static Map<String,Map<String,Double>> definitions(){return DEFINITIONS;}
  public static Map<String,Double> stats(ServerPlayer p){

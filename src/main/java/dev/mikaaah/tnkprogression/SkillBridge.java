@@ -5,6 +5,19 @@ import net.neoforged.fml.ModList;
 import java.util.Optional;
 public final class SkillBridge {
  private static boolean warned;
+ /** Open only the requesting player's configured native Pufferfish category. */
+ public static boolean open(ServerPlayer p){
+  if(!ModList.get().isLoaded("puffish_skills"))return false;
+  try{
+   Class<?> api=Class.forName("net.puffish.skillsmod.api.SkillsAPI"),type=Class.forName("net.puffish.skillsmod.api.Category");
+   Optional<?> category=(Optional<?>)api.getMethod("getCategory",ResourceLocation.class).invoke(null,ResourceLocation.parse(ProgressionConfig.current.skillCategory));
+   if(category.isEmpty())return false;
+   if(ProgressionConfig.current.skillCategory.equals("puffish_skills:character"))try(var skills=(java.util.stream.Stream<?>)type.getMethod("streamSkills").invoke(category.get())){
+    long count=skills.count();if(count!=588)p.sendSystemMessage(net.minecraft.network.chat.Component.literal("The loaded character tree contains "+count+" nodes; the supplied config has 588. Check config/puffish_skills/categories/character."));
+   }
+   sync(p);type.getMethod("openScreen",ServerPlayer.class).invoke(category.get(),p);return true;
+  }catch(ReflectiveOperationException|RuntimeException e){TnkProgression.LOG.warn("Could not open the configured Pufferfish skill tree",e);return false;}
+ }
  public record TitleSnapshot(int spent,java.util.Set<String> unlocked) {}
  public static Optional<TitleSnapshot> titleSnapshot(ServerPlayer p,String id){
   if(!ModList.get().isLoaded("puffish_skills"))return Optional.empty();

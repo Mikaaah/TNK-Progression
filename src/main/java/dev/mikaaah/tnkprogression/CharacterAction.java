@@ -15,7 +15,7 @@ public record CharacterAction(String action,String value) implements CustomPacke
   var n=ProgressionAPI.profile(p);long now=p.server.overworld().getGameTime();
   if(n.contains("character_packet_tick") && now>=n.getLong("character_packet_tick") && now-n.getLong("character_packet_tick")<2)return;
   n.putLong("character_packet_tick",now);
-  if(!CharacterState.action(p,action,value))p.sendSystemMessage(net.minecraft.network.chat.Component.literal("Title unavailable or swap cooldown active."));
+  if(!CharacterState.action(p,action,value))p.sendSystemMessage(net.minecraft.network.chat.Component.literal(action.equals("skills")?"Skill tree unavailable. Check that a compatible Pufferfish's Skills build is loaded and the configured character category is enabled.":"Title unavailable or swap cooldown active."));
   CharacterState.sendFull(p);
  }
 }

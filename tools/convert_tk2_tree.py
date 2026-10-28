@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'skilltree/rebuilt588'
-CATEGORY=OUT/'data/tnk/puffish_skills/categories/character'
+CATEGORY=OUT/'config/puffish_skills/categories/character'
 OLD=ROOT/'skilltree/datapack/data/tnk/puffish_skills/categories/character'
 SCALE=2.0
 BRANCH_ICONS={'alchemist':'homesteader','blacksmith':'survivor','cook':'homesteader','enchanter':'adventurer','hunter':'wayfarer','miner':'delver'}
@@ -188,8 +188,8 @@ def convert(source):
  cat=json.loads((OLD/'category.json').read_text());cat.update(title='Towns & Kingdoms',description='588 skills across six connected disciplines. 175 points earned by character level 100.',spent_points_limit=175,exclusive_root=False,starting_points=0)
  write(CATEGORY/'category.json',cat);write(CATEGORY/'definitions.json',defs);write(CATEGORY/'skills.json',skills)
  write(CATEGORY/'connections.json',{'normal':{'bidirectional':[list(e) for e in sorted(edges)]}})
- write(OUT/'data/tnk/puffish_skills/config.json',{'version':2,'categories':['character']})
- write(OUT/'data/tnkprogression/tree_passives.json',{'version':1,'skills':passives})
+ write(OUT/'config/puffish_skills/config.json',{'version':3,'show_warnings':True,'categories':['character']})
+ write(OUT/'config/puffish_skills/tnk_passives.json',{'version':1,'skills':passives})
  write(OUT/'conversion-catalogue.json',report)
  # All source vertices and edges must be preserved and reachable; no hidden missing-mod bridge nodes.
  graph={n:set() for n in rows}

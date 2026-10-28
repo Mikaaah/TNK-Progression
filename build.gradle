@@ -1,5 +1,5 @@
 plugins { id 'java-library'; id 'net.neoforged.moddev' version '2.0.148' }
-version = '0.5.0-beta.1'
+version = '0.5.2-beta.1'
 group = 'dev.mikaaah.tnkprogression'
 base { archivesName = 'tnkprogression' }
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
@@ -13,9 +13,8 @@ dependencies { testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'; test
 tasks.named('test', Test) { useJUnitPlatform() }
 java { withSourcesJar() }
 tasks.named('processResources') { inputs.property('version', project.version); filesMatching('META-INF/neoforge.mods.toml') { expand(version: project.version) } }
-// The tree and all existing TNK art are ordinary built-in mod resources, not external packs.
+// Only appearance is bundled. The editable Pufferfish tree is supplied under config/puffish_skills.
 tasks.named('processResources') {
- from('skilltree/rebuilt588') { include 'data/**' }
  from('skilltree/resourcepack') { include 'assets/**'; include 'CREDITS.txt'; include 'HAS-LICENSE.txt' }
 }
 

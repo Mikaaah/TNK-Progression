@@ -34,6 +34,9 @@ public final class TitleConfig {
                     String node=LEGACY_TREE_SKILLS.get(d.requiredSkills().getFirst());
                     d=new Definition(d.id(),d.label(),d.artwork(),d.style(),d.colour(),"Unlock "+node.replace('_',' ')+" in the character tree.",d.skillCategory(),d.minSpentPoints(),List.of(node));migrated=true;
                 }
+                if(d!=null && "tnk:character".equals(d.skillCategory()) && "puffish_skills:character".equals(ProgressionConfig.current.skillCategory)){
+                    d=new Definition(d.id(),d.label(),d.artwork(),d.style(),d.colour(),d.description(),"puffish_skills:character",d.minSpentPoints(),d.requiredSkills());migrated=true;
+                }
                 updated.add(d);
             }
             next=new Catalog(next.autoEquipFirst(),updated);
