@@ -1,5 +1,5 @@
 {
-  "version": "0.4.1-beta.1",
+  "version": "0.4.2-beta.1",
   "levelBase": 150,
   "levelFactor": 45,
   "levelExponent": 1.35,

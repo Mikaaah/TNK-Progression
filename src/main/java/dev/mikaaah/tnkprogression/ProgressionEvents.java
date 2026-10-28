@@ -26,10 +26,16 @@ public final class ProgressionEvents {
   scale(mob.getAttribute(Attributes.ATTACK_DAMAGE),"damage",c.damagePerLevel*(level-1));
   if(fresh)mob.setHealth(mob.getMaxHealth());
   else if(mob.getHealth()>mob.getMaxHealth())mob.setHealth(mob.getMaxHealth());
-  // Persistent custom name: server-only installations can still see the level.
+  // Display label only: never call setPersistenceRequired or change an existing persistence flag.
   if(!mob.hasCustomName()){mob.setCustomName(net.minecraft.network.chat.Component.literal("Lv. "+level+" ").append(mob.getType().getDescription()));}
  }
- private static void scale(AttributeInstance a,String key,double value){if(a==null)return;var id=ResourceLocation.parse("tnkprogression:"+key);a.removeModifier(id);a.addPermanentModifier(new AttributeModifier(id,value,AttributeModifier.Operation.ADD_MULTIPLIED_BASE));}
+ private static void scale(AttributeInstance a,String key,double value){
+  if(a==null)return;
+  var id=ResourceLocation.parse("tnkprogression:"+key);var previous=a.getModifier(id);
+  if(previous!=null && previous.amount()==value && previous.operation()==AttributeModifier.Operation.ADD_MULTIPLIED_BASE)return;
+  if(previous!=null)a.removeModifier(id);
+  if(value!=0)a.addPermanentModifier(new AttributeModifier(id,value,AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+ }
 
  @SubscribeEvent public static void login(PlayerEvent.PlayerLoggedInEvent e){if(e.getEntity() instanceof ServerPlayer p)SkillBridge.sync(p);}
  @SubscribeEvent public static void tick(PlayerTickEvent.Post e){

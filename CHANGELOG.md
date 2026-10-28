@@ -1,3 +1,11 @@
+# 0.4.2-beta.1
+
+- Cache eligible player positions/levels once per dimension per spawning tick and reuse bounded chunk-section candidate shortlists during spawn bursts. Preserve nearest selection on boundaries and a separate random offset for each mob.
+- Add empty/single-player fast paths, lifecycle/teleport/level-up invalidation and world/server cleanup. No recurring per-mob nearest-player scan or entity-retaining spawn cache is added.
+- Reuse unchanged mob attribute modifiers on rejoin and omit zero-value modifiers.
+- Verify leveled, saved/reloaded mobs can still naturally distance-despawn; retain existing persistence and custom names without marking ordinary mobs persistent.
+- Add 10,000-position full-search equivalence, cache bounds, multiplayer-boundary and 31-mob burst assertions. Document the original Auto Leveling and Otherworld Apotheosis integration, including the current 1.21.1 port's differences. Apotheosis loot/boss behavior is unchanged by this patch.
+
 # 0.4.1-beta.1
 
 - Replace distance-from-spawn, underground depth and dimension-baseline mob levels with the nearest living survival/adventure player's actual character level in the same dimension.

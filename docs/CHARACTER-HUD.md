@@ -1,4 +1,4 @@
-# Character screen, HUD and title perks — 0.4.1-beta.1
+# Character screen, HUD and title perks — 0.4.2-beta.1
 
 Minecraft 1.21.1 · NeoForge 21.1.262+ · Java 21. Replace the progression JAR on server **and clients**; the network protocol is now version 3. No command is needed to open the interface.
 
@@ -85,3 +85,5 @@ Install the optional KubeJS bridge update to connect the preset's chapter gates.
 The server smoke suite checks title attribute application/removal, nonstacking refreshes, no swap healing, cooldown enforcement, invalid client actions, title ownership, tracking/HUD persistence, payload serialization and proportional migration. The opt-in integrated client test joins a disposable world, opens the actual screen with its keybind, equips a title through the UI and server payload, verifies the synced health perk, pins mining, closes with the keybind and captures the rendered views. It also exposed and fixed a pre-snapshot first-login badge crash.
 
 The client fixture uses a disposable vanilla/NeoForge world and supplied prefix pack, not the complete TNK modpack. Installed optional magic/skills integrations, external chat/HUD mods and real multiplayer remain pack-specific checks. The UI smoke flag changes its test profile and should only be used in a disposable test world.
+
+Mob lookup caching, natural despawn verification and the original-mod Apotheosis comparison are documented in `MOB-PERFORMANCE-AND-COMPAT.md`.

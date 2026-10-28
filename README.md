@@ -1,4 +1,4 @@
-# Towns & Kingdoms Progression — 0.4.1-beta.1
+# Towns & Kingdoms Progression — 0.4.2-beta.1
 
 Minecraft **1.21.1**, NeoForge **21.1.262+**, Java **21**. Original implementation; no Auto Leveling or Just Leveling code is bundled. This is an initial pack beta; tune the balance in a test world.
 
@@ -64,7 +64,11 @@ Hostile `Mob` entities implementing vanilla `Enemy` receive a persistent level o
 
 `mobLevelVariance` in `config/tnkprogression.json` defaults to 4 (0 gives the exact nearest player's level). Obsolete `blocksPerMobLevel` and `dimensionBaseLevels` settings are removed from the configuration on reload. Existing mobs retain their saved levels, including mobs from the old distance-based build; replacements/new spawns use the new rule. Level stays fixed when players approach, leave, level up, move the mob or reload its chunk. The nearest player wins even if a higher-level player is also nearby; there is no averaging, team-level lookup or highest-level selection.
 
-Health and melee attack damage use stable modifier IDs so reloads cannot stack modifiers. Defaults: +3% base health and +1.25% base damage per level above 1. Display uses a custom name when none existed; no client renderer is required. Existing custom mob names remain unchanged. Apotheosis attributes/equipment and World Tiers remain independent; their bonuses can combine with TNK's scaling.
+Nearest-player data is sampled lazily once per dimension per spawning server tick. A bounded 16×16×16 area shortlist cache reuses candidates for spawn bursts while still comparing positions at player boundaries. There are no per-mob tick scans. Login/logout, dimension changes, respawn, supported teleports and earned player level-ups invalidate the relevant snapshots; unload/server-stop releases cached worlds and players. Ordinary movement refreshes by the next spawning tick (at most one tick of position sampling), rather than leaving areas attached to a past player. See [mob performance, despawn tests and Apotheosis comparison](docs/MOB-PERFORMANCE-AND-COMPAT.md).
+
+TNK never calls `setPersistenceRequired`, resets despawn age, or cancels despawn events. The generated custom-name label alone does not enable persistence in Minecraft 1.21.1. Existing name-tag/equipment/mod persistence flags are preserved. Dedicated-server checks verify an ordinary leveled mob still distance-despawns after save/reload and an already persistent mob stays persistent.
+
+Health and melee attack damage use stable modifier IDs so reloads cannot stack modifiers. Unchanged modifiers are reused on chunk rejoin rather than removed/re-added; zero modifiers are omitted. Defaults: +3% base health and +1.25% base damage per level above 1. Display uses a custom name when none existed; no client renderer is required. Existing custom mob names remain unchanged. Apotheosis attributes/equipment and World Tiers remain independent; their bonuses can combine with TNK's scaling.
 
 Loot API uses `min(mob level, recipient milestone ceiling)`. Difficulty itself is not reduced by the recipient's progression. Custom creatures without the `Enemy` marker still need explicit pack integration. Combat credits recent player damage, including owned entities/projectiles and the optional Iron's Spells IMagicSummon integration. It does not globally increase vanilla XP.
 
