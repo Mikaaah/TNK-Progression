@@ -30,6 +30,8 @@ public final class TitleSmoke {
         check(!Titles.earn(p,"tnk:dragon_slayer"),"automatic sync respects revocation");
         check(Titles.grant(p,"tnk:dragon_slayer"),"explicit grant restores revoked title");
         check(Titles.selected(p).isEmpty(),"hidden selection stays hidden after grants");
+        check(!Titles.select(p,"tnk:ars_mystic"),"perk swap cooldown cannot be bypassed by hide/restore");
+        n.putLong("title_swap_after",0);
         check(Titles.select(p,"tnk:ars_mystic"),"select owned title again");
         var buffer=new net.minecraft.network.RegistryFriendlyByteBuf(io.netty.buffer.Unpooled.buffer(),p.registryAccess());
         try {

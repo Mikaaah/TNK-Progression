@@ -9,7 +9,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
-/** Titles are personal, permanent cosmetic achievements. The wearer selects one, or hides them. */
+/** Titles are personal, permanent achievements; only the equipped title supplies perks. The wearer selects one, or hides them. */
 public final class Titles {
     public static final ResourceLocation FONT=ResourceLocation.parse("tnkprogression:title_badges");
     private static final Map<UUID,Component> CLIENT_TITLES=new HashMap<>();
@@ -44,6 +44,8 @@ public final class Titles {
     }
     public static boolean select(ServerPlayer p,String id){
         if(!id.isEmpty() && (!unlocked(p,id) || TitleConfig.get(id).isEmpty()))return false;
+        if(!id.isEmpty() && !id.equals(selected(p)) && TitlePerks.cooldown(p)>0)return false;
+        if(!id.isEmpty() && !id.equals(selected(p)))ProgressionAPI.profile(p).putLong("title_swap_after",p.server.overworld().getGameTime()+20L*TitlePerks.current.swapCooldownSeconds());
         ProgressionAPI.profile(p).putString("title_selected",id);ProgressionData.get(p.server).setDirty();LevelBadges.changed(p);return true;
     }
     public static boolean revoke(ServerPlayer p,String id){

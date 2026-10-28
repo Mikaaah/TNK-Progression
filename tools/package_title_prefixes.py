@@ -27,7 +27,7 @@ def build(source,target,catalog):
             out.writestr('assets/tnkprogression/lang/en_us.json',json.dumps(lang,indent=2))
             out.writestr('title-prefix-map.json',json.dumps(manifest,indent=2,ensure_ascii=False))
             out.writestr('pack.mcmeta',json.dumps({'pack':{'pack_format':34,'description':'TNK number and earned-title prefixes · original supplied artwork'}}))
-            out.writestr('README.txt','Enable above older TNK prefix packs; replaces the earlier number-only pack. Requires TNK Progression 0.3.0-beta.1 on server and clients. Number and title PNG files are unchanged originals. Missing custom title artwork uses readable text.\n')
+            out.writestr('README.txt','Enable above older TNK prefix packs; replaces the earlier number-only pack. Requires TNK Progression 0.4.0-beta.1 on server and clients. Number and title PNG files are unchanged originals. Missing custom title artwork uses readable text.\n')
         with zipfile.ZipFile(target) as out,zipfile.ZipFile(source) as src:
             for row in manifest:assert out.read(row['target'])==src.read(row['source'])
     print(f'Packaged {len(manifest)} unmodified title sprites; text-only custom titles: {missing}')

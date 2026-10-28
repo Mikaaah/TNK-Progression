@@ -31,7 +31,7 @@ public final class LevelBadges {
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void format(PlayerEvent.NameFormat event) {
         Integer level = event.getEntity() instanceof ServerPlayer player
-            ? ProgressionAPI.level(player) : CLIENT_LEVELS.get(event.getEntity().getUUID());
+            ? Integer.valueOf(ProgressionAPI.level(player)) : CLIENT_LEVELS.get(event.getEntity().getUUID());
         // A newly arriving client entity can briefly have no snapshot yet; never invent a level.
         if (level != null) {
             Component title=event.getEntity() instanceof ServerPlayer p?Titles.display(p):Titles.client(event.getEntity().getUUID());
@@ -49,6 +49,8 @@ public final class LevelBadges {
     public static void clearClient() { CLIENT_LEVELS.clear(); Titles.clearClient(); }
 
     public static void changed(ServerPlayer player) {
+        TitlePerks.apply(player);
+        CharacterState.sendFull(player);
         player.refreshDisplayName();
         PacketDistributor.sendToAllPlayers(new LevelBadgePayload(player.getUUID(), ProgressionAPI.level(player)));
         PacketDistributor.sendToAllPlayers(new TitleBadgePayload(player.getUUID(),Titles.display(player)));

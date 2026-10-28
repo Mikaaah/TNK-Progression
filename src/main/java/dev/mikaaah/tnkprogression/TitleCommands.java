@@ -18,7 +18,7 @@ public final class TitleCommands {
                 .then(Commands.argument("page",IntegerArgumentType.integer(1)).executes(c->list(c.getSource(),true,IntegerArgumentType.getInteger(c,"page")))))
             .then(Commands.literal("select").then(Commands.argument("id",StringArgumentType.greedyString())
                 .suggests((c,b)->SharedSuggestionProvider.suggest(TitleConfig.current.titles().stream().filter(t->c.getSource().getEntity() instanceof ServerPlayer p && Titles.unlocked(p,t.id())).map(TitleConfig.Definition::id),b))
-                .executes(c->{var p=c.getSource().getPlayerOrException();String id=StringArgumentType.getString(c,"id").trim();if(!Titles.select(p,id)){c.getSource().sendFailure(Component.literal("You have not unlocked that title."));return 0;}c.getSource().sendSuccess(()->Component.literal("Selected title: "+TitleConfig.get(id).orElseThrow().label()),false);return 1;})))
+                .executes(c->{var p=c.getSource().getPlayerOrException();String id=StringArgumentType.getString(c,"id").trim();if(!Titles.select(p,id)){c.getSource().sendFailure(Component.literal("Title unavailable or swap cooldown active."));return 0;}c.getSource().sendSuccess(()->Component.literal("Selected title: "+TitleConfig.get(id).orElseThrow().label()),false);return 1;})))
             .then(Commands.literal("clear").executes(c->{Titles.select(c.getSource().getPlayerOrException(),"");c.getSource().sendSuccess(()->Component.literal("Title hidden. Your unlocked titles are kept."),false);return 1;}))
             .then(Commands.literal("grant").requires(s->s.hasPermission(2))
                 .then(Commands.argument("player",EntityArgument.players()).then(Commands.argument("id",StringArgumentType.greedyString())
@@ -32,7 +32,7 @@ public final class TitleCommands {
                 .then(Commands.argument("player",EntityArgument.players()).then(Commands.argument("id",StringArgumentType.greedyString())
                     .suggests((c,b)->SharedSuggestionProvider.suggest(TitleConfig.current.titles().stream().map(TitleConfig.Definition::id),b))
                     .executes(c->{int count=0;for(var p:EntityArgument.getPlayers(c,"player"))if(Titles.revoke(p,StringArgumentType.getString(c,"id").trim()))count++;return count;}))))
-            .then(Commands.literal("reload").requires(s->s.hasPermission(2)).executes(c->{if(!TitleConfig.reload()){c.getSource().sendFailure(Component.literal("Title catalog rejected; previous catalog kept."));return 0;}for(var p:c.getSource().getServer().getPlayerList().getPlayers()){Titles.checkSkills(p);LevelBadges.changed(p);}c.getSource().sendSuccess(()->Component.literal("Title catalog reloaded."),false);return 1;}));
+            .then(Commands.literal("reload").requires(s->s.hasPermission(2)).executes(c->{if(!TitleConfig.reload() || !TitlePerks.reload()){c.getSource().sendFailure(Component.literal("Title catalog rejected; previous catalog kept."));return 0;}for(var p:c.getSource().getServer().getPlayerList().getPlayers()){Titles.checkSkills(p);LevelBadges.changed(p);}c.getSource().sendSuccess(()->Component.literal("Title catalog reloaded."),false);return 1;}));
     }
     private static int list(CommandSourceStack source,boolean catalog,int page)throws com.mojang.brigadier.exceptions.CommandSyntaxException {
         var p=source.getPlayerOrException();var defs=TitleConfig.current.titles().stream().filter(t->catalog || Titles.unlocked(p,t.id())).toList();

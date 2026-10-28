@@ -1,10 +1,18 @@
-# Towns & Kingdoms Progression — 0.3.0-beta.1
+# Towns & Kingdoms Progression — 0.4.0-beta.1
 
 Minecraft **1.21.1**, NeoForge **21.1.262+**, Java **21**. Original implementation; no Auto Leveling or Just Leveling code is bundled. This is an initial pack beta; tune the balance in a test world.
 
+## Character screen and HUD
+
+Press **I** (rebind in Controls → Towns & Kingdoms). The parchment-and-bronze screen shows your live player model, character XP/ceiling, seven activity tracks, milestone journal and title collection. Equip/hide titles and pin an activity directly with buttons. A compact player/XP/activity HUD can be toggled from the screen. No command is needed.
+
+**Equipped title perks replace aptitudes:** only one title applies at a time, with a server-enforced 30-second swap cooldown, no stacking and no healing from swaps. Identification discounts and conditional abilities are not part of this release.
+
+See [character HUD, perks, balance and migration](docs/CHARACTER-HUD.md). The numerical release preset and pacing/passive reports are shipped alongside it; full-pack playtesting is still needed to validate the final tuning.
+
 ## Progression
 
-Personal character level 1–100. Level 1 supplies one skill point, with one more per earned level: 100 total. Vanilla XP remains independent. Mining, weighted combat, fishing, farming, audited crafting, engineering and discovery of unique chunks contribute to indefinitely repeatable activity milestones. Their requirements grow quadratically; their XP rewards grow with the square root of the completed rank. Levels cost `100 + 40 * level²` XP. These initial values deliberately favor a mixed playstyle; a single repeatable activity can still supply all XP.
+Personal character level 1–100. Level 1 supplies one skill point, with one more per earned level: 100 total. Vanilla XP remains independent. Mining, weighted combat, fishing, farming, audited crafting, engineering and discovery of unique chunks contribute to indefinitely repeatable activity milestones. Their work requirements grow faster than their rewards under the configured release curves. The release curve costs `floor(150 + 45 * level^1.35)` XP per level. These initial values deliberately favor a mixed playstyle; a single repeatable activity can still supply all XP.
 
 `config/tnkprogression.json` controls activity starting costs/rewards, level ceilings, team sharing, skill category, mob attribute scaling, distance scaling and dimension baselines. `/tnkprogress reload` atomically validates and reloads it. Default level ceilings: 10, 30, 50, 70, 80, 94, 100. Default highest eligible rarity by ceiling: Uncommon, Rare, Epic, Legendary, Legendary, Mythic, Mythic. These are starting balance proposals, not fixed campaign decisions.
 
@@ -40,7 +48,7 @@ See [activity implementation](docs/ACTIVITY-UPDATE.md), [design explanations](do
 
 ## Earned titles
 
-Collect **43 configurable cosmetic titles** from quests and actual skilltree achievements. Equip one in chat and overhead names, or hide it without losing it. Titles persist personally across death, team changes and respecs. The first title equips automatically; new rewards preserve an existing selection. Titles provide no attribute, XP, skill-point or permission bonuses.
+Collect **43 configurable collectible titles** from quests and actual skilltree achievements. Equip one in chat and overhead names, or hide it without losing it. Titles persist personally across death, team changes and respecs. The first title equips automatically; new rewards preserve an existing selection. Only the equipped title now supplies modest attribute perks; see the character-screen guide. Title ownership does not stack bonuses or supply character XP, skill points or permissions.
 
 - FTB Command Reward (permission 2): `tnkprogress title grant {p} tnk:ars_mystic`
 - Player collection: `/tnkprogress title list`; equip with `/tnkprogress title select <id>` or click an earned title; hide with `/tnkprogress title clear`.

@@ -4,7 +4,21 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.network.chat.Component;
 public final class ProgressionAPI {
- public static CompoundTag profile(ServerPlayer p){return ProgressionData.get(p.server).entry("player:"+p.getUUID());}
+ public static CompoundTag profile(ServerPlayer p){
+  var data=ProgressionData.get(p.server);var n=data.entry("player:"+p.getUUID());
+  if(!n.contains("balance_curve_version")){
+   int level=Math.max(1,n.getInt("level"));long oldXp=100L+40L*level*level;
+   n.putLong("xp",Math.min(ProgressionMath.levelCost(level)-1,(long)(Math.clamp(n.getLong("xp")/(double)oldXp,0,1)*ProgressionMath.levelCost(level))));
+   for(var entry:ProgressionConfig.current.activities.entrySet()){
+    String key=entry.getKey();long rank=n.getLong(key+"_rank"),base=ProgressionConfig.current.legacyActivityRequirements.getOrDefault(key,entry.getValue().initialRequirement());
+    double oldCost=base*(1+rank*.65+rank*(double)rank*.08),ratio=Math.clamp((n.getLong(key+"_work")+n.getDouble(key+"_fraction"))/oldCost,0,1);
+    double next=ProgressionMath.taskCost(entry.getValue().initialRequirement(),rank),converted=Math.min(Math.nextDown(next),ratio*next);long whole=(long)converted;
+    n.putLong(key+"_work",whole);n.putDouble(key+"_fraction",converted-whole);
+   }
+   n.putInt("balance_curve_version",2);data.setDirty();
+  }
+  return n;
+ }
  public static int level(ServerPlayer p){return Math.max(1,Math.min(100,profile(p).getInt("level")));}
  public static int ceiling(ServerPlayer p){
   int personal=profile(p).getInt("ceiling");
@@ -16,7 +30,7 @@ public final class ProgressionAPI {
  public static int lootLevel(ServerPlayer p,LivingEntity mob){return Math.min(mobLevel(mob),ceiling(p));}
  public static long awardXp(ServerPlayer p,long amount){
   if(amount<=0 || level(p)>=ceiling(p) || level(p)>=100)return 0;
-  CompoundTag n=profile(p);long xp=Math.max(0,n.getLong("xp"));int level=level(p),old=level;
+  CompoundTag n=profile(p);int level=level(p),old=level;long xp=Math.clamp(n.getLong("xp"),0,ProgressionMath.levelCost(level)-1);
   long remaining=amount;
   while(remaining>0 && level<ceiling(p) && level<100){long needed=ProgressionMath.levelCost(level)-xp;long take=Math.min(remaining,needed);xp+=take;remaining-=take;if(xp>=ProgressionMath.levelCost(level)){level++;xp=0;}}
   n.putInt("level",level);n.putLong("xp",xp);ProgressionData.get(p.server).setDirty();
@@ -51,7 +65,8 @@ public final class ProgressionAPI {
   CompoundTag n=profile(p);long rank=Math.max(0,n.getLong(key+"_rank")),work=Math.max(0,n.getLong(key+"_work"));
   work=units>Long.MAX_VALUE-work?Long.MAX_VALUE:work+units;
   while(work>=ProgressionMath.taskCost(a.initialRequirement(),rank)){
-   work-=ProgressionMath.taskCost(a.initialRequirement(),rank);awardXp(p,ProgressionMath.taskReward(a.initialXp(),rank));if(rank<Long.MAX_VALUE)rank++;
+   work-=ProgressionMath.taskCost(a.initialRequirement(),rank);long paid=awardXp(p,ProgressionMath.taskReward(a.initialXp(),rank));if(rank<Long.MAX_VALUE)rank++;
+   var history=n.getList("activity_history",net.minecraft.nbt.Tag.TAG_STRING);history.add(0,net.minecraft.nbt.StringTag.valueOf(key+" milestone "+rank+"  +"+paid+" XP"));while(history.size()>8)history.remove(history.size()-1);n.put("activity_history",history);
    if(level(p)>=ceiling(p) || level(p)>=100){work=0;n.putDouble(key+"_fraction",0);break;}
   }
   n.putLong(key+"_rank",rank);n.putLong(key+"_work",work);ProgressionData.get(p.server).setDirty();

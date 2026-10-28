@@ -1,0 +1,12 @@
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
+const source=fs.readFileSync(path.join(__dirname,'../integration/kubejs/server_scripts/progression/tnk_activity_commissions.js'),'utf8');
+let login;const callbacks=new Map(),done=new Set(),saved=new Map(),commands=[];
+const player={username:'CommissionFixture',persistentData:{getBoolean:k=>saved.get(k)||false,putBoolean:(k,v)=>saved.set(k,v)},server:{runCommandSilent:c=>{commands.push(c);return 1;}}};
+vm.runInNewContext(source,{FTBQuests:{getServerDataFromPlayer:()=>({isCompleted:id=>done.has(id)})},PlayerEvents:{loggedIn:cb=>{login=cb;}},FTBQuestsEvents:{completed:(id,cb)=>callbacks.set(id,cb)}});
+login({player});assert.equal(commands.length,0);
+done.add('B0A94968CD02DE8A');login({player});
+assert.deepEqual(commands,['tnkprogress unlock CommissionFixture 30','tnkprogress engineering CommissionFixture tnk:chapter_1_complete']);
+commands.length=0;login({player});assert.deepEqual(commands,['tnkprogress unlock CommissionFixture 30']);
+done.add('502988B461C73519');commands.length=0;callbacks.get('502988B461C73519')({onlineMembers:[player]});
+assert(commands.indexOf('tnkprogress unlock CommissionFixture 100')<commands.indexOf('tnkprogress engineering CommissionFixture tnk:chapter_10_complete'));
+console.log('CAMPAIGN_COMMISSIONS_OK: unlock before XP, completed-gate catch-up, no repeated commission, final ceiling 100.');

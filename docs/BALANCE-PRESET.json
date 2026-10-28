@@ -1,0 +1,66 @@
+{
+  "version": "0.4.0-beta.1",
+  "levelBase": 150,
+  "levelFactor": 45,
+  "levelExponent": 1.35,
+  "activityGrowth": 0.12,
+  "requirementExponent": 0.65,
+  "rewardExponent": 0.5,
+  "activities": {
+    "mining": [
+      100,
+      800,
+      1800
+    ],
+    "combat": [
+      10,
+      2000,
+      160
+    ],
+    "fishing": [
+      20,
+      3000,
+      80
+    ],
+    "exploration": [
+      30,
+      1500,
+      480
+    ],
+    "farming": [
+      40,
+      1000,
+      480
+    ],
+    "crafting": [
+      30,
+      1800,
+      180
+    ],
+    "engineering": [
+      10,
+      4500,
+      60
+    ]
+  },
+  "equipmentDropChance": 0.02,
+  "chestEquipmentChance": 0.02,
+  "rarityWeights": [
+    6000,
+    2500,
+    1000,
+    400,
+    90,
+    10
+  ],
+  "healthPerLevel": 0.03,
+  "damagePerLevel": 0.0125,
+  "chapterCeilings": {
+    "1": 30,
+    "3": 50,
+    "5": 70,
+    "6": 80,
+    "8": 94,
+    "10": 100
+  }
+}

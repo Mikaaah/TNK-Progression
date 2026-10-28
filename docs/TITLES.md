@@ -1,6 +1,8 @@
-# Earned titles — 0.3.0-beta.1
+# Earned titles
 
-Titles are collectible, personal cosmetic achievements. A player can earn many and equip **one**, displayed between their character-level badge and their name in standard chat and the normal overhead nameplate: `42 [MYSTIC] Mikaaah`. Titles never change skill points, character XP, attributes, equipment gates or permissions.
+**0.4 update:** the new [character screen](CHARACTER-HUD.md) opens with I and equips titles without commands. Equipped title perks now replace aptitudes; only one applies, with a swap cooldown. The collection, quest IDs and grant/revocation semantics below remain valid.
+
+Titles are collectible, personal achievements. A player can earn many and equip **one**, displayed between their character-level badge and their name in standard chat and the normal overhead nameplate: `42 [MYSTIC] Mikaaah`. Titles never change skill points, character XP, equipment gates or permissions. Equipped title attribute perks are documented in the character-screen guide.
 
 The first title equips automatically by default. Later unlocks preserve the player's choice. Hiding a title keeps the collection and remains hidden after future grants. Earned titles persist across death, logout, team changes and skill respecs: a skilltree title records an achievement, not the player's current class or build. Existing display-name content and scoreboard-team visibility remain in place; third-party chat/nameplate replacements need in-pack checking.
 
@@ -92,7 +94,7 @@ The source image must exist in the provided pack; missing art falls back to text
 
 ## Installation and verification
 
-Replace the progression JAR on **server and clients**, and enable the combined number/title resource pack above earlier packs. The network protocol is now version 2, so both sides need this update. The updated mod keeps existing progression data and adds title ownership/selection/revocation to each personal saved profile. No TNK Loot replacement or skilltree datapack change is required.
+Replace the progression JAR on **server and clients**, and enable the combined number/title resource pack above earlier packs. The network protocol is now version 3, so both sides need this update. The updated mod keeps existing progression data and adds title ownership/selection/revocation to each personal saved profile. No TNK Loot replacement or skilltree datapack change is required.
 
 Run `./gradlew build` and, in a disposable world only, the existing progression smoke server. It now asserts title command permissions, grant/duplicate/select/hide/revoke/restore behaviour, readable fallback names, no duplicate prefixes, packet roundtrip, save/reload and skill conditions. `node tools/check_title_bindings.cjs` exercises the real integration script with controlled completion events, threshold counts and login catch-up. It does not replace running the installed KubeJS/FTB/Pufferfish integrations in the full pack. Client artwork/nameplate rendering and real multiplayer remain in-pack checks.
 

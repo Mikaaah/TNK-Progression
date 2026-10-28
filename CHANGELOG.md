@@ -1,3 +1,15 @@
+# 0.4.0-beta.1
+
+- Add the I-key character screen with live player model, parchment/bronze controls, XP, campaign ceiling, title picker and seven activity tracks.
+- Add a toggleable compact player/XP/pinned-activity HUD and persistent tracking preferences, plus recent completed milestones.
+- Add authoritative private snapshots and bounded client actions; clients cannot submit XP, grants, levels, perks or target players.
+- Replace cosmetic-only title behavior with modest equipped title perks, one title at a time, 30-second swap cooldown, no stacking or swap healing, and cleanup on hide/revoke/respawn.
+- Add a reviewable release balance preset, progressive XP/work curves, activity starting rewards, mob scaling, passive budget audit and pacing CSVs; retain the agreed loot chance/tier/rarity rolls.
+- Connect campaign ceiling unlocks before engineering commissions; catch up completed gates without duplicating rewards.
+- Preserve legacy level/rank completion percentages on curve migration and retain customized starting configuration values.
+- Fix first-client-login name formatting when a badge snapshot has not arrived, and account for transformed player-preview clipping.
+- Add dedicated-server character/perk assertions and an opt-in integrated-client UI test. No identification discount or conditional ability is added.
+
 # 0.3.0-beta.1
 
 - Add 43 personal, collectible cosmetic titles with server-validated unlock, equip, hide, revoke and restore commands.

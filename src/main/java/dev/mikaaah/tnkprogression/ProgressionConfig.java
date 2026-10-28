@@ -10,10 +10,12 @@ public final class ProgressionConfig {
  public String skillCategory = "tnk:character";
  public boolean scaleMobs = true;
  public double blocksPerMobLevel = 256;
- public double healthPerLevel = 0.035, damagePerLevel = 0.015;
+ public int balanceVersion=2;
+ public Map<String,Long> legacyActivityRequirements=new HashMap<>(Map.of("mining",100L,"combat",10L,"fishing",1L,"exploration",10L,"farming",40L,"crafting",30L,"engineering",10L));
+ public double healthPerLevel = 0.03, damagePerLevel = 0.0125;
  public Map<String,Integer> dimensionBaseLevels = new HashMap<>(Map.of("minecraft:overworld",1,"minecraft:the_nether",31,"minecraft:the_end",71));
  public Map<String,Activity> activities = defaults();
- public static Map<String,Activity> defaults() { return new HashMap<>(Map.of("mining",new Activity(100,25),"combat",new Activity(10,35),"fishing",new Activity(1,15),"exploration",new Activity(10,30),"farming",new Activity(40,25),"crafting",new Activity(30,25),"engineering",new Activity(10,40))); }
+ public static Map<String,Activity> defaults() { return new HashMap<>(Map.of("mining",new Activity(100,800),"combat",new Activity(10,2000),"fishing",new Activity(20,3000),"exploration",new Activity(30,1500),"farming",new Activity(40,1000),"crafting",new Activity(30,1800),"engineering",new Activity(10,4500))); }
  public int contributionTicks = 1200, combatWindowTicks = 12000, harvestCooldownTicks = 1200;
  public double contributionRange = 128;
  public boolean requireOpenWater = true;
@@ -31,7 +33,15 @@ public final class ProgressionConfig {
   try {
    Gson gson=new GsonBuilder().setPrettyPrinting().create();
    if (!Files.exists(path)) Files.writeString(path,gson.toJson(new ProgressionConfig()));
-   ProgressionConfig c=gson.fromJson(Files.readString(path),ProgressionConfig.class);
+   JsonObject raw=gson.fromJson(Files.readString(path),JsonObject.class);
+   ProgressionConfig c=gson.fromJson(raw,ProgressionConfig.class);
+   boolean migrate=!raw.has("balanceVersion");
+   if(migrate){
+    for(var entry:c.activities.entrySet())c.legacyActivityRequirements.put(entry.getKey(),entry.getValue().initialRequirement());
+    var legacy=Map.of("mining",new Activity(100,25),"combat",new Activity(10,35),"fishing",new Activity(1,15),"exploration",new Activity(10,30),"farming",new Activity(40,25),"crafting",new Activity(30,25),"engineering",new Activity(10,40));
+    for(var entry:legacy.entrySet())if(entry.getValue().equals(c.activities.get(entry.getKey())))c.activities.put(entry.getKey(),defaults().get(entry.getKey()));
+    if(c.healthPerLevel==0.035)c.healthPerLevel=0.03;if(c.damagePerLevel==0.015)c.damagePerLevel=0.0125;
+   }
    if(c.ceilings.length!=c.rarityCaps.length || c.ceilings.length==0 || c.ceilings[c.ceilings.length-1]!=100 || c.blocksPerMobLevel<1 || !Double.isFinite(c.blocksPerMobLevel) || !Double.isFinite(c.healthPerLevel) || !Double.isFinite(c.damagePerLevel) || c.healthPerLevel<0 || c.damagePerLevel<0) throw new IllegalArgumentException("Invalid balance settings");
    int prev=0;
    for(int i=0;i<c.ceilings.length;i++){ if(c.ceilings[i]<=prev || c.rarityCaps[i]<0 || c.rarityCaps[i]>5) throw new IllegalArgumentException("Invalid milestones"); prev=c.ceilings[i]; }
@@ -40,7 +50,7 @@ public final class ProgressionConfig {
    for(var rules:List.of(c.craftingRecipes,c.engineeringRecipes,c.engineeringObjectives))for(var rule:rules.entrySet())if(net.minecraft.resources.ResourceLocation.tryParse(rule.getKey())==null || rule.getValue()==null || !Double.isFinite(rule.getValue()) || rule.getValue()<=0 || rule.getValue()>1000)throw new IllegalArgumentException("Invalid activity recipe/objective");
    for(String key:defaults().keySet()) { Activity a=c.activities.get(key); if(a==null || a.initialRequirement<1 || a.initialXp<1)throw new IllegalArgumentException("Invalid activity "+key); }
    if(c.skillCategory==null || net.minecraft.resources.ResourceLocation.tryParse(c.skillCategory)==null)throw new IllegalArgumentException("Invalid skill category");
-   current=c; return true;
+   if(migrate)Files.writeString(path,gson.toJson(c));current=c; return true;
   } catch(Exception e){ TnkProgression.LOG.error("Keeping previous progression config",e); return false; }
  }
 }

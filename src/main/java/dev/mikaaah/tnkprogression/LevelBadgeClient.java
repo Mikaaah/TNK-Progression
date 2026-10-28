@@ -8,6 +8,6 @@ import net.neoforged.neoforge.client.event.ClientPlayerNetworkEvent;
 @EventBusSubscriber(modid = "tnkprogression", value = Dist.CLIENT)
 public final class LevelBadgeClient {
     @SubscribeEvent public static void logout(ClientPlayerNetworkEvent.LoggingOut event) {
-        LevelBadges.clearClient();
+        LevelBadges.clearClient();CharacterClientState.clear();
     }
 }
