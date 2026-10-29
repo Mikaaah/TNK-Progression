@@ -12,11 +12,12 @@ import net.neoforged.neoforge.client.event.ClientTickEvent;
 /** Opt-in disposable integrated-client test; never runs during ordinary gameplay. */
 @EventBusSubscriber(modid="tnkprogression",value=Dist.CLIENT)
 public final class ClientUiSmoke {
- private static int ticks,stage,totalTicks;private static boolean seeded;private static java.util.UUID mobId;
+ private static int ticks,stage,totalTicks;private static boolean seeded;private static java.util.UUID mobId;private static Double hoverX,hoverY;
  @SubscribeEvent public static void tick(ClientTickEvent.Post event){
   if(!Boolean.getBoolean("tnkprogression.uiSmoke"))return;
   var mc=Minecraft.getInstance();if(++totalTicks>2400){TnkProgression.LOG.error("TNK_CLIENT_UI_SMOKE_FAILED: timed out");mc.stop();return;}if(mc.player==null || mc.getSingleplayerServer()==null){if(totalTicks%200==0){TnkProgression.LOG.info("TNK_UI_STARTUP: {}",mc.screen==null?"none":mc.screen.getClass().getSimpleName());shot(mc,"TNK-Startup.png");}return;}
   try {
+   if(hoverX!=null&&mc.screen!=null){forceMouse(mc,"xpos",hoverX);forceMouse(mc,"ypos",hoverY);}
    if(!seeded){seeded=true;var id=mc.player.getUUID();mc.options.guiScale().set(2);mc.resizeDisplay();
     mc.getSingleplayerServer().execute(()->{var p=mc.getSingleplayerServer().getPlayerList().getPlayer(id);p.setInvulnerable(true);var n=ProgressionAPI.profile(p);n.putInt("level",42);n.putInt("ceiling",50);n.putLong("xp",(long)(ProgressionMath.levelCost(42)*.62));n.putLong("title_swap_after",0);
      Titles.grant(p,"tnk:ars_mystic");Titles.grant(p,"tnk:prepared");Titles.grant(p,"tnk:skill_delver");Titles.grant(p,"tnk:board_taskmaster");Titles.select(p,"tnk:ars_mystic");n.putLong("title_swap_after",0);
@@ -64,9 +65,23 @@ public final class ClientUiSmoke {
     mc.player.setYRot(0);mc.player.setXRot(0);mc.player.yRotO=0;mc.player.xRotO=0;mc.getEntityRenderDispatcher().crosshairPickEntity=target;
     stage=11;ticks=0;
    }
-   else if(stage==11 && ticks>10){check(MobNameplates.verifiedLines>=2&&MobNameplates.verifiedLevel==4,"actual renderer draws both badge and name lines");shot(mc,"TNK-Mob-Badge.png");TnkProgression.LOG.info("TNK_CLIENT_UI_SMOKE_OK: inventory replacement, return/resize, title/track actions, keybind, real mob tracking and two-line renderer");mc.stop();}
+   else if(stage==11 && ticks>10){check(MobNameplates.verifiedLines>=2&&MobNameplates.verifiedLevel==4,"actual renderer draws both badge and name lines");shot(mc,"TNK-Mob-Badge.png");CharacterClient.action("skills","");stage=12;ticks=0;}
+   else if(stage==12 && ticks>30){hoverSkill(mc,"enchanter_life_1");stage=13;ticks=0;}
+   else if(stage==13 && ticks>20){shot(mc,"TNK-Skilltree-Conditional-Tooltip.png");hoverSkill(mc,"enchanter_class");stage=14;ticks=0;}
+   else if(stage==14 && ticks>20){shot(mc,"TNK-Skilltree-Mana-Tooltip.png");hoverSkill(mc,"hunter_subclass_1_mastery");stage=15;ticks=0;}
+   else if(stage==15 && ticks>20){shot(mc,"TNK-Skilltree-Title-Tooltip.png");stage=16;TnkProgression.LOG.info("TNK_CLIENT_UI_SMOKE_OK: inventory, character UI, native skilltree tooltips, source conditions and mastery title text rendered");mc.stop();}
   }catch(Throwable ex){TnkProgression.LOG.error("TNK_CLIENT_UI_SMOKE_FAILED",ex);mc.stop();}
  }
+ private static void hoverSkill(Minecraft mc,String id)throws Exception{
+  var screen=mc.screen;check(screen!=null&&screen.getClass().getName().equals("net.puffish.skillsmod.client.gui.SkillsScreen"),"native Pufferfish screen opened");
+  var field=screen.getClass().getDeclaredField("optActiveCategoryData");field.setAccessible(true);Object category=((java.util.Optional<?>)field.get(screen)).orElseThrow();
+  Object config=category.getClass().getMethod("getConfig").invoke(category);var skills=(java.util.Map<?,?>)config.getClass().getMethod("skills").invoke(config);var node=skills.get(id);check(node!=null,"tooltip node exists");
+  int x=(int)node.getClass().getMethod("x").invoke(node),y=(int)node.getClass().getMethod("y").invoke(node);int mx=screen.width/3,my=screen.height/2;
+  category.getClass().getMethod("setScale",float.class).invoke(category,1f);category.getClass().getMethod("setX",int.class).invoke(category,mx-screen.width/2-x);category.getClass().getMethod("setY",int.class).invoke(category,my-screen.height/2-y);
+  var definitions=(java.util.Map<?,?>)config.getClass().getMethod("definitions").invoke(config);Object def=definitions.get(id);var description=(net.minecraft.network.chat.Component)def.getClass().getMethod("description").invoke(def);check(description.getString().contains("Towns & Kingdoms"),"branch-aware tooltip reaches native client data");
+  hoverX=mx*(double)mc.getWindow().getScreenWidth()/screen.width;hoverY=my*(double)mc.getWindow().getScreenHeight()/screen.height;forceMouse(mc,"xpos",hoverX);forceMouse(mc,"ypos",hoverY);
+ }
+ private static void forceMouse(Minecraft mc,String name,double value)throws Exception{var f=mc.mouseHandler.getClass().getDeclaredField(name);f.setAccessible(true);f.setDouble(mc.mouseHandler,value);}
  private static void checkInventory(Minecraft mc){
   check(mc.screen instanceof net.minecraft.client.gui.screens.inventory.InventoryScreen,"character returns to inventory");var screen=(net.minecraft.client.gui.screens.inventory.InventoryScreen)mc.screen;
   check(!screen.getRecipeBookComponent().isVisible(),"previously open recipe book stays hidden");

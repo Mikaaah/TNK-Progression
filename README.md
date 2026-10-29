@@ -1,4 +1,4 @@
-# Towns & Kingdoms Progression — 0.5.4-beta.1
+# Towns & Kingdoms Progression — 0.6.0-beta.1
 
 Minecraft **1.21.1**, NeoForge **21.1.262+**, Java **21**. Original implementation; no Auto Leveling or Just Leveling code is bundled. This is an initial pack beta; tune the balance in a test world.
 
@@ -9,6 +9,10 @@ Open the survival inventory and click the **player portrait replacing the recipe
 **Equipped title perks replace aptitudes:** only one title applies at a time, with a server-enforced 30-second swap cooldown, no stacking and no healing from swaps. Identification discounts are not implemented. The external skilltree also includes bounded conditional abilities such as Second Wind.
 
 See [character HUD, perks, balance and migration](docs/CHARACTER-HUD.md). The numerical release preset and pacing/passive reports are shipped alongside it; full-pack playtesting is still needed to validate the final tuning.
+
+## Skilltree update
+
+See [0.6 skilltree update](docs/SKILLTREE-0.6.md): single mana route for Ars 'n Spells, clear branch/subclass tooltips, source values and conditions restored on 141 nodes, original critical magnitudes on explicit personal replacements, and 12 mastery titles using original artwork. Other old-mod-only effects remain documented adaptations. Update the external config files and JAR together.
 
 ## Progression
 
@@ -42,7 +46,7 @@ Optional bridge targets the public 0.19.2 API on the 1.21 branch. Configure the 
 
 ## Player level badges
 
-The delivered private **0.4.3-beta.1 JAR includes the supplied number-only Advanced Pack artwork by default**. No companion resource pack needs to be enabled. The earlier optional-only packaging allowed Minecraft to display the old bronze `LVL` fallback when the pack was absent; this release corrects that. All 100 number PNGs and 43 title PNGs are copied byte-for-byte, without recolouring or changing pixels. Existing compatible number/title packs may stay enabled, but remove or disable any pack that deliberately overrides the font with old artwork.
+The delivered private **JAR includes the supplied number-only Advanced Pack artwork by default**. No companion resource pack needs to be enabled. The earlier optional-only packaging allowed Minecraft to display the old bronze `LVL` fallback when the pack was absent; this release corrects that. All 100 number PNGs and 55 title PNGs are copied byte-for-byte, without recolouring or changing pixels. Existing compatible number/title packs may stay enabled, but remove or disable any pack that deliberately overrides the font with old artwork.
 
 Colours remain: 1–9 silver; 10–19 copper; 20–29 gold; 30–39 emerald; 40–49 prismarine; 50–59 diamond; 60–69 lapis; 70–79 amethyst; 80–89 ruby; 90–99 obsidian; 100 quartz white. Level zero is plain `0` because the supplied archive has no zero image. Actual progression starts at 1.
 
@@ -54,13 +58,13 @@ See [activity implementation](docs/ACTIVITY-UPDATE.md), [design explanations](do
 
 ## Earned titles
 
-Collect **43 configurable collectible titles** from quests and actual skilltree achievements. Equip one in chat and overhead names, or hide it without losing it. Titles persist personally across death, team changes and respecs. The first title equips automatically; new rewards preserve an existing selection. Only the equipped title now supplies modest attribute perks; see the character-screen guide. Title ownership does not stack bonuses or supply character XP, skill points or permissions.
+Collect **55 configurable collectible titles** from quests and actual skilltree achievements. Equip one in chat and overhead names, or hide it without losing it. Titles persist personally across death, team changes and respecs. The first title equips automatically; new rewards preserve an existing selection. Only the equipped title now supplies modest attribute perks; see the character-screen guide. Title ownership does not stack bonuses or supply character XP, skill points or permissions.
 
 - FTB Command Reward (permission 2): `tnkprogress title grant {p} tnk:ars_mystic`
 - Player collection: `/tnkprogress title list`; equip with `/tnkprogress title select <id>` or click an earned title; hide with `/tnkprogress title clear`.
 - Server catalog: `config/tnk-titles.json`; reload with `/tnkprogress title reload`.
 - Optional KubeJS quest bridge includes 24 rules using real current quest IDs, plus inactive templates for chapters/boss quests not present in the source. Pufferfish milestones use actual spent points and purchased nodes.
-- The private release JAR includes all 100 number images and 43 title sprites unchanged. Missing artwork uses readable title text. Both server and client must update to the new protocol.
+- The private release JAR includes all 100 number images and 55 title sprites unchanged. Missing artwork uses readable title text. Both server and client must update to the new protocol.
 
 See [full setup, commands and catalog](docs/TITLES.md) for chapter semantics, original-art packaging, permanence and revocation. The old [quest-role proposal](docs/QUEST-ROLES.md) is historical; the title system uses completed chapters as described in the catalog.
 

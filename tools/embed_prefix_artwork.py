@@ -35,7 +35,7 @@ def embed(base, source, target, version=None):
             overlay[LANG] = (json.dumps(lang, indent=2, ensure_ascii=False) + '\n').encode()
             manifest = {'numbers': json.loads(art.read('number-prefix-map.json')),
                         'titles': json.loads(art.read('title-prefix-map.json'))}
-            assert len(manifest['numbers']) == 100 and len(manifest['titles']) == 43
+            assert len(manifest['numbers']) == 100 and len(manifest['titles']) == 55
             overlay[MANIFEST] = (json.dumps(manifest, indent=2, ensure_ascii=False) + '\n').encode()
             with zipfile.ZipFile(output, 'w', zipfile.ZIP_DEFLATED) as out:
                 for info in original.infolist():
@@ -64,7 +64,7 @@ def embed(base, source, target, version=None):
                 providers = json.loads(out.read('assets/tnkprogression/font/level_badges.json'))['providers']
                 assert [p['chars'] for p in providers] == [[chr(0xE000 + n)] for n in range(1, 101)]
         os.replace(output, target)
-    print('TNK_EMBEDDED_PREFIX_ARTWORK_OK: 100 original numbers, 43 original titles; all PNG and class bytes verified.')
+    print('TNK_EMBEDDED_PREFIX_ARTWORK_OK: 100 original numbers, 55 original titles; all PNG and class bytes verified.')
 
 
 if __name__ == '__main__':

@@ -584,6 +584,103 @@
         "operation": "add",
         "description": "+5% knockback resistance"
       }
+    ],
+    "tnk:mastery_alchemist_1": [
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "amount": 0.02,
+        "operation": "multiply_base",
+        "description": "+2% base movement speed"
+      }
+    ],
+    "tnk:mastery_alchemist_2": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 1,
+        "operation": "add",
+        "description": "+1 maximum health"
+      }
+    ],
+    "tnk:mastery_blacksmith_1": [
+      {
+        "attribute": "minecraft:generic.armor",
+        "amount": 1,
+        "operation": "add",
+        "description": "+1 armor"
+      }
+    ],
+    "tnk:mastery_blacksmith_2": [
+      {
+        "attribute": "minecraft:generic.armor_toughness",
+        "amount": 0.5,
+        "operation": "add",
+        "description": "+0.5 armor toughness"
+      }
+    ],
+    "tnk:mastery_cook_1": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 0.03,
+        "operation": "multiply_base",
+        "description": "+3% base attack damage"
+      }
+    ],
+    "tnk:mastery_cook_2": [
+      {
+        "attribute": "minecraft:generic.luck",
+        "amount": 0.25,
+        "operation": "add",
+        "description": "+0.25 luck"
+      }
+    ],
+    "tnk:mastery_enchanter_1": [
+      {
+        "attribute": "irons_spellbooks:fire_spell_power",
+        "amount": 0.03,
+        "operation": "multiply_base",
+        "description": "+3% base fire spell power (Iron's Spells)"
+      }
+    ],
+    "tnk:mastery_enchanter_2": [
+      {
+        "attribute": "irons_spellbooks:max_mana",
+        "amount": 10,
+        "operation": "add",
+        "description": "+10 maximum shared mana (Iron's source)"
+      }
+    ],
+    "tnk:mastery_hunter_1": [
+      {
+        "attribute": "puffish_attributes:bow_projectile_speed",
+        "amount": 0.03,
+        "operation": "multiply_base",
+        "description": "+3% bow projectile speed"
+      }
+    ],
+    "tnk:mastery_hunter_2": [
+      {
+        "attribute": "puffish_attributes:ranged_damage",
+        "amount": 0.03,
+        "operation": "multiply_base",
+        "description": "+3% ranged damage"
+      }
+    ],
+    "tnk:mastery_miner_1": [
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "amount": 0.02,
+        "operation": "multiply_base",
+        "description": "+2% base movement speed"
+      }
+    ],
+    "tnk:mastery_miner_2": [
+      {
+        "attribute": "minecraft:generic.luck",
+        "amount": 0.25,
+        "operation": "add",
+        "description": "+0.25 luck"
+      }
     ]
-  }
+  },
+  "skillTitleExpansion": true
 }

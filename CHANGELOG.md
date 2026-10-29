@@ -1,3 +1,12 @@
+# 0.6.0-beta.1
+
+- Rewrite all 588 node tooltips with branch/subclass, tier, cost, exact effects/conditions, wrapped lines and explicit adaptation notes. Masteries name their title reward.
+- Remove duplicate Ars mana-capacity, mana-regeneration and general spell-damage rewards. Use one Iron's route for Ars 'n Spells to bridge; retain independent warding.
+- Restore original bonus JSON and supported conditions on 141 complete nodes, including conditional Health, poisoned-target damage and pickaxe speed. Restore original critical magnitudes on the existing personal replacements. Document 447 adapted nodes with complete source data instead of claiming an exact full-mod port.
+- Add a bounded ownership cache and server-side conditional attribute/damage handling; unchanged modifiers are reused and respec clears effects. Validate original values against the source archive and exercise real conditional Health and poison damage on the server.
+- Add 12 subclass mastery titles and modest equipped perks; append unmodified original purple sprites for 55 total titles. Merge additions once into existing catalogs without replacing custom entries. Keep the existing 43 glyph indices.
+- Retain all source IDs/positions/links, the external config location, 175 points at level 100, TNK purple GUI and protocol 4. No identification discount or original-space artwork is added.
+
 # 0.5.4-beta.1
 
 - Use TNK purple for primary character accents, the Activities tab and former blue fishing accents; keep warm parchment, brown frames and distinct activity colors.

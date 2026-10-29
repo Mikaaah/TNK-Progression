@@ -185,11 +185,22 @@ def convert(source):
   for reward in rewards:
    if reward['type']=='puffish_skills:attribute':
     a=reward['data'];bounds[(a['attribute'],a['operation'])].append(a['value'])
+ from refine_tree import refine
+ restored,value_counts=refine(defs,rows,passives,report)
+ bounds.clear()
+ for definition in defs.values():
+  for reward in definition['rewards']:
+   if reward['type']=='puffish_skills:attribute':
+    a=reward['data'];bounds[(a['attribute'],a['operation'])].append(a['value'])
+ for bonuses in restored.values():
+  for b in bonuses:
+   if b['type']=='skilltree:attribute':bounds[(b['attribute'],{0:'addition',1:'multiply_base',2:'multiply_total'}[b['operation']])].append(b['amount'])
+   elif b['type']=='skilltree:block_break_speed':bounds[('minecraft:player.block_break_speed','multiply_base')].append(b['multiplier'])
  cat=json.loads((OLD/'category.json').read_text());cat.update(title='Towns & Kingdoms',description='588 skills across six connected disciplines. 175 points earned by character level 100.',spent_points_limit=175,exclusive_root=False,starting_points=0)
  write(CATEGORY/'category.json',cat);write(CATEGORY/'definitions.json',defs);write(CATEGORY/'skills.json',skills)
  write(CATEGORY/'connections.json',{'normal':{'bidirectional':[list(e) for e in sorted(edges)]}})
  write(OUT/'config/puffish_skills/config.json',{'version':3,'show_warnings':True,'categories':['character']})
- write(OUT/'config/puffish_skills/tnk_passives.json',{'version':1,'skills':passives})
+ write(OUT/'config/puffish_skills/tnk_passives.json',{'version':2,'skills':passives,'source_bonuses':restored})
  write(OUT/'conversion-catalogue.json',report)
  # All source vertices and edges must be preserved and reachable; no hidden missing-mod bridge nodes.
  graph={n:set() for n in rows}
@@ -204,6 +215,7 @@ def convert(source):
  assert all(len(r['description'])>0 for r in report)
  assert not any('identif' in r['description'].lower() for r in report)
  summary={'nodes':588,'branches':dict(collections.Counter(r['branch'] for r in report)),'roots':roots,'connections':len(edges),'max_shortest_path':max(distance.values()),'points_at_100':175,'all_cost_one':True,'runtime_passive_nodes':len(passives),'modernized_nodes':sum(bool(r['modernized']) for r in report),'source_sha256':hashlib.sha256(Path(source).read_bytes()).hexdigest(),'source_position_scale':SCALE,'art':'Existing TNK HAS icons, frames and warm background; no original-source art copied.'}
+ summary.update(value_counts)
  write(OUT/'validation-summary.json',summary)
  with (OUT/'ATTRIBUTE-BOUNDS.csv').open('w') as f:
   w=csv.writer(f,lineterminator="\n");w.writerow(['Attribute','Operation','Whole-tree sum','175-point optimistic bound ignoring routing'])

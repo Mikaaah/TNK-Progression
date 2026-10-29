@@ -14,7 +14,9 @@ public final class TitleConfig {
         public int rgb(){return Integer.parseInt(colour,16);}
         public boolean automatic(){return skillCategory!=null && !skillCategory.isBlank() && (minSpentPoints>0 || !requiredSkills.isEmpty());}
     }
-    public record Catalog(boolean autoEquipFirst,List<Definition> titles) {}
+    public record Catalog(boolean autoEquipFirst,List<Definition> titles,boolean skillTitleExpansion) {
+        public Catalog(boolean autoEquipFirst,List<Definition> titles){this(autoEquipFirst,titles,false);}
+    }
     public static Catalog current=new Catalog(true,List.of());
     private static Map<String,Definition> byId=Map.of();
     private static final Map<String,String> LEGACY_TREE_SKILLS=Map.of("wayfarer_10","hunter_subclass_1_mastery","delver_10","miner_mastery","homesteader_10","cook_mastery","artificer_10","blacksmith_mastery","survivor_10","blacksmith_defensive_keystone_1","adventurer_10","hunter_mastery");
@@ -29,6 +31,14 @@ public final class TitleConfig {
             Catalog next=gson.fromJson(Files.readString(path),Catalog.class);
             if(next==null || next.titles()==null || next.titles().size()>256)throw new IllegalArgumentException("Invalid catalog size");
             boolean migrated=false;List<Definition> updated=new ArrayList<>();
+            if(!next.skillTitleExpansion()){
+                try(var in=TitleConfig.class.getResourceAsStream("/data/tnkprogression/default_titles.json")){
+                    var defaults=gson.fromJson(new java.io.InputStreamReader(Objects.requireNonNull(in)),Catalog.class);
+                    var merged=new ArrayList<>(next.titles());Set<String> existing=new HashSet<>();merged.forEach(d->existing.add(d.id()));
+                    for(var d:defaults.titles())if(d.id().startsWith("tnk:mastery_")&&existing.add(d.id()))merged.add(d);
+                    next=new Catalog(next.autoEquipFirst(),merged,true);migrated=true;
+                }
+            }
             for(var d:next.titles()){
                 if(d!=null && "tnk:character".equals(d.skillCategory()) && d.id()!=null && d.id().startsWith("tnk:skill_") && d.requiredSkills()!=null && d.requiredSkills().size()==1 && LEGACY_TREE_SKILLS.containsKey(d.requiredSkills().getFirst())){
                     String node=LEGACY_TREE_SKILLS.get(d.requiredSkills().getFirst());
@@ -39,7 +49,7 @@ public final class TitleConfig {
                 }
                 updated.add(d);
             }
-            next=new Catalog(next.autoEquipFirst(),updated);
+            next=new Catalog(next.autoEquipFirst(),updated,next.skillTitleExpansion());
             Map<String,Definition> map=new LinkedHashMap<>();Set<String> translations=new HashSet<>();
             for(var d:next.titles()){
                 if(d==null || d.id()==null || d.id().length()>100 || ResourceLocation.tryParse(d.id())==null

@@ -485,6 +485,163 @@
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
+    },
+    {
+      "id": "tnk:mastery_alchemist_1",
+      "label": "Shadow",
+      "artwork": "SHADOW",
+      "style": "AMETYST",
+      "colour": "B896D6",
+      "description": "Master Alchemist / Assassin: unlock its Mastery with at least 60 spent Skill Points.",
+      "skillCategory": "puffish_skills:character",
+      "minSpentPoints": 60,
+      "requiredSkills": [
+        "alchemist_subclass_1_mastery"
+      ]
+    },
+    {
+      "id": "tnk:mastery_alchemist_2",
+      "label": "Guardian",
+      "artwork": "GUARDIAN",
+      "style": "AMETYST",
+      "colour": "B896D6",
+      "description": "Master Alchemist / Healer: unlock its Mastery with at least 60 spent Skill Points.",
+      "skillCategory": "puffish_skills:character",
+      "minSpentPoints": 60,
+      "requiredSkills": [
+        "alchemist_subclass_2_mastery"
+      ]
+    },
+    {
+      "id": "tnk:mastery_blacksmith_1",
+      "label": "Soldier",
+      "artwork": "SOLDIER",
+      "style": "AMETYST",
+      "colour": "B896D6",
+      "description": "Master Blacksmith / Soldier: unlock its Mastery with at least 60 spent Skill Points.",
+      "skillCategory": "puffish_skills:character",
+      "minSpentPoints": 60,
+      "requiredSkills": [
+        "blacksmith_subclass_1_mastery"
+      ]
+    },
+    {
+      "id": "tnk:mastery_blacksmith_2",
+      "label": "Steel",
+      "artwork": "STEEL",
+      "style": "AMETYST",
+      "colour": "B896D6",
+      "description": "Master Blacksmith / Artisan: unlock its Mastery with at least 60 spent Skill Points.",
+      "skillCategory": "puffish_skills:character",
+      "minSpentPoints": 60,
+      "requiredSkills": [
+        "blacksmith_subclass_2_mastery"
+      ]
+    },
+    {
+      "id": "tnk:mastery_cook_1",
+      "label": "Berserker",
+      "artwork": "BERSERKER",
+      "style": "AMETYST",
+      "colour": "B896D6",
+      "description": "Master Cook / Berserker: unlock its Mastery with at least 60 spent Skill Points.",
+      "skillCategory": "puffish_skills:character",
+      "minSpentPoints": 60,
+      "requiredSkills": [
+        "cook_subclass_1_mastery"
+      ]
+    },
+    {
+      "id": "tnk:mastery_cook_2",
+      "label": "Tide",
+      "artwork": "TIDE",
+      "style": "AMETYST",
+      "colour": "B896D6",
+      "description": "Master Cook / Fisherman: unlock its Mastery with at least 60 spent Skill Points.",
+      "skillCategory": "puffish_skills:character",
+      "minSpentPoints": 60,
+      "requiredSkills": [
+        "cook_subclass_2_mastery"
+      ]
+    },
+    {
+      "id": "tnk:mastery_enchanter_1",
+      "label": "Blaze",
+      "artwork": "BLAZE",
+      "style": "AMETYST",
+      "colour": "B896D6",
+      "description": "Master Enchanter / Arsonist: unlock its Mastery with at least 60 spent Skill Points.",
+      "skillCategory": "puffish_skills:character",
+      "minSpentPoints": 60,
+      "requiredSkills": [
+        "enchanter_subclass_1_mastery"
+      ]
+    },
+    {
+      "id": "tnk:mastery_enchanter_2",
+      "label": "Astral",
+      "artwork": "ASTRAL",
+      "style": "AMETYST",
+      "colour": "B896D6",
+      "description": "Master Enchanter / Scholar: unlock its Mastery with at least 60 spent Skill Points.",
+      "skillCategory": "puffish_skills:character",
+      "minSpentPoints": 60,
+      "requiredSkills": [
+        "enchanter_subclass_2_mastery"
+      ]
+    },
+    {
+      "id": "tnk:mastery_hunter_1",
+      "label": "Ranger",
+      "artwork": "RANGER",
+      "style": "AMETYST",
+      "colour": "B896D6",
+      "description": "Master Hunter / Ranger: unlock its Mastery with at least 60 spent Skill Points.",
+      "skillCategory": "puffish_skills:character",
+      "minSpentPoints": 60,
+      "requiredSkills": [
+        "hunter_subclass_1_mastery"
+      ]
+    },
+    {
+      "id": "tnk:mastery_hunter_2",
+      "label": "Archer",
+      "artwork": "ARCHER",
+      "style": "AMETYST",
+      "colour": "B896D6",
+      "description": "Master Hunter / Fletcher: unlock its Mastery with at least 60 spent Skill Points.",
+      "skillCategory": "puffish_skills:character",
+      "minSpentPoints": 60,
+      "requiredSkills": [
+        "hunter_subclass_2_mastery"
+      ]
+    },
+    {
+      "id": "tnk:mastery_miner_1",
+      "label": "Explorer",
+      "artwork": "EXPLORER",
+      "style": "AMETYST",
+      "colour": "B896D6",
+      "description": "Master Miner / Explorer: unlock its Mastery with at least 60 spent Skill Points.",
+      "skillCategory": "puffish_skills:character",
+      "minSpentPoints": 60,
+      "requiredSkills": [
+        "miner_subclass_1_mastery"
+      ]
+    },
+    {
+      "id": "tnk:mastery_miner_2",
+      "label": "Amethyst",
+      "artwork": "AMETHYST",
+      "style": "AMETYST",
+      "colour": "B896D6",
+      "description": "Master Miner / Jeweler: unlock its Mastery with at least 60 spent Skill Points.",
+      "skillCategory": "puffish_skills:character",
+      "minSpentPoints": 60,
+      "requiredSkills": [
+        "miner_subclass_2_mastery"
+      ]
     }
-  ]
+  ],
+  "skillTitleExpansion": true
 }

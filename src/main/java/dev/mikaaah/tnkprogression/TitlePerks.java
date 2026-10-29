@@ -15,19 +15,26 @@ import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 /** One equipped title, one stable modifier per attribute; collection entries never stack. */
 public final class TitlePerks {
  public record Perk(String attribute,double amount,String operation,String description) {}
- public record Config(int swapCooldownSeconds,Map<String,List<Perk>> titles) {}
+ public record Config(int swapCooldownSeconds,Map<String,List<Perk>> titles,boolean skillTitleExpansion) {
+  public Config(int seconds,Map<String,List<Perk>> titles){this(seconds,titles,false);}
+ }
  public static Config current=new Config(30,Map.of());
  public static boolean reload(){try{
   var path=FMLPaths.CONFIGDIR.get().resolve("tnk-title-perks.json");
   if(!Files.exists(path))try(var in=TitlePerks.class.getResourceAsStream("/data/tnkprogression/default_title_perks.json")){Files.copy(Objects.requireNonNull(in),path);}
   var c=new Gson().fromJson(Files.readString(path),Config.class);
+  boolean migrate=!c.skillTitleExpansion();
+  if(migrate)try(var in=TitlePerks.class.getResourceAsStream("/data/tnkprogression/default_title_perks.json")){
+   var defaults=new Gson().fromJson(new java.io.InputStreamReader(Objects.requireNonNull(in)),Config.class);var merged=new LinkedHashMap<>(c.titles());
+   defaults.titles().forEach((id,perks)->{if(id.startsWith("tnk:mastery_"))merged.putIfAbsent(id,perks);});c=new Config(c.swapCooldownSeconds(),merged,true);
+  }
   if(c.swapCooldownSeconds()<0 || c.swapCooldownSeconds()>300 || c.titles()==null || c.titles().size()>256)throw new IllegalArgumentException("Invalid perk settings");
   for(var list:c.titles().values()){
    if(list==null || list.size()>3)throw new IllegalArgumentException("At most three modest bonuses per title");
    Set<String> used=new HashSet<>();
-   for(var p:list)if(p==null || ResourceLocation.tryParse(p.attribute())==null || !used.add(p.attribute()) || !Double.isFinite(p.amount()) || Math.abs(p.amount())>4 || (!p.operation().equals("add")&&!p.operation().equals("multiply_base")) || (p.operation().equals("multiply_base")&&Math.abs(p.amount())>.10) || !TitleConfig.validLabel(p.description(),100) || p.attribute().contains("identif"))throw new IllegalArgumentException("Invalid title perk");
+   for(var p:list)if(p==null || ResourceLocation.tryParse(p.attribute())==null || !used.add(p.attribute()) || !Double.isFinite(p.amount()) || Math.abs(p.amount())>(p.attribute().equals("irons_spellbooks:max_mana")?20:4) || (!p.operation().equals("add")&&!p.operation().equals("multiply_base")) || (p.operation().equals("multiply_base")&&Math.abs(p.amount())>.10) || !TitleConfig.validLabel(p.description(),100) || p.attribute().contains("identif"))throw new IllegalArgumentException("Invalid title perk");
   }
-  current=c;return true;
+  if(migrate)Files.writeString(path,new GsonBuilder().setPrettyPrinting().create().toJson(c));current=c;return true;
  }catch(Exception ex){TnkProgression.LOG.error("Keeping previous title perks",ex);return false;}}
  private static ResourceLocation modifier(String attribute){return ResourceLocation.parse("tnkprogression:title/"+attribute.replace(':','/'));}
  public static boolean available(ServerPlayer p,Perk perk){return BuiltInRegistries.ATTRIBUTE.getHolder(ResourceLocation.parse(perk.attribute())).map(h->p.getAttribute(h)!=null).orElse(false);}

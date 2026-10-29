@@ -11,7 +11,7 @@ public final class CharacterSmoke {
  public static void run(MinecraftServer server){
   var p=FakePlayerFactory.get(server.overworld(),new com.mojang.authlib.GameProfile(UUID.fromString("d2797f44-2f39-40e7-a71c-908c6bb918da"),"CharacterTest"));
   var n=ProgressionAPI.profile(p);for(String k:Set.copyOf(n.getAllKeys()))n.remove(k);
-  check(TitlePerks.current.titles().size()==43,"all title perks loaded");
+  check(TitlePerks.current.titles().size()==55,"all title perks loaded");
   Titles.grant(p,"tnk:prepared");
   double baseHealth=p.getAttribute(Attributes.MAX_HEALTH).getBaseValue();
   check(p.getMaxHealth()==baseHealth+2,"equipped title health perk applied");
@@ -31,7 +31,7 @@ public final class CharacterSmoke {
   check(!CharacterState.action(p,"track","invented"),"unknown activity rejected");
   check(CharacterState.action(p,"track","mining") && CharacterState.tracked(p).equals("mining"),"tracking selection persists");
   check(CharacterState.action(p,"hud","off") && !CharacterState.snapshot(p).hud(),"HUD visibility server preference");
-  var view=CharacterState.snapshot(p);check(view.activities().size()==7 && view.titles().size()==43,"complete screen snapshot");
+  var view=CharacterState.snapshot(p);check(view.activities().size()==7 && view.titles().size()==55,"complete screen snapshot");
   var json=CharacterState.JSON.toJson(view);check(CharacterState.JSON.fromJson(json,CharacterState.Snapshot.class).equals(view),"snapshot serialization roundtrip");
   var buffer=new net.minecraft.network.RegistryFriendlyByteBuf(io.netty.buffer.Unpooled.buffer(),p.registryAccess());
   try{var payload=new CharacterPayload(json);CharacterPayload.CODEC.encode(buffer,payload);check(payload.equals(CharacterPayload.CODEC.decode(buffer)),"screen payload codec");}finally{buffer.release();}

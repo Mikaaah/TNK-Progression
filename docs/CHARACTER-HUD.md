@@ -1,4 +1,4 @@
-# Character screen, inventory shortcut and mob badges — 0.5.4-beta.1
+# Character screen, inventory shortcut and mob badges — 0.6.0-beta.1
 
 Minecraft 1.21.1 · NeoForge 21.1.262+ · Java 21. Replace the progression JAR on both server and clients; network protocol is **4**.
 
@@ -30,6 +30,8 @@ The server sends the saved level once when the player starts tracking that entit
 Fresh mobs no longer receive a generated custom name. Exact old TNK-generated `Lv. N <mob type>` components are removed on chunk load without rerolling levels. Other names are retained, even when they start with Lv. The update never changes persistence flags or despawn age. Nearest-player level assignment, variance, scaling, loot and Apotheosis behavior are unchanged.
 
 ## Skilltree and balance
+
+The [0.6 skilltree update](SKILLTREE-0.6.md) adds clear branch tooltips, a single mana route, restored compatible source values/conditions and 12 mastery titles. The catalog now contains 55 titles.
 
 All **588 nodes / 669 links / six roots** stay outside the JAR in config/puffish_skills. Keep the existing category puffish_skills:character and the same config files when updating from 0.5.2. The original number/title sprites, own skill icons, frames and warm background remain embedded in the private JAR. No datapack or resource pack installation is needed.
 

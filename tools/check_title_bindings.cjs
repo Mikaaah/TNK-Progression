@@ -8,7 +8,7 @@ const root = path.resolve(__dirname, '..');
 const config = JSON.parse(fs.readFileSync(path.join(root, 'integration/kubejs/config/tnk-title-quests.json'), 'utf8'));
 const catalog = JSON.parse(fs.readFileSync(path.join(root, 'src/main/resources/data/tnkprogression/default_titles.json'), 'utf8'));
 const titles = new Set(catalog.titles.map(t => t.id));
-assert.equal(titles.size, 43);
+assert.equal(titles.size, 55);
 for (const binding of config.bindings) {
     assert(titles.has(binding.title));
     assert.equal(new Set(binding.quests).size, binding.quests.length);

@@ -1,6 +1,6 @@
-# TNK 588-node tree — config-folder release 0.5.2-beta.1
+# TNK 588-node tree — config-folder release 0.6.0-beta.1
 
-The tree belongs in **config/puffish_skills/**. It is not bundled in the mod and is not delivered as a datapack. The JAR supplies the runtime integration and the existing TNK icons, frames, background and original number/title sprites.
+The tree belongs in **config/puffish_skills/**. It is not bundled in the mod and is not delivered as a datapack. The JAR supplies the runtime integration and the existing TNK icons, frames, background and original number/title sprites (100 numbers / 55 titles).
 
 ## Install
 
@@ -25,15 +25,9 @@ Respec an existing old build before changing its category ID. Character levels, 
 
 Points are `level + floor(3 × level / 4)`: level 1 → 1, 10 → 17, 20 → 35, 50 → 87, 75 → 131, 100 → **175**. The existing named point entitlement is set absolutely, so login, respec and repeat synchronization do not duplicate awards. A changed category receives that entitlement based on the retained character level.
 
-## Effects
+## Effects and title update
 
-Iron's Spells bonuses use its actual mana capacity/regeneration, spell power, school power, spell resistance, summon damage and casting/cooldown attributes. Ars Nouveau uses its actual mana capacity/regeneration, spell-damage and warding perk attributes. Optional rewards skip absent mods without removing route nodes. Most nodes have a supported core bonus or a TNK passive so missing optional mods do not break traversal.
-
-The topology is preserved; 247 old-mod-only mechanics are modernized rather than falsely advertised as exact equivalents. The conversion catalogue records every original bonus type and replacement. No obsolete skilltree attributes, missing old recipes, extra gem/socket mutations, item duplication, AFK XP or identification discounts are implemented.
-
-182 nodes use reversible Pufferfish tag rewards to drive capped server-side effects: active shield guard, evasion, burning-target/well-fed/effect damage, projectile Longshot, combat recovery, ignite, food recovery, beneficial drunk-potion duration and Second Wind. Respec removes the native markers and attribute rewards. Second Wind heals 10% maximum health after surviving damage below 25%, with a saved 180-second cooldown; respec/re-unlock cannot reset it or prevent lethal damage.
-
-Caps: evasion 15%, guard proc 25%, ignite 20%, potion duration +50%, food recovery 3 health per meal, leech 1 health at most once/second, Longshot +15%, combined conditional offensive bonus +75%. Bounds are in ATTRIBUTE-BOUNDS.csv. Actual mod formulas, equipment and boss fights still need full-pack playtesting.
+See [the 0.6 update guide](../../docs/SKILLTREE-0.6.md) for the single mana route, original-value restoration, clear tooltips, 12 mastery titles and upgrade instructions. 141 complete nodes preserve original values and conditions; 447 remain explicitly labeled adaptations. Original critical magnitudes are restored on the current personal critical-attribute replacements. Native mana and general spell-power rewards no longer buff both Iron's and Ars separately. Existing conditional replacement caps remain separate from restored source effects.
 
 ## Build and checks
 

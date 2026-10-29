@@ -20,9 +20,11 @@
   "max_shortest_path": 15,
   "points_at_100": 175,
   "all_cost_one": true,
-  "runtime_passive_nodes": 182,
-  "modernized_nodes": 247,
+  "runtime_passive_nodes": 176,
+  "modernized_nodes": 447,
   "source_sha256": "85c44c59fb8643eaa98c71ab841e7969503facb1b2eac6a23d90c5b6990eb476",
   "source_position_scale": 2.0,
-  "art": "Existing TNK HAS icons, frames and warm background; no original-source art copied."
+  "art": "Existing TNK HAS icons, frames and warm background; no original-source art copied.",
+  "adapted_nodes": 447,
+  "source_faithful_nodes": 141
 }

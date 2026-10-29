@@ -20,11 +20,11 @@ public final class TreeSmoke {
    for(var tex:d.getAsJsonObject("frame").getAsJsonObject("data").entrySet())texture(tex.getValue().getAsString());
    for(var reward:d.getAsJsonArray("rewards")){
     var r=reward.getAsJsonObject();if(r.get("type").getAsString().equals("puffish_skills:attribute"))attributes.add(r.getAsJsonObject("data").get("attribute").getAsString());
-    else if(r.get("type").getAsString().equals("puffish_skills:tag"))check(TreePassives.definitions().containsKey(r.getAsJsonObject("data").get("tag").getAsString().substring(9)),"native reward refers to real passive");
+    else if(r.get("type").getAsString().equals("puffish_skills:tag"))check((TreePassives.definitions().containsKey(r.getAsJsonObject("data").get("tag").getAsString().substring(9))||SourceTreeBonuses.hasDefinition(r.getAsJsonObject("data").get("tag").getAsString().substring(9))),"native reward refers to real passive");
    }
   }
   check(roots==6,"all six source roots");texture(category.getAsJsonObject("background").get("texture").getAsString());
-  check(attributes.containsAll(Set.of("irons_spellbooks:max_mana","irons_spellbooks:mana_regen","irons_spellbooks:spell_power","irons_spellbooks:cast_time_reduction","irons_spellbooks:cooldown_reduction","ars_nouveau:ars_nouveau.perk.max_mana")),"actual supported magic attribute IDs");
+  check(attributes.containsAll(Set.of("irons_spellbooks:max_mana","irons_spellbooks:mana_regen","irons_spellbooks:spell_power","irons_spellbooks:cast_time_reduction","irons_spellbooks:cooldown_reduction")),"actual supported magic attribute IDs");
   for(var title:TitleConfig.current.titles())if(ProgressionConfig.current.skillCategory.equals(title.skillCategory()))for(String skill:title.requiredSkills())check(skills.has(skill),"title criteria reference converted skills");
   var effects=TreePassiveRules.aggregate(Set.of("tnk_tree.blacksmith_defensive_keystone_1"),TreePassives.definitions());check(effects.get("second_wind")==1,"Second Wind definition loaded");
   check(TreePassiveRules.aggregate(Set.of(),TreePassives.definitions()).isEmpty(),"respec tags remove every runtime passive");
@@ -73,6 +73,28 @@ public final class TreeSmoke {
    active.setHealth(4);active.invulnerableTime=0;active.hurt(active.damageSources().mobAttack(enemy),1);
    check(active.getHealth()<4,"respec and re-unlock cannot reset Second Wind cooldown");
    type.getMethod("resetSkills",net.minecraft.server.level.ServerPlayer.class).invoke(categoryApi,active);
+   active.setItemSlot(net.minecraft.world.entity.EquipmentSlot.HEAD,net.minecraft.world.item.ItemStack.EMPTY);
+   float baseHealth=active.getMaxHealth();
+   Object life=((Optional<?>)type.getMethod("getSkill",String.class).invoke(categoryApi,"enchanter_life_1")).orElseThrow();
+   skillType.getMethod("unlock",net.minecraft.server.level.ServerPlayer.class).invoke(life,active);SourceTreeBonuses.refresh(active);
+   check(active.getMaxHealth()==baseHealth,"original enchanted-equipment condition does not become unconditional health");
+   var helmet=new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.IRON_HELMET);
+   helmet.enchant(server.registryAccess().registryOrThrow(net.minecraft.core.registries.Registries.ENCHANTMENT).getHolderOrThrow(net.minecraft.world.item.enchantment.Enchantments.UNBREAKING),1);
+   active.setItemSlot(net.minecraft.world.entity.EquipmentSlot.HEAD,helmet);SourceTreeBonuses.refresh(active);SourceTreeBonuses.refresh(active);
+   check(active.getMaxHealth()==baseHealth+2,"source +2 Health value applies exactly once while enchanted equipment is worn");
+   active.setItemSlot(net.minecraft.world.entity.EquipmentSlot.HEAD,net.minecraft.world.item.ItemStack.EMPTY);SourceTreeBonuses.refresh(active);
+   check(active.getMaxHealth()==baseHealth,"conditional source Health is removed when its condition ends");
+   active.setItemSlot(net.minecraft.world.entity.EquipmentSlot.HEAD,helmet);SourceTreeBonuses.refresh(active);type.getMethod("resetSkills",net.minecraft.server.level.ServerPlayer.class).invoke(categoryApi,active);SourceTreeBonuses.refresh(active);
+   check(active.getMaxHealth()==baseHealth,"respec removes source attribute modifiers without granting health");
+   Object poison=((Optional<?>)type.getMethod("getSkill",String.class).invoke(categoryApi,"alchemist_offensive_1")).orElseThrow();skillType.getMethod("unlock",net.minecraft.server.level.ServerPlayer.class).invoke(poison,active);
+   var victim=net.minecraft.world.entity.EntityType.CREEPER.create(server.overworld());
+   victim.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.ARMOR).setBaseValue(0);victim.setHealth(20);victim.invulnerableTime=0;
+   victim.hurt(active.damageSources().playerAttack(active),4);check(Math.abs(victim.getHealth()-16)<.01,"source poisoned-target bonus is inactive on a clean target");
+   victim.setHealth(20);victim.invulnerableTime=0;victim.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.POISON,100));
+   victim.hurt(active.damageSources().playerAttack(active),4);check(Math.abs(victim.getHealth()-15.8)<.01,"source +5% damage applies to an actually poisoned victim");
+   type.getMethod("resetSkills",net.minecraft.server.level.ServerPlayer.class).invoke(categoryApi,active);SourceTreeBonuses.refresh(active);
+   for(var title:TitleConfig.current.titles())if(title.id().startsWith("tnk:mastery_")){check(TitleConfig.qualifies(title,60,Set.copyOf(title.requiredSkills())),"mastery title unlock criteria");check(!TitleConfig.qualifies(title,59,Set.copyOf(title.requiredSkills())),"mastery title spending requirement enforced");}
+   TnkProgression.LOG.info("TNK_SOURCE_VALUES_LIVE_OK: +2 conditional Health, no stacking, condition removal, respec and +5% poisoned-target damage; 12 mastery titles validated");
    TnkProgression.LOG.info("TNK_SECOND_WIND_LIVE_OK: real damage, recovery and saved cooldown through respec");
    TnkProgression.LOG.info("TNK_PUFFERFISH_LIVE_POINTS_RESPEC_OK: actual loaded mod, 175 points, no duplicates, attributes/tags and full respec verified");
   }

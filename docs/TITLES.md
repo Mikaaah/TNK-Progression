@@ -1,5 +1,7 @@
 # Earned titles
 
+**0.6 update:** 12 subclass mastery titles extend the base 43-title catalog to 55. See [the mastery title table and perks](SKILLTREE-0.6.md). Existing catalogs merge these entries once; original title IDs, glyph indices and unlock commands stay valid.
+
 **0.4 update:** the new [character screen](CHARACTER-HUD.md) opens with I and equips titles without commands. Equipped title perks now replace aptitudes; only one applies, with a swap cooldown. The collection, quest IDs and grant/revocation semantics below remain valid.
 
 Titles are collectible, personal achievements. A player can earn many and equip **one**, displayed between their character-level badge and their name in standard chat and the normal overhead nameplate: `42 [MYSTIC] Mikaaah`. Titles never change skill points, character XP, equipment gates or permissions. Equipped title attribute perks are documented in the character-screen guide.

@@ -1,8 +1,8 @@
 {
-  "version": 1,
+  "version": 2,
   "skills": {
     "alchemist_class": {
-      "potion_duration": 0.05
+      "potion_duration": 0.4
     },
     "alchemist_crafting_1": {
       "potion_duration": 0.025
@@ -14,28 +14,28 @@
       "potion_duration": 0.025
     },
     "alchemist_defensive_1": {
-      "evasion": 0.0025
+      "evasion": 0.01
     },
     "alchemist_defensive_2": {
-      "evasion": 0.0025
+      "evasion": 0.01
     },
     "alchemist_defensive_3": {
-      "evasion": 0.0025
+      "evasion": 0.01
     },
     "alchemist_defensive_4": {
-      "evasion": 0.0025
+      "evasion": 0.01
     },
     "alchemist_defensive_5": {
-      "evasion": 0.0025
+      "evasion": 0.01
     },
     "alchemist_defensive_6": {
-      "evasion": 0.0025
+      "evasion": 0.01
     },
     "alchemist_defensive_7": {
-      "evasion": 0.0025
+      "evasion": 0.01
     },
     "alchemist_defensive_8": {
-      "evasion": 0.0025
+      "evasion": 0.01
     },
     "alchemist_defensive_crafting_1": {
       "potion_duration": 0.025
@@ -65,40 +65,40 @@
       "evasion": 0.005
     },
     "alchemist_defensive_notable_1": {
-      "evasion": 0.0025
+      "evasion": 0.1
     },
     "alchemist_healing_1": {
-      "leech": 0.025
+      "leech": 0.1
     },
     "alchemist_healing_2": {
-      "leech": 0.025
+      "leech": 0.1
     },
     "alchemist_healing_3": {
-      "leech": 0.025
+      "leech": 0.1
     },
     "alchemist_healing_4": {
-      "leech": 0.025
+      "leech": 0.1
     },
     "alchemist_healing_notable_1": {
       "leech": 0.025
     },
     "alchemist_lesser_1": {
-      "potion_duration": 0.025
+      "potion_duration": 0.05
     },
     "alchemist_lesser_2": {
-      "potion_duration": 0.025
+      "potion_duration": 0.05
     },
     "alchemist_lesser_3": {
-      "potion_duration": 0.025
+      "potion_duration": 0.05
     },
     "alchemist_lesser_4": {
-      "potion_duration": 0.025
+      "potion_duration": 0.05
     },
     "alchemist_lesser_5": {
-      "potion_duration": 0.025
+      "potion_duration": 0.05
     },
     "alchemist_lesser_6": {
-      "potion_duration": 0.025
+      "potion_duration": 0.05
     },
     "alchemist_mastery": {
       "potion_duration": 0.05
@@ -143,19 +143,19 @@
       "potion_duration": 0.025
     },
     "alchemist_subclass_1_crafting_notable_1": {
-      "potion_duration": 0.025
+      "potion_duration": 0.25
     },
     "alchemist_subclass_1_defensive_1": {
-      "evasion": 0.0025
+      "evasion": 0.005
     },
     "alchemist_subclass_1_defensive_2": {
-      "evasion": 0.0025
+      "evasion": 0.005
     },
     "alchemist_subclass_1_defensive_3": {
-      "evasion": 0.0025
+      "evasion": 0.005
     },
     "alchemist_subclass_1_defensive_4": {
-      "evasion": 0.0025
+      "evasion": 0.005
     },
     "alchemist_subclass_2_crafting_1": {
       "potion_duration": 0.025
@@ -173,25 +173,22 @@
       "potion_duration": 0.025
     },
     "alchemist_subclass_2_crafting_notable_1": {
-      "potion_duration": 0.025
+      "potion_duration": 0.1
     },
     "alchemist_subclass_2_defensive_1": {
-      "evasion": 0.0025
+      "evasion": 0.01
     },
     "alchemist_subclass_2_defensive_2": {
-      "evasion": 0.0025
+      "evasion": 0.01
     },
     "alchemist_subclass_2_defensive_3": {
-      "evasion": 0.0025
+      "evasion": 0.01
     },
     "alchemist_subclass_2_defensive_4": {
-      "evasion": 0.0025
-    },
-    "blacksmith_defensive_keystone_1": {
-      "second_wind": 1
+      "evasion": 0.01
     },
     "blacksmith_subclass_1": {
-      "guard": 0.01
+      "guard": 0.05
     },
     "blacksmith_subclass_1_defensive_1": {
       "guard": 0.005
@@ -206,19 +203,19 @@
       "guard": 0.005
     },
     "blacksmith_subclass_1_mastery": {
-      "guard": 0.01
+      "guard": 0.1
     },
     "blacksmith_subclass_1_offensive_1": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "blacksmith_subclass_1_offensive_2": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "blacksmith_subclass_1_offensive_3": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "blacksmith_subclass_1_offensive_4": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "cook_class": {
       "food_recovery": 0.3
@@ -236,28 +233,28 @@
       "food_recovery": 0.15
     },
     "cook_defensive_1": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "cook_defensive_2": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "cook_defensive_3": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "cook_defensive_4": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "cook_defensive_5": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "cook_defensive_6": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "cook_defensive_7": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "cook_defensive_8": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "cook_defensive_crafting_1": {
       "food_recovery": 0.15
@@ -287,7 +284,7 @@
       "guard": 0.01
     },
     "cook_defensive_notable_1": {
-      "guard": 0.005
+      "guard": 0.1
     },
     "cook_healing_1": {
       "leech": 0.025
@@ -349,23 +346,20 @@
     "cook_offensive_crafting_keystone_1": {
       "food_recovery": 0.3
     },
-    "cook_offensive_keystone_1": {
-      "well_fed_damage": 0.03
-    },
     "cook_subclass_1_defensive_1": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "cook_subclass_1_defensive_2": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "cook_subclass_1_defensive_3": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "cook_subclass_1_defensive_4": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "cook_subclass_1_mastery": {
-      "leech": 0.05
+      "leech": 1.0
     },
     "cook_subclass_2_defensive_1": {
       "guard": 0.005
@@ -380,34 +374,34 @@
       "guard": 0.005
     },
     "enchanter_defensive_1": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "enchanter_defensive_2": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "enchanter_defensive_3": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "enchanter_defensive_4": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "enchanter_defensive_5": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "enchanter_defensive_6": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "enchanter_defensive_7": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "enchanter_defensive_8": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "enchanter_defensive_keystone_1": {
       "guard": 0.01
     },
     "enchanter_defensive_notable_1": {
-      "guard": 0.005
+      "guard": 0.1
     },
     "enchanter_healing_1": {
       "leech": 0.025
@@ -429,133 +423,2907 @@
       "ignite": 0.05
     },
     "enchanter_subclass_1_defensive_1": {
-      "evasion": 0.0025,
+      "evasion": 0.005,
       "guard": 0.005
     },
     "enchanter_subclass_1_defensive_2": {
-      "evasion": 0.0025,
+      "evasion": 0.005,
       "guard": 0.005
     },
     "enchanter_subclass_1_defensive_3": {
-      "evasion": 0.0025,
+      "evasion": 0.005,
       "guard": 0.005
     },
     "enchanter_subclass_1_defensive_4": {
-      "evasion": 0.0025,
+      "evasion": 0.005,
       "guard": 0.005
     },
     "enchanter_subclass_1_mastery": {
       "ignite": 0.05,
       "burning_damage": 0.05
     },
-    "enchanter_subclass_1_offensive_1": {
-      "burning_damage": 0.025
-    },
-    "enchanter_subclass_1_offensive_2": {
-      "burning_damage": 0.025
-    },
-    "enchanter_subclass_1_offensive_3": {
-      "burning_damage": 0.025
-    },
-    "enchanter_subclass_1_offensive_4": {
-      "burning_damage": 0.025
-    },
     "enchanter_subclass_2_defensive_1": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "enchanter_subclass_2_defensive_2": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "enchanter_subclass_2_defensive_3": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "enchanter_subclass_2_defensive_4": {
-      "guard": 0.005
+      "guard": 0.01
     },
     "hunter_defensive_1": {
-      "evasion": 0.0025
+      "evasion": 0.01
     },
     "hunter_defensive_2": {
-      "evasion": 0.0025
+      "evasion": 0.01
     },
     "hunter_defensive_3": {
-      "evasion": 0.0025
+      "evasion": 0.01
     },
     "hunter_defensive_4": {
-      "evasion": 0.0025
+      "evasion": 0.01
     },
     "hunter_defensive_5": {
-      "evasion": 0.0025
+      "evasion": 0.01
     },
     "hunter_defensive_6": {
-      "evasion": 0.0025
+      "evasion": 0.01
     },
     "hunter_defensive_7": {
-      "evasion": 0.0025
+      "evasion": 0.01
     },
     "hunter_defensive_8": {
-      "evasion": 0.0025
+      "evasion": 0.01
     },
     "hunter_defensive_notable_1": {
-      "evasion": 0.0025
+      "evasion": 0.1
     },
     "hunter_healing_1": {
-      "leech": 0.025
+      "leech": 0.1
     },
     "hunter_healing_2": {
-      "leech": 0.025
+      "leech": 0.1
     },
     "hunter_healing_3": {
-      "leech": 0.025
+      "leech": 0.1
     },
     "hunter_healing_4": {
-      "leech": 0.025
+      "leech": 0.1
     },
     "hunter_healing_notable_1": {
-      "leech": 0.025
-    },
-    "hunter_offensive_keystone_1": {
-      "longshot": 0.12
+      "leech": 1.0
     },
     "hunter_subclass_1_defensive_1": {
-      "evasion": 0.0025
+      "evasion": 0.01
     },
     "hunter_subclass_1_defensive_2": {
-      "evasion": 0.0025
+      "evasion": 0.01
     },
     "hunter_subclass_1_defensive_3": {
-      "evasion": 0.0025
+      "evasion": 0.01
     },
     "hunter_subclass_1_defensive_4": {
-      "evasion": 0.0025
+      "evasion": 0.01
     },
     "hunter_subclass_2_defensive_1": {
-      "evasion": 0.0025,
+      "evasion": 0.005,
       "guard": 0.005
     },
     "hunter_subclass_2_defensive_2": {
-      "evasion": 0.0025,
+      "evasion": 0.005,
       "guard": 0.005
     },
     "hunter_subclass_2_defensive_3": {
-      "evasion": 0.0025,
+      "evasion": 0.005,
       "guard": 0.005
     },
     "hunter_subclass_2_defensive_4": {
-      "evasion": 0.0025,
+      "evasion": 0.005,
       "guard": 0.005
     },
     "miner_subclass_2_defensive_1": {
-      "evasion": 0.0025
+      "evasion": 0.005
     },
     "miner_subclass_2_defensive_2": {
-      "evasion": 0.0025
+      "evasion": 0.005
     },
     "miner_subclass_2_defensive_3": {
-      "evasion": 0.0025
+      "evasion": 0.005
     },
     "miner_subclass_2_defensive_4": {
-      "evasion": 0.0025
+      "evasion": 0.005
+    },
+    "blacksmith_defensive_keystone_1": {
+      "second_wind": 1
     }
+  },
+  "source_bonuses": {
+    "alchemist_gateway": [],
+    "alchemist_life_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 2.0,
+        "attribute": "minecraft:generic.max_health",
+        "id": "6296d7a7-a64f-40f7-8a73-1b88db4b0555",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:effect_amount",
+          "min": 1
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "alchemist_life_2": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 2.0,
+        "attribute": "minecraft:generic.max_health",
+        "id": "6296d7a7-a64f-40f7-8a73-1b88db4b0555",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:effect_amount",
+          "min": 1
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "alchemist_life_notable_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 6.0,
+        "attribute": "minecraft:generic.max_health",
+        "id": "94eb922a-42b2-4675-8dea-a1d9f7a2656e",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:effect_amount",
+          "min": 1
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "alchemist_offensive_1": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:has_effect",
+          "amplifier": 0,
+          "effect": "minecraft:poison"
+        }
+      }
+    ],
+    "alchemist_offensive_2": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:has_effect",
+          "amplifier": 0,
+          "effect": "minecraft:poison"
+        }
+      }
+    ],
+    "alchemist_offensive_3": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:has_effect",
+          "amplifier": 0,
+          "effect": "minecraft:poison"
+        }
+      }
+    ],
+    "alchemist_offensive_4": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:has_effect",
+          "amplifier": 0,
+          "effect": "minecraft:poison"
+        }
+      }
+    ],
+    "alchemist_offensive_5": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:has_effect",
+          "amplifier": 0,
+          "effect": "minecraft:poison"
+        }
+      }
+    ],
+    "alchemist_offensive_6": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:has_effect",
+          "amplifier": 0,
+          "effect": "minecraft:poison"
+        }
+      }
+    ],
+    "alchemist_offensive_7": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:has_effect",
+          "amplifier": 0,
+          "effect": "minecraft:poison"
+        }
+      }
+    ],
+    "alchemist_offensive_8": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:has_effect",
+          "amplifier": 0,
+          "effect": "minecraft:poison"
+        }
+      }
+    ],
+    "alchemist_offensive_keystone_1": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.15,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:effect_amount"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "alchemist_offensive_notable_1": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.25,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:has_effect",
+          "amplifier": 0,
+          "effect": "minecraft:poison"
+        }
+      }
+    ],
+    "alchemist_speed_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.05,
+        "attribute": "minecraft:generic.attack_speed",
+        "id": "0f6a34ce-5319-420f-8676-31b03fcdbf32",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:effect_amount",
+          "min": 1
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "alchemist_speed_2": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.05,
+        "attribute": "minecraft:generic.attack_speed",
+        "id": "0f6a34ce-5319-420f-8676-31b03fcdbf32",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:effect_amount",
+          "min": 1
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "alchemist_speed_notable_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.1,
+        "attribute": "minecraft:generic.attack_speed",
+        "id": "ffa6fc33-dd84-4ccb-b912-2456456326e9",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:effect_amount",
+          "min": 1
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_defensive_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.armor",
+        "id": "ef5cf8ba-9ec0-46c1-94f0-1f495beb48f8",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_defensive_2": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.armor",
+        "id": "6655cdd9-e2f5-468f-8868-d2342991c8b1",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_defensive_3": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.armor",
+        "id": "4f57ef00-461a-456b-a740-32812f06c77e",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_defensive_4": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.armor",
+        "id": "ff036756-996f-4833-a25f-7c9fb09231b5",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_defensive_5": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.armor",
+        "id": "987474e6-4109-4d89-b1e1-df5703270272",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_defensive_6": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.armor",
+        "id": "f768fc94-e45f-416c-bdcf-eaa146a59518",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_defensive_7": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.armor",
+        "id": "74d167f1-840d-46a3-bb94-2cc953509e1a",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_defensive_8": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.armor",
+        "id": "163f0b81-7edf-43a0-9ea5-505af2b21cac",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_defensive_keystone_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.1,
+        "attribute": "minecraft:generic.armor",
+        "id": "b30c0a82-03b9-4432-b465-c962f6c66e97",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:attribute_value",
+          "attribute": "minecraft:generic.armor",
+          "min": 50.0
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      },
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.1,
+        "attribute": "minecraft:generic.armor",
+        "id": "cd99c8a3-bf24-431d-91a6-6a49caad98ee",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:attribute_value",
+          "attribute": "minecraft:generic.armor",
+          "min": 100.0
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_defensive_notable_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.05,
+        "attribute": "minecraft:generic.armor",
+        "id": "3cd5535f-e611-4014-af2e-680849b898fa",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_gateway": [],
+    "blacksmith_life_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.max_health",
+        "id": "a3eb3bfe-f6d0-4fa4-80cf-7fa2439cbcb0",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "shield"
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_life_2": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.max_health",
+        "id": "a3eb3bfe-f6d0-4fa4-80cf-7fa2439cbcb0",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "shield"
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_life_notable_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 4.0,
+        "attribute": "minecraft:generic.max_health",
+        "id": "776fdb8b-54ae-41f6-814e-7c62d1de7329",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "shield"
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_offensive_1": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "shield"
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_offensive_2": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "shield"
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_offensive_3": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "shield"
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_offensive_4": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "shield"
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_offensive_5": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "shield"
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_offensive_6": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "shield"
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_offensive_7": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "shield"
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_offensive_8": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "shield"
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_offensive_keystone_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.1,
+        "attribute": "minecraft:generic.attack_damage",
+        "id": "32d8f8ea-b1b9-4d80-8705-20f7e4cd473d",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:attribute_value",
+          "attribute": "minecraft:generic.armor",
+          "divisor": 1.0
+        }
+      }
+    ],
+    "blacksmith_offensive_notable_1": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.25,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "shield"
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_speed_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.02,
+        "attribute": "minecraft:generic.attack_speed",
+        "id": "f9249ebb-3f14-4930-aeb6-6d9eca893212",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "shield"
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_speed_2": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.02,
+        "attribute": "minecraft:generic.attack_speed",
+        "id": "f9249ebb-3f14-4930-aeb6-6d9eca893212",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "shield"
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_speed_notable_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.05,
+        "attribute": "minecraft:generic.attack_speed",
+        "id": "6ac5855a-33cc-44aa-8629-c73d613bd103",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "shield"
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_subclass_2_defensive_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.armor",
+        "id": "08a77a31-f6e7-438c-a000-eed115495e6b",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_subclass_2_defensive_2": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.armor",
+        "id": "ffbb4279-5b96-4c08-a887-ea96313807f9",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_subclass_2_defensive_3": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.armor",
+        "id": "c0825b7e-1176-443f-8185-dd946fdc8a3d",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "blacksmith_subclass_2_defensive_4": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.armor",
+        "id": "6e71213a-c452-472e-a63b-37293887fca4",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "cook_gateway": [],
+    "cook_life_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 2.0,
+        "attribute": "minecraft:generic.max_health",
+        "id": "440baeb3-f7e2-489f-a510-1995ae70b8b6",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:food_level",
+          "min": 15
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "cook_life_2": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 2.0,
+        "attribute": "minecraft:generic.max_health",
+        "id": "440baeb3-f7e2-489f-a510-1995ae70b8b6",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:food_level",
+          "min": 15
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "cook_life_notable_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.max_health",
+        "id": "f572f3dc-5375-40cb-bcb8-a0dce687040a",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:food_level"
+        }
+      }
+    ],
+    "cook_offensive_1": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:food_level",
+          "min": 15
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "cook_offensive_2": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:food_level",
+          "min": 15
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "cook_offensive_3": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:food_level",
+          "min": 15
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "cook_offensive_4": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:food_level",
+          "min": 15
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "cook_offensive_5": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:food_level",
+          "min": 15
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "cook_offensive_6": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:food_level",
+          "min": 15
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "cook_offensive_7": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:food_level",
+          "min": 15
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "cook_offensive_8": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:food_level",
+          "min": 15
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "cook_offensive_keystone_1": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.02,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:food_level"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "cook_offensive_notable_1": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.2,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:food_level",
+          "min": 15
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "cook_speed_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.02,
+        "attribute": "minecraft:generic.attack_speed",
+        "id": "86528ca4-9944-47bb-ba4d-567938a80ca4",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:food_level",
+          "min": 15
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "cook_speed_2": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.02,
+        "attribute": "minecraft:generic.attack_speed",
+        "id": "86528ca4-9944-47bb-ba4d-567938a80ca4",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:food_level",
+          "min": 15
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "cook_speed_notable_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.1,
+        "attribute": "minecraft:generic.attack_speed",
+        "id": "e873869d-c0d0-4e71-8351-29290c500e98",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:food_level",
+          "min": 15
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "cook_subclass_1": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.1,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:health_percentage",
+          "max": 0.75
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      },
+      {
+        "type": "skilltree:damage",
+        "amount": 0.2,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:health_percentage",
+          "max": 0.5
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "cook_subclass_1_offensive_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.01,
+        "attribute": "minecraft:generic.attack_speed",
+        "id": "907e55be-121b-40cc-afb6-2a25bbbc70fa",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "cook_subclass_1_offensive_2": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.01,
+        "attribute": "minecraft:generic.attack_speed",
+        "id": "bf3f9540-6a59-49fb-9daa-348de6eaf0bf",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "cook_subclass_1_offensive_3": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.01,
+        "attribute": "minecraft:generic.attack_speed",
+        "id": "53b34176-5a95-4676-be4c-6f425de0d735",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "cook_subclass_1_offensive_4": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.01,
+        "attribute": "minecraft:generic.attack_speed",
+        "id": "ce822a33-716a-42dc-946d-2159eb6e17a0",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "cook_subclass_1_offensive_notable_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.1,
+        "attribute": "minecraft:generic.attack_speed",
+        "id": "60eaf33d-1dff-4f8d-a9f2-007762be51f4",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:health_percentage",
+          "max": 0.5
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "cook_subclass_2_life_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.max_health",
+        "id": "37eba488-8832-4f22-958c-209c1121aa24",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "cook_subclass_2_life_2": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.max_health",
+        "id": "c0a3417d-4dc8-4899-9485-3295617904a7",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "cook_subclass_2_life_3": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.max_health",
+        "id": "1ffa9679-535b-4fcc-98ba-393aefb4d703",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "cook_subclass_2_life_4": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.max_health",
+        "id": "13f7a0d1-f89b-470b-bb76-6fa089cfc33b",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "cook_subclass_2_life_notable_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 4.0,
+        "attribute": "minecraft:generic.max_health",
+        "id": "9338eb4d-ba48-4774-b56b-feef6e409102",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      },
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.luck",
+        "id": "08065cf3-3382-4cbb-ac51-df914517e221",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:fishing"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "enchanter_gateway": [],
+    "enchanter_life_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 2.0,
+        "attribute": "minecraft:generic.max_health",
+        "id": "c0fd0b75-331b-4f56-8354-1112678b81c0",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:has_item_equipped",
+          "item_condition": {
+            "type": "skilltree:enchanted",
+            "item_condition": {
+              "type": "skilltree:none"
+            }
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "enchanter_life_2": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 2.0,
+        "attribute": "minecraft:generic.max_health",
+        "id": "c0fd0b75-331b-4f56-8354-1112678b81c0",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:has_item_equipped",
+          "item_condition": {
+            "type": "skilltree:enchanted",
+            "item_condition": {
+              "type": "skilltree:none"
+            }
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "enchanter_life_notable_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.max_health",
+        "id": "d817c9a3-e8d5-4ca2-a87a-dce3f01f67b7",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:enchants_amount",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "armor"
+          }
+        }
+      }
+    ],
+    "enchanter_offensive_1": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:enchanted",
+            "item_condition": {
+              "type": "skilltree:equipment_type",
+              "equipment_type": "weapon"
+            }
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "enchanter_offensive_2": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:enchanted",
+            "item_condition": {
+              "type": "skilltree:equipment_type",
+              "equipment_type": "weapon"
+            }
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "enchanter_offensive_3": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:enchanted",
+            "item_condition": {
+              "type": "skilltree:equipment_type",
+              "equipment_type": "weapon"
+            }
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "enchanter_offensive_4": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:enchanted",
+            "item_condition": {
+              "type": "skilltree:equipment_type",
+              "equipment_type": "weapon"
+            }
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "enchanter_offensive_5": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:enchanted",
+            "item_condition": {
+              "type": "skilltree:equipment_type",
+              "equipment_type": "weapon"
+            }
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "enchanter_offensive_6": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:enchanted",
+            "item_condition": {
+              "type": "skilltree:equipment_type",
+              "equipment_type": "weapon"
+            }
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "enchanter_offensive_7": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:enchanted",
+            "item_condition": {
+              "type": "skilltree:equipment_type",
+              "equipment_type": "weapon"
+            }
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "enchanter_offensive_8": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:enchanted",
+            "item_condition": {
+              "type": "skilltree:equipment_type",
+              "equipment_type": "weapon"
+            }
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "enchanter_offensive_keystone_1": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:enchants_levels",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "weapon"
+          }
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "enchanter_offensive_notable_1": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.2,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:enchanted",
+            "item_condition": {
+              "type": "skilltree:equipment_type",
+              "equipment_type": "weapon"
+            }
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "enchanter_speed_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.02,
+        "attribute": "minecraft:generic.attack_speed",
+        "id": "19dd98e8-08f2-4034-b488-61b703111396",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:enchanted",
+            "item_condition": {
+              "type": "skilltree:equipment_type",
+              "equipment_type": "weapon"
+            }
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "enchanter_speed_2": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.02,
+        "attribute": "minecraft:generic.attack_speed",
+        "id": "19dd98e8-08f2-4034-b488-61b703111396",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:enchanted",
+            "item_condition": {
+              "type": "skilltree:equipment_type",
+              "equipment_type": "weapon"
+            }
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "enchanter_speed_notable_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.05,
+        "attribute": "minecraft:generic.attack_speed",
+        "id": "c50cba6b-c328-41f3-96d3-6bdd53733e9d",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:enchanted",
+            "item_condition": {
+              "type": "skilltree:equipment_type",
+              "equipment_type": "weapon"
+            }
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "enchanter_subclass_1_offensive_1": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:burning"
+        }
+      }
+    ],
+    "enchanter_subclass_1_offensive_2": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:burning"
+        }
+      }
+    ],
+    "enchanter_subclass_1_offensive_3": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:burning"
+        }
+      }
+    ],
+    "enchanter_subclass_1_offensive_4": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:burning"
+        }
+      }
+    ],
+    "hunter_gateway": [],
+    "hunter_offensive_1": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.1,
+        "damage_condition": {
+          "type": "skilltree:projectile"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "hunter_offensive_2": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.1,
+        "damage_condition": {
+          "type": "skilltree:projectile"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "hunter_offensive_3": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.1,
+        "damage_condition": {
+          "type": "skilltree:projectile"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "hunter_offensive_4": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.1,
+        "damage_condition": {
+          "type": "skilltree:projectile"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "hunter_offensive_5": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.1,
+        "damage_condition": {
+          "type": "skilltree:projectile"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "hunter_offensive_6": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.1,
+        "damage_condition": {
+          "type": "skilltree:projectile"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "hunter_offensive_7": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.1,
+        "damage_condition": {
+          "type": "skilltree:projectile"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "hunter_offensive_8": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.1,
+        "damage_condition": {
+          "type": "skilltree:projectile"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "hunter_offensive_keystone_1": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.05,
+        "damage_condition": {
+          "type": "skilltree:none"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:distance_to_target"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "hunter_offensive_notable_1": [
+      {
+        "type": "skilltree:damage",
+        "amount": 0.25,
+        "damage_condition": {
+          "type": "skilltree:projectile"
+        },
+        "enemy_multiplier": {
+          "type": "skilltree:none"
+        },
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        },
+        "target_condition": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "hunter_speed_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.02,
+        "attribute": "minecraft:generic.attack_speed",
+        "id": "17ad1a7c-1750-4cd8-9533-9b1da0de20e4",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "ranged_weapon"
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "hunter_speed_2": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.02,
+        "attribute": "minecraft:generic.attack_speed",
+        "id": "17ad1a7c-1750-4cd8-9533-9b1da0de20e4",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "ranged_weapon"
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "hunter_speed_notable_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.05,
+        "attribute": "minecraft:generic.attack_speed",
+        "id": "6a2be28f-18ce-4c19-856d-5c6ce5a4d854",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "ranged_weapon"
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "hunter_subclass_2_life_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.max_health",
+        "id": "b6c5b35e-de33-404e-843c-893c8e968d69",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "ranged_weapon"
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "hunter_subclass_2_life_2": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.max_health",
+        "id": "b6c5b35e-de33-404e-843c-893c8e968d69",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "ranged_weapon"
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "hunter_subclass_2_life_3": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.max_health",
+        "id": "b6c5b35e-de33-404e-843c-893c8e968d69",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "ranged_weapon"
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "hunter_subclass_2_life_4": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.max_health",
+        "id": "b6c5b35e-de33-404e-843c-893c8e968d69",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "ranged_weapon"
+          }
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "miner_class": [
+      {
+        "type": "skilltree:block_break_speed",
+        "multiplier": 0.15,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "pickaxe"
+          }
+        }
+      }
+    ],
+    "miner_defensive_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.armor",
+        "id": "1efe95f7-c635-4475-84db-60ce67f8164e",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "miner_defensive_2": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.armor",
+        "id": "7caffcf9-fe54-41b7-ab2a-0f6c5e3954c0",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "miner_defensive_3": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.armor",
+        "id": "4c70a0ee-1243-41d7-ad0a-d0613fce69de",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "miner_defensive_4": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.armor",
+        "id": "c8353b8f-1f59-43d7-94ed-f098c10ec924",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "miner_defensive_5": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.armor",
+        "id": "21df3a3e-8074-4506-932f-1c26dc5bd2e3",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "miner_defensive_6": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.armor",
+        "id": "b7c57a74-3a82-403d-b596-cddfc284490e",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "miner_defensive_7": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.armor",
+        "id": "dd3a4fcc-ccf3-439a-ba17-da31169ad0c4",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "miner_defensive_8": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.armor",
+        "id": "b752880d-3939-4f0b-904f-fc95bc3521dd",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "miner_gateway": [],
+    "miner_lesser_1": [
+      {
+        "type": "skilltree:block_break_speed",
+        "multiplier": 0.05,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "pickaxe"
+          }
+        }
+      }
+    ],
+    "miner_lesser_2": [
+      {
+        "type": "skilltree:block_break_speed",
+        "multiplier": 0.05,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "pickaxe"
+          }
+        }
+      }
+    ],
+    "miner_lesser_3": [
+      {
+        "type": "skilltree:block_break_speed",
+        "multiplier": 0.05,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "pickaxe"
+          }
+        }
+      }
+    ],
+    "miner_lesser_4": [
+      {
+        "type": "skilltree:block_break_speed",
+        "multiplier": 0.05,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "pickaxe"
+          }
+        }
+      }
+    ],
+    "miner_lesser_5": [
+      {
+        "type": "skilltree:block_break_speed",
+        "multiplier": 0.05,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "pickaxe"
+          }
+        }
+      }
+    ],
+    "miner_lesser_6": [
+      {
+        "type": "skilltree:block_break_speed",
+        "multiplier": 0.05,
+        "player_condition": {
+          "type": "skilltree:has_item_in_hand",
+          "item_condition": {
+            "type": "skilltree:equipment_type",
+            "equipment_type": "pickaxe"
+          }
+        }
+      }
+    ],
+    "miner_subclass_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.1,
+        "attribute": "minecraft:generic.attack_speed",
+        "id": "a4912871-cf95-4169-8cce-78a23e4cd833",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      },
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.1,
+        "attribute": "minecraft:generic.movement_speed",
+        "id": "a07b2bce-33aa-4f14-a4b7-4e861680095e",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "miner_subclass_1_defensive_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.armor",
+        "id": "546d55bb-4175-43fe-99ef-7ed51e8f3ec5",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "miner_subclass_1_defensive_2": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.armor",
+        "id": "72bed4b8-9ba3-4719-a83b-5db34b22704f",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "miner_subclass_1_defensive_3": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.armor",
+        "id": "d2247176-72ca-4a20-9ece-8f80b736a0e4",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "miner_subclass_1_defensive_4": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 1.0,
+        "attribute": "minecraft:generic.armor",
+        "id": "c2a577c4-f4d5-42b1-8258-995858b64476",
+        "name": "SkillBonus",
+        "operation": 0,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "miner_subclass_1_offensive_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.02,
+        "attribute": "minecraft:generic.attack_speed",
+        "id": "6a1a1597-252b-4d7c-8a52-0850c53f43cb",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "miner_subclass_1_offensive_2": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.02,
+        "attribute": "minecraft:generic.attack_speed",
+        "id": "c2ac0658-0834-4cee-88ed-8d863ecdabe4",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "miner_subclass_1_offensive_3": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.02,
+        "attribute": "minecraft:generic.attack_speed",
+        "id": "23e499b2-c540-47a4-857c-10d009d60528",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "miner_subclass_1_offensive_4": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.02,
+        "attribute": "minecraft:generic.attack_speed",
+        "id": "fbb7d51c-7974-4dff-af9b-c98bb8a0903c",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ],
+    "miner_subclass_1_offensive_notable_1": [
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.05,
+        "attribute": "minecraft:generic.attack_speed",
+        "id": "8e178d23-47a3-41ab-a7c7-dc570f2f3c8f",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      },
+      {
+        "type": "skilltree:attribute",
+        "amount": 0.05,
+        "attribute": "minecraft:generic.movement_speed",
+        "id": "c0a50e32-8cc4-407e-928d-881a0e15c7bd",
+        "name": "SkillBonus",
+        "operation": 1,
+        "player_condition": {
+          "type": "skilltree:none"
+        },
+        "player_multiplier": {
+          "type": "skilltree:none"
+        }
+      }
+    ]
   }
 }
