@@ -1,5 +1,6 @@
 """Validate the shipped update against the user's actual source archive, not its own generated labels."""
 import json,zipfile,sys,csv
+from style_tree_tooltips import plain
 from pathlib import Path
 root=Path(__file__).resolve().parents[1];base=root/'skilltree/rebuilt588';category=base/'config/puffish_skills/categories/character'
 with zipfile.ZipFile(sys.argv[1]) as z:source={Path(n).stem:json.loads(z.read(n)) for n in z.namelist() if n.startswith('data/skilltree/skills/') and n.endswith('.json')}
@@ -9,17 +10,17 @@ assert len(tables['source_bonuses'])==141
 for id,bonuses in tables['source_bonuses'].items():assert bonuses==source[id]['bonuses'],id
 blocked={'ars_nouveau:ars_nouveau.perk.max_mana','ars_nouveau:ars_nouveau.perk.mana_regen','ars_nouveau:ars_nouveau.perk.spell_damage'}
 for id,d in defs.items():
- assert d['cost']==1 and 'Towns & Kingdoms' in d['description'] and 'Skill Point' in d['description']
- assert max(map(len,d['description'].splitlines()))<=52,id
+ assert d['cost']==1 and 'Towns & Kingdoms' in plain(d['description']) and 'Skill Point' in plain(d['description'])
+ assert max(map(len,plain(d['description']).splitlines()))<=52,id
  for r in d['rewards']:
   assert r.get('data',{}).get('attribute') not in blocked,id
   if r['type']=='puffish_skills:tag':assert id in tables['skills'] or id in tables['source_bonuses']
- if id not in tables['source_bonuses']:assert 'Adapted effect' in d['extra_description'],id
+ if id not in tables['source_bonuses']:assert 'Adapted effect' in plain(d['extra_description']),id
 assert len(catalog['titles'])==55
 new=[d for d in catalog['titles'] if d['id'].startswith('tnk:mastery_')];assert len(new)==12
 for d in new:
  assert d['minSpentPoints']==60 and all(n in skills for n in d['requiredSkills'])
- assert d['label'] in defs[d['requiredSkills'][0]]['extra_description']
+ assert d['label'] in plain(defs[d['requiredSkills'][0]]['extra_description'])
 report=json.loads((base/'conversion-catalogue.json').read_text())
 with (base/'ORIGINAL-VALUE-AUDIT.csv').open('w') as f:
  w=csv.writer(f);w.writerow(['Node','Branch / Subclass','Title','Value policy','Original bonus JSON','Implemented tooltip','Adaptations'])

@@ -187,6 +187,8 @@ def convert(source):
     a=reward['data'];bounds[(a['attribute'],a['operation'])].append(a['value'])
  from refine_tree import refine
  restored,value_counts=refine(defs,rows,passives,report)
+ from style_tree_tooltips import style_definitions
+ style_definitions(defs)
  bounds.clear()
  for definition in defs.values():
   for reward in definition['rewards']:
