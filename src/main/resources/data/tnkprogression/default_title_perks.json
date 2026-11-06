@@ -680,7 +680,22 @@
         "operation": "add",
         "description": "+0.25 luck"
       }
+    ],
+    "tnk:beta_tester": [
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "amount": 0.003,
+        "operation": "add",
+        "description": "First Footsteps: +3% base movement speed"
+      },
+      {
+        "attribute": "minecraft:player.block_break_speed",
+        "amount": 0.05,
+        "operation": "add",
+        "description": "Founding Hands: +5% base block-breaking speed"
+      }
     ]
   },
-  "skillTitleExpansion": true
+  "skillTitleExpansion": true,
+  "founderPassives": true
 }

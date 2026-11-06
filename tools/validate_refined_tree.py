@@ -16,7 +16,7 @@ for id,d in defs.items():
   assert r.get('data',{}).get('attribute') not in blocked,id
   if r['type']=='puffish_skills:tag':assert id in tables['skills'] or id in tables['source_bonuses']
  if id not in tables['source_bonuses']:assert 'Adapted effect' in plain(d['extra_description']),id
-assert len(catalog['titles'])==55
+assert len(catalog['titles'])==58
 new=[d for d in catalog['titles'] if d['id'].startswith('tnk:mastery_')];assert len(new)==12
 for d in new:
  assert d['minSpentPoints']==60 and all(n in skills for n in d['requiredSkills'])

@@ -6,7 +6,7 @@ modId="tnkprogression"
 version="${version}"
 displayName="Towns & Kingdoms Progression"
 authors="Mikaaah"
-description="Progressive activity XP, quest and team milestones, mob levels and skill-point integration."
+description="Made for Towns & Kingdoms 3 | Beyond the Forge. Progressive activity XP, quest and team milestones, mob levels and skill-point integration."
 [[dependencies.tnkprogression]]
 modId="minecraft"
 type="required"

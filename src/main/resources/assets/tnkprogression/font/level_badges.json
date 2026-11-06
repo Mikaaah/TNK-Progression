@@ -2,17 +2,902 @@
   "providers": [
     {
       "type": "bitmap",
-      "file": "tnkprogression:font/level_badges.png",
+      "file": "tnkprogression:font/numbers/level_1.png",
       "height": 9,
-      "ascent": 7,
+      "ascent": 8,
       "chars": [
-        "\ue000\ue001\ue002\ue003\ue004\ue005\ue006\ue007\ue008\ue009\ue00a\ue00b\ue00c\ue00d\ue00e\ue00f",
-        "\ue010\ue011\ue012\ue013\ue014\ue015\ue016\ue017\ue018\ue019\ue01a\ue01b\ue01c\ue01d\ue01e\ue01f",
-        "\ue020\ue021\ue022\ue023\ue024\ue025\ue026\ue027\ue028\ue029\ue02a\ue02b\ue02c\ue02d\ue02e\ue02f",
-        "\ue030\ue031\ue032\ue033\ue034\ue035\ue036\ue037\ue038\ue039\ue03a\ue03b\ue03c\ue03d\ue03e\ue03f",
-        "\ue040\ue041\ue042\ue043\ue044\ue045\ue046\ue047\ue048\ue049\ue04a\ue04b\ue04c\ue04d\ue04e\ue04f",
-        "\ue050\ue051\ue052\ue053\ue054\ue055\ue056\ue057\ue058\ue059\ue05a\ue05b\ue05c\ue05d\ue05e\ue05f",
-        "\ue060\ue061\ue062\ue063\ue064\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+        "\ue001"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_2.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue002"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_3.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue003"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_4.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue004"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_5.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue005"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_6.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue006"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_7.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue007"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_8.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue008"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_9.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue009"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_10.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue00a"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_11.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue00b"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_12.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue00c"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_13.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue00d"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_14.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue00e"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_15.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue00f"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_16.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue010"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_17.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue011"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_18.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue012"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_19.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue013"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_20.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue014"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_21.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue015"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_22.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue016"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_23.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue017"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_24.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue018"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_25.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue019"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_26.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue01a"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_27.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue01b"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_28.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue01c"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_29.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue01d"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_30.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue01e"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_31.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue01f"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_32.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue020"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_33.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue021"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_34.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue022"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_35.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue023"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_36.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue024"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_37.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue025"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_38.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue026"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_39.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue027"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_40.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue028"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_41.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue029"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_42.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue02a"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_43.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue02b"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_44.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue02c"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_45.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue02d"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_46.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue02e"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_47.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue02f"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_48.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue030"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_49.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue031"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_50.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue032"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_51.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue033"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_52.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue034"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_53.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue035"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_54.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue036"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_55.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue037"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_56.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue038"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_57.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue039"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_58.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue03a"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_59.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue03b"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_60.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue03c"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_61.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue03d"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_62.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue03e"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_63.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue03f"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_64.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue040"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_65.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue041"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_66.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue042"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_67.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue043"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_68.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue044"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_69.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue045"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_70.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue046"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_71.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue047"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_72.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue048"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_73.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue049"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_74.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue04a"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_75.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue04b"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_76.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue04c"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_77.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue04d"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_78.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue04e"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_79.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue04f"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_80.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue050"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_81.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue051"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_82.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue052"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_83.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue053"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_84.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue054"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_85.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue055"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_86.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue056"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_87.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue057"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_88.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue058"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_89.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue059"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_90.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue05a"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_91.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue05b"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_92.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue05c"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_93.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue05d"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_94.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue05e"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_95.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue05f"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_96.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue060"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_97.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue061"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_98.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue062"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_99.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue063"
+      ]
+    },
+    {
+      "type": "bitmap",
+      "file": "tnkprogression:font/numbers/level_100.png",
+      "height": 9,
+      "ascent": 8,
+      "chars": [
+        "\ue064"
       ]
     }
   ]

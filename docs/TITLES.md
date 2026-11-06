@@ -1,5 +1,7 @@
 # Earned titles
 
+**Current 0.7.1 behavior:** cosmetic and passive selections are independent; see [TITLE-SLOTS.md](TITLE-SLOTS.md). The catalog contains 58 titles. Founder has two small additive movement/breaking perks when chosen as the passive. Owner and Admin remain cosmetic only and require explicit grant commands. Hiding a cosmetic keeps the passive. The 30-second cooldown applies to passive changes only. Older release notes below describe their original versions.
+
 **0.6 update:** 12 subclass mastery titles extend the base 43-title catalog to 55. See [the mastery title table and perks](SKILLTREE-0.6.md). Existing catalogs merge these entries once; original title IDs, glyph indices and unlock commands stay valid.
 
 **0.4 update:** the new [character screen](CHARACTER-HUD.md) opens with I and equips titles without commands. Equipped title perks now replace aptitudes; only one applies, with a swap cooldown. The collection, quest IDs and grant/revocation semantics below remain valid.

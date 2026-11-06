@@ -20,13 +20,13 @@ public final class CharacterScreen extends Screen {
  @Override public boolean isPauseScreen(){return false;}
  @Override public void renderBackground(GuiGraphics g,int mouseX,int mouseY,float delta){}
  @Override protected void init(){layout();rebuild();}
- private void layout(){scale=Math.min(1.35,Math.min((width-12)/(double)W,(height-12)/(double)H));left=(int)((width-W*scale)/2);top=(int)((height-H*scale)/2);}
+ private void layout(){scale=Math.min(1.35,Math.min((width-28)/(double)W,(height-40)/(double)H));left=(int)((width-W*scale)/2);top=(int)((height-H*scale)/2);}
  private ParchmentButton button(String label,int x,int y,int w,int h,net.minecraft.client.gui.components.Button.OnPress action){return addRenderableWidget(new ParchmentButton(x,y,w,h,Component.literal(label),action));}
  private List<CharacterState.Title> choices(){var s=state();return s==null?List.of():s.titles().stream().filter(t->!ownedOnly||t.earned()).sorted(Comparator.comparing(CharacterState.Title::earned).reversed().thenComparing(CharacterState.Title::label)).toList();}
  private void rebuild(){
   clearWidgets();var s=state();
   button("Character",142,14,116,22,b->{tab=0;rebuild();}).selected(tab==0);button("Titles",262,14,116,22,b->{tab=1;rebuild();}).accent(CharacterTheme.ROSE).selected(tab==1);button("Activities",382,14,128,22,b->{tab=2;rebuild();}).accent(CharacterTheme.PURPLE).selected(tab==2);
-  button("×",W-26,-7,21,18,b->onClose());
+  button("X",W-26,-7,21,18,b->onClose());
   if(s==null)return;
   button(s.hud()?"HUD: Shown":"HUD: Hidden",20,274,104,20,b->CharacterClient.action("hud",s.hud()?"off":"on"));
   if(tab==1){
@@ -38,29 +38,38 @@ public final class CharacterScreen extends Screen {
    }
    button("<",148,248,30,20,b->{page=Math.max(0,page-1);rebuild();});button(">",292,248,30,20,b->{page=Math.min(pages-1,page+1);rebuild();});
    var t=s.titles().stream().filter(v->v.id().equals(focus)).findFirst().orElse(null);
-   var equip=button(t!=null&&s.selected().equals(t.id())?"Equipped":"Equip Title",340,250,164,22,b->{if(t!=null)CharacterClient.action("title",t.id());}).selected(t!=null&&s.selected().equals(t.id()));equip.active=t!=null&&t.earned()&&(s.swapTicks()==0||s.selected().equals(t.id()));
-   button("Hide Title",340,277,164,19,b->CharacterClient.action("title",""));
-  }else if(tab==2){for(int i=0;i<s.activities().size();i++){var a=s.activities().get(i);button(a.id().equals(s.tracked())?"Pinned":"Track",444,58+i*32,62,25,b->CharacterClient.action("track",a.id())).accent(CharacterTheme.activityColour(a.id())).selected(a.id().equals(s.tracked()));}}
+   var cosmetic=button(t!=null&&s.selected().equals(t.id())?"Cosmetic: Active":"Use Cosmetic",340,248,130,22,b->{if(t!=null)CharacterClient.action("title",t.id());}).selected(t!=null&&s.selected().equals(t.id()));cosmetic.active=t!=null&&t.earned();
+   button("X",474,248,30,22,b->CharacterClient.action("title",""));
+   boolean cosmeticOnly=t!=null&&Titles.cosmeticOnly(t.id());
+   var passive=button(cosmeticOnly?"Cosmetic Only":t!=null&&s.passive().equals(t.id())?"Passive: Active":"Use Passive",340,275,130,22,b->{if(t!=null)CharacterClient.action("passive",t.id());}).selected(t!=null&&s.passive().equals(t.id()));passive.active=t!=null&&t.earned()&&!cosmeticOnly&&(s.swapTicks()==0||s.passive().equals(t.id()));
+   button("X",474,275,30,22,b->CharacterClient.action("passive",""));
+  }else if(tab==2){for(int i=0;i<s.activities().size();i++){var a=s.activities().get(i);button(a.id().equals(s.tracked())?"Pinned":"Track",444,59+i*33,62,21,b->CharacterClient.action("track",a.id())).accent(CharacterTheme.activityColour(a.id())).selected(a.id().equals(s.tracked()));}}
   else if(tab==0)button("Skill Tree",394,126,110,22,b->CharacterClient.action("skills","")).accent(CharacterTheme.PURPLE);
  }
  @Override public void tick(){
-  var s=state();String signature=s==null?"":s.selected()+s.hud()+s.tracked()+s.titles().hashCode()+(s.swapTicks()==0);
+  var s=state();String signature=s==null?"":s.selected()+s.passive()+s.hud()+s.tracked()+s.titles().hashCode()+(s.swapTicks()==0);
   if(!widgetSignature.equals(signature)){widgetSignature=signature;rebuild();}
  }
  private void text(GuiGraphics g,String s,int x,int y,int colour){CharacterTheme.text(g,font,s,x,y,colour);}
  private void heading(GuiGraphics g,String s,int x,int y,int colour){CharacterTheme.heading(g,font,s,x,y,colour);}
  private void wrap(GuiGraphics g,String s,int x,int y,int w,int colour){g.drawWordWrap(font,Component.literal(s),x,y,w,colour);}
  private Component titleBadge(CharacterState.Title t){return Component.translatableWithFallback(t.translation(),"["+t.label()+"]").withStyle(style->style.withFont(Titles.FONT).withColor(0xFFFFFF).withBold(false).withItalic(false));}
+ private void identity(GuiGraphics g,CharacterState.Snapshot s){
+  var line=Component.empty().append(LevelBadges.badge(s.level()));
+  s.titles().stream().filter(t->t.id().equals(s.selected())).findFirst().ifPresent(t->line.append(Component.literal(" ")).append(titleBadge(t)));
+  float fit=Math.min(1f,96f/Math.max(1,font.width(line)));
+  g.pose().pushPose();g.pose().translate(20,236,0);g.pose().scale(fit,fit,1);g.drawString(font,line,0,0,0xFFFFFF,false);g.pose().popPose();
+  String passive=s.titles().stream().filter(t->t.id().equals(s.passive())).map(CharacterState.Title::label).findFirst().orElse("None");
+  text(g,"Passive",20,251,CharacterTheme.LIGHT);text(g,font.plainSubstrByWidth(passive,96),20,262,CharacterTheme.LIGHT);
+ }
  @Override public void render(GuiGraphics g,int mx,int my,float delta){
-  g.fill(0,0,width,height,0xA0251D16);layout();int vx=(int)((mx-left)/scale),vy=(int)((my-top)/scale);
+  g.fill(0,0,width,height,0xA020293F);layout();int vx=(int)((mx-left)/scale),vy=(int)((my-top)/scale);
   g.pose().pushPose();g.pose().translate(left,top,0);g.pose().scale((float)scale,(float)scale,1);
-  CharacterTheme.panel(g,0,0,W,H,CharacterTheme.PAPER);CharacterTheme.panel(g,6,6,126,296,CharacterTheme.BROWN);
-  // A fine inset and corner pins frame the sheet without competing with its content.
-  for(int x:new int[]{138,514})for(int y:new int[]{43,300}){CharacterTheme.rounded(g,x,y,4,4,CharacterTheme.EDGE);g.fill(x+1,y,x+3,y+1,CharacterTheme.LIGHT);}
-  heading(g,"CHARACTER",22,22,CharacterTheme.LIGHT);g.fill(21,37,117,38,CharacterTheme.EDGE);
+  CharacterTheme.background(g,"character",0,0,W,H);
+  StationHeader.draw(g,font,"Character",14,114);g.fill(21,37,117,38,CharacterTheme.EDGE);
   var s=state();
   if(s==null){text(g,"Loading server progression...",150,80,CharacterTheme.INK);super.render(g,vx,vy,delta);g.pose().popPose();return;}
-  CharacterTheme.panel(g,16,48,108,162,0xFF6B5143);g.fillGradient(20,52,120,206,0xFF6F556D,0xFF352C36);
+  g.fillGradient(20,52,120,206,0xFF293349,0xFF20293F);
   if(minecraft.player!=null){
    // Inventory's scissor rectangle uses absolute GUI coordinates, so render outside our virtual pose.
    g.pose().popPose();
@@ -68,10 +77,11 @@ public final class CharacterScreen extends Screen {
    g.pose().pushPose();g.pose().translate(left,top,0);g.pose().scale((float)scale,(float)scale,1);
   }
   heading(g,minecraft.player==null?"Adventurer":font.plainSubstrByWidth(minecraft.player.getName().getString(),94),20,218,CharacterTheme.LIGHT);
-  g.drawString(font,LevelBadges.badge(s.level()),20,234,0xFFFFFF,false);text(g,"/ 100",20+font.width(LevelBadges.badge(s.level()))+5,234,CharacterTheme.LIGHT);
-  s.titles().stream().filter(t->t.id().equals(s.selected())).findFirst().ifPresentOrElse(t->g.drawString(font,titleBadge(t),20,250,0xFFFFFF,false),()->text(g,"No title equipped",20,250,CharacterTheme.LIGHT));
+  identity(g,s);
   if(tab==0)overview(g,s);else if(tab==1)titles(g,s);else activities(g,s);
-  super.render(g,vx,vy,delta);g.pose().popPose();
+  super.render(g,vx,vy,delta);
+  if(tab==1 && vx>=474 && vx<504 && vy>=248 && vy<297)g.renderTooltip(font,Component.literal(vy<273?"Hide cosmetic title; keep passive benefits":"Clear passive benefits; keep cosmetic title"),vx,vy);
+  g.pose().popPose();
  }
  private void overview(GuiGraphics g,CharacterState.Snapshot s){
   CharacterTheme.section(g,font,"Your Journey",146,50,362,CharacterTheme.PURPLE);heading(g,"Character Level "+s.level(),150,77,CharacterTheme.INK);text(g,"Ceiling "+s.ceiling(),422,77,CharacterTheme.MUTED);
@@ -92,16 +102,17 @@ public final class CharacterScreen extends Screen {
   if(title==null){wrap(g,"Choose a title to view its perks and requirements.",344,66,152,CharacterTheme.INK);return;}
   CharacterTheme.rounded(g,339,55,164,21,CharacterTheme.BROWN);g.drawString(font,titleBadge(title),344,63,0xFFFFFF,false);heading(g,title.earned()?"Unlocked":"Locked",344,83,title.earned()?CharacterTheme.PURPLE:CharacterTheme.ROSE);
   var desc=font.split(Component.literal(title.description()),152);for(int i=0;i<Math.min(4,desc.size());i++)g.drawString(font,desc.get(i),344,101+i*10,CharacterTheme.INK,false);
-  heading(g,"While Equipped",344,151,CharacterTheme.PURPLE);
+  heading(g,"Passive Benefits",344,151,CharacterTheme.PURPLE);
+  if(title.perks().isEmpty())wrap(g,Titles.cosmeticOnly(title.id())?"Cosmetic only. Choose another earned title for passive benefits.":"No passive benefits configured.",344,166,152,CharacterTheme.MUTED);
   for(int i=0;i<title.perks().size();i++){var p=title.perks().get(i);var lines=font.split(Component.literal(p.text()+(p.available()?"":" (unavailable)")),152);for(int j=0;j<Math.min(2,lines.size());j++)g.drawString(font,lines.get(j),344,166+i*20+j*9,p.available()?CharacterTheme.INK:CharacterTheme.MUTED,false);}
-  if(s.swapTicks()>0)text(g,"Swap ready in "+((s.swapTicks()+19)/20)+"s",344,231,CharacterTheme.MUTED);
+  if(s.swapTicks()>0)text(g,"Passive ready in "+((s.swapTicks()+19)/20)+"s",344,231,CharacterTheme.MUTED);
  }
  private void activities(GuiGraphics g,CharacterState.Snapshot s){
-  for(int i=0;i<s.activities().size();i++){var a=s.activities().get(i);int y=55+i*32;
-   CharacterTheme.rounded(g,146,y-1,362,30,i%2==0?CharacterTheme.CARD:0xFFE2C49A);g.fill(148,y+3,150,y+24,CharacterTheme.activityColour(a.id()));g.renderItem(CharacterTheme.activityIcon(a.id()),155,y+3);
-   heading(g,CharacterTheme.name(a.id())+"  ·  Milestone "+(a.rank()+1),178,y+1,CharacterTheme.INK);
-   text(g,CharacterTheme.number(a.work())+" / "+CharacterTheme.number(a.required())+"   +"+CharacterTheme.number(a.reward())+" XP",178,y+12,CharacterTheme.MUTED);
-   CharacterTheme.bar(g,178,y+24,252,4,a.work()/a.required(),CharacterTheme.activityColour(a.id()));
+  for(int i=0;i<s.activities().size();i++){var a=s.activities().get(i);int y=54+i*33;
+   CharacterTheme.panel(g,146,y,362,31,i%2==0?CharacterTheme.CARD:0xFF805044);g.fill(148,y+4,150,y+27,CharacterTheme.activityColour(a.id()));g.renderItem(CharacterTheme.activityIcon(a.id()),155,y+6);
+   heading(g,CharacterTheme.name(a.id())+"  ·  Milestone "+(a.rank()+1),178,y+4,CharacterTheme.INK);
+   text(g,CharacterTheme.number(a.work())+" / "+CharacterTheme.number(a.required())+"   +"+CharacterTheme.number(a.reward())+" XP",178,y+15,CharacterTheme.MUTED);
+   CharacterTheme.bar(g,178,y+26,252,2,a.work()/a.required(),CharacterTheme.activityColour(a.id()));
   }
   text(g,"Activities remain repeatable. Campaign ceilings still apply.",150,288,CharacterTheme.MUTED);
  }

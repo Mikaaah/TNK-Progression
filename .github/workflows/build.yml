@@ -14,6 +14,7 @@ jobs:
         with:
           node-version: '22'
       - run: node tools/check_title_bindings.cjs
+      - run: node tools/check_default_titles.cjs
       - run: node tools/check_commissions.cjs
       - run: python3 tools/balance_report.py
       - run: ./gradlew build --stacktrace
@@ -26,6 +27,7 @@ jobs:
           JAVA_TOOL_OPTIONS=-Dtnkprogression.smoke=true timeout 300 ./gradlew runServer 2>&1 | tee smoke.log
           grep -q TNK_PROGRESSION_SMOKE_OK smoke.log
           grep -q TNK_TITLES_SMOKE_OK smoke.log
+          grep -q TNK_FOUNDER_PASSIVES_SMOKE_OK smoke.log
           grep -q TNK_CHARACTER_SMOKE_OK smoke.log
           grep -q TNK_MOB_LEVEL_SMOKE_OK smoke.log
           grep -q TNK_MOB_CACHE_DESPAWN_SMOKE_OK smoke.log
@@ -33,7 +35,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: tnkprogression-beta
+          name: tnkprogression-private
           path: |
             build/libs/*.jar
             build/reports/tests/

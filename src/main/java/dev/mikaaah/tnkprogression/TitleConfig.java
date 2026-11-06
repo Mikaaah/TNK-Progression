@@ -12,7 +12,7 @@ public final class TitleConfig {
                              String skillCategory,int minSpentPoints,List<String> requiredSkills) {
         public String translationKey(){return "tnkprogression.title."+id.replace(':','.').replace('/','.');}
         public int rgb(){return Integer.parseInt(colour,16);}
-        public boolean automatic(){return skillCategory!=null && !skillCategory.isBlank() && (minSpentPoints>0 || !requiredSkills.isEmpty());}
+        public boolean automatic(){return !SpecialTitles.commandOnly(id) && skillCategory!=null && !skillCategory.isBlank() && (minSpentPoints>0 || !requiredSkills.isEmpty());}
     }
     public record Catalog(boolean autoEquipFirst,List<Definition> titles,boolean skillTitleExpansion) {
         public Catalog(boolean autoEquipFirst,List<Definition> titles){this(autoEquipFirst,titles,false);}
@@ -31,6 +31,13 @@ public final class TitleConfig {
             Catalog next=gson.fromJson(Files.readString(path),Catalog.class);
             if(next==null || next.titles()==null || next.titles().size()>256)throw new IllegalArgumentException("Invalid catalog size");
             boolean migrated=false;List<Definition> updated=new ArrayList<>();
+            // Append new built-ins without replacing any existing title or custom catalog option.
+            try(var in=TitleConfig.class.getResourceAsStream("/data/tnkprogression/default_titles.json")){
+                var defaults=gson.fromJson(new java.io.InputStreamReader(Objects.requireNonNull(in)),Catalog.class);
+                var merged=new ArrayList<>(next.titles());Set<String> existing=new HashSet<>();merged.forEach(d->existing.add(d.id()));
+                for(var d:defaults.titles())if((Titles.commandOnly(d.id()) || "tnk:beta_tester".equals(d.id())) && existing.add(d.id())){merged.add(d);migrated=true;}
+                next=new Catalog(next.autoEquipFirst(),merged,next.skillTitleExpansion());
+            }
             if(!next.skillTitleExpansion()){
                 try(var in=TitleConfig.class.getResourceAsStream("/data/tnkprogression/default_titles.json")){
                     var defaults=gson.fromJson(new java.io.InputStreamReader(Objects.requireNonNull(in)),Catalog.class);

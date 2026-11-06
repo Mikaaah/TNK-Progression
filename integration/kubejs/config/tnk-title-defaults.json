@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "titleDefinitions": [
+    {
+      "id": "tnk:beta_tester",
+      "label": "Founder",
+      "artwork": "FOUNDER",
+      "style": "AMETYST",
+      "colour": "B896D6",
+      "description": "Helped shape Towns & Kingdoms 3: Beyond the Forge during its beta.",
+      "skillCategory": "",
+      "minSpentPoints": 0,
+      "requiredSkills": []
+    }
+  ],
+  "grants": {},
+  "names": {},
+  "instructions": "Add each tester's Minecraft UUID as a grants key with [\"tnk:beta_tester\"] as its value. Distribute this file in client pack updates and on the server. Names are optional notes; identity always uses the UUID."
+}

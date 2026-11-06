@@ -20,7 +20,7 @@ public final class CharacterClient {
   var mc=Minecraft.getInstance();var s=CharacterClientState.current;
   if(mc.player==null || s==null || !s.hud() || mc.options.hideGui || mc.screen!=null || mc.player.isSpectator())return;
   int x=8,y=g.guiHeight()-118,w=194;var f=mc.font;
-  CharacterTheme.panel(g,x,y,w,68,CharacterTheme.BROWN);
+  CharacterTheme.background(g,"character_hud",x,y,w,68);
   net.minecraft.client.gui.components.PlayerFaceRenderer.draw(g,mc.player.getSkin(),x+8,y+6,16);
   g.drawString(f,LevelBadges.badge(s.level()),x+29,y+7,0xFFFFFF,false);CharacterTheme.heading(g,f,f.plainSubstrByWidth(mc.player.getName().getString(),105),x+34+f.width(LevelBadges.badge(s.level())),y+7,CharacterTheme.LIGHT);
   String xp=s.level()>=100?"Maximum level":s.level()>=s.ceiling()?"Capped · complete next chapter":CharacterTheme.number(s.xp())+" / "+CharacterTheme.number(s.required())+" XP";

@@ -20,7 +20,7 @@ public final class ClientUiSmoke {
    if(hoverX!=null&&mc.screen!=null){forceMouse(mc,"xpos",hoverX);forceMouse(mc,"ypos",hoverY);}
    if(!seeded){seeded=true;var id=mc.player.getUUID();mc.options.guiScale().set(2);mc.resizeDisplay();
     mc.getSingleplayerServer().execute(()->{var p=mc.getSingleplayerServer().getPlayerList().getPlayer(id);p.setInvulnerable(true);var n=ProgressionAPI.profile(p);n.putInt("level",42);n.putInt("ceiling",50);n.putLong("xp",(long)(ProgressionMath.levelCost(42)*.62));n.putLong("title_swap_after",0);
-     Titles.grant(p,"tnk:ars_mystic");Titles.grant(p,"tnk:prepared");Titles.grant(p,"tnk:skill_delver");Titles.grant(p,"tnk:board_taskmaster");Titles.select(p,"tnk:ars_mystic");n.putLong("title_swap_after",0);
+     Titles.grant(p,"tnk:ars_mystic");Titles.grant(p,"tnk:prepared");Titles.grant(p,"tnk:skill_delver");Titles.grant(p,"tnk:board_taskmaster");Titles.select(p,"tnk:ars_mystic");Titles.selectPassive(p,"tnk:ars_mystic");n.putLong("title_swap_after",0);
      n.putLong("mining_rank",8);n.putLong("mining_work",112);n.putLong("combat_rank",14);n.putLong("combat_work",16);n.putLong("fishing_work",3);
      var history=new net.minecraft.nbt.ListTag();history.add(net.minecraft.nbt.StringTag.valueOf("mining milestone 8  +"+ProgressionMath.taskReward(ProgressionConfig.current.activities.get("mining").initialXp(),7)+" XP"));n.put("activity_history",history);CharacterState.sendFull(p);
     });return;
@@ -38,8 +38,8 @@ public final class ClientUiSmoke {
     inventory.mouseClicked(inventory.getGuiLeft()+114,inventory.height/2-13,0);stage=1;ticks=0;
    }
    else if(stage==1 && ticks>25){check(mc.screen instanceof CharacterScreen,"keybind opens screen");shot(mc,"TNK-Character-Overview.png");click(mc,300,25);stage=2;ticks=0;}
-   else if(stage==2 && ticks>20){check(mc.screen instanceof CharacterScreen,"titles page remains open");click(mc,190,143);click(mc,420,260);stage=3;ticks=0;}
-   else if(stage==3 && ticks>30){check(state.selected().equals("tnk:prepared"),"title button selects through server payload");check(mc.player.getMaxHealth()==22,"selected title perk syncs to client");shot(mc,"TNK-Character-Titles.png");click(mc,420,25);stage=4;ticks=0;}
+   else if(stage==2 && ticks>20){check(mc.screen instanceof CharacterScreen,"titles page remains open");click(mc,190,143);click(mc,405,286);stage=3;ticks=0;}
+   else if(stage==3 && ticks>30){check(state.passive().equals("tnk:prepared") && state.selected().equals("tnk:ars_mystic"),"passive button selects independently through server payload");check(mc.player.getMaxHealth()==22,"selected passive syncs to client");shot(mc,"TNK-Character-Titles.png");click(mc,420,25);stage=4;ticks=0;}
    else if(stage==4 && ticks>20){click(mc,475,102);stage=5;ticks=0;}
    else if(stage==5 && ticks>25){check(state.tracked().equals("mining"),"activity track button persists via server");shot(mc,"TNK-Character-Activities.png");mc.screen.keyPressed(CharacterClient.OPEN.getKey().getValue(),0,0);checkInventory(mc);mc.setScreen(null);stage=6;ticks=0;}
    else if(stage==6 && ticks>25){check(mc.screen==null,"keybind closes screen");shot(mc,"TNK-Character-HUD.png");stage=7;ticks=0;}
@@ -88,7 +88,7 @@ public final class ClientUiSmoke {
   check(screen.children().stream().filter(w->w instanceof InventoryCharacterButton.Portrait).count()==1,"exactly one character replacement after init");
   check(screen.children().stream().noneMatch(w->w instanceof net.minecraft.client.gui.components.ImageButton b&&b.getX()==screen.getGuiLeft()+104&&b.getY()==screen.height/2-22),"vanilla recipe button removed");
  }
- private static void click(Minecraft mc,int x,int y){var s=mc.screen;double scale=Math.min(1.35,Math.min((s.width-12)/(double)CharacterScreen.W,(s.height-12)/(double)CharacterScreen.H));int left=(int)((s.width-CharacterScreen.W*scale)/2),top=(int)((s.height-CharacterScreen.H*scale)/2);s.mouseClicked(left+x*scale,top+y*scale,0);s.mouseReleased(left+x*scale,top+y*scale,0);}
+ private static void click(Minecraft mc,int x,int y){var s=mc.screen;double scale=Math.min(1.35,Math.min((s.width-28)/(double)CharacterScreen.W,(s.height-40)/(double)CharacterScreen.H));int left=(int)((s.width-CharacterScreen.W*scale)/2),top=(int)((s.height-CharacterScreen.H*scale)/2);s.mouseClicked(left+x*scale,top+y*scale,0);s.mouseReleased(left+x*scale,top+y*scale,0);}
  private static void shot(Minecraft mc,String name){Screenshot.grab(mc.gameDirectory,name,mc.getMainRenderTarget(),message->{});}
  private static void check(boolean condition,String name){if(!condition)throw new AssertionError(name);}
 }

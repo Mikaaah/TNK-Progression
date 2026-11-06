@@ -1,3 +1,14 @@
+# 1.0.0-private.1
+
+- Package the cumulative character GUI, original badges and matching skill-tree resources for Towns & Kingdoms 3 | Beyond the Forge.
+- Separate cosmetic and passive title selections, with independent clear buttons and the existing server-enforced passive swap cooldown.
+- Include Founder, Owner and Admin among 58 titles. Owner/Admin remain command-only cosmetics; titles never grant operator permissions.
+- Give Founder fixed additive movement-speed (+0.003) and block-breaking-speed (+0.05) bonuses when selected as the passive title.
+- Support UUID-default title grants in existing multiplayer worlds and fresh singleplayer worlds through the optional KubeJS integration.
+- Include all 100 number badges and 58 title badges in source and the JAR. Validate original PNG hashes during a normal build, without requiring the original artwork archive.
+- Retain the external 588-node tree, 175-point entitlement, saved title selections and protocol 5.
+- This is a private feature-testing baseline. The broader cleanup audit remains pending.
+
 # 0.6.0-beta.1
 
 - Rewrite all 588 node tooltips with branch/subclass, tier, cost, exact effects/conditions, wrapped lines and explicit adaptation notes. Masteries name their title reward.

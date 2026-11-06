@@ -641,6 +641,39 @@
       "requiredSkills": [
         "miner_subclass_2_mastery"
       ]
+    },
+    {
+      "id": "tnk:beta_tester",
+      "label": "Founder",
+      "artwork": "FOUNDER",
+      "style": "AMETYST",
+      "colour": "B896D6",
+      "description": "Helped shape Towns & Kingdoms 3: Beyond the Forge during its beta.",
+      "skillCategory": "",
+      "minSpentPoints": 0,
+      "requiredSkills": []
+    },
+    {
+      "id": "tnk:owner",
+      "label": "Owner",
+      "artwork": "OWNER",
+      "style": "ZŁOTO",
+      "colour": "EDC74B",
+      "description": "Command-only staff title. Cosmetic only; grants no permissions or gameplay bonuses.",
+      "skillCategory": "",
+      "minSpentPoints": 0,
+      "requiredSkills": []
+    },
+    {
+      "id": "tnk:admin",
+      "label": "Admin",
+      "artwork": "ADMIN",
+      "style": "RUBIN",
+      "colour": "EF5D8C",
+      "description": "Command-only staff title. Cosmetic only; grants no permissions or gameplay bonuses.",
+      "skillCategory": "",
+      "minSpentPoints": 0,
+      "requiredSkills": []
     }
   ],
   "skillTitleExpansion": true

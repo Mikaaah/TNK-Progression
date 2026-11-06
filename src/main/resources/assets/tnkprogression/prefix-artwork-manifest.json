@@ -1,0 +1,1054 @@
+{
+  "numbers": [
+    {
+      "level": 1,
+      "colour": "ŻELAZO",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-1-ŻELAZO.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_1.png",
+      "sha256": "99958b36cdb5f3fbadd2db0829fdc058245df82e0383e2d54c989476c4280fde"
+    },
+    {
+      "level": 2,
+      "colour": "ŻELAZO",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-2-ŻELAZO.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_2.png",
+      "sha256": "9da8803f1084ed6318a94c434352c1de01edaa5c058e92ab36a7041bb8fcb4fa"
+    },
+    {
+      "level": 3,
+      "colour": "ŻELAZO",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-3-ŻELAZO.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_3.png",
+      "sha256": "f6cd9f7e89f269dcd06f8b41025414bb8c7e16661bc54dde663132d04b39b8f7"
+    },
+    {
+      "level": 4,
+      "colour": "ŻELAZO",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-4-ŻELAZO.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_4.png",
+      "sha256": "0e2f5ad0d367812fe6f4cb9a8d0f174982744cbcca610b35cc6946fbad480c92"
+    },
+    {
+      "level": 5,
+      "colour": "ŻELAZO",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-5-ŻELAZO.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_5.png",
+      "sha256": "d1ee139eb239faeed5aeeb94b15e440f80b0555db48e900e4f169688891f894d"
+    },
+    {
+      "level": 6,
+      "colour": "ŻELAZO",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-6-ŻELAZO.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_6.png",
+      "sha256": "4abb2bfb83af5c75245fb800d3db76fcf0db54cace9a723b683ef94918df882d"
+    },
+    {
+      "level": 7,
+      "colour": "ŻELAZO",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-7-ŻELAZO.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_7.png",
+      "sha256": "83e586f5b53a52cd8d615a76b22122f9f10777299a2ac8223a035847425a6cfd"
+    },
+    {
+      "level": 8,
+      "colour": "ŻELAZO",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-8-ŻELAZO.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_8.png",
+      "sha256": "a29e6edcc793186af3702b1959ce0de9b9dac5a01489c189d06622a84de5d67e"
+    },
+    {
+      "level": 9,
+      "colour": "ŻELAZO",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-9-ŻELAZO.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_9.png",
+      "sha256": "7e4dcc6561fb13dcd04ab58ebe3da72557311ea89d437106c2da4316842a30ea"
+    },
+    {
+      "level": 10,
+      "colour": "MIEDŹ",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-10-MIEDŹ.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_10.png",
+      "sha256": "40af8406ae152ebde41e424606c0c4988bfa98af1fe1391516b037fe55dd38dd"
+    },
+    {
+      "level": 11,
+      "colour": "MIEDŹ",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-11-MIEDŹ.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_11.png",
+      "sha256": "f17e9f2c495e98360ff4833cc00ccea7ea7c981300d6b8eb1f2d1207fa009f4e"
+    },
+    {
+      "level": 12,
+      "colour": "MIEDŹ",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-12-MIEDŹ.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_12.png",
+      "sha256": "df484bb26dec55b8233d3296e148b885eae4d231af93abcc4a9548469755af85"
+    },
+    {
+      "level": 13,
+      "colour": "MIEDŹ",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-13-MIEDŹ.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_13.png",
+      "sha256": "77c40b7629a3fb80f755c6d469e7e272d8381b9e24badcec8758166498cbb5c5"
+    },
+    {
+      "level": 14,
+      "colour": "MIEDŹ",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-14-MIEDŹ.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_14.png",
+      "sha256": "4525388bae750a058c7179dbc1e4bc49b3282a5c658c9eb5fcd8f93977f39423"
+    },
+    {
+      "level": 15,
+      "colour": "MIEDŹ",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-15-MIEDŹ.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_15.png",
+      "sha256": "37db65b0c67b3107c0b4234e26f8b7ec717f05060f3dd63afac299262135e627"
+    },
+    {
+      "level": 16,
+      "colour": "MIEDŹ",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-16-MIEDŹ.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_16.png",
+      "sha256": "a870e898dc455bbe3b24b2fd258f91e0d70313ee00d309bcd79ca58405fc2cbd"
+    },
+    {
+      "level": 17,
+      "colour": "MIEDŹ",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-17-MIEDŹ.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_17.png",
+      "sha256": "093a15eaf03e495675a7cb80f27e5e3e10174790b9c8d2622bb60cb895400b28"
+    },
+    {
+      "level": 18,
+      "colour": "MIEDŹ",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-18-MIEDŹ.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_18.png",
+      "sha256": "3e45ae9c1eb723468b0af78e0186430deb86aea7f60b870d85e9021d4ff3e1af"
+    },
+    {
+      "level": 19,
+      "colour": "MIEDŹ",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-19-MIEDŹ.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_19.png",
+      "sha256": "6af8839c556333ec96525a9f430e5d634e35733979cd4c33768f4a3911535660"
+    },
+    {
+      "level": 20,
+      "colour": "ZŁOTO",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-20-ZŁOTO.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_20.png",
+      "sha256": "b89ff15420befae146b3448a141b324915c64ce82528aed4506820568fdca0de"
+    },
+    {
+      "level": 21,
+      "colour": "ZŁOTO",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-21-ZŁOTO.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_21.png",
+      "sha256": "8800909a80e4d145ce4866c7a2b9e16bcd89f1171276d914257684dd2ed5c407"
+    },
+    {
+      "level": 22,
+      "colour": "ZŁOTO",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-22-ZŁOTO.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_22.png",
+      "sha256": "8a558d51e0bb1473d3fa3d4e8490c2e96696d10cae300fb2c9a64a5544cf5de8"
+    },
+    {
+      "level": 23,
+      "colour": "ZŁOTO",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-23-ZŁOTO.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_23.png",
+      "sha256": "cfaedefc81224894eb4cf9391674ad395342be1d0f127df518e9c29e626dbff9"
+    },
+    {
+      "level": 24,
+      "colour": "ZŁOTO",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-24-ZŁOTO.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_24.png",
+      "sha256": "b908a9348695be739e0901dbaf3520d4d89c24c72f91245f8faf5b7225e3cc2c"
+    },
+    {
+      "level": 25,
+      "colour": "ZŁOTO",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-25-ZŁOTO.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_25.png",
+      "sha256": "26923d814b3f76144bd90a0583321a483fee0cb52679e38d6c4740c2819cbd8c"
+    },
+    {
+      "level": 26,
+      "colour": "ZŁOTO",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-26-ZŁOTO.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_26.png",
+      "sha256": "6e8b296f18baca6df21db12cd9d6d622f0bd2da74fd32734a6d8cb209ac76b2d"
+    },
+    {
+      "level": 27,
+      "colour": "ZŁOTO",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-27-ZŁOTO.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_27.png",
+      "sha256": "0e03f27771b38f55772382b01e5bd57cd28fc3b1a822d05d831c20a02b4ceb54"
+    },
+    {
+      "level": 28,
+      "colour": "ZŁOTO",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-28-ZŁOTO.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_28.png",
+      "sha256": "30d8d659998b140be8d2d02c6d55e58a6d7416b4e293344f1b995603cd80b7dc"
+    },
+    {
+      "level": 29,
+      "colour": "ZŁOTO",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-29-ZŁOTO.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_29.png",
+      "sha256": "239fd7466eb83ca8708c9e653b36dc0110e773d646e21ce8fa118ae78c63aa26"
+    },
+    {
+      "level": 30,
+      "colour": "SZMARAGD",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-30-SZMARAGD.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_30.png",
+      "sha256": "171beec0ade03382098e293ae6c13517595d9915ad85c42f2976ec324856d9a1"
+    },
+    {
+      "level": 31,
+      "colour": "SZMARAGD",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-31-SZMARAGD.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_31.png",
+      "sha256": "faff86d6bf7b055c8b74a78417ffcc2ef1f40a039b68896c5e8778caf7327049"
+    },
+    {
+      "level": 32,
+      "colour": "SZMARAGD",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-32-SZMARAGD.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_32.png",
+      "sha256": "bc96575a64a86843e4e38e203d944c1e092cc1927c08eb4825f1f83cdf1efccd"
+    },
+    {
+      "level": 33,
+      "colour": "SZMARAGD",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-33-SZMARAGD.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_33.png",
+      "sha256": "3f9d33ee2f0d80ac8df7cd74a69693f1c762d1c271297fd81245ba325031f907"
+    },
+    {
+      "level": 34,
+      "colour": "SZMARAGD",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-34-SZMARAGD.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_34.png",
+      "sha256": "212b4f45f88ea39dd99041c6f9a6ac6ffd12c13f72803041aa3dc7e7f2e8e457"
+    },
+    {
+      "level": 35,
+      "colour": "SZMARAGD",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-35-SZMARAGD.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_35.png",
+      "sha256": "455052d222cc813b55482fc335ee466315c31ff4ac0cb4f32740575ca6acc845"
+    },
+    {
+      "level": 36,
+      "colour": "SZMARAGD",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-36-SZMARAGD.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_36.png",
+      "sha256": "fab6bbe2ac2c0ea2b4d25071377ba18bf2506b776ed5b5d8670ccf7208bb94ae"
+    },
+    {
+      "level": 37,
+      "colour": "SZMARAGD",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-37-SZMARAGD.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_37.png",
+      "sha256": "c1e6e3deb2f1f7e68cbd7ee4329d164c51616ff6b3997957e276fbecb0fe16bf"
+    },
+    {
+      "level": 38,
+      "colour": "SZMARAGD",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-38-SZMARAGD.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_38.png",
+      "sha256": "cd78f9301de8a85f60c6821392a81d108b5b4fe0a247f0e29705db003987b6c5"
+    },
+    {
+      "level": 39,
+      "colour": "SZMARAGD",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-39-SZMARAGD.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_39.png",
+      "sha256": "d8497dc3c6737ac58e03fc7f9bfcf2de222cdb05c16b47a85116f5c8b1917cea"
+    },
+    {
+      "level": 40,
+      "colour": "PRYZMARYN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-40-PRYZMARYN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_40.png",
+      "sha256": "3f6f10e2abc0f21ab87c6dd0638b4b07a2d70b5cc828c86828e49ce57da39842"
+    },
+    {
+      "level": 41,
+      "colour": "PRYZMARYN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-41-PRYZMARYN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_41.png",
+      "sha256": "915be764ade0151aad97e1217ad15f538fe2894c877c3a5d6687bc4c5f60d581"
+    },
+    {
+      "level": 42,
+      "colour": "PRYZMARYN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-42-PRYZMARYN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_42.png",
+      "sha256": "b7587c881ed74cd4c03aeaee87518151a02874d9c231bf1c3e78eace624b2ec1"
+    },
+    {
+      "level": 43,
+      "colour": "PRYZMARYN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-43-PRYZMARYN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_43.png",
+      "sha256": "8c92969f2311084b64ba0c211a68c014e9925ffd291b12605aab626520286a46"
+    },
+    {
+      "level": 44,
+      "colour": "PRYZMARYN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-44-PRYZMARYN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_44.png",
+      "sha256": "6f9eab556c351308eaab1814d6231048eaef80f989c22391a9263bffbbe544c0"
+    },
+    {
+      "level": 45,
+      "colour": "PRYZMARYN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-45-PRYZMARYN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_45.png",
+      "sha256": "2c0f35bb0ad82b9c15d32ad3ce5a2209065717ccf81b75f801532cab9c35faf3"
+    },
+    {
+      "level": 46,
+      "colour": "PRYZMARYN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-46-PRYZMARYN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_46.png",
+      "sha256": "67f6b041dfcfde06c36e5e82bbddc4bf906b37e4e35f6b9894d401d7aee093e8"
+    },
+    {
+      "level": 47,
+      "colour": "PRYZMARYN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-47-PRYZMARYN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_47.png",
+      "sha256": "f6145197a1d51f78e9db2d8b360bb0376a11f031079715c62df3d1e4d80f3ac2"
+    },
+    {
+      "level": 48,
+      "colour": "PRYZMARYN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-48-PRYZMARYN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_48.png",
+      "sha256": "5127a8f652df48cc1da374e018b579bf5db4ac4f46aed446d6e5508ab39e2de7"
+    },
+    {
+      "level": 49,
+      "colour": "PRYZMARYN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-49-PRYZMARYN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_49.png",
+      "sha256": "639cd4d1fd3828a8deb98cdebe2a72d16fd73e4c151effa3d7f3904fde33685c"
+    },
+    {
+      "level": 50,
+      "colour": "DIAMENT",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-50-DIAMENT.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_50.png",
+      "sha256": "470480523eedfafa6330f066cc2cb4126dbbb08b26633b8ba72b7b3f89c236f9"
+    },
+    {
+      "level": 51,
+      "colour": "DIAMENT",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-51-DIAMENT.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_51.png",
+      "sha256": "915bd5f71a4858521087abbb6415d80aa2a875288e093c040edcf8cb5dfd6985"
+    },
+    {
+      "level": 52,
+      "colour": "DIAMENT",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-52-DIAMENT.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_52.png",
+      "sha256": "1a4cd1c5c9826cc59588115b445b600d1f6f855847b38d0e7073ba9af0298016"
+    },
+    {
+      "level": 53,
+      "colour": "DIAMENT",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-53-DIAMENT.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_53.png",
+      "sha256": "b6cbce52abfe3be2b1d68964cb146766c5ea7a39ee9b77ed351718947e36e9a0"
+    },
+    {
+      "level": 54,
+      "colour": "DIAMENT",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-54-DIAMENT.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_54.png",
+      "sha256": "98f3fef5b87e23efb4a8d225de810ed430bbb102380f3ddd02221b3242f18d9b"
+    },
+    {
+      "level": 55,
+      "colour": "DIAMENT",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-55-DIAMENT.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_55.png",
+      "sha256": "2398d81b7eb47492ead9a52c0f261871995b2da5f2db591c2b86516df6c0e054"
+    },
+    {
+      "level": 56,
+      "colour": "DIAMENT",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-56-DIAMENT.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_56.png",
+      "sha256": "d986edaee0c39ef040e82e152a5beeced4bdb7e9bf204c1643a01cacb985b0df"
+    },
+    {
+      "level": 57,
+      "colour": "DIAMENT",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-57-DIAMENT.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_57.png",
+      "sha256": "571795347d8a2a765dddb0628edcdb47add13aa22428b0e534b7d916a028123d"
+    },
+    {
+      "level": 58,
+      "colour": "DIAMENT",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-58-DIAMENT.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_58.png",
+      "sha256": "8f615700aa2591128c42bc591dcab849ca88f20fec5089ac8788e2cf4c807a1b"
+    },
+    {
+      "level": 59,
+      "colour": "DIAMENT",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-59-DIAMENT.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_59.png",
+      "sha256": "f824170606f68a2c245842963ea7446c759a8aababda7514e418453410f04c3f"
+    },
+    {
+      "level": 60,
+      "colour": "LAPIS",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-60-LAPIS.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_60.png",
+      "sha256": "7e5c965cfa79453cbb622504f9e211cb743b968c11a369dd9562d92d6079a0ec"
+    },
+    {
+      "level": 61,
+      "colour": "LAPIS",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-61-LAPIS.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_61.png",
+      "sha256": "7db9b1ca09aa2190a79d11f002df901b7e7d127ef71696754fce5005c73d6231"
+    },
+    {
+      "level": 62,
+      "colour": "LAPIS",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-62-LAPIS.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_62.png",
+      "sha256": "bc60bb319284cc09f627b7faef6d797e1410f7c6806ed4e5bfdd7140b33815e5"
+    },
+    {
+      "level": 63,
+      "colour": "LAPIS",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-63-LAPIS.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_63.png",
+      "sha256": "1f3a8706dca325f012940725fa7132a03ef3d03d26002a587d7d9bdf1beeb39a"
+    },
+    {
+      "level": 64,
+      "colour": "LAPIS",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-64-LAPIS.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_64.png",
+      "sha256": "533a154fdfc6c5df8cf4538e95f90b15f69a9a8112f72906b07facc2c6ec3559"
+    },
+    {
+      "level": 65,
+      "colour": "LAPIS",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-65-LAPIS.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_65.png",
+      "sha256": "88f773725234e7b0518fd64d8abdddf27d360098d335deb8efaf094d91315f23"
+    },
+    {
+      "level": 66,
+      "colour": "LAPIS",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-66-LAPIS.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_66.png",
+      "sha256": "a1ae7618bfd58d2f863c92499baf97863fa28c03d80f2b68334bebb937bd1e5d"
+    },
+    {
+      "level": 67,
+      "colour": "LAPIS",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-67-LAPIS.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_67.png",
+      "sha256": "115c9e438af88f020a72650769977b68b7cbcaecbca647c270a9719ad92abe34"
+    },
+    {
+      "level": 68,
+      "colour": "LAPIS",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-68-LAPIS.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_68.png",
+      "sha256": "9d5fcd6f52fd38691b68d23baeb9ea1a6fcb6ebcedf1d280e849c3ac4bed9682"
+    },
+    {
+      "level": 69,
+      "colour": "LAPIS",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-69-LAPIS.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_69.png",
+      "sha256": "67bcc60873f860e7238fcda79458307a2f59bf8416a3a05915adce317476091b"
+    },
+    {
+      "level": 70,
+      "colour": "AMETYST",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-70-AMETYST.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_70.png",
+      "sha256": "2e7d91fe41b9821c0aab0e59cb46bee3507874d5e3996f6c8d46e9c2cb7872dc"
+    },
+    {
+      "level": 71,
+      "colour": "AMETYST",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-71-AMETYST.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_71.png",
+      "sha256": "b0fad7b71b79a2568cd95d4ba90de37c719139c1c8ebb0923b4b450cb18256bf"
+    },
+    {
+      "level": 72,
+      "colour": "AMETYST",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-72-AMETYST.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_72.png",
+      "sha256": "1aae3f3b1a0ca2409956551bb0da7acdc1024ad06244c2b1a4e61e6123c1cfa5"
+    },
+    {
+      "level": 73,
+      "colour": "AMETYST",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-73-AMETYST.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_73.png",
+      "sha256": "b0ff7c571cf1992f054150c798a1fb08d31a80b3fc32a592e451913452a93f36"
+    },
+    {
+      "level": 74,
+      "colour": "AMETYST",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-74-AMETYST.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_74.png",
+      "sha256": "7d0ee9403d9d906947c3afedf1cfc8d6a6d1d0bc7139ffac7ef061717748690e"
+    },
+    {
+      "level": 75,
+      "colour": "AMETYST",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-75-AMETYST.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_75.png",
+      "sha256": "94e7c3e810cb31ef90e113cbb27de680b6e764d1def73cecf6ae1ddc012dad7f"
+    },
+    {
+      "level": 76,
+      "colour": "AMETYST",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-76-AMETYST.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_76.png",
+      "sha256": "d74aa348e0aaec115bb7b1787a25fba6767522083d1354a554e43c807978926f"
+    },
+    {
+      "level": 77,
+      "colour": "AMETYST",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-77-AMETYST.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_77.png",
+      "sha256": "e41faa891b298f0ea54dc467625ed58fd26f54dd6b7a9a93b7f3b709dc4aa9fd"
+    },
+    {
+      "level": 78,
+      "colour": "AMETYST",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-78-AMETYST.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_78.png",
+      "sha256": "09bedb85c7d6cab3e8c7ae60be6e17ecc3067f47e64be42cf264a209185d2ee1"
+    },
+    {
+      "level": 79,
+      "colour": "AMETYST",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-79-AMETYST.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_79.png",
+      "sha256": "3aa49ee485f93526c952293bbda7dd0ea7133b136367644c7302d9085ed6c8ee"
+    },
+    {
+      "level": 80,
+      "colour": "RUBIN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-80-RUBIN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_80.png",
+      "sha256": "bb8e55d2a43a8564b1ce60fa96327c4f8f814c841fd6beb174653b56efb6b359"
+    },
+    {
+      "level": 81,
+      "colour": "RUBIN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-81-RUBIN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_81.png",
+      "sha256": "b6e6a6cb35868d917292435fbcf97e7c72de95351858d67c6cdbb9e70eeb1586"
+    },
+    {
+      "level": 82,
+      "colour": "RUBIN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-82-RUBIN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_82.png",
+      "sha256": "35fdca09a491944d7b03aed70a4e69f36d9b59352c983ca7aa3e895d74cc08c6"
+    },
+    {
+      "level": 83,
+      "colour": "RUBIN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-83-RUBIN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_83.png",
+      "sha256": "0d4482787f7c59e6ac620d67d3ede821793529ee58739b1084360429ccc75131"
+    },
+    {
+      "level": 84,
+      "colour": "RUBIN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-84-RUBIN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_84.png",
+      "sha256": "4d1938c1d8c28f4aa46f79d8dab22b272985cdc172c12d86fec4b6102463a1f2"
+    },
+    {
+      "level": 85,
+      "colour": "RUBIN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-85-RUBIN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_85.png",
+      "sha256": "e2359f4610fd0db97bc2d1927c2f4f17d30c788d1ec26471860feff066a036b6"
+    },
+    {
+      "level": 86,
+      "colour": "RUBIN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-86-RUBIN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_86.png",
+      "sha256": "dbaa77340bbb21895044506ee59d826dcd7e872c66717b45ac4e9d2892d05606"
+    },
+    {
+      "level": 87,
+      "colour": "RUBIN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-87-RUBIN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_87.png",
+      "sha256": "665ec5de8c74505cb88127d1ab560bd577d8be0f039eb0dd84d20dd87b0e50c6"
+    },
+    {
+      "level": 88,
+      "colour": "RUBIN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-88-RUBIN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_88.png",
+      "sha256": "8c4b03a2c58bdb43e8404e710a9dbd2f0d0871b0c5fcfbf69e52bb142bedaa24"
+    },
+    {
+      "level": 89,
+      "colour": "RUBIN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-89-RUBIN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_89.png",
+      "sha256": "c2af4f0f3f4b1301aa349e15daa3f3d6aaf5f3b640cbc391b5647954e93b4d25"
+    },
+    {
+      "level": 90,
+      "colour": "OBSYDIAN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-90-OBSYDIAN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_90.png",
+      "sha256": "b8a25d7c5e4b8635c9c47efc9178d85ce92ca839f8c18256fa7e0304d01963f2"
+    },
+    {
+      "level": 91,
+      "colour": "OBSYDIAN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-91-OBSYDIAN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_91.png",
+      "sha256": "ca337f4c65951962fc3586f40e8d571babe8feb8cbc8648c5d455899237f9c59"
+    },
+    {
+      "level": 92,
+      "colour": "OBSYDIAN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-92-OBSYDIAN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_92.png",
+      "sha256": "d56461bdc893008944101ead60b8acb748f92a6c48960c704a575b2ec583ad64"
+    },
+    {
+      "level": 93,
+      "colour": "OBSYDIAN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-93-OBSYDIAN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_93.png",
+      "sha256": "383b4bc786cef69509bba2ee9a6563fa1635e79cc84c587beb41d97c401a1e67"
+    },
+    {
+      "level": 94,
+      "colour": "OBSYDIAN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-94-OBSYDIAN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_94.png",
+      "sha256": "4b9538f153ee269e7bdd8a916af79cb5571e76f49f4602de9efbdac8e4deda3b"
+    },
+    {
+      "level": 95,
+      "colour": "OBSYDIAN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-95-OBSYDIAN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_95.png",
+      "sha256": "1b7f15a6892a3171a80cf92b30c9688f71137c1955ab5214d8ce7f4c40056dc9"
+    },
+    {
+      "level": 96,
+      "colour": "OBSYDIAN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-96-OBSYDIAN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_96.png",
+      "sha256": "a840d505e08ee5406884f376e208084a7c0a49e7abeb260c28f88c2859c8b753"
+    },
+    {
+      "level": 97,
+      "colour": "OBSYDIAN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-97-OBSYDIAN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_97.png",
+      "sha256": "78e2adbbc9c6715df1035c2939813531be1648d895f2f19f44b94d1a331078cd"
+    },
+    {
+      "level": 98,
+      "colour": "OBSYDIAN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-98-OBSYDIAN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_98.png",
+      "sha256": "798120468ae330406f7d68bf22ea746c61852614ee98d883b92f53588a5fe133"
+    },
+    {
+      "level": 99,
+      "colour": "OBSYDIAN",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-99-OBSYDIAN.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_99.png",
+      "sha256": "2e5e40e0401ccb60a65ea6e11215bccc250aa21ed23bffc15a53ef94ba08d538"
+    },
+    {
+      "level": 100,
+      "colour": "KWARC",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-100-KWARC.png",
+      "target": "assets/tnkprogression/textures/font/numbers/level_100.png",
+      "sha256": "3361c1468f70da849ecdee3a3c6dee1a5e5d2af1c8436e0ec9d671a57c2bfc27"
+    }
+  ],
+  "titles": [
+    {
+      "id": "tnk:apprentice",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-APPRENTICE-ŻELAZO.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_0.png",
+      "sha256": "8ef4f0628cf3091d682e80e7a9966cdca7901ff33df7a1f11c860f76476acc5c"
+    },
+    {
+      "id": "tnk:technician",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-TECHNICIAN-MIEDŹ.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_1.png",
+      "sha256": "64fd4105e215f8a80c3bc13bed1fa1facda69a2687d3ebd3c0f48295609b4e23"
+    },
+    {
+      "id": "tnk:engineer",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-ENGINEER-ZŁOTO.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_2.png",
+      "sha256": "3a867119d78afe2d3d0f34a5305948da7aaf3165a9b09be5376dd573e64d14e9"
+    },
+    {
+      "id": "tnk:specialist",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-SPECIALIST-SZMARAGD.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_3.png",
+      "sha256": "2f349c6787e6c172e86416f46fe99c8b525dea387229e3471df081345c98c0c9"
+    },
+    {
+      "id": "tnk:expert",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-EXPERT-PRYZMARYN.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_4.png",
+      "sha256": "f5fa8eb71dfb99e60c912997d236a2b8ff1bb8b1bcaf044269ca328c8f004c27"
+    },
+    {
+      "id": "tnk:master",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-MASTER-DIAMENT.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_5.png",
+      "sha256": "580c5d9186e9ce700e635b6fb9733e4bb0d666993a5e2a9a389339b47f08ba52"
+    },
+    {
+      "id": "tnk:grandmaster",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-GRANDMASTER-LAPIS.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_6.png",
+      "sha256": "f4d40375a4df60f6e0fe8407927f7338654ab2214f78328db8f7f3d7d5affc9f"
+    },
+    {
+      "id": "tnk:champion",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-CHAMPION-AMETYST.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_7.png",
+      "sha256": "8c300b1b4d74e5ff75c9525a52b2cb713fac48b0eda52f06aaafd64836a0e570"
+    },
+    {
+      "id": "tnk:legend",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-LEGEND-RUBIN.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_8.png",
+      "sha256": "2657ad3514cf9147b44ba6f0c88a7b88ef2d02bd249bd3c47255c1939b0b95ac"
+    },
+    {
+      "id": "tnk:monarch",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-MONARCH-KWARC.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_9.png",
+      "sha256": "42bb528e00e3ea5d122430f1cedfd8e77bd6cf7dc449155765b449858bd77511"
+    },
+    {
+      "id": "tnk:initiate",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-INITIATE-ŻELAZO.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_10.png",
+      "sha256": "7b74e301b51b3a9f84752cd4a570f240ba522e6f1d3a5bb3687425c68f01165a"
+    },
+    {
+      "id": "tnk:disciplined",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-DISCIPLINED-MIEDŹ.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_11.png",
+      "sha256": "177979c7e53d48744bb98bd368e8d92adcb5deb5d135c4e9d9d0aefaa61eea23"
+    },
+    {
+      "id": "tnk:veteran",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-VETERAN-AMETYST.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_12.png",
+      "sha256": "77489ee08cf7bf1695d4f2a7685affcabeb8a483d5ac290aa2ab80b12cdefbf5"
+    },
+    {
+      "id": "tnk:paragon",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-PARAGON-KWARC.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_13.png",
+      "sha256": "558bd67689d10c22a9cf9f9f11fda2d64359eb2debca66fae6d32fbce0e62069"
+    },
+    {
+      "id": "tnk:skill_wayfarer",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-WANDERER-DIAMENT.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_14.png",
+      "sha256": "f68b0cfc00b55ca6674a024d54dc9571a216351aca109c07b95fc592ff8f7200"
+    },
+    {
+      "id": "tnk:skill_delver",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-ADAMANT-MIEDŹ.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_15.png",
+      "sha256": "077f9bd73d439c2167b2a71986ec9c87da6861182fa4abed595ac9b80e38c8e4"
+    },
+    {
+      "id": "tnk:skill_homesteader",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-CARETAKER-SZMARAGD.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_16.png",
+      "sha256": "17666b18d995e0eb4248ce35b021393cdded784a781a9fa30e9819bb9f974da9"
+    },
+    {
+      "id": "tnk:skill_artificer",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-CREATOR-ZŁOTO.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_17.png",
+      "sha256": "5a173742064e7bedfcd06c46efbc94195aca540687de84ef6278b0f4d0a4b78d"
+    },
+    {
+      "id": "tnk:skill_survivor",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-UNBROKEN-KWARC.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_18.png",
+      "sha256": "89bb6e77cfe4b962f8d7da2a61b5a50b27f7a3fae9900df1e421f698e306ad0a"
+    },
+    {
+      "id": "tnk:skill_adventurer",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-ADVENTURER-RUBIN.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_19.png",
+      "sha256": "e09f0e306c16c4770ef8835b9097b4169fd9cfa04953d9e942177f8ae19ceda2"
+    },
+    {
+      "id": "tnk:board_recruit",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-RECRUIT-ŻELAZO.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_20.png",
+      "sha256": "9c2a943fa7003e8676a86cb56f9d9f833c03b98857d6449fd2af8028d58b5582"
+    },
+    {
+      "id": "tnk:board_citizen",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-CITIZEN-SZMARAGD.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_21.png",
+      "sha256": "2d696534cad7c72080de8ea79644cdaa2e9d3726250be9e0fcccc333869d7955"
+    },
+    {
+      "id": "tnk:board_taskmaster",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-TASKMASTER-ZŁOTO.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_22.png",
+      "sha256": "61eb94dee236b8417e36418837682d2f8cd2116ac33a58a453199fb45cc0c440"
+    },
+    {
+      "id": "tnk:prepared",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-SURVIVOR-MIEDŹ.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_23.png",
+      "sha256": "c542ced5c1253e29bc0e5711c00d36a4bacd821ab61a1a0f66b578b2fe30870b"
+    },
+    {
+      "id": "tnk:planner",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-PLANNER-PRYZMARYN.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_24.png",
+      "sha256": "beb4e926095b14e7e9ec8a3f02423ac1bb5ae0d709120f5c234a3352d38c53cd"
+    },
+    {
+      "id": "tnk:architect",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-ARCHITECT-ZŁOTO.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_25.png",
+      "sha256": "25681db6d0c4c6468718a7d96d02d1a556625b8cdf59488bdcfff65f82013fe8"
+    },
+    {
+      "id": "tnk:letsdo_creator",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-CREATOR-MIEDŹ.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_26.png",
+      "sha256": "1f4b12baf6b9ac71723db866ad0b1264970b266e56de662895ed2319f7636976"
+    },
+    {
+      "id": "tnk:letsdo_host",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-HOST-ZŁOTO.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_27.png",
+      "sha256": "bbffa7d8676ad834872c8b18bd64e1ecadbe2db65fe782ffced367920da5ad6c"
+    },
+    {
+      "id": "tnk:letsdo_caretaker",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-CARETAKER-SZMARAGD.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_28.png",
+      "sha256": "17666b18d995e0eb4248ce35b021393cdded784a781a9fa30e9819bb9f974da9"
+    },
+    {
+      "id": "tnk:letsdo_expert",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-EXPERT-RUBIN.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_29.png",
+      "sha256": "d2223b574cf1d978abf92cdd37278f86170beea45f69291878588948fc695c60"
+    },
+    {
+      "id": "tnk:irons_arcane",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-ARCANE-AMETYST.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_30.png",
+      "sha256": "b9c5f02f26fd2b8b1020487d869237fcff03e2e3072c2f7b73f98eb3aa1c6cc3"
+    },
+    {
+      "id": "tnk:ars_mystic",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-MYSTIC-PRYZMARYN.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_31.png",
+      "sha256": "b1a0905da0bdf7d39c89b1edf441add3d9bc141b72da92046905fa97671dd1ef"
+    },
+    {
+      "id": "tnk:witchery_oracle",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-ORACLE-OBSYDIAN.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_32.png",
+      "sha256": "ecc657a5d94c8c35c828aabd01384a8a3b07c56d24c980cfd29248d9e52c8da1"
+    },
+    {
+      "id": "tnk:dragon_slayer",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-SLAYER-ENDER.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_33.png",
+      "sha256": "1bd0340711a7a4a6d3d81d65cf14b8bf0f27e146f20ee9a8d28a09112d9b8cbf"
+    },
+    {
+      "id": "tnk:wither_vanquisher",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-VANQUISHER-KWARC.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_34.png",
+      "sha256": "decaabd03683b26a2f9af046686fed12147e6e4e379b4f292f4404b1d1c97145"
+    },
+    {
+      "id": "tnk:ignis_inferno",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-INFERNO-RUBIN.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_35.png",
+      "sha256": "722e8d89541929063154a176b635604a951dd6bc233995bb157bdc579b60d2dd"
+    },
+    {
+      "id": "tnk:harbinger_conqueror",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-CONQUEROR-RUBIN.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_36.png",
+      "sha256": "26105edc68b5d8dea57523fe534ff4ce8888fb61524fc537be2b18fb91837ede"
+    },
+    {
+      "id": "tnk:leviathan_tidal",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-TIDAL-PRYZMARYN.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_37.png",
+      "sha256": "6ec8c0dc5b28b9c924c47d6385911cc82031c66b87b7a14edc8d125373201462"
+    },
+    {
+      "id": "tnk:monstrosity_titanium",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-TITANIUM-ŻELAZO.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_38.png",
+      "sha256": "8550fa0b28c013d55b8f769ae58f345cbaaf4b1445ffffb6e9199d08afe98d5d"
+    },
+    {
+      "id": "tnk:remnant_ancient",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-ANCIENT-ZŁOTO.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_39.png",
+      "sha256": "adf888b25bd72fb27fe63ddcab66854ffff9ae4b773f451032814967c5fa60b3"
+    },
+    {
+      "id": "tnk:naga_hunter",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-HUNTER-SZMARAGD.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_40.png",
+      "sha256": "7866338794e33b5e78c12692867be55b914e4695414179803447d9bf766a26df"
+    },
+    {
+      "id": "tnk:lich_phantom",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-PHANTOM-AMETYST.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_41.png",
+      "sha256": "5a89b07abd692eca5d65094dad5057cf27cf32f86db584e8c4ca254e50f67e78"
+    },
+    {
+      "id": "tnk:guardian_sentinel",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-SENTINEL-ENDER.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_42.png",
+      "sha256": "71b0e4457b0520f91bc9d99aecccc7e34467c513e0f5f0905ba7cb3f82fb8ef9"
+    },
+    {
+      "id": "tnk:mastery_alchemist_1",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-SHADOW-AMETYST.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_43.png",
+      "sha256": "31b323b03bde205c25595e259591892c2f729cce7782500601a42f9464d2eb23"
+    },
+    {
+      "id": "tnk:mastery_alchemist_2",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-GUARDIAN-AMETYST.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_44.png",
+      "sha256": "736e870b36bf20af749e0b56f9b69e926b69805a732294ff65db9da00c5ddbd4"
+    },
+    {
+      "id": "tnk:mastery_blacksmith_1",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-SOLDIER-AMETYST.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_45.png",
+      "sha256": "f08c08e1c963b42b5e132bd0a9bcf01cca51cdbee27f943bca52d4d4963bf8fd"
+    },
+    {
+      "id": "tnk:mastery_blacksmith_2",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-STEEL-AMETYST.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_46.png",
+      "sha256": "05a01274c1af14295384b37f910ef84ebf98f2d16b36364bb5b434a83270fb45"
+    },
+    {
+      "id": "tnk:mastery_cook_1",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-BERSERKER-AMETYST.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_47.png",
+      "sha256": "2df0524d65a17200821e757323ae4a95a65e27a19b43378b8c8ca2241554d965"
+    },
+    {
+      "id": "tnk:mastery_cook_2",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-TIDE-AMETYST.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_48.png",
+      "sha256": "525e4daafbbbaec375cb4ed03a7d3ae0278e3f1994a80ec93f45414397ccf4fd"
+    },
+    {
+      "id": "tnk:mastery_enchanter_1",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-BLAZE-AMETYST.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_49.png",
+      "sha256": "b906684197e103e47ce25ba9a5f93794f82b6f12f24b21b2f2647ad80a88b69d"
+    },
+    {
+      "id": "tnk:mastery_enchanter_2",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-ASTRAL-AMETYST.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_50.png",
+      "sha256": "468681614c53bea93fc9aa7e02312fafca888b0bd53668816fd588b975688222"
+    },
+    {
+      "id": "tnk:mastery_hunter_1",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-RANGER-AMETYST.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_51.png",
+      "sha256": "5976bc0fef105236e3d2ab4af58cdac91a8af9ded5485dd8bdc71f13b4afb3ff"
+    },
+    {
+      "id": "tnk:mastery_hunter_2",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-ARCHER-AMETYST.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_52.png",
+      "sha256": "246011fb37fc0cf0eafb8a38884d10dc66a72b83ce67558a9b65661247907d32"
+    },
+    {
+      "id": "tnk:mastery_miner_1",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-EXPLORER-AMETYST.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_53.png",
+      "sha256": "837c67316f010595f85738be2428fe74cf4bbd190a43de6ff85f7e7da89c28be"
+    },
+    {
+      "id": "tnk:mastery_miner_2",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-AMETHYST-AMETYST.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_54.png",
+      "sha256": "684545f94a19a71e8cd7b5e8abc80d455c8e7ad020d3944936d25a898ff5f052"
+    },
+    {
+      "id": "tnk:beta_tester",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-FOUNDER-AMETYST.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_55.png",
+      "sha256": "ed049e5db9c062b5934b562947e5d4ea775fef02c2ea58355d349badeee562ed"
+    },
+    {
+      "id": "tnk:owner",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-OWNER-ZŁOTO.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_56.png",
+      "sha256": "ca79e90c89a9d71670f6badab130d88f212d434086659d58f0c26aaca3353f45"
+    },
+    {
+      "id": "tnk:admin",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-ADMIN-RUBIN.png",
+      "target": "assets/tnkprogression/textures/font/titles/title_57.png",
+      "sha256": "2eafc3e1ffefa8199c9fcde7f981b8d43d41a4d9fc9ac1e6c9603ec3943e9895"
+    }
+  ]
+}

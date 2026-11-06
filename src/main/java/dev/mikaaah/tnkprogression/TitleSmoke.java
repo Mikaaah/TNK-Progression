@@ -17,8 +17,9 @@ public final class TitleSmoke {
         check(dispatcher.execute("tnkprogress title grant @s tnk:ars_mystic",p.createCommandSourceStack().withPermission(2))==1,"FTB-style namespaced grant command");
         check(!Titles.grant(p,"tnk:ars_mystic"),"duplicate grant idempotent");
         check(Titles.selected(p).equals("tnk:ars_mystic"),"first title equipped");
-        String expected=LevelBadges.glyph(ProgressionAPI.level(p))+" [Mystic] TitleTest";
-        check(p.getDisplayName().getString().equals(expected),"readable no-pack name fallback");
+        String renderedTitle=Component.translatableWithFallback("tnkprogression.title.tnk.ars_mystic","[Mystic]").getString();
+        String expected=LevelBadges.glyph(ProgressionAPI.level(p))+" "+renderedTitle+" TitleTest";
+        check(p.getDisplayName().getString().equals(expected),"resolved title badge and name format");
         p.refreshDisplayName();check(p.getDisplayName().getString().equals(expected),"title prefix does not duplicate on refresh");
         check(Titles.grant(p,"tnk:dragon_slayer"),"second title granted");
         check(Titles.selected(p).equals("tnk:ars_mystic"),"new grant preserves selection");
@@ -30,9 +31,15 @@ public final class TitleSmoke {
         check(!Titles.earn(p,"tnk:dragon_slayer"),"automatic sync respects revocation");
         check(Titles.grant(p,"tnk:dragon_slayer"),"explicit grant restores revoked title");
         check(Titles.selected(p).isEmpty(),"hidden selection stays hidden after grants");
-        check(!Titles.select(p,"tnk:ars_mystic"),"perk swap cooldown cannot be bypassed by hide/restore");
+        check(Titles.selectPassive(p,"tnk:dragon_slayer"),"passive can be selected independently");
+        check(Titles.select(p,"tnk:ars_mystic"),"cosmetic ignores passive swap cooldown");
+        check(!Titles.selectPassive(p,"tnk:ars_mystic"),"passive swap cooldown cannot be bypassed by cosmetic changes");
         n.putLong("title_swap_after",0);
-        check(Titles.select(p,"tnk:ars_mystic"),"select owned title again");
+        check(Titles.selectPassive(p,"tnk:ars_mystic"),"select owned passive again");
+        check(dispatcher.execute("tnkprogress title earn @s tnk:owner",p.createCommandSourceStack().withPermission(2))==0,"automatic command cannot grant owner");
+        check(dispatcher.execute("tnkprogress title grant @s tnk:owner",p.createCommandSourceStack().withPermission(2))==1,"operator explicitly grants owner");
+        check(dispatcher.execute("tnkprogress title cosmetic tnk:owner",p.createCommandSourceStack().withPermission(0))==1 && Titles.passive(p).equals("tnk:ars_mystic"),"earned staff cosmetic selectable without changing passive");
+        Titles.select(p,"tnk:ars_mystic");
         var buffer=new net.minecraft.network.RegistryFriendlyByteBuf(io.netty.buffer.Unpooled.buffer(),p.registryAccess());
         try {
             var payload=new TitleBadgePayload(p.getUUID(),Titles.display(p));TitleBadgePayload.CODEC.encode(buffer,payload);

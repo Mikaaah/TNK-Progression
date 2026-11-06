@@ -19,7 +19,7 @@ The actual player model shows the client's skin and equipment. The original embe
 - **Activities:** all seven repeatable tracks, next Milestone number, work requirement, XP reward and a Track/Pinned button. The compact HUD follows the pinned activity.
 - **HUD:** player face/name, original number badge, character XP and tracked progress. Hide/show it on the character sheet; it also hides with F1, in spectator mode and while another screen is open.
 
-Only the equipped title grants its perks. Owning multiple titles does not stack them. Hiding a title removes its perk and keeps ownership. The default 30-second title-swap cooldown cannot be erased by hiding or reconnecting. Attribute changes do not heal the player. Optional missing attributes are marked unavailable. See TITLES.md and config/tnk-title-perks.json for the catalog and perk settings.
+The selected **passive title** grants its perks; the **cosmetic title** independently controls the visible badge. Owning multiple titles does not stack them. Hiding the cosmetic keeps passive benefits. Clearing the passive removes benefits but retains the default 30-second passive swap cooldown. Attribute changes do not heal the player. Optional missing attributes are marked unavailable. Founder has modest flat movement/breaking bonuses; staff titles are cosmetic only. See TITLE-SLOTS.md and config/tnk-title-perks.json.
 
 ## Mob labels
 

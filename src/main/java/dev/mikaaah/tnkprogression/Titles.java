@@ -9,14 +9,29 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
-/** Titles are personal, permanent achievements; only the equipped title supplies perks. The wearer selects one, or hides them. */
+/** Personal title ownership with independent cosmetic and passive selections. */
 public final class Titles {
     public static final ResourceLocation FONT=ResourceLocation.parse("tnkprogression:title_badges");
+    public static boolean commandOnly(String id){return SpecialTitles.commandOnly(id);}
+    public static boolean cosmeticOnly(String id){return SpecialTitles.cosmeticOnly(id);}
     private static final Map<UUID,Component> CLIENT_TITLES=new HashMap<>();
     public static boolean unlocked(ServerPlayer p,String id){return ProgressionAPI.profile(p).getCompound("titles_unlocked").getBoolean(id);}
     public static String selected(ServerPlayer p){
         String id=ProgressionAPI.profile(p).getString("title_selected");
         return unlocked(p,id) && TitleConfig.get(id).isPresent()?id:"";
+    }
+    public static String passive(ServerPlayer p){
+        var n=ProgressionAPI.profile(p);
+        // Migrate once; explicit empty selections remain empty on later logins.
+        if(!n.getBoolean("title_slots_split")){
+            if(n.contains("title_selected")){
+                String legacy=selected(p);
+                n.putString("title_passive",cosmeticOnly(legacy)?"":legacy);
+            }
+            n.putBoolean("title_slots_split",true);ProgressionData.get(p.server).setDirty();
+        }
+        String id=n.getString("title_passive");
+        return !cosmeticOnly(id) && unlocked(p,id) && TitleConfig.get(id).isPresent()?id:"";
     }
     public static Component display(ServerPlayer p){return TitleConfig.get(selected(p)).map(Titles::badge).orElse(Component.empty());}
     public static Component badge(TitleConfig.Definition title){
@@ -27,7 +42,7 @@ public final class Titles {
                     .withStyle(Style.EMPTY.withFont(ResourceLocation.withDefaultNamespace("default")).withColor(title.rgb())))));
     }
     public static boolean earn(ServerPlayer p,String id){
-        return !ProgressionAPI.profile(p).getCompound("titles_revoked").getBoolean(id) && unlock(p,id);
+        return !commandOnly(id) && !ProgressionAPI.profile(p).getCompound("titles_revoked").getBoolean(id) && unlock(p,id);
     }
     public static boolean grant(ServerPlayer p,String id){
         if(TitleConfig.get(id).isEmpty())return false;
@@ -36,23 +51,38 @@ public final class Titles {
     }
     private static boolean unlock(ServerPlayer p,String id){
         var def=TitleConfig.get(id);if(def.isEmpty() || unlocked(p,id))return false;
+        passive(p); // Migrate the previous choice before a new reward can become the first selection.
         CompoundTag n=ProgressionAPI.profile(p),earned=n.getCompound("titles_unlocked");earned.putBoolean(id,true);n.put("titles_unlocked",earned);
-        if(TitleConfig.current.autoEquipFirst() && !n.contains("title_selected"))n.putString("title_selected",id);
+        if(TitleConfig.current.autoEquipFirst() && !n.contains("title_selected")){
+            n.putString("title_selected",id);
+            if(!n.contains("title_passive") && !cosmeticOnly(id))n.putString("title_passive",id);
+        }
         ProgressionData.get(p.server).setDirty();LevelBadges.changed(p);
         p.sendSystemMessage(Component.literal("Title unlocked: "+def.get().label()).withStyle(style->style.withColor(def.get().rgb())));
         return true;
     }
     public static boolean select(ServerPlayer p,String id){
         if(!id.isEmpty() && (!unlocked(p,id) || TitleConfig.get(id).isEmpty()))return false;
-        if(!id.isEmpty() && !id.equals(selected(p)) && TitlePerks.cooldown(p)>0)return false;
-        if(!id.isEmpty() && !id.equals(selected(p)))ProgressionAPI.profile(p).putLong("title_swap_after",p.server.overworld().getGameTime()+20L*TitlePerks.current.swapCooldownSeconds());
-        ProgressionAPI.profile(p).putString("title_selected",id);ProgressionData.get(p.server).setDirty();LevelBadges.changed(p);return true;
+        passive(p);
+        ProgressionAPI.profile(p).putString("title_selected",id);ProgressionData.get(p.server).setDirty();LevelBadges.appearanceChanged(p);return true;
+    }
+    public static boolean selectPassive(ServerPlayer p,String id){
+        String before=passive(p);
+        if(!id.isEmpty() && (cosmeticOnly(id) || !unlocked(p,id) || TitleConfig.get(id).isEmpty()))return false;
+        if(id.equals(before))return true;
+        if(!id.isEmpty() && TitlePerks.cooldown(p)>0)return false;
+        var n=ProgressionAPI.profile(p);
+        // Clearing removes benefits immediately but never clears the swap lockout.
+        if(!id.isEmpty())n.putLong("title_swap_after",p.server.overworld().getGameTime()+20L*TitlePerks.current.swapCooldownSeconds());
+        n.putString("title_passive",id);ProgressionData.get(p.server).setDirty();TitlePerks.apply(p);CharacterState.sendFull(p);return true;
     }
     public static boolean revoke(ServerPlayer p,String id){
         if(TitleConfig.get(id).isEmpty() && !unlocked(p,id))return false;
+        passive(p);
         var n=ProgressionAPI.profile(p);var revoked=n.getCompound("titles_revoked");revoked.putBoolean(id,true);n.put("titles_revoked",revoked);
         var earned=n.getCompound("titles_unlocked");earned.remove(id);n.put("titles_unlocked",earned);
         if(n.getString("title_selected").equals(id))n.putString("title_selected","");
+        if(n.getString("title_passive").equals(id))n.putString("title_passive","");
         ProgressionData.get(p.server).setDirty();LevelBadges.changed(p);return true;
     }
     public static Component client(UUID id){return CLIENT_TITLES.getOrDefault(id,Component.empty());}

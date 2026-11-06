@@ -1,5 +1,5 @@
 plugins { id 'java-library'; id 'net.neoforged.moddev' version '2.0.148' }
-version = '0.6.0-beta.1'
+version = '1.0.0-private.1'
 group = 'dev.mikaaah.tnkprogression'
 base { archivesName = 'tnkprogression' }
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
@@ -7,6 +7,17 @@ neoForge {
  version = project.neo_version
  runs { server { server(); programArgument '--nogui' }; client { client() } }
  mods { tnkprogression { sourceSet(sourceSets.main) } }
+}
+if (providers.gradleProperty('tnkTitleSlotsSmoke').isPresent()) {
+ neoForge.runs.client {
+  systemProperty 'tnkprogression.titleSlotsSmoke', 'true'
+  programArgument '--quickPlaySingleplayer'
+  programArgument 'TNKTitleSlots'
+  programArgument '--width'
+  programArgument '1600'
+  programArgument '--height'
+  programArgument '1000'
+ }
 }
 repositories { mavenCentral() }
 dependencies { testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'; testRuntimeOnly 'org.junit.platform:junit-platform-launcher' }
@@ -18,8 +29,16 @@ tasks.named('processResources') {
  from('skilltree/resourcepack') { include 'assets/**'; include 'CREDITS.txt'; include 'HAS-LICENSE.txt' }
 }
 
-// Private release builds embed the user's licensed artwork as ordinary mod resources.
-// Example: ./gradlew jar -PtnkArtworkSource=/path/to/advancedpack.zip
+// This TNK development branch includes the permitted artwork as ordinary mod resources.
+tasks.register('verifyBundledArtwork', Exec) {
+ inputs.file('tools/verify_bundled_artwork.py')
+ inputs.files(fileTree('src/main/resources/assets/tnkprogression'))
+ inputs.file('src/main/resources/data/tnkprogression/default_titles.json')
+ commandLine 'python3', 'tools/verify_bundled_artwork.py'
+}
+tasks.named('processResources') { dependsOn 'verifyBundledArtwork' }
+
+// Optional: rebuild the badge overlay from the original archive, preserving its PNG bytes.
 def prefixArtworkSource = providers.gradleProperty('tnkArtworkSource')
 tasks.named('jar', Jar) {
  if (prefixArtworkSource.isPresent()) {

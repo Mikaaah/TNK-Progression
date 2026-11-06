@@ -15,7 +15,7 @@ public record LevelBadgePayload(UUID playerId, int level) implements CustomPacke
         buffer -> new LevelBadgePayload(buffer.readUUID(), buffer.readVarInt()));
     @Override public Type<LevelBadgePayload> type() { return TYPE; }
     public static void register(RegisterPayloadHandlersEvent event) {
-        var registrar=event.registrar("4");
+        var registrar=event.registrar("5");
         registrar.playToClient(TYPE, CODEC,
             (payload, context) -> LevelBadges.accept(payload.playerId(), payload.level(), context.player()));
         registrar.playToClient(CharacterPayload.TYPE,CharacterPayload.CODEC,(payload,context)->CharacterClientState.accept(payload.json()));

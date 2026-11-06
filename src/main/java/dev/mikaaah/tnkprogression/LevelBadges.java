@@ -50,6 +50,9 @@ public final class LevelBadges {
 
     public static void changed(ServerPlayer player) {
         TitlePerks.apply(player);
+        appearanceChanged(player);
+    }
+    public static void appearanceChanged(ServerPlayer player) {
         CharacterState.sendFull(player);
         player.refreshDisplayName();
         PacketDistributor.sendToAllPlayers(new LevelBadgePayload(player.getUUID(), ProgressionAPI.level(player)));

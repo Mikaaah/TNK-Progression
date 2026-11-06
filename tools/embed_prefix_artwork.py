@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Embed user-owned original number/title PNGs into a private release JAR.
 
-No artwork is stored in the public repository. PNG bytes are copied unchanged.
+The TNK development checkout includes its permitted artwork. PNG bytes are copied unchanged.
 Usage: python tools/embed_prefix_artwork.py base.jar advancedpack.zip output.jar [--version VERSION]
 The output may be the input JAR, for the Gradle release-artwork hook.
 """
 import argparse
+import copy
 import hashlib
 import json
 import os
@@ -35,7 +36,7 @@ def embed(base, source, target, version=None):
             overlay[LANG] = (json.dumps(lang, indent=2, ensure_ascii=False) + '\n').encode()
             manifest = {'numbers': json.loads(art.read('number-prefix-map.json')),
                         'titles': json.loads(art.read('title-prefix-map.json'))}
-            assert len(manifest['numbers']) == 100 and len(manifest['titles']) == 55
+            assert len(manifest['numbers']) == 100 and len(manifest['titles']) == 58
             overlay[MANIFEST] = (json.dumps(manifest, indent=2, ensure_ascii=False) + '\n').encode()
             with zipfile.ZipFile(output, 'w', zipfile.ZIP_DEFLATED) as out:
                 for info in original.infolist():
@@ -46,7 +47,7 @@ def embed(base, source, target, version=None):
                         data, count = re.subn(rb'(?m)^version="[^"]+"$',
                                               ('version="' + version + '"').encode(), data)
                         assert count == 1, 'Expected one mod version field'
-                    out.writestr(info, data)
+                    out.writestr(copy.copy(info), data)
                 for name, data in overlay.items():
                     out.writestr(name, data)
             with zipfile.ZipFile(output) as out, zipfile.ZipFile(source) as src:
@@ -64,7 +65,7 @@ def embed(base, source, target, version=None):
                 providers = json.loads(out.read('assets/tnkprogression/font/level_badges.json'))['providers']
                 assert [p['chars'] for p in providers] == [[chr(0xE000 + n)] for n in range(1, 101)]
         os.replace(output, target)
-    print('TNK_EMBEDDED_PREFIX_ARTWORK_OK: 100 original numbers, 55 original titles; all PNG and class bytes verified.')
+    print('TNK_EMBEDDED_PREFIX_ARTWORK_OK: 100 original numbers, 58 original titles; all PNG and class bytes verified.')
 
 
 if __name__ == '__main__':

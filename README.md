@@ -1,12 +1,14 @@
-# Towns & Kingdoms Progression — 0.6.0-beta.1
+# Towns & Kingdoms Progression — 1.0.0-private.1
+
+Made specifically for **Towns & Kingdoms 3 | Beyond the Forge**. This is a private feature-testing build for the modpack.
 
 Minecraft **1.21.1**, NeoForge **21.1.262+**, Java **21**. Original implementation; no Auto Leveling or Just Leveling code is bundled. This is an initial pack beta; tune the balance in a test world.
 
 ## Character screen and HUD
 
-Open the survival inventory and click the **player portrait replacing the recipe-book button**, or press **I** (rebind in Controls → Towns & Kingdoms). The warm parchment screen uses TNK purple accents, subtle gradients, colored headers, bold labels, softened corners and activity icons. It shows your live player model, character XP/ceiling, seven activity tracks, milestone journal and title collection. Equip/hide titles and pin an activity directly with buttons. A compact player/XP/activity HUD can be toggled from the screen. Use **Skill Tree** beside the point counter to open the configured Pufferfish category. Closing a screen opened from inventory returns to inventory. No command is needed. Update server and clients together (protocol 4).
+Open the survival inventory and click the **player portrait replacing the recipe-book button**, or press **I** (rebind in Controls → Towns & Kingdoms). The warm parchment screen uses TNK purple accents, subtle gradients, colored headers, bold labels, softened corners and activity icons. It shows your live player model, character XP/ceiling, seven activity tracks, milestone journal and title collection. Equip/hide titles and pin an activity directly with buttons. A compact player/XP/activity HUD can be toggled from the screen. Use **Skill Tree** beside the point counter to open the configured Pufferfish category. Closing a screen opened from inventory returns to inventory. No command is needed. Update server and clients together (protocol 5).
 
-**Equipped title perks replace aptitudes:** only one title applies at a time, with a server-enforced 30-second swap cooldown, no stacking and no healing from swaps. Identification discounts are not implemented. The external skilltree also includes bounded conditional abilities such as Second Wind.
+**Cosmetic and passive titles are independent:** choose a visible badge for chat/nameplates and one earned title supplying passive benefits. Only passive changes use the server-enforced 30-second swap cooldown; bonuses never stack and swapping never heals. Founder adds +3% vanilla-base movement speed and +5% vanilla-base block-breaking speed through small flat modifiers when chosen as the passive. Owner and Admin remain cosmetic only. Identification discounts are not implemented. The external skilltree also includes bounded conditional abilities such as Second Wind. Update server and clients together for protocol 5. See [title slots](docs/TITLE-SLOTS.md).
 
 See [character HUD, perks, balance and migration](docs/CHARACTER-HUD.md). The numerical release preset and pacing/passive reports are shipped alongside it; full-pack playtesting is still needed to validate the final tuning.
 
@@ -46,11 +48,11 @@ Optional bridge targets the public 0.19.2 API on the 1.21 branch. Configure the 
 
 ## Player level badges
 
-The delivered private **JAR includes the supplied number-only Advanced Pack artwork by default**. No companion resource pack needs to be enabled. The earlier optional-only packaging allowed Minecraft to display the old bronze `LVL` fallback when the pack was absent; this release corrects that. All 100 number PNGs and 55 title PNGs are copied byte-for-byte, without recolouring or changing pixels. Existing compatible number/title packs may stay enabled, but remove or disable any pack that deliberately overrides the font with old artwork.
+The **JAR includes all 100 level badges and 58 title badges by default**, including Founder, Owner and Admin. No companion resource pack or KubeJS asset installation is needed for these badges or the character GUI. The original badge PNGs are included byte-for-byte, without recolouring or changing pixels. Existing compatible number/title packs may stay enabled, but remove or disable any pack that deliberately overrides the font with old artwork.
 
 Colours remain: 1–9 silver; 10–19 copper; 20–29 gold; 30–39 emerald; 40–49 prismarine; 50–59 diamond; 60–69 lapis; 70–79 amethyst; 80–89 ruby; 90–99 obsidian; 100 quartz white. Level zero is plain `0` because the supplied archive has no zero image. Actual progression starts at 1.
 
-Licensed private artwork is not redistributed in this public source repository. To reproduce the private release, run `./gradlew jar -PtnkArtworkSource=/absolute/path/to/advancedpack.zip`; the release hook embeds and verifies the original sprites after the normal JAR task. Source-only builds without this property retain generic repository artwork. `tools/embed_prefix_artwork.py` can also apply the same resource overlay to an already built JAR without changing any compiled class bytes. `--version` explicitly updates only the mod metadata for a resource-only release. Standard resource-pack overrides still take normal precedence.
+This TNK development checkout includes the permitted artwork. A normal `./gradlew build` verifies its manifest hashes and embeds the complete badge resources. To regenerate the overlay from the original archive instead, use `./gradlew jar -PtnkArtworkSource=/absolute/path/to/badge-artwork.zip`. `tools/embed_prefix_artwork.py` can also apply the same resource overlay to an already built JAR without changing compiled class bytes. `--version` explicitly updates only the mod metadata for a resource-only release. Standard resource-pack overrides still take normal precedence.
 
 `tools/package_number_prefixes.py` and `tools/package_title_prefixes.py` remain available to generate compatible companion resource packs if wanted. Their original source images are unchanged.
 
@@ -58,13 +60,15 @@ See [activity implementation](docs/ACTIVITY-UPDATE.md), [design explanations](do
 
 ## Earned titles
 
-Collect **55 configurable collectible titles** from quests and actual skilltree achievements. Equip one in chat and overhead names, or hide it without losing it. Titles persist personally across death, team changes and respecs. The first title equips automatically; new rewards preserve an existing selection. Only the equipped title now supplies modest attribute perks; see the character-screen guide. Title ownership does not stack bonuses or supply character XP, skill points or permissions.
+The amethyst **Founder** badge (`tnk:beta_tester`) is reserved for beta participants. Pack authors can assign it or other titles by UUID through `kubejs/config/tnk-title-defaults.json`; the supplied KubeJS login integration grants defaults in existing worlds and fresh singleplayer worlds with cheats disabled. Distribute the roster with client pack updates as well as on the server. See [pack-wide default titles](docs/DEFAULT-TITLES.md).
+
+Collect **58 configurable collectible titles** from quests and actual skilltree achievements. Equip one in chat and overhead names, or hide it without losing it. Titles persist personally across death, team changes and respecs. The first title equips automatically; new rewards preserve an existing selection. Only the passive slot supplies modest attribute perks; cosmetic selection is independent. See the title-slot guide. Title ownership does not stack bonuses or supply character XP, skill points or permissions.
 
 - FTB Command Reward (permission 2): `tnkprogress title grant {p} tnk:ars_mystic`
 - Player collection: `/tnkprogress title list`; equip with `/tnkprogress title select <id>` or click an earned title; hide with `/tnkprogress title clear`.
 - Server catalog: `config/tnk-titles.json`; reload with `/tnkprogress title reload`.
 - Optional KubeJS quest bridge includes 24 rules using real current quest IDs, plus inactive templates for chapters/boss quests not present in the source. Pufferfish milestones use actual spent points and purchased nodes.
-- The private release JAR includes all 100 number images and 55 title sprites unchanged. Missing artwork uses readable title text. Both server and client must update to the new protocol.
+- The private release JAR includes all 100 number images and 58 title sprites unchanged. Missing custom-title artwork uses readable title text. Both server and client must use protocol 5.
 
 See [full setup, commands and catalog](docs/TITLES.md) for chapter semantics, original-art packaging, permanence and revocation. The old [quest-role proposal](docs/QUEST-ROLES.md) is historical; the title system uses completed chapters as described in the catalog.
 
@@ -92,4 +96,4 @@ Existing worlds begin at character level 1. Back up before installation. No auto
 
 ## Build / validation
 
-`./gradlew build` with Java 21. Run dedicated-server assertions in a **disposable world only** using `-Dtnkprogression.smoke=true`; they create a test profile, validate caps, quest claims and save roundtrip, then stop the server. See the workflow. Runtime integration with FTB Teams and the installed Pufferfish version must be checked in the pack before publishing.
+`./gradlew build` with Java 21 and Python 3. Bundled badge resources are validated automatically; no original asset archive is required. Run dedicated-server assertions in a **disposable world only** using `-Dtnkprogression.smoke=true`; they create test profiles, validate progression, title slots, Founder passives, the external tree and save roundtrips, then stop the server. See the workflow. Runtime integration with FTB Teams and the installed Pufferfish version must be checked in the pack before publishing. The broader cleanup audit remains pending.
