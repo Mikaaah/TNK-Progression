@@ -1,4 +1,4 @@
-# Towns & Kingdoms Progression — 1.1.0-private.1
+# Towns & Kingdoms Progression — 1.1.0-private.2
 
 Made specifically for **Towns & Kingdoms 3 | Beyond the Forge**. This is a private feature-testing build for the modpack.
 

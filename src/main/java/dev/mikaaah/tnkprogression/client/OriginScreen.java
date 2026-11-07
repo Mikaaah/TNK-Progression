@@ -121,7 +121,6 @@ public final class OriginScreen extends Screen {
                 graphics.drawWordWrap(font, Component.literal(perk), 160, y, 334, CharacterTheme.INK);
                 y += Math.max(24, font.split(Component.literal(perk), 334).size() * 9 + 6);
             }
-            graphics.drawWordWrap(font, Component.literal("Permanent choice. Only an administrator can change your origin."), 150, 246, 354, CharacterTheme.INK);
             super.render(graphics, vx, vy, delta);
         }
         graphics.pose().popPose();

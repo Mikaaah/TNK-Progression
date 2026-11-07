@@ -1,3 +1,9 @@
+# 1.1.0-private.2
+
+- Remove the permanence notices from the origin preview and Character Origin tab.
+- Rename the Origin tab's perk heading to "Origin Perks". Keep existing origin choices, perks and admin-only overrides.
+- Minecraft 1.21.1, NeoForge 21.1.262+ and Java 21; protocol 6 remains compatible with private.1.
+
 # 1.1.0-private.1
 
 - Add eight permanent origin backgrounds: Miner, Librarian, Forester, Farmer, Soldier, Wanderer, Fisher and Blacksmith.

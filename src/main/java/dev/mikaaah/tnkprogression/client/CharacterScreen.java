@@ -121,9 +121,8 @@ public final class CharacterScreen extends Screen {
   var origin=OriginRules.find(s.origin()).orElse(null);
   if(origin==null){wrap(g,"This character's saved origin is unavailable. Ask an administrator to check it.",160,90,334,CharacterTheme.MUTED);return;}
   CharacterTheme.panel(g,150,76,354,37,CharacterTheme.CARD);g.renderItem(OriginScreen.icon(origin),160,86);heading(g,origin.label(),185,87,CharacterTheme.INK);
-  wrap(g,origin.story(),160,124,334,CharacterTheme.INK);heading(g,"Permanent Perks",160,174,CharacterTheme.PURPLE);
+  wrap(g,origin.story(),160,124,334,CharacterTheme.INK);heading(g,"Origin Perks",160,174,CharacterTheme.PURPLE);
   int y=193;for(String perk:origin.perks()){wrap(g,perk,160,y,334,CharacterTheme.INK);y+=Math.max(26,font.split(Component.literal(perk),334).size()*9+6);}
-  wrap(g,"Your origin is permanent. Only an administrator can change it.",160,268,334,CharacterTheme.MUTED);
  }
  @Override public boolean mouseClicked(double x,double y,int button){return super.mouseClicked((x-left)/scale,(y-top)/scale,button);}
  @Override public boolean mouseReleased(double x,double y,int button){return super.mouseReleased((x-left)/scale,(y-top)/scale,button);}
