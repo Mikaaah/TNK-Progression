@@ -2,7 +2,7 @@
 
 **0.7.1 update:** Founder can supply First Footsteps (+3% base movement speed) and Founding Hands (+5% base block-breaking speed) through the passive slot. Its cosmetic badge stays independent. Owner and Admin remain command-only cosmetics; the UUID `earn` roster cannot award those staff titles. See [TITLE-SLOTS.md](TITLE-SLOTS.md).
 
-Minecraft 1.21.1 / NeoForge 21.1.262 / Java 21; TNK Progression 1.0.0-private.1, made for Towns & Kingdoms 3 | Beyond the Forge.
+Minecraft 1.21.1 / NeoForge 21.1.262 / Java 21; TNK Progression 1.1.0-private.1, made for Towns & Kingdoms 3 | Beyond the Forge.
 The shipped pack integration uses its existing KubeJS installation; the progression JAR gains no new hard dependency.
 
 `tnk:beta_tester` displays **Founder** using the original amethyst artwork. Its description records participation in the Towns & Kingdoms 3 beta. Selecting it as the passive grants the two modest movement/breaking bonuses described above. Displaying the badge alone supplies no benefits. It grants no XP, skill points, permissions or progression bypasses.
@@ -39,7 +39,7 @@ Removing a UUID/title from this roster prevents future automatic grants; it does
 
 ## Installation
 
-Replace the previous progression JAR with `tnkprogression-1.0.0-private.1.jar` on clients and server. For UUID-default grants, install `integration/kubejs/server_scripts/progression/tnk_default_titles.js` and `integration/kubejs/config/tnk-title-defaults.json` under the instance's `kubejs/` folder, preserving any existing roster. Include the roster in client pack updates for singleplayer use. Badge and GUI artwork is embedded in the JAR and needs no KubeJS assets. Keep the original 588-node skill tree/config and unrelated scripts, configs and addon JARs. Do not install a second progression JAR.
+Replace the previous progression JAR with `tnkprogression-1.1.0-private.1.jar` on clients and server. For UUID-default grants, install `integration/kubejs/server_scripts/progression/tnk_default_titles.js` and `integration/kubejs/config/tnk-title-defaults.json` under the instance's `kubejs/` folder, preserving any existing roster. Include the roster in client pack updates for singleplayer use. Badge and GUI artwork is embedded in the JAR and needs no KubeJS assets. Keep the original 588-node skill tree/config and unrelated scripts, configs and addon JARs. Do not install a second progression JAR.
 
 ## Verification
 

@@ -19,7 +19,7 @@ public final class ClientUiSmoke {
   try {
    if(hoverX!=null&&mc.screen!=null){forceMouse(mc,"xpos",hoverX);forceMouse(mc,"ypos",hoverY);}
    if(!seeded){seeded=true;var id=mc.player.getUUID();mc.options.guiScale().set(2);mc.resizeDisplay();
-    mc.getSingleplayerServer().execute(()->{var p=mc.getSingleplayerServer().getPlayerList().getPlayer(id);p.setInvulnerable(true);var n=ProgressionAPI.profile(p);n.putInt("level",42);n.putInt("ceiling",50);n.putLong("xp",(long)(ProgressionMath.levelCost(42)*.62));n.putLong("title_swap_after",0);
+    mc.getSingleplayerServer().execute(()->{var p=mc.getSingleplayerServer().getPlayerList().getPlayer(id);p.setInvulnerable(true);var n=ProgressionAPI.profile(p);Origins.open(p);Origins.choose(p,"tnk:librarian");n.putInt("level",42);n.putInt("ceiling",50);n.putLong("xp",(long)(ProgressionMath.levelCost(42)*.62));n.putLong("title_swap_after",0);
      Titles.grant(p,"tnk:ars_mystic");Titles.grant(p,"tnk:prepared");Titles.grant(p,"tnk:skill_delver");Titles.grant(p,"tnk:board_taskmaster");Titles.select(p,"tnk:ars_mystic");Titles.selectPassive(p,"tnk:ars_mystic");n.putLong("title_swap_after",0);
      n.putLong("mining_rank",8);n.putLong("mining_work",112);n.putLong("combat_rank",14);n.putLong("combat_work",16);n.putLong("fishing_work",3);
      var history=new net.minecraft.nbt.ListTag();history.add(net.minecraft.nbt.StringTag.valueOf("mining milestone 8  +"+ProgressionMath.taskReward(ProgressionConfig.current.activities.get("mining").initialXp(),7)+" XP"));n.put("activity_history",history);CharacterState.sendFull(p);
@@ -39,7 +39,7 @@ public final class ClientUiSmoke {
    }
    else if(stage==1 && ticks>25){check(mc.screen instanceof CharacterScreen,"keybind opens screen");shot(mc,"TNK-Character-Overview.png");click(mc,300,25);stage=2;ticks=0;}
    else if(stage==2 && ticks>20){check(mc.screen instanceof CharacterScreen,"titles page remains open");click(mc,190,143);click(mc,405,286);stage=3;ticks=0;}
-   else if(stage==3 && ticks>30){check(state.passive().equals("tnk:prepared") && state.selected().equals("tnk:ars_mystic"),"passive button selects independently through server payload");check(mc.player.getMaxHealth()==22,"selected passive syncs to client");shot(mc,"TNK-Character-Titles.png");click(mc,420,25);stage=4;ticks=0;}
+   else if(stage==3 && ticks>30){check(state.passive().equals("tnk:prepared") && state.selected().equals("tnk:ars_mystic"),"passive button selects independently through server payload");check(mc.player.getMaxHealth()==22,"selected passive syncs to client");shot(mc,"TNK-Character-Titles.png");click(mc,370,25);stage=4;ticks=0;}
    else if(stage==4 && ticks>20){click(mc,475,102);stage=5;ticks=0;}
    else if(stage==5 && ticks>25){check(state.tracked().equals("mining"),"activity track button persists via server");shot(mc,"TNK-Character-Activities.png");mc.screen.keyPressed(CharacterClient.OPEN.getKey().getValue(),0,0);checkInventory(mc);mc.setScreen(null);stage=6;ticks=0;}
    else if(stage==6 && ticks>25){check(mc.screen==null,"keybind closes screen");shot(mc,"TNK-Character-HUD.png");stage=7;ticks=0;}
@@ -50,7 +50,7 @@ public final class ClientUiSmoke {
     check(mc.screen instanceof CharacterScreen,"I key still opens character directly");mc.options.guiScale().set(4);mc.resizeDisplay();stage=9;ticks=0;
    }
    else if(stage==9 && ticks>20){
-    click(mc,420,25);click(mc,475,102);stage=21;ticks=0;
+    click(mc,370,25);click(mc,475,102);stage=21;ticks=0;
    }
    else if(stage==21 && ticks>20){
     shot(mc,"TNK-Character-GUI-Scale-4.png");mc.screen.onClose();check(mc.screen==null,"direct-key screen closes to world");mc.options.guiScale().set(2);mc.resizeDisplay();

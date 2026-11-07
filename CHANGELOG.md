@@ -1,3 +1,12 @@
+# 1.1.0-private.1
+
+- Add eight permanent origin backgrounds: Miner, Librarian, Forester, Farmer, Soldier, Wanderer, Fisher and Blacksmith.
+- Show a story/perk preview and permanent confirmation on the first Character visit; add a read-only Origin tab afterward.
+- Give origins modest resource, combat, travel or XP-cost perks independently of cosmetic and passive titles.
+- Persist the chosen origin across death, reconnects and restarts. Only level-2 admin commands can replace or reset it.
+- Guard extra ore/log yields against repeated placements and harvests, preserve normal enchanting requirements, and refund only XP actually spent.
+- Keep all existing badges, GUI artwork, title slots, progression and the external 588-node tree. Both sides must update to protocol 6.
+
 # 1.0.0-private.1
 
 - Package the cumulative character GUI, original badges and matching skill-tree resources for Towns & Kingdoms 3 | Beyond the Forge.

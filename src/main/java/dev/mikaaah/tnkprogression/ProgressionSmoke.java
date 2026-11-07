@@ -32,6 +32,7 @@ public final class ProgressionSmoke {
    ActivitySmoke.run(e.getServer());
    TitleSmoke.run(e.getServer());
    CharacterSmoke.run(e.getServer());
+   OriginSmoke.run(e.getServer());
    MobLevelSmoke.run(e.getServer());
    TreeSmoke.run(e.getServer());
    TnkProgression.LOG.info("TNK_PROGRESSION_SMOKE_OK");

@@ -22,13 +22,19 @@ public final class ActivityGuard {
     public static boolean marked(ServerLevel world, BlockPos pos) { return bit(world, pos, false); }
     public static void mark(ServerLevel world, BlockPos pos) { bit(world, pos, true); }
     private static boolean bit(ServerLevel world, BlockPos pos, boolean write) {
-        var data = ProgressionData.get(world.getServer()); var sections = data.entry("mining_provenance_v2");
+        return bit(world, pos, write, "mining_provenance_v2", true);
+    }
+    static boolean originLog(ServerLevel world, BlockPos pos, boolean write) {
+        return bit(world, pos, write, "origin_log_provenance_v1", false);
+    }
+    private static boolean bit(ServerLevel world, BlockPos pos, boolean write, String ledger, boolean honorLegacy) {
+        var data = ProgressionData.get(world.getServer()); var sections = data.entry(ledger);
         String key = world.dimension().location() + "/" + (pos.getX() >> 4) + "/" + (pos.getY() >> 4) + "/" + (pos.getZ() >> 4);
         long[] bits = sections.getLongArray(key);
         int index = (pos.getX() & 15) | ((pos.getZ() & 15) << 4) | ((pos.getY() & 15) << 8);
         boolean marked = bits.length == 64 && (bits[index >> 6] & (1L << (index & 63))) != 0;
         // Honor legacy placement records too; never delete the tombstone on break.
-        marked |= data.entry("placed").getBoolean(world.dimension().location() + "/" + pos.asLong());
+        if (honorLegacy) marked |= data.entry("placed").getBoolean(world.dimension().location() + "/" + pos.asLong());
         if (write && !marked) {
             if (bits.length != 64) bits = new long[64];
             bits[index >> 6] |= 1L << (index & 63); sections.putLongArray(key, bits); data.setDirty();

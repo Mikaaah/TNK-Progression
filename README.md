@@ -1,14 +1,18 @@
-# Towns & Kingdoms Progression — 1.0.0-private.1
+# Towns & Kingdoms Progression — 1.1.0-private.1
 
 Made specifically for **Towns & Kingdoms 3 | Beyond the Forge**. This is a private feature-testing build for the modpack.
+
+## Permanent origins
+
+Choose your origin on your first Character visit: Miner, Librarian, Forester, Farmer, Soldier, Wanderer, Fisher or Blacksmith. Preview its story and perks before confirming. Your choice then becomes permanent, with a read-only Origin tab; only permission-level-2 administrator commands can replace or reset it. Origins remain independent of cosmetic and passive titles. See [origin perks, persistence and admin commands](docs/ORIGINS.md). Update clients and server together to protocol **6**.
 
 Minecraft **1.21.1**, NeoForge **21.1.262+**, Java **21**. Original implementation; no Auto Leveling or Just Leveling code is bundled. This is an initial pack beta; tune the balance in a test world.
 
 ## Character screen and HUD
 
-Open the survival inventory and click the **player portrait replacing the recipe-book button**, or press **I** (rebind in Controls → Towns & Kingdoms). The warm parchment screen uses TNK purple accents, subtle gradients, colored headers, bold labels, softened corners and activity icons. It shows your live player model, character XP/ceiling, seven activity tracks, milestone journal and title collection. Equip/hide titles and pin an activity directly with buttons. A compact player/XP/activity HUD can be toggled from the screen. Use **Skill Tree** beside the point counter to open the configured Pufferfish category. Closing a screen opened from inventory returns to inventory. No command is needed. Update server and clients together (protocol 5).
+Open the survival inventory and click the **player portrait replacing the recipe-book button**, or press **I** (rebind in Controls → Towns & Kingdoms). The warm parchment screen uses TNK purple accents, subtle gradients, colored headers, bold labels, softened corners and activity icons. It shows your live player model, character XP/ceiling, seven activity tracks, milestone journal and title collection. Equip/hide titles and pin an activity directly with buttons. A compact player/XP/activity HUD can be toggled from the screen. Use **Skill Tree** beside the point counter to open the configured Pufferfish category. Closing a screen opened from inventory returns to inventory. No command is needed. Update server and clients together (protocol 6).
 
-**Cosmetic and passive titles are independent:** choose a visible badge for chat/nameplates and one earned title supplying passive benefits. Only passive changes use the server-enforced 30-second swap cooldown; bonuses never stack and swapping never heals. Founder adds +3% vanilla-base movement speed and +5% vanilla-base block-breaking speed through small flat modifiers when chosen as the passive. Owner and Admin remain cosmetic only. Identification discounts are not implemented. The external skilltree also includes bounded conditional abilities such as Second Wind. Update server and clients together for protocol 5. See [title slots](docs/TITLE-SLOTS.md).
+**Cosmetic and passive titles are independent:** choose a visible badge for chat/nameplates and one earned title supplying passive benefits. Only passive changes use the server-enforced 30-second swap cooldown; bonuses never stack and swapping never heals. Founder adds +3% vanilla-base movement speed and +5% vanilla-base block-breaking speed through small flat modifiers when chosen as the passive. Owner and Admin remain cosmetic only. Identification discounts are not implemented. The external skilltree also includes bounded conditional abilities such as Second Wind. Update server and clients together for protocol 6. See [title slots](docs/TITLE-SLOTS.md).
 
 See [character HUD, perks, balance and migration](docs/CHARACTER-HUD.md). The numerical release preset and pacing/passive reports are shipped alongside it; full-pack playtesting is still needed to validate the final tuning.
 
@@ -68,7 +72,7 @@ Collect **58 configurable collectible titles** from quests and actual skilltree 
 - Player collection: `/tnkprogress title list`; equip with `/tnkprogress title select <id>` or click an earned title; hide with `/tnkprogress title clear`.
 - Server catalog: `config/tnk-titles.json`; reload with `/tnkprogress title reload`.
 - Optional KubeJS quest bridge includes 24 rules using real current quest IDs, plus inactive templates for chapters/boss quests not present in the source. Pufferfish milestones use actual spent points and purchased nodes.
-- The private release JAR includes all 100 number images and 58 title sprites unchanged. Missing custom-title artwork uses readable title text. Both server and client must use protocol 5.
+- The private release JAR includes all 100 number images and 58 title sprites unchanged. Missing custom-title artwork uses readable title text. Both server and client must use protocol 6.
 
 See [full setup, commands and catalog](docs/TITLES.md) for chapter semantics, original-art packaging, permanence and revocation. The old [quest-role proposal](docs/QUEST-ROLES.md) is historical; the title system uses completed chapters as described in the catalog.
 

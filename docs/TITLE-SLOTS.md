@@ -1,6 +1,6 @@
-# Cosmetic and passive titles — 1.0.0-private.1
+# Cosmetic and passive titles — 1.1.0-private.1
 
-Minecraft 1.21.1, NeoForge 21.1.262+, Java 21. Update the progression JAR on **both clients and server**; network protocol 5 carries both selections.
+Minecraft 1.21.1, NeoForge 21.1.262+, Java 21. Update the progression JAR on **both clients and server**; network protocol 6 carries both selections.
 
 ## Two independent choices
 
@@ -51,4 +51,4 @@ The old `title select` and `title clear` commands now control the cosmetic slot.
 
 ## Installation
 
-Replace the previous progression JAR with `tnkprogression-1.0.0-private.1.jar` on clients and server. Keep the existing skill tree and all unrelated mods/configs. All 100 number sprites, 58 title sprites and character GUI resources are embedded in the JAR; no KubeJS asset installation is required. The optional UUID-default integration is documented separately in [DEFAULT-TITLES.md](DEFAULT-TITLES.md).
+Replace the previous progression JAR with `tnkprogression-1.1.0-private.1.jar` on clients and server. Keep the existing skill tree and all unrelated mods/configs. All 100 number sprites, 58 title sprites and character GUI resources are embedded in the JAR; no KubeJS asset installation is required. The optional UUID-default integration is documented separately in [DEFAULT-TITLES.md](DEFAULT-TITLES.md).

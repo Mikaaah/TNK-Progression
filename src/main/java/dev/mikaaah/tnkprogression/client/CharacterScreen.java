@@ -25,7 +25,7 @@ public final class CharacterScreen extends Screen {
  private List<CharacterState.Title> choices(){var s=state();return s==null?List.of():s.titles().stream().filter(t->!ownedOnly||t.earned()).sorted(Comparator.comparing(CharacterState.Title::earned).reversed().thenComparing(CharacterState.Title::label)).toList();}
  private void rebuild(){
   clearWidgets();var s=state();
-  button("Character",142,14,116,22,b->{tab=0;rebuild();}).selected(tab==0);button("Titles",262,14,116,22,b->{tab=1;rebuild();}).accent(CharacterTheme.ROSE).selected(tab==1);button("Activities",382,14,128,22,b->{tab=2;rebuild();}).accent(CharacterTheme.PURPLE).selected(tab==2);
+  button("Character",142,14,88,22,b->{tab=0;rebuild();}).selected(tab==0);button("Titles",234,14,88,22,b->{tab=1;rebuild();}).accent(CharacterTheme.ROSE).selected(tab==1);button("Activities",326,14,88,22,b->{tab=2;rebuild();}).accent(CharacterTheme.PURPLE).selected(tab==2);button("Origin",418,14,92,22,b->{tab=3;rebuild();}).selected(tab==3);
   button("X",W-26,-7,21,18,b->onClose());
   if(s==null)return;
   button(s.hud()?"HUD: Shown":"HUD: Hidden",20,274,104,20,b->CharacterClient.action("hud",s.hud()?"off":"on"));
@@ -47,7 +47,7 @@ public final class CharacterScreen extends Screen {
   else if(tab==0)button("Skill Tree",394,126,110,22,b->CharacterClient.action("skills","")).accent(CharacterTheme.PURPLE);
  }
  @Override public void tick(){
-  var s=state();String signature=s==null?"":s.selected()+s.passive()+s.hud()+s.tracked()+s.titles().hashCode()+(s.swapTicks()==0);
+  var s=state();if(s!=null && s.origin().isEmpty()){minecraft.setScreen(new OriginScreen(this,parent));return;}String signature=s==null?"":s.selected()+s.passive()+s.hud()+s.tracked()+s.origin()+s.titles().hashCode()+(s.swapTicks()==0);
   if(!widgetSignature.equals(signature)){widgetSignature=signature;rebuild();}
  }
  private void text(GuiGraphics g,String s,int x,int y,int colour){CharacterTheme.text(g,font,s,x,y,colour);}
@@ -78,7 +78,7 @@ public final class CharacterScreen extends Screen {
   }
   heading(g,minecraft.player==null?"Adventurer":font.plainSubstrByWidth(minecraft.player.getName().getString(),94),20,218,CharacterTheme.LIGHT);
   identity(g,s);
-  if(tab==0)overview(g,s);else if(tab==1)titles(g,s);else activities(g,s);
+  if(tab==0)overview(g,s);else if(tab==1)titles(g,s);else if(tab==2)activities(g,s);else origin(g,s);
   super.render(g,vx,vy,delta);
   if(tab==1 && vx>=474 && vx<504 && vy>=248 && vy<297)g.renderTooltip(font,Component.literal(vy<273?"Hide cosmetic title; keep passive benefits":"Clear passive benefits; keep cosmetic title"),vx,vy);
   g.pose().popPose();
@@ -115,6 +115,15 @@ public final class CharacterScreen extends Screen {
    CharacterTheme.bar(g,178,y+26,252,2,a.work()/a.required(),CharacterTheme.activityColour(a.id()));
   }
   text(g,"Activities remain repeatable. Campaign ceilings still apply.",150,288,CharacterTheme.MUTED);
+ }
+ private void origin(GuiGraphics g,CharacterState.Snapshot s){
+  CharacterTheme.section(g,font,"Your Origin",146,50,362,CharacterTheme.PURPLE);
+  var origin=OriginRules.find(s.origin()).orElse(null);
+  if(origin==null){wrap(g,"This character's saved origin is unavailable. Ask an administrator to check it.",160,90,334,CharacterTheme.MUTED);return;}
+  CharacterTheme.panel(g,150,76,354,37,CharacterTheme.CARD);g.renderItem(OriginScreen.icon(origin),160,86);heading(g,origin.label(),185,87,CharacterTheme.INK);
+  wrap(g,origin.story(),160,124,334,CharacterTheme.INK);heading(g,"Permanent Perks",160,174,CharacterTheme.PURPLE);
+  int y=193;for(String perk:origin.perks()){wrap(g,perk,160,y,334,CharacterTheme.INK);y+=Math.max(26,font.split(Component.literal(perk),334).size()*9+6);}
+  wrap(g,"Your origin is permanent. Only an administrator can change it.",160,268,334,CharacterTheme.MUTED);
  }
  @Override public boolean mouseClicked(double x,double y,int button){return super.mouseClicked((x-left)/scale,(y-top)/scale,button);}
  @Override public boolean mouseReleased(double x,double y,int button){return super.mouseReleased((x-left)/scale,(y-top)/scale,button);}

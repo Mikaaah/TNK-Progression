@@ -21,7 +21,7 @@ public final class TitleSlotsUiSmoke {
     var id=mc.player.getUUID();mc.getSingleplayerServer().execute(()->{
      var p=mc.getSingleplayerServer().getPlayerList().getPlayer(id);p.setInvulnerable(true);var n=ProgressionAPI.profile(p);
      for(String key:java.util.Set.copyOf(n.getAllKeys()))n.remove(key);
-     n.putInt("level",100);n.putInt("ceiling",100);n.putLong("xp",0);
+     Origins.open(p);Origins.choose(p,"tnk:librarian");n.putInt("level",100);n.putInt("ceiling",100);n.putLong("xp",0);
      Titles.grant(p,"tnk:prepared");Titles.grant(p,"tnk:owner");Titles.grant(p,"tnk:admin");Titles.grant(p,"tnk:beta_tester");Titles.grant(p,"tnk:ars_mystic");
      Titles.select(p,"tnk:owner");n.putLong("title_swap_after",0);CharacterState.sendFull(p);
     });return;
