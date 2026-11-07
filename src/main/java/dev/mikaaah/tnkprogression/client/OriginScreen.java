@@ -5,17 +5,16 @@ import dev.mikaaah.tnkprogression.OriginRules;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ItemStack;
 
 /** A two-step, one-time background choice. Closing leaves it unchosen and prompts on the next visit. */
 public final class OriginScreen extends Screen {
     private final CharacterScreen character;
     private final Screen returnScreen;
     private String preview = "";
-    private int ticks, pending;
+    private int ticks, pending, page;
+    private static final int PAGE_SIZE = 8;
     private double scale;
     private int left, top;
     private ParchmentButton confirm;
@@ -47,14 +46,16 @@ public final class OriginScreen extends Screen {
         confirm = null;
         button("X", CharacterScreen.W - 26, -7, 21, 18, button -> onClose());
         if (preview.isEmpty()) {
-            var origins = OriginRules.all();
+            var origins = visibleOrigins();
             for (int i = 0; i < origins.size(); i++) {
                 var origin = origins.get(i);
                 button(origin.label(), 150 + i % 2 * 180, 96 + i / 2 * 40, 172, 34, button -> {
                     preview = origin.id();
                     rebuild();
-                }).accent(0xFF000000 | origin.colour());
+                }).accent(0xFF000000 | origin.colour()).textInset(24);
             }
+            button("< Previous", 150, 272, 102, 22, button -> { page--; rebuild(); }).active = page > 0;
+            button("Next >", 402, 272, 102, 22, button -> { page++; rebuild(); }).active = page < (OriginRules.all().size() - 1) / PAGE_SIZE;
         } else {
             button("Back", 150, 272, 102, 22, button -> { preview = ""; rebuild(); });
             confirm = button("Confirm Origin", 260, 272, 244, 22, button -> {
@@ -62,7 +63,7 @@ public final class OriginScreen extends Screen {
                 CharacterClient.action("origin", preview);
                 confirm.active = false;
             }).accent(CharacterTheme.PURPLE);
-            confirm.active = ticks >= 7 && pending == 0;
+            confirm.active = ticks >= 7 && pending == 0 && available(preview);
         }
     }
 
@@ -71,13 +72,22 @@ public final class OriginScreen extends Screen {
         // Separate the open request from the existing Character refresh packet's two-tick limiter.
         if (ticks == 3) CharacterClient.action("origin_open", "");
         if (pending > 0) pending--;
-        if (confirm != null) confirm.active = ticks >= 7 && pending == 0;
+        if (confirm != null) confirm.active = ticks >= 7 && pending == 0 && available(preview);
         var state = CharacterClientState.current;
         if (state != null && !state.origin().isEmpty()) minecraft.setScreen(character);
     }
 
-    public static ItemStack icon(OriginRules.Origin origin) {
-        return new ItemStack(BuiltInRegistries.ITEM.get(ResourceLocation.parse(origin.icon())));
+    private java.util.List<OriginRules.Origin> visibleOrigins() {
+        int start = page * PAGE_SIZE;
+        return OriginRules.all().subList(start, Math.min(start + PAGE_SIZE, OriginRules.all().size()));
+    }
+
+    private boolean available(String id) {
+        return !id.equals("tnk:hedge_mage") || CharacterClientState.current != null && CharacterClientState.current.manaAvailable();
+    }
+
+    public static void drawIcon(GuiGraphics graphics, OriginRules.Origin origin, int x, int y) {
+        graphics.blit(ResourceLocation.parse(origin.icon()), x, y, 0, 0, 16, 16, 16, 16);
     }
 
     @Override public void render(GuiGraphics graphics, int mouseX, int mouseY, float delta) {
@@ -104,15 +114,15 @@ public final class OriginScreen extends Screen {
         graphics.drawWordWrap(font, Component.literal("Every adventurer begins somewhere."), 20, 240, 96, CharacterTheme.LIGHT);
         if (preview.isEmpty()) {
             CharacterTheme.section(graphics, font, "Choose Your Origin", 146, 50, 362, CharacterTheme.PURPLE);
-            CharacterTheme.text(graphics, font, "A background for the journey ahead.", 150, 75, CharacterTheme.MUTED);
+            CharacterTheme.text(graphics, font, "Preview a background to read its story and perks.", 150, 75, CharacterTheme.MUTED);
             super.render(graphics, vx, vy, delta);
-            for (int i = 0; i < OriginRules.all().size(); i++) graphics.renderItem(icon(OriginRules.all().get(i)), 158 + i % 2 * 180, 105 + i / 2 * 40);
-            graphics.drawWordWrap(font, Component.literal("Select a background to read its story and perks before confirming."), 150, 267, 354, CharacterTheme.MUTED);
+            for (int i = 0; i < visibleOrigins().size(); i++) drawIcon(graphics, visibleOrigins().get(i), 158 + i % 2 * 180, 105 + i / 2 * 40);
+            graphics.drawCenteredString(font, "Page " + (page + 1) + " / " + ((OriginRules.all().size() + PAGE_SIZE - 1) / PAGE_SIZE), 327, 279, CharacterTheme.MUTED);
         } else {
             var origin = OriginRules.find(preview).orElseThrow();
             CharacterTheme.section(graphics, font, "Your Beginning", 146, 50, 362, CharacterTheme.PURPLE);
             CharacterTheme.panel(graphics, 150, 76, 354, 37, CharacterTheme.CARD);
-            graphics.renderItem(icon(origin), 160, 86);
+            drawIcon(graphics, origin, 160, 86);
             CharacterTheme.heading(graphics, font, origin.label(), 185, 87, CharacterTheme.INK);
             graphics.drawWordWrap(font, Component.literal(origin.story()), 160, 124, 334, CharacterTheme.INK);
             CharacterTheme.heading(graphics, font, "Origin Perks", 160, 168, CharacterTheme.PURPLE);
@@ -121,6 +131,7 @@ public final class OriginScreen extends Screen {
                 graphics.drawWordWrap(font, Component.literal(perk), 160, y, 334, CharacterTheme.INK);
                 y += Math.max(24, font.split(Component.literal(perk), 334).size() * 9 + 6);
             }
+            if (!available(preview)) graphics.drawWordWrap(font, Component.literal("Available when Iron's Spells mana attributes are installed."), 150, 245, 354, CharacterTheme.MUTED);
             super.render(graphics, vx, vy, delta);
         }
         graphics.pose().popPose();

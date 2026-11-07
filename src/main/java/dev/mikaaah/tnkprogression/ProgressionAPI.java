@@ -65,7 +65,7 @@ public final class ProgressionAPI {
   CompoundTag n=profile(p);long rank=Math.max(0,n.getLong(key+"_rank")),work=Math.max(0,n.getLong(key+"_work"));
   work=units>Long.MAX_VALUE-work?Long.MAX_VALUE:work+units;
   while(work>=ProgressionMath.taskCost(a.initialRequirement(),rank)){
-   work-=ProgressionMath.taskCost(a.initialRequirement(),rank);long paid=awardXp(p,ProgressionMath.taskReward(a.initialXp(),rank));if(rank<Long.MAX_VALUE)rank++;
+   work-=ProgressionMath.taskCost(a.initialRequirement(),rank);long reward=ProgressionMath.taskReward(a.initialXp(),rank);if(key.equals("engineering"))reward+=Origins.extra(p,"engineering_xp",(int)Math.min(Integer.MAX_VALUE,reward),Origins.bonus(p,OriginRules.Perk.ENGINEERING_XP));long paid=awardXp(p,reward);if(rank<Long.MAX_VALUE)rank++;
    var history=n.getList("activity_history",net.minecraft.nbt.Tag.TAG_STRING);history.add(0,net.minecraft.nbt.StringTag.valueOf(key+" milestone "+rank+"  +"+paid+" XP"));while(history.size()>8)history.remove(history.size()-1);n.put("activity_history",history);
    if(level(p)>=ceiling(p) || level(p)>=100){work=0;n.putDouble(key+"_fraction",0);break;}
   }

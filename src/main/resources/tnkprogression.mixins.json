@@ -3,6 +3,20 @@
   "minVersion": "0.8",
   "package": "dev.mikaaah.tnkprogression.mixin",
   "compatibilityLevel": "JAVA_21",
-  "mixins": ["OriginEnchantingMixin", "OriginAnvilMixin"],
-  "injectors": {"defaultRequire": 1}
+  "mixins": [
+    "OriginEnchantingMixin",
+    "OriginAnvilMixin",
+    "OriginEffectAccess",
+    "OriginPlayerMixin",
+    "OriginFoodMixin",
+    "OriginLivingMixin",
+    "OriginAirMixin",
+    "OriginPotionMixin",
+    "OriginDurabilityMixin",
+    "OriginFishingMixin",
+    "OriginTradingMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }

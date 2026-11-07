@@ -1,6 +1,7 @@
 package dev.mikaaah.tnkprogression;
 
 import java.util.List;
+import static dev.mikaaah.tnkprogression.OriginRules.Perk.*;
 import net.minecraft.core.Holder;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -15,11 +16,35 @@ import net.neoforged.neoforge.event.entity.player.PlayerEvent;
 public final class Origins {
     public static final String KEY = "origin_id";
     private static final List<Holder<Attribute>> ATTRIBUTES = List.of(
-        Attributes.MAX_HEALTH, Attributes.ATTACK_DAMAGE, Attributes.ARMOR, Attributes.MOVEMENT_SPEED, Attributes.LUCK);
+        Attributes.MAX_HEALTH, Attributes.ATTACK_DAMAGE, Attributes.ARMOR, Attributes.MOVEMENT_SPEED, Attributes.LUCK, Attributes.KNOCKBACK_RESISTANCE, Attributes.SNEAKING_SPEED,
+        net.neoforged.neoforge.common.NeoForgeMod.SWIM_SPEED);
 
     private Origins() {}
 
     public static String selected(ServerPlayer player) { return ProgressionAPI.profile(player).getString(KEY); }
+
+    public static int revision(ServerPlayer player) { return Math.max(1, ProgressionAPI.profile(player).getInt("origin_revision")); }
+
+    /** Server profiles are authoritative; remote client players never borrow the local player's bonuses. */
+    public static double bonus(net.minecraft.world.entity.player.Player player, OriginRules.Perk perk) {
+        if (player instanceof ServerPlayer serverPlayer) {
+            if (serverPlayer.server == null || serverPlayer.server.overworld() == null) return 0;
+            return OriginRules.bonus(selected(serverPlayer), revision(serverPlayer), perk);
+        }
+        var state = CharacterClientState.current;
+        return player.isLocalPlayer() && state != null ? OriginRules.bonus(state.origin(), state.originRevision(), perk) : 0;
+    }
+
+    public static boolean manaAvailable(ServerPlayer player) {
+        return manaAttribute(player, "max_mana") != null && manaAttribute(player, "mana_regen") != null;
+    }
+
+    private static net.minecraft.world.entity.ai.attributes.AttributeInstance manaAttribute(ServerPlayer player, String path) {
+        return net.minecraft.core.registries.BuiltInRegistries.ATTRIBUTE.getHolder(ResourceLocation.parse("irons_spellbooks:" + path))
+            .map(player::getAttribute).orElse(null);
+    }
+
+    public static boolean available(ServerPlayer player, String id) { return !id.equals("tnk:hedge_mage") || manaAvailable(player); }
 
     public static boolean open(ServerPlayer player) {
         CompoundTag profile = ProgressionAPI.profile(player);
@@ -32,7 +57,7 @@ public final class Origins {
 
     public static boolean choose(ServerPlayer player, String id) {
         CompoundTag profile = ProgressionAPI.profile(player);
-        if (!OriginRules.mayChoose(profile.getBoolean("origin_prompted"), profile.contains(KEY), id)) return false;
+        if (!OriginRules.mayChoose(profile.getBoolean("origin_prompted"), profile.contains(KEY), id) || !available(player, id)) return false;
         store(player, id);
         return true;
     }
@@ -47,6 +72,7 @@ public final class Origins {
     static void adminReset(ServerPlayer player) {
         CompoundTag profile = ProgressionAPI.profile(player);
         profile.remove(KEY);
+        profile.remove("origin_revision");
         profile.remove("origin_prompted");
         profile.remove("origin_chosen_at");
         clearRefunds(profile);
@@ -58,6 +84,7 @@ public final class Origins {
     private static void store(ServerPlayer player, String id) {
         CompoundTag profile = ProgressionAPI.profile(player);
         profile.putString(KEY, id);
+        profile.putInt("origin_revision", 2);
         profile.putBoolean("origin_prompted", true);
         profile.putLong("origin_chosen_at", player.server.overworld().getGameTime());
         clearRefunds(profile);
@@ -67,8 +94,18 @@ public final class Origins {
     }
 
     private static void clearRefunds(CompoundTag profile) {
-        profile.remove("origin_enchant_credit");
-        profile.remove("origin_anvil_credit");
+        for (String key : java.util.Set.copyOf(profile.getAllKeys()))
+            if (key.startsWith("origin_credit/") || key.equals("origin_enchant_credit") || key.equals("origin_anvil_credit")) profile.remove(key);
+    }
+
+    public static int extra(ServerPlayer player, String source, int amount, double fraction) {
+        if (fraction <= 0 || amount <= 0) return 0;
+        var profile = ProgressionAPI.profile(player);
+        String key = "origin_credit/" + source;
+        var result = OriginRules.extra(amount, fraction, profile.getDouble(key));
+        profile.putDouble(key, result.remainder());
+        ProgressionData.get(player.server).setDirty();
+        return result.points();
     }
 
     private static void sync(ServerPlayer player) {
@@ -76,23 +113,34 @@ public final class Origins {
     }
 
     public static void apply(ServerPlayer player) {
-        String origin = selected(player);
         for (Holder<Attribute> type : ATTRIBUTES) {
-            var attribute = player.getAttribute(type);
-            if (attribute == null) continue;
             double amount = 0;
-            if (type.equals(Attributes.MAX_HEALTH) && origin.equals("tnk:farmer")) amount = 1;
-            if (type.equals(Attributes.ATTACK_DAMAGE) && origin.equals("tnk:soldier")) amount = 1;
-            if (type.equals(Attributes.ARMOR) && (origin.equals("tnk:soldier") || origin.equals("tnk:blacksmith"))) amount = 1;
-            if (type.equals(Attributes.MOVEMENT_SPEED) && origin.equals("tnk:wanderer")) amount = 0.005;
-            if (type.equals(Attributes.LUCK) && origin.equals("tnk:fisher")) amount = 1;
-            ResourceLocation id = ResourceLocation.fromNamespaceAndPath("tnkprogression", "origin/" + type.unwrapKey().orElseThrow().location().getPath());
-            var previous = attribute.getModifier(id);
-            if (previous != null && previous.amount() == amount && previous.operation() == AttributeModifier.Operation.ADD_VALUE) continue;
-            if (previous != null) attribute.removeModifier(id);
-            if (amount != 0) attribute.addTransientModifier(new AttributeModifier(id, amount, AttributeModifier.Operation.ADD_VALUE));
+            var operation = AttributeModifier.Operation.ADD_VALUE;
+            if (type.equals(Attributes.MAX_HEALTH)) amount = bonus(player, HEALTH);
+            if (type.equals(Attributes.ATTACK_DAMAGE)) amount = bonus(player, ATTACK);
+            if (type.equals(Attributes.ARMOR)) amount = bonus(player, ARMOUR);
+            if (type.equals(Attributes.LUCK)) amount = bonus(player, LUCK);
+            if (type.equals(Attributes.KNOCKBACK_RESISTANCE)) amount = bonus(player, KNOCKBACK_RESISTANCE);
+            if (type.equals(Attributes.MOVEMENT_SPEED)) {
+                amount = bonus(player, FLAT_MOVE);
+                if (bonus(player, MOVE_SPEED) > 0) { amount = bonus(player, MOVE_SPEED); operation = AttributeModifier.Operation.ADD_MULTIPLIED_BASE; }
+            }
+            if (type.equals(Attributes.SNEAKING_SPEED)) { amount = bonus(player, SNEAK_SPEED); operation = AttributeModifier.Operation.ADD_MULTIPLIED_BASE; }
+            if (type.equals(net.neoforged.neoforge.common.NeoForgeMod.SWIM_SPEED)) { amount = bonus(player, SWIM_SPEED); operation = AttributeModifier.Operation.ADD_MULTIPLIED_BASE; }
+            modifier(player.getAttribute(type), "origin/" + type.unwrapKey().orElseThrow().location().getPath(), amount, operation);
         }
+        modifier(manaAttribute(player, "max_mana"), "origin/max_mana", bonus(player, MANA), AttributeModifier.Operation.ADD_MULTIPLIED_BASE);
+        modifier(manaAttribute(player, "mana_regen"), "origin/mana_regen", bonus(player, MANA_REGEN), AttributeModifier.Operation.ADD_MULTIPLIED_BASE);
         if (player.getHealth() > player.getMaxHealth()) player.setHealth(player.getMaxHealth());
+    }
+
+    static void modifier(net.minecraft.world.entity.ai.attributes.AttributeInstance attribute, String path, double amount, AttributeModifier.Operation operation) {
+        if (attribute == null) return;
+        var id = ResourceLocation.fromNamespaceAndPath("tnkprogression", path);
+        var previous = attribute.getModifier(id);
+        if (previous != null && previous.amount() == amount && previous.operation() == operation) return;
+        if (previous != null) attribute.removeModifier(id);
+        if (amount != 0) attribute.addTransientModifier(new AttributeModifier(id, amount, operation));
     }
 
     public static long experiencePoints(ServerPlayer player) {
@@ -102,8 +150,16 @@ public final class Origins {
 
     public static long captureXp(net.minecraft.world.entity.player.Player player, boolean anvil) {
         if (!(player instanceof ServerPlayer serverPlayer) || !ActivityGuard.player(serverPlayer)) return -1;
-        double fraction = anvil ? OriginRules.anvilRefund(selected(serverPlayer)) : OriginRules.enchantingRefund(selected(serverPlayer));
+        double fraction = anvil ? bonus(serverPlayer, ANVIL_REFUND) : bonus(serverPlayer, ENCHANT_REFUND);
         return fraction > 0 ? experiencePoints(serverPlayer) : -1;
+    }
+
+    public static long captureAnvilXp(net.minecraft.world.entity.player.Player player, net.minecraft.world.item.ItemStack input, net.minecraft.world.item.ItemStack output) {
+        long legacy = captureXp(player, true);
+        if (legacy >= 0) return legacy;
+        if (!(player instanceof ServerPlayer serverPlayer) || !ActivityGuard.player(serverPlayer)) return -1;
+        return bonus(player, ANVIL_REPAIR_REFUND) > 0 && input.isDamageableItem() && input.is(output.getItem())
+            && output.getDamageValue() < input.getDamageValue() ? experiencePoints(serverPlayer) : -1;
     }
 
     /** Refunds only the measured XP actually spent, leaving offer strength and required levels intact. */
@@ -112,7 +168,7 @@ public final class Origins {
         long spent = before - experiencePoints(serverPlayer);
         if (spent <= 0) return;
         String origin = selected(serverPlayer);
-        double fraction = anvil ? OriginRules.anvilRefund(origin) : OriginRules.enchantingRefund(origin);
+        double fraction = anvil ? bonus(serverPlayer, ANVIL_REFUND) + bonus(serverPlayer, ANVIL_REPAIR_REFUND) : bonus(serverPlayer, ENCHANT_REFUND);
         if (fraction <= 0) return;
         String key = anvil ? "origin_anvil_credit" : "origin_enchant_credit";
         CompoundTag profile = ProgressionAPI.profile(serverPlayer);

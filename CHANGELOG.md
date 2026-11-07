@@ -1,3 +1,11 @@
+# 1.2.0-private.1
+
+- Add the complete 20-origin roster with both perks per background and 20 supplied original pixel icons bundled in the mod.
+- Add three chooser pages with centered icon labels, preview/back/confirm and optional-mana availability feedback. Keep the permanence notices removed.
+- Implement manual resource yields, scoped XP/cost bonuses, food/potion effects, breeding/mount perks, conditional reach, movement, combat and optional Iron's mana attributes.
+- Preserve existing eight-origin characters and their original perk values using saved revisions. The new Librarian has 10% enchanting refunds and 15% grindstone XP; existing Librarians keep their former perks.
+- Require protocol 7 on both client and server. Minecraft 1.21.1, NeoForge 21.1.262+, Java 21. No new hard mod dependency or KubeJS asset update.
+
 # 1.1.0-private.2
 
 - Remove the permanence notices from the origin preview and Character Origin tab.

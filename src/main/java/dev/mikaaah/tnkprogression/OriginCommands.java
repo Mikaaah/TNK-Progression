@@ -23,7 +23,7 @@ public final class OriginCommands {
             .then(Commands.literal("set")
                 .then(Commands.argument("players", EntityArgument.players())
                     .then(Commands.argument("id", StringArgumentType.greedyString())
-                        .suggests((context, builder) -> SharedSuggestionProvider.suggest(OriginRules.all().stream().map(OriginRules.Origin::id), builder))
+                        .suggests((context, builder) -> SharedSuggestionProvider.suggest(OriginRules.known().stream().map(OriginRules.Origin::id), builder))
                         .executes(context -> {
                             String id = StringArgumentType.getString(context, "id").trim();
                             if (OriginRules.find(id).isEmpty()) {

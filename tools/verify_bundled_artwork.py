@@ -33,6 +33,14 @@ def main():
             namespace, path = provider['file'].split(':', 1)
             if not (resources / 'assets' / namespace / 'textures' / path).is_file():
                 raise ValueError(f'Missing font image: {provider["file"]}')
+    origins = json.loads((assets / 'origin-artwork-manifest.json').read_text())
+    if len(origins) != 20:
+        raise ValueError('Expected 20 original origin icons')
+    for name, expected in origins.items():
+        target = assets / 'textures/gui/origins' / name
+        if hashlib.sha256(target.read_bytes()).hexdigest() != expected:
+            raise ValueError(f'Origin icon hash mismatch: {name}')
+    print('TNK_ORIGIN_ARTWORK_OK: 20 supplied origin icons; original PNG hashes verified.')
     print(f'TNK_BUNDLED_ARTWORK_OK: 100 number badges, {len(manifest["titles"])} title badges; original PNG hashes verified.')
 
 

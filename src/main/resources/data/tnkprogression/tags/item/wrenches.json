@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#c:tools/wrench",
+      "required": false
+    },
+    {
+      "id": "create:wrench",
+      "required": false
+    },
+    {
+      "id": "ae2:certus_quartz_wrench",
+      "required": false
+    },
+    {
+      "id": "ae2:nether_quartz_wrench",
+      "required": false
+    }
+  ]
+}

@@ -118,9 +118,9 @@ public final class CharacterScreen extends Screen {
  }
  private void origin(GuiGraphics g,CharacterState.Snapshot s){
   CharacterTheme.section(g,font,"Your Origin",146,50,362,CharacterTheme.PURPLE);
-  var origin=OriginRules.find(s.origin()).orElse(null);
+  var origin=OriginRules.find(s.origin(),s.originRevision()).orElse(null);
   if(origin==null){wrap(g,"This character's saved origin is unavailable. Ask an administrator to check it.",160,90,334,CharacterTheme.MUTED);return;}
-  CharacterTheme.panel(g,150,76,354,37,CharacterTheme.CARD);g.renderItem(OriginScreen.icon(origin),160,86);heading(g,origin.label(),185,87,CharacterTheme.INK);
+  CharacterTheme.panel(g,150,76,354,37,CharacterTheme.CARD);OriginScreen.drawIcon(g,origin,160,86);heading(g,origin.label(),185,87,CharacterTheme.INK);
   wrap(g,origin.story(),160,124,334,CharacterTheme.INK);heading(g,"Origin Perks",160,174,CharacterTheme.PURPLE);
   int y=193;for(String perk:origin.perks()){wrap(g,perk,160,y,334,CharacterTheme.INK);y+=Math.max(26,font.split(Component.literal(perk),334).size()*9+6);}
  }

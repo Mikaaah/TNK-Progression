@@ -38,7 +38,7 @@ public final class OriginSmoke {
     private static void check(boolean ok, String message) { if (!ok) throw new AssertionError(message); }
     private static void equal(double expected, double actual, String message) { check(Math.abs(expected - actual) < 1e-6, message + ": " + actual); }
 
-    private static ServerPlayer player(MinecraftServer server, UUID uuid) {
+    static ServerPlayer player(MinecraftServer server, UUID uuid) {
         var profile = new GameProfile(uuid, "OriginTest");
         var player = new ServerPlayer(server, server.overworld(), profile, ClientInformation.createDefault()) {
             @Override public void sendSystemMessage(Component message) {}
@@ -51,18 +51,18 @@ public final class OriginSmoke {
         return player;
     }
 
-    private static void experience(ServerPlayer player, int level) {
+    static void experience(ServerPlayer player, int level) {
         player.experienceLevel = level;
         player.experienceProgress = 0;
         player.totalExperience = (int) OriginRules.pointsAtLevel(level);
     }
 
-    private static long winningSeed() {
+    static long winningSeed() {
         for (long seed = 0; seed < 100000; seed++) if (RandomSource.create(seed).nextDouble() < OriginRules.BONUS_DROP_CHANCE) return seed;
         throw new AssertionError("No deterministic bonus-drop fixture seed");
     }
 
-    private static BlockDropsEvent drop(ServerPlayer player, BlockPos position, net.minecraft.world.level.block.state.BlockState block, ItemStack output, ItemStack tool) {
+    static BlockDropsEvent drop(ServerPlayer player, BlockPos position, net.minecraft.world.level.block.state.BlockState block, ItemStack output, ItemStack tool) {
         var drops = new ArrayList<ItemEntity>();
         drops.add(new ItemEntity(player.serverLevel(), position.getX(), position.getY(), position.getZ(), output));
         return new BlockDropsEvent(player.serverLevel(), position, block, null, drops, player, tool);
@@ -78,22 +78,22 @@ public final class OriginSmoke {
         profile.putInt("ceiling", 50);
         profile.putLong("xp", 123);
         check(Origins.selected(player).isEmpty(), "existing characters are not randomly assigned an origin at login");
-        check(!CharacterState.action(player, "origin", "tnk:miner"), "origin cannot be chosen before the first Character visit");
+        check(!CharacterState.action(player, "origin", "tnk:deepdelver"), "origin cannot be chosen before the first Character visit");
         profile.putLong("character_packet_tick", server.overworld().getGameTime());
         new CharacterAction("origin_open", "").handle(player);
         check(profile.getBoolean("origin_prompted"), "a throttled opening packet still records the Character visit on a busy server");
         check(CharacterState.action(player, "origin_open", ""), "Character visit opens the origin choice");
         check(!Origins.choose(player, "tnk:invented") && !Origins.choose(player, ""), "invalid and empty origin IDs rejected");
-        check(CharacterState.action(player, "origin", "tnk:miner"), "first valid origin chosen");
-        check(!Origins.choose(player, "tnk:miner") && !Origins.choose(player, "tnk:librarian"), "same-origin replay and permanent-origin replacement rejected");
+        check(CharacterState.action(player, "origin", "tnk:deepdelver"), "first valid origin chosen");
+        check(!Origins.choose(player, "tnk:deepdelver") && !Origins.choose(player, "tnk:librarian"), "same-origin replay and permanent-origin replacement rejected");
         check(!CharacterState.action(player, "origin_reset", "") && !CharacterState.action(player, "origin_set", "tnk:soldier"), "client packets cannot reset or administratively replace origins");
-        check(CharacterState.snapshot(player).origin().equals("tnk:miner"), "origin synchronized in Character state");
+        check(CharacterState.snapshot(player).origin().equals("tnk:deepdelver"), "origin synchronized in Character state");
         var saved = ProgressionData.get(server).save(new CompoundTag(), player.registryAccess());
         var stored = ProgressionData.load(saved, player.registryAccess()).entry("player:" + uuid);
-        check(stored.getString(Origins.KEY).equals("tnk:miner") && stored.getInt("level") == 42 && stored.getLong("xp") == 123, "origin save roundtrip preserves existing progression");
+        check(stored.getString(Origins.KEY).equals("tnk:deepdelver") && stored.getInt("level") == 42 && stored.getLong("xp") == 123, "origin save roundtrip preserves existing progression");
         ServerPlayer reconnect = player(server, uuid);
         Origins.apply(reconnect);
-        check(Origins.selected(reconnect).equals("tnk:miner") && !Origins.choose(reconnect, "tnk:soldier"), "new player entity retains the permanent UUID-owned origin");
+        check(Origins.selected(reconnect).equals("tnk:deepdelver") && !Origins.choose(reconnect, "tnk:soldier"), "new player entity retains the permanent UUID-owned origin");
 
         var dispatcher = server.getCommands().getDispatcher();
         for (String command : List.of("tnkprogress origin set @s tnk:soldier", "tnkprogress origin reset @s")) {
@@ -106,6 +106,7 @@ public final class OriginSmoke {
         check(dispatcher.execute("tnkprogress origin set @s tnk:invented", player.createCommandSourceStack().withPermission(2)) == 0, "admin command rejects invalid origin without clearing the old one");
         check(Origins.selected(player).equals("tnk:librarian"), "rejected admin change preserves selection");
 
+        profile.remove("origin_revision"); // Existing 1.1 Librarians retain their original discount.
         // This calls the real transformed Minecraft method, proving the enchanting mixin applies.
         experience(player, 30);
         long before = Origins.experiencePoints(player);
@@ -161,7 +162,8 @@ public final class OriginSmoke {
         check(Origins.selected(player).isEmpty() && player.getMaxHealth() == 20 && player.getHealth() == 5, "admin reset removes perks without changing title benefits or healing");
         check(!Origins.choose(player, "tnk:miner"), "reset requires a new Character visit");
         Origins.open(player);
-        check(Origins.choose(player, "tnk:miner"), "admin reset permits a fresh confirmed selection");
+        check(Origins.choose(player, "tnk:deepdelver"), "admin reset permits a fresh confirmed selection");
+        Origins.adminSet(player, "tnk:miner"); // Legacy IDs remain valid for administrators.
 
         // Winning roll is deterministic; verify one extra item, no Fortune multiplication and no XP replay.
         long seed = winningSeed();
@@ -259,6 +261,7 @@ public final class OriginSmoke {
 
         check(dispatcher.execute("tnkprogress origin reset @s", player.createCommandSourceStack().withPermission(2)) == 1, "admin reset command is available");
         check(profile.getInt("level") == 42 && profile.getLong("xp") == 123, "origin selection and XP refunds never grant character progression");
+        OriginExpandedSmoke.run(server);
         TnkProgression.LOG.info("TNK_ORIGINS_SMOKE_OK: permanent choice, admin permissions, UUID persistence, real enchanting/anvil refunds, origin/title coexistence, no stacking/healing and guarded harvest bonuses");
     }
 }

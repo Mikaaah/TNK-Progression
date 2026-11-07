@@ -64,13 +64,26 @@ public final class OriginUiSmoke {
                 next(1);
             } else if (stage == 1 && ticks > 25) {
                 check(mc.screen instanceof OriginScreen, "first Character visit opens the origin picker");
-                check(mc.screen.children().size() == 9, "eight origin choices and close button");
+                check(mc.screen.children().size() == 11, "eight cards, close and two page controls");
                 shot(mc, "TNK-Origins-Choose.png");
-                click(mc, 236, 113);
-                next(2);
+                click(mc, 452, 283);
+                next(101);
+            } else if (stage == 101 && ticks > 10) {
+                check(mc.screen.children().stream().filter(Button.class::isInstance).map(Button.class::cast).anyMatch(button -> button.getMessage().getString().equals("Librarian")), "second page contains new Librarian");
+                shot(mc, "TNK-Origins-Page2.png");
+                click(mc, 452, 283); next(102);
+            } else if (stage == 102 && ticks > 10) {
+                check(mc.screen.children().size() == 7, "last page has four origins and page controls");
+                shot(mc, "TNK-Origins-Page3.png");
+                click(mc, 416, 153); next(103);
+            } else if (stage == 103 && ticks > 10) {
+                if (!state.manaAvailable()) check(mc.screen.children().stream().filter(Button.class::isInstance).map(Button.class::cast).filter(button -> button.getMessage().getString().equals("Confirm Origin")).noneMatch(button -> button.active), "missing optional mana integration disables confirmation");
+                shot(mc, "TNK-Origins-Hedge-Mage-Preview.png");
+                click(mc, 200, 283); click(mc, 200, 283); click(mc, 200, 283);
+                click(mc, 236, 113); next(2);
             } else if (stage == 2 && ticks > 15) {
                 check(mc.screen instanceof OriginScreen && state.origin().isEmpty(), "preview has not committed a choice");
-                shot(mc, "TNK-Origins-Miner-Preview.png");
+                shot(mc, "TNK-Origins-Deepdelver-Preview.png");
                 mc.screen.onClose();
                 check(mc.screen == null, "unconfirmed selection can be closed safely");
                 mc.setScreen(new CharacterScreen());
@@ -83,35 +96,40 @@ public final class OriginUiSmoke {
                 click(mc, 382, 283);
                 next(5);
             } else if (stage == 5 && ticks > 25) {
-                check(mc.screen instanceof CharacterScreen && state.origin().equals("tnk:miner"), "confirmation persists the chosen Miner origin on the server");
+                check(mc.screen instanceof CharacterScreen && state.origin().equals("tnk:deepdelver"), "confirmation persists the chosen Deepdelver origin on the server");
                 check(state.xp() == 321 && state.selected().equals("tnk:owner") && state.passive().equals("tnk:beta_tester"), "origin selection preserves progression and both title slots");
                 check(Math.abs(mc.player.getAttributeValue(Attributes.MOVEMENT_SPEED) - .103) < 1e-6, "existing Founder movement remains active");
-                var speed = new PlayerEvent.BreakSpeed(mc.player, Blocks.STONE.defaultBlockState(), 10, mc.player.blockPosition());
+                var speed = new PlayerEvent.BreakSpeed(mc.player, Blocks.IRON_ORE.defaultBlockState(), 10, mc.player.blockPosition());
                 NeoForge.EVENT_BUS.post(speed);
-                check(Math.abs(speed.getNewSpeed() - 11) < 1e-6, "Miner mining speed applies to client prediction");
+                check(Math.abs(speed.getNewSpeed() - 11) < 1e-6, "Deepdelver mining speed applies to client prediction");
                 CharacterClient.action("origin", "tnk:librarian");
                 next(6);
             } else if (stage == 6 && ticks > 20) {
-                check(state.origin().equals("tnk:miner"), "server rejects a forged second origin choice");
+                check(state.origin().equals("tnk:deepdelver"), "server rejects a forged second origin choice");
                 mc.gui.getChat().clearMessages(true);
                 click(mc, 464, 25);
                 next(7);
             } else if (stage == 7 && ticks > 15) {
                 check(mc.screen.children().stream().filter(Button.class::isInstance).map(Button.class::cast)
                     .noneMatch(button -> button.getMessage().getString().contains("Confirm")), "origin tab is read-only");
-                shot(mc, "TNK-Origins-Miner-Locked-Scale2.png");
+                shot(mc, "TNK-Origins-Deepdelver-Locked-Scale2.png");
+                mc.options.guiScale().set(3);
+                mc.resizeDisplay();
+                next(71);
+            } else if (stage == 71 && ticks > 15) {
+                shot(mc, "TNK-Origins-Deepdelver-Locked-Scale3.png");
                 mc.options.guiScale().set(4);
                 mc.resizeDisplay();
                 next(8);
             } else if (stage == 8 && ticks > 15) {
                 check(mc.getWindow().getGuiScale() == 4, "effective GUI scale is four");
-                shot(mc, "TNK-Origins-Miner-Locked-Scale4.png");
+                shot(mc, "TNK-Origins-Deepdelver-Locked-Scale4.png");
                 mc.screen.onClose();
                 mc.setScreen(new CharacterScreen());
                 next(9);
             } else if (stage == 9 && ticks > 20) {
-                check(mc.screen instanceof CharacterScreen && state.origin().equals("tnk:miner"), "reopening Character does not offer another choice");
-                TnkProgression.LOG.info("TNK_ORIGINS_CLIENT_OK: real first-open picker, eight choices, preview/cancel/reopen, permanent confirmation, rejected reselection, independent titles and scales 2/4");
+                check(mc.screen instanceof CharacterScreen && state.origin().equals("tnk:deepdelver"), "reopening Character does not offer another choice");
+                TnkProgression.LOG.info("TNK_ORIGINS_CLIENT_OK: real first-open picker, 20 custom-icon choices across three pages, preview/cancel/reopen, permanent confirmation, rejected reselection, independent titles and scales 2/3/4");
                 mc.stop();
             }
         } catch (Throwable failure) {

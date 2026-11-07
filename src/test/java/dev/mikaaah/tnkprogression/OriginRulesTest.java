@@ -4,14 +4,14 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class OriginRulesTest {
-    @Test void eightDistinctBackgroundsHaveStableIdsAndVisiblePerks() {
-        assertEquals(8, OriginRules.all().size());
-        assertEquals(8, OriginRules.all().stream().map(OriginRules.Origin::id).distinct().count());
+    @Test void twentyDistinctBackgroundsHaveStableIdsAndVisiblePerks() {
+        assertEquals(20, OriginRules.all().size());
+        assertEquals(20, OriginRules.all().stream().map(OriginRules.Origin::id).distinct().count());
         for (var origin : OriginRules.all()) {
             assertTrue(origin.id().matches("tnk:[a-z_]+"));
             assertEquals(2, origin.perks().size());
             assertFalse(origin.story().isBlank());
-            assertTrue(origin.icon().startsWith("minecraft:"));
+            assertTrue(origin.icon().startsWith("tnkprogression:textures/gui/origins/"));
         }
         assertTrue(OriginRules.find("tnk:miner").isPresent());
         assertTrue(OriginRules.find("tnk:invented").isEmpty());
@@ -19,12 +19,34 @@ class OriginRulesTest {
     }
 
     @Test void onlyAnUnchosenPromptedCharacterCanChoose() {
-        assertTrue(OriginRules.mayChoose(true, false, "tnk:miner"));
+        assertTrue(OriginRules.mayChoose(true, false, "tnk:deepdelver"));
         assertFalse(OriginRules.mayChoose(false, false, "tnk:miner"));
         assertFalse(OriginRules.mayChoose(true, true, "tnk:miner"));
         assertFalse(OriginRules.mayChoose(true, true, "tnk:librarian"));
         assertFalse(OriginRules.mayChoose(true, false, ""));
         assertFalse(OriginRules.mayChoose(true, false, "tnk:invented"));
+    }
+
+    @Test void legacyPerksStaySeparateFromTheNewRoster() {
+        assertEquals(.20, OriginRules.bonus("tnk:librarian", 1, OriginRules.Perk.ENCHANT_REFUND));
+        assertEquals(.10, OriginRules.bonus("tnk:librarian", 2, OriginRules.Perk.ENCHANT_REFUND));
+        assertEquals(.10, OriginRules.bonus("tnk:librarian", 1, OriginRules.Perk.ANVIL_REFUND));
+        assertEquals(0, OriginRules.bonus("tnk:librarian", 2, OriginRules.Perk.ANVIL_REFUND));
+        assertEquals(.15, OriginRules.bonus("tnk:librarian", 2, OriginRules.Perk.GRINDSTONE_XP));
+        assertEquals(.10, OriginRules.bonus("tnk:miner", 2, OriginRules.Perk.PICKAXE_SPEED));
+        assertFalse(OriginRules.mayChoose(true, false, "tnk:miner"));
+        assertEquals(27, OriginRules.known().size());
+        for (var origin : OriginRules.all()) assertEquals(2, origin.bonuses().size());
+    }
+
+    @Test void fractionalYieldConservesSmallBonuses() {
+        double carry = 0; int total = 0;
+        for (int i = 0; i < 1000; i++) {
+            var result = OriginRules.extra(1, .10, carry); carry = result.remainder(); total += result.points();
+        }
+        assertEquals(100, total); assertEquals(0, carry, 1e-8);
+        assertEquals(0, OriginRules.extra(-1, .1, 0).points());
+        assertEquals(0, OriginRules.extra(1, Double.NaN, 0).points());
     }
 
     @Test void vanillaXpCurveMatchesThresholdsAndHandlesExtremeLevels() {

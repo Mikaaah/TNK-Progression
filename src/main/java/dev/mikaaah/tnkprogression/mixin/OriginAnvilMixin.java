@@ -16,7 +16,7 @@ public abstract class OriginAnvilMixin {
 
     @Inject(method = "onTake", at = @At("HEAD"))
     private void tnk$captureAnvilCost(Player player, ItemStack stack, CallbackInfo callback) {
-        tnk$originXpBefore = Origins.captureXp(player, true);
+        tnk$originXpBefore = Origins.captureAnvilXp(player, ((AnvilMenu)(Object)this).getSlot(0).getItem(), stack);
     }
 
     @Inject(method = "onTake", at = @At("RETURN"))
