@@ -28,6 +28,11 @@ public final class LevelBadges {
             .withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Component.literal("Character level " + value))));
     }
 
+    public static Component mobBadge(int level) {
+        int value = Math.clamp(level, 1, BossLevels.MAX_LEVEL);
+        return value <= 100 ? badge(value) : Component.literal("[" + value + "]").withStyle(Style.EMPTY.withColor(0xFFFFFF).withBold(false).withItalic(false));
+    }
+
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void format(PlayerEvent.NameFormat event) {
         Integer level = event.getEntity() instanceof ServerPlayer player

@@ -17,6 +17,6 @@ public record MobLevelPayload(int entityId,UUID uuid,int level) implements Custo
  @Override public Type<MobLevelPayload> type(){return TYPE;}
  public void accept(Player viewer){
   var entity=viewer.level().getEntity(entityId);
-  if(entity instanceof Mob && entity.getUUID().equals(uuid))entity.getPersistentData().putInt("tnk_level",Math.clamp(level,1,100));
+  if(entity instanceof Mob && entity.getUUID().equals(uuid))entity.getPersistentData().putInt("tnk_level",Math.clamp(level,1,BossLevels.MAX_LEVEL));
  }
 }

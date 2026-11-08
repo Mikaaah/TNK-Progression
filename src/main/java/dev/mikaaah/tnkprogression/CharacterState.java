@@ -11,7 +11,7 @@ import net.neoforged.neoforge.network.PacketDistributor;
 /** Only a player's own, bounded, server-calculated progression view is sent to their client. */
 public final class CharacterState {
  public static final List<String> ACTIVITIES=List.of("combat","mining","fishing","exploration","farming","crafting","engineering");
- public record Activity(String id,long rank,double work,long required,long reward) {}
+ public record Activity(String id,long rank,double work,long required,long reward,List<String> info) {}
  public record Perk(String text,boolean available) {}
  public record Title(String id,String label,String description,String translation,int colour,boolean earned,List<Perk> perks) {}
  public record Snapshot(int level,int ceiling,long xp,long required,String gate,int pointsEarned,int pointsSpent,String selected,String passive,String tracked,boolean hud,long swapTicks,List<Activity> activities,List<Title> titles,List<String> recent,String origin,int originRevision,boolean manaAvailable) {}
@@ -20,7 +20,7 @@ public final class CharacterState {
  public static Snapshot snapshot(ServerPlayer p){return snapshot(p,true);}
  private static Snapshot snapshot(ServerPlayer p,boolean includeTitles){
   var n=ProgressionAPI.profile(p);List<Activity> activities=new ArrayList<>();
-  for(String key:ACTIVITIES){var a=ProgressionConfig.current.activities.get(key);long rank=n.getLong(key+"_rank");activities.add(new Activity(key,rank,n.getLong(key+"_work")+n.getDouble(key+"_fraction"),ProgressionMath.taskCost(a.initialRequirement(),rank),ProgressionMath.taskReward(a.initialXp(),rank)));}
+  for(String key:ACTIVITIES){var a=ProgressionConfig.current.activities.get(key);long rank=n.getLong(key+"_rank");activities.add(new Activity(key,rank,n.getLong(key+"_work")+n.getDouble(key+"_fraction"),ProgressionMath.taskCost(a.initialRequirement(),rank),ProgressionMath.taskReward(a.initialXp(),rank),ActivityHelp.describe(p,key)));}
   List<Title> titles=new ArrayList<>();
   if(includeTitles)for(var t:TitleConfig.current.titles())titles.add(new Title(t.id(),t.label(),t.description(),t.translationKey(),t.rgb(),Titles.unlocked(p,t.id()),TitlePerks.forTitle(t.id()).stream().map(perk->new Perk(perk.description(),TitlePerks.available(p,perk))).toList()));
   int cap=ProgressionAPI.ceiling(p);String gate=switch(cap){case 10->"Chapter 1 · Kinetic workshop";case 30->"Chapter 3 · Precision workshop";case 50->"Chapter 5 · Ender machinery";case 70->"Chapter 6 · Chemical machinery";case 80->"Chapter 8 · Containment";case 94->"Chapter 10 · Sovereign";default->cap>=100?"Maximum level":"Your next campaign milestone";};

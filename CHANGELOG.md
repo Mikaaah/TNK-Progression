@@ -1,3 +1,14 @@
+## 1.3.0-private.1
+
+- Added an Info button to every activity, explaining qualifying actions, Work, cooldowns and exclusions.
+- Crafting and Engineering info lists the server's active approved recipes and configured commissions.
+- Added individual boss and miniboss base levels. Bosses spawn at the higher of their base level or the nearest eligible player's level +10, up to level 110, without a random offset.
+- Included Deeper and Darker's Stalker and Workshop's Sculk Goliath in the optional boss roster.
+- Existing bosses receive the new rule once when loaded; subsequent loads preserve their level and damage.
+- Boss level syncing and nameplates now support levels 101–110. Players remain capped at 100.
+
+Minecraft 1.21.1 · NeoForge · Java 21. Replace the previous Progression JAR on both client and server, then restart. Existing progression config files gain the boss roster automatically without resetting other settings or player progress.
+
 # 1.2.0-private.1
 
 - Add the complete 20-origin roster with both perks per background and 20 supplied original pixel icons bundled in the mod.

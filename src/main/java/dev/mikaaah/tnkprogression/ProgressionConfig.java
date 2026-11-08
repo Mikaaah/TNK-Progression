@@ -10,6 +10,7 @@ public final class ProgressionConfig {
  public String skillCategory = "puffish_skills:character";
  public boolean scaleMobs = true;
  public int mobLevelVariance = 4;
+ public Map<String,Integer> bossBaseLevels = BossLevels.defaults();
  public int balanceVersion=2;
  public Map<String,Long> legacyActivityRequirements=new HashMap<>(Map.of("mining",100L,"combat",10L,"fishing",1L,"exploration",10L,"farming",40L,"crafting",30L,"engineering",10L));
  public double healthPerLevel = 0.03, damagePerLevel = 0.0125;
@@ -34,6 +35,9 @@ public final class ProgressionConfig {
    if (!Files.exists(path)) Files.writeString(path,gson.toJson(new ProgressionConfig()));
    JsonObject raw=gson.fromJson(Files.readString(path),JsonObject.class);
    ProgressionConfig c=gson.fromJson(raw,ProgressionConfig.class);
+   boolean bossMigration=!raw.has("bossBaseLevels");
+   if(c.bossBaseLevels==null || c.bossBaseLevels.size()>512)throw new IllegalArgumentException("Invalid boss level roster");
+   for(var boss:c.bossBaseLevels.entrySet())if(net.minecraft.resources.ResourceLocation.tryParse(boss.getKey())==null || boss.getValue()==null || boss.getValue()<1 || boss.getValue()>BossLevels.MAX_LEVEL)throw new IllegalArgumentException("Invalid boss base level");
    boolean treeMigration="tnk:character".equals(c.skillCategory);
    if(treeMigration)c.skillCategory="puffish_skills:character";
    boolean migrate=!raw.has("balanceVersion");
@@ -51,7 +55,7 @@ public final class ProgressionConfig {
    for(var rules:List.of(c.craftingRecipes,c.engineeringRecipes,c.engineeringObjectives))for(var rule:rules.entrySet())if(net.minecraft.resources.ResourceLocation.tryParse(rule.getKey())==null || rule.getValue()==null || !Double.isFinite(rule.getValue()) || rule.getValue()<=0 || rule.getValue()>1000)throw new IllegalArgumentException("Invalid activity recipe/objective");
    for(String key:defaults().keySet()) { Activity a=c.activities.get(key); if(a==null || a.initialRequirement<1 || a.initialXp<1)throw new IllegalArgumentException("Invalid activity "+key); }
    if(c.skillCategory==null || net.minecraft.resources.ResourceLocation.tryParse(c.skillCategory)==null)throw new IllegalArgumentException("Invalid skill category");
-   if(migrate || treeMigration || raw.has("blocksPerMobLevel") || raw.has("dimensionBaseLevels"))Files.writeString(path,gson.toJson(c));current=c; return true;
+   if(migrate || treeMigration || bossMigration || raw.has("blocksPerMobLevel") || raw.has("dimensionBaseLevels"))Files.writeString(path,gson.toJson(c));current=c; return true;
   } catch(Exception e){ TnkProgression.LOG.error("Keeping previous progression config",e); return false; }
  }
 }

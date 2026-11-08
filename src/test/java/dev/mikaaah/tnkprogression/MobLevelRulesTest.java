@@ -2,6 +2,14 @@ package dev.mikaaah.tnkprogression;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 class MobLevelRulesTest {
+ @Test void bossesUseTheirFloorOrTenAbovePlayerWithoutVariance(){
+  assertEquals(75,MobLevelRules.bossLevel(75,1));
+  assertEquals(75,MobLevelRules.bossLevel(75,65));
+  assertEquals(76,MobLevelRules.bossLevel(75,66));
+  assertEquals(110,MobLevelRules.bossLevel(15,100));
+  assertEquals(110,MobLevelRules.bossLevel(110,Integer.MAX_VALUE));
+  assertEquals(35,MobLevelRules.bossLevel(35,-10));
+ }
  @Test void everyPlayerLevelStaysWithinFourAndGlobalBounds(){
   for(int level=1;level<=100;level++)for(int offset=-4;offset<=4;offset++){
    int mob=MobLevelRules.withOffset(level,offset);

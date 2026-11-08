@@ -18,9 +18,12 @@ import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 public final class ProgressionEvents {
  @SubscribeEvent public static void join(EntityJoinLevelEvent e){
-  if(!(e.getLevel() instanceof ServerLevel world) || !(e.getEntity() instanceof Mob mob) || !(mob instanceof Enemy) || !ProgressionConfig.current.scaleMobs)return;
+  if(!(e.getLevel() instanceof ServerLevel world) || !(e.getEntity() instanceof Mob mob) || (!(mob instanceof Enemy) && BossLevels.baseLevel(mob)==0) || !ProgressionConfig.current.scaleMobs)return;
   var c=ProgressionConfig.current;CompoundTag n=mob.getPersistentData();boolean fresh=!n.contains("tnk_level");
-  if(fresh)n.putInt("tnk_level",MobLevels.assign(world,mob));
+  int previousLevel=ProgressionAPI.mobLevel(mob);
+  boolean migrateBoss=BossLevels.baseLevel(mob)>0 && !n.getBoolean("tnk_boss_level_v1");
+  if(fresh || migrateBoss)n.putInt("tnk_level",MobLevels.assign(world,mob));
+  if(BossLevels.baseLevel(mob)>0)n.putBoolean("tnk_boss_level_v1",true);
   int level=ProgressionAPI.mobLevel(mob);
   scale(mob.getAttribute(Attributes.MAX_HEALTH),"health",c.healthPerLevel*(level-1));
   scale(mob.getAttribute(Attributes.ATTACK_DAMAGE),"damage",c.damagePerLevel*(level-1));
@@ -28,7 +31,8 @@ public final class ProgressionEvents {
   else if(mob.getHealth()>mob.getMaxHealth())mob.setHealth(mob.getMaxHealth());
   // Remove only our exact old generated name. Never rename player-named or affixed mobs.
   var old=net.minecraft.network.chat.Component.literal("Lv. "+level+" ").append(mob.getType().getDescription());
-  if(old.equals(mob.getCustomName()))mob.setCustomName(null);
+  var previousName=net.minecraft.network.chat.Component.literal("Lv. "+previousLevel+" ").append(mob.getType().getDescription());
+  if(old.equals(mob.getCustomName()) || previousName.equals(mob.getCustomName()))mob.setCustomName(null);
  }
  @SubscribeEvent public static void tracking(PlayerEvent.StartTracking e){
   if(e.getEntity() instanceof ServerPlayer p && e.getTarget() instanceof Mob mob && mob.getPersistentData().contains("tnk_level"))

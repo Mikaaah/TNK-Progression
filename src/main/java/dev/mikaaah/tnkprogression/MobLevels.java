@@ -45,6 +45,8 @@ public final class MobLevels {
  }
  public static int assign(ServerLevel world,Mob mob){
   var player=lookup(world,mob);
+  int bossBase=BossLevels.baseLevel(mob);
+  if(bossBase>0)return MobLevelRules.bossLevel(bossBase,player==null?-10:player.level);
   if(player==null)return 1;
   int variance=ProgressionConfig.current.mobLevelVariance;
   return MobLevelRules.withOffset(player.level,mob.getRandom().nextInt(2*variance+1)-variance);

@@ -43,7 +43,7 @@ public final class CharacterScreen extends Screen {
    boolean cosmeticOnly=t!=null&&Titles.cosmeticOnly(t.id());
    var passive=button(cosmeticOnly?"Cosmetic Only":t!=null&&s.passive().equals(t.id())?"Passive: Active":"Use Passive",340,275,130,22,b->{if(t!=null)CharacterClient.action("passive",t.id());}).selected(t!=null&&s.passive().equals(t.id()));passive.active=t!=null&&t.earned()&&!cosmeticOnly&&(s.swapTicks()==0||s.passive().equals(t.id()));
    button("X",474,275,30,22,b->CharacterClient.action("passive",""));
-  }else if(tab==2){for(int i=0;i<s.activities().size();i++){var a=s.activities().get(i);button(a.id().equals(s.tracked())?"Pinned":"Track",444,59+i*33,62,21,b->CharacterClient.action("track",a.id())).accent(CharacterTheme.activityColour(a.id())).selected(a.id().equals(s.tracked()));}}
+  }else if(tab==2){for(int i=0;i<s.activities().size();i++){var a=s.activities().get(i);button("Info",394,59+i*33,44,21,b->minecraft.setScreen(new ActivityInfoScreen(this,a.id()))).accent(CharacterTheme.activityColour(a.id()));button(a.id().equals(s.tracked())?"Pinned":"Track",444,59+i*33,62,21,b->CharacterClient.action("track",a.id())).accent(CharacterTheme.activityColour(a.id())).selected(a.id().equals(s.tracked()));}}
   else if(tab==0)button("Skill Tree",394,126,110,22,b->CharacterClient.action("skills","")).accent(CharacterTheme.PURPLE);
  }
  @Override public void tick(){
@@ -110,11 +110,11 @@ public final class CharacterScreen extends Screen {
  private void activities(GuiGraphics g,CharacterState.Snapshot s){
   for(int i=0;i<s.activities().size();i++){var a=s.activities().get(i);int y=54+i*33;
    CharacterTheme.panel(g,146,y,362,31,i%2==0?CharacterTheme.CARD:0xFF805044);g.fill(148,y+4,150,y+27,CharacterTheme.activityColour(a.id()));g.renderItem(CharacterTheme.activityIcon(a.id()),155,y+6);
-   heading(g,CharacterTheme.name(a.id())+"  ·  Milestone "+(a.rank()+1),178,y+4,CharacterTheme.INK);
-   text(g,CharacterTheme.number(a.work())+" / "+CharacterTheme.number(a.required())+"   +"+CharacterTheme.number(a.reward())+" XP",178,y+15,CharacterTheme.MUTED);
-   CharacterTheme.bar(g,178,y+26,252,2,a.work()/a.required(),CharacterTheme.activityColour(a.id()));
+   heading(g,font.plainSubstrByWidth(CharacterTheme.name(a.id())+"  ·  Milestone "+(a.rank()+1),208),178,y+4,CharacterTheme.INK);
+   text(g,font.plainSubstrByWidth(CharacterTheme.number(a.work())+" / "+CharacterTheme.number(a.required())+"   +"+CharacterTheme.number(a.reward())+" XP",208),178,y+15,CharacterTheme.MUTED);
+   CharacterTheme.bar(g,178,y+26,208,2,a.work()/a.required(),CharacterTheme.activityColour(a.id()));
   }
-  text(g,"Activities remain repeatable. Campaign ceilings still apply.",150,288,CharacterTheme.MUTED);
+  text(g,"Info shows qualifying actions, recipes and limits.",150,288,CharacterTheme.MUTED);
  }
  private void origin(GuiGraphics g,CharacterState.Snapshot s){
   CharacterTheme.section(g,font,"Your Origin",146,50,362,CharacterTheme.PURPLE);

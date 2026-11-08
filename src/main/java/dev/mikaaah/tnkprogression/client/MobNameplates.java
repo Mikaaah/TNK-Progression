@@ -36,7 +36,7 @@ public final class MobNameplates {
   var anchor=mob.getAttachments().getNullable(EntityAttachment.NAME_TAG,0,mob.getViewYRot(e.getPartialTick()));if(anchor==null)return;
   var pose=e.getPoseStack();pose.pushPose();pose.translate(anchor.x,anchor.y+.5,anchor.z);pose.mulPose(dispatcher.cameraOrientation());pose.scale(.025f,-.025f,.025f);
   var font=e.getEntityRenderer().getFont();int background=(int)(mc.options.getBackgroundOpacity(.25f)*255)<<24;
-  line(e,font,LevelBadges.badge(ProgressionAPI.mobLevel(mob)),-12,0);
+  line(e,font,LevelBadges.mobBadge(ProgressionAPI.mobLevel(mob)),-12,0);
   line(e,font,e.getContent(),0,background);
   if(VERIFY){verifiedLines+=2;verifiedLevel=ProgressionAPI.mobLevel(mob);}
   pose.popPose();e.setCanRender(TriState.FALSE);
