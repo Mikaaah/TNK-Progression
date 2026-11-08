@@ -31,7 +31,6 @@ See [the 0.6 update guide](../../docs/SKILLTREE-0.6.md) for the single mana rout
 
 ## Build and checks
 
-`python3 tools/convert_tk2_tree.py /path/to/TK2_Original_Skill_Tree_588_Nodes_Extracted.zip` generates this config folder. No source PNGs are copied. `python3 tools/render_tk2_preview.py` renders the actual data using existing TNK sprites. The preview is a layout render, not a game capture. `./gradlew build -PtnkArtworkSource=/path/to/advancedpack.zip` embeds the original number/title art; it never embeds the tree configuration.
 
 24 unit tests and the actual loaded Pufferfish Skills/Attributes dedicated-server suite verify config loading, 588 nodes, 669 links, all referenced TNK textures, 175 points without duplicates, native attribute/tag application and removal, and live Second Wind damage/cooldown through respec. The JAR is also checked for absence of Pufferfish category data. Full-pack client and Iron's/Ars runtime playtesting remain separate checks.
 
