@@ -98,7 +98,6 @@ The source image must exist in the provided pack; missing art falls back to text
 
 Replace the progression JAR on **server and clients**, and enable the combined number/title resource pack above earlier packs. The network protocol is now version 3, so both sides need this update. The updated mod keeps existing progression data and adds title ownership/selection/revocation to each personal saved profile. No TNK Loot replacement or skilltree datapack change is required.
 
-Run `./gradlew build` and, in a disposable world only, the existing progression smoke server. It now asserts title command permissions, grant/duplicate/select/hide/revoke/restore behaviour, readable fallback names, no duplicate prefixes, packet roundtrip, save/reload and skill conditions. `node tools/check_title_bindings.cjs` exercises the real integration script with controlled completion events, threshold counts and login catch-up. It does not replace running the installed KubeJS/FTB/Pufferfish integrations in the full pack. Client artwork/nameplate rendering and real multiplayer remain in-pack checks.
 
 This update also fixes namespaced IDs in engineering commands and one-time quest XP reward parsing, retaining existing nonnamespaced reward-claim IDs.
 
@@ -152,4 +151,4 @@ This update also fixes namespaced IDs in engineering commands and one-time quest
 
 ## Default artwork correction — 0.4.3-beta.1
 
-The delivered private mod JAR now embeds the original number/title fonts and PNGs directly. The companion resource pack is no longer required. All 143 supplied images remain byte-for-byte identical, and title translations are merged with the character key labels. This changes resources only; title ownership, perks, level rules, keybindings and networking are unchanged. Public source-only builds need the supplied archive through `-PtnkArtworkSource=/path/to/advancedpack.zip` to reproduce the private artwork.
+The delivered private mod JAR now embeds the original number/title fonts and PNGs directly. The companion resource pack is no longer required. All 143 supplied images remain byte-for-byte identical, and title translations are merged with the character key labels. This changes resources only; title ownership, perks, level rules, keybindings and networking are unchanged. Private artwork is included only in licensed distributions.

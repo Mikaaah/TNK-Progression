@@ -29,12 +29,8 @@ Points are `level + floor(3 × level / 4)`: level 1 → 1, 10 → 17, 20 → 35,
 
 See [the 0.6 update guide](../../docs/SKILLTREE-0.6.md) for the single mana route, original-value restoration, clear tooltips, 12 mastery titles and upgrade instructions. 141 complete nodes preserve original values and conditions; 447 remain explicitly labeled adaptations. Original critical magnitudes are restored on the current personal critical-attribute replacements. Native mana and general spell-power rewards no longer buff both Iron's and Ars separately. Existing conditional replacement caps remain separate from restored source effects.
 
-## Build and checks
+## Compatibility
 
-`python3 tools/convert_tk2_tree.py /path/to/TK2_Original_Skill_Tree_588_Nodes_Extracted.zip` generates this config folder. No source PNGs are copied. `python3 tools/render_tk2_preview.py` renders the actual data using existing TNK sprites. The preview is a layout render, not a game capture. `./gradlew build -PtnkArtworkSource=/path/to/advancedpack.zip` embeds the original number/title art; it never embeds the tree configuration.
-
-24 unit tests and the actual loaded Pufferfish Skills/Attributes dedicated-server suite verify config loading, 588 nodes, 669 links, all referenced TNK textures, 175 points without duplicates, native attribute/tag application and removal, and live Second Wind damage/cooldown through respec. The JAR is also checked for absence of Pufferfish category data. Full-pack client and Iron's/Ars runtime playtesting remain separate checks.
-
-The official downloaded Skills 0.19.2 and Attributes 0.8.3 metadata declares [1.21,1.21.1), despite advertising 1.21.1. The disposable test server uses existing NeoForge config dependency overrides without editing those JARs. If your pack already loads Pufferfish, keep that working setup. Otherwise the compatibility note in the release explains how to merge the two overrides into FML's existing map; the TNK mod does not overwrite FML settings. No third-party mod JAR is redistributed.
+Install the Pufferfish Skills and Attributes versions selected by your pack. Keep the matching config folder on the server and clients. The tree category is `puffish_skills:character`; another XP or point source can change the intended budget.
 
 Icons: Aleksandr Makarov / HAS IconPack; existing credit/license files remain in the JAR. Supplied number/title PNGs remain byte-identical originals.
