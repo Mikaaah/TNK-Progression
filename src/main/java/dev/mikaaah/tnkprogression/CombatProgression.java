@@ -65,13 +65,13 @@ public final class CombatProgression {
     }
     @SubscribeEvent(priority=EventPriority.LOWEST)
     public static void before(LivingDamageEvent.Pre event) {
-        if (!event.getEntity().level().isClientSide && event.getEntity() instanceof Enemy)
+        if (!event.getEntity().level().isClientSide && event.getEntity() instanceof Mob)
             event.getEntity().getPersistentData().putFloat("tnk_health_before",event.getEntity().getHealth());
     }
     @SubscribeEvent(priority=EventPriority.LOWEST)
     public static void damage(LivingDamageEvent.Post event) {
         var target=event.getEntity();
-        if (!(target.level() instanceof ServerLevel world) || !(target instanceof Enemy)) return;
+        if (!(target.level() instanceof ServerLevel world) || !(target instanceof Mob)) return;
         var p=owner(event.getSource().getEntity()); if(p==null)p=owner(event.getSource().getDirectEntity());
         if(p==null || !ActivityGuard.player(p))return;
         CompoundTag n=target.getPersistentData();
@@ -91,11 +91,11 @@ public final class CombatProgression {
     @SubscribeEvent(priority=EventPriority.LOWEST)
     public static void death(LivingDeathEvent event) {
         var target=event.getEntity();
-        if(!(target.level() instanceof ServerLevel world) || !(target instanceof Enemy))return;
+        if(!(target.level() instanceof ServerLevel world) || !(target instanceof Mob))return;
         var n=target.getPersistentData();if(n.getBoolean("tnk_combat_paid"))return;
         n.putBoolean("tnk_combat_paid",true);
         var c=ProgressionConfig.current;
-        if(c.excludedSpawns.contains(n.getString("tnk_spawn_reason"))
+        if(Set.of("SPAWN_EGG","DISPENSER","COMMAND","BREEDING","MOB_SUMMONED","SPLIT").contains(n.getString("tnk_spawn_reason"))
             || (MAGIC_SUMMON!=null && MAGIC_SUMMON.isInstance(target))
             || (target instanceof OwnableEntity owned && owned.getOwnerUUID()!=null)
             || owner(target)!=null)return;
@@ -112,16 +112,10 @@ public final class CombatProgression {
             }catch(IllegalArgumentException ignored) {}
         }
         if(total<=0)return;
-        double health=target.getAttribute(Attributes.MAX_HEALTH)==null?20:target.getAttributeValue(Attributes.MAX_HEALTH);
-        double attack=target.getAttribute(Attributes.ATTACK_DAMAGE)==null?0:target.getAttributeValue(Attributes.ATTACK_DAMAGE);
-        double weight=ActivityRules.combatWeight(health,attack,ProgressionAPI.mobLevel(target));
-        // A token hit followed by fall/lava/machine damage earns only that hit's share.
+        double reward=DirectXpConfig.current.combat((Mob)target);
+        // Environmental damage never becomes a full kill reward for a token hit.
         total=Math.max(total,target.getMaxHealth());
-        String farm=world.dimension().location()+"/"+BuiltInRegistries.ENTITY_TYPE.getKey(target.getType())+"/"+(target.getBlockX()>>6)+"/"+(target.getBlockZ()>>6);
-        for(var entry:eligible.entrySet()) {
-            double repeat=ActivityGuard.combatRepetition(entry.getKey(),farm);
-            ProgressionAPI.activityFractional(entry.getKey(),"combat",ActivityRules.combatShare(weight,entry.getValue(),total,target.getMaxHealth())*repeat);
-        }
+        for(var entry:eligible.entrySet())ProgressionAPI.awardSourceXp(entry.getKey(),"combat",reward*Math.clamp(entry.getValue()/total,0,1));
         n.remove("tnk_contributions");
     }
 }

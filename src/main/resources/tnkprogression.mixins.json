@@ -14,7 +14,12 @@
     "OriginPotionMixin",
     "OriginDurabilityMixin",
     "OriginFishingMixin",
-    "OriginTradingMixin"
+    "OriginTradingMixin",
+    "CookingMenuMixin",
+    "CookingFurnaceMixin",
+    "CookingContainerMixin",
+    "CookingCampfireMixin",
+    "StarcatcherCatchMixin"
   ],
   "injectors": {
     "defaultRequire": 1

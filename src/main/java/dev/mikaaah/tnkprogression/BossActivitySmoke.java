@@ -23,7 +23,7 @@ public final class BossActivitySmoke {
         if (Origins.selected(player).isEmpty()) { Origins.open(player); Origins.choose(player, "tnk:librarian"); }
         var n = ProgressionAPI.profile(player);
         n.putInt("level", 42); n.putInt("ceiling", 50);
-        n.putLong("mining_work", 23); n.putLong("fishing_work", 3);
+        n.putDouble("mining_xp_earned", 1234); n.putDouble("fishing_xp_earned", 750);
         CharacterState.sendFull(player);
     }
 
@@ -73,8 +73,8 @@ public final class BossActivitySmoke {
             } finally { buffer.release(); }
             var mining = ActivityHelp.describe(player, "mining");
             check(mining.stream().anyMatch(line -> line.contains("piston")), "mining exclusions explained");
-            check(ActivityHelp.describe(player, "crafting").stream().anyMatch(line -> line.contains("Bread") && line.contains("Work per craft")), "actual recipe results appear in help");
-            check(ActivityHelp.describe(player, "engineering").stream().anyMatch(line -> line.contains("Chapter 10 complete")), "engineering commissions explained");
+            check(ActivityHelp.describe(player, "cooking").stream().anyMatch(line -> line.contains("furnace")), "actual cooking methods explained");
+            check(ActivityHelp.describe(player, "quest").stream().anyMatch(line -> line.contains("tnkprogress xp {p}")), "simple quest command explained");
             boolean open = config.requireOpenWater;
             config.requireOpenWater = false;
             check(ActivityHelp.describe(player, "fishing").stream().anyMatch(line -> line.contains("allows catches")), "fishing help follows server settings");

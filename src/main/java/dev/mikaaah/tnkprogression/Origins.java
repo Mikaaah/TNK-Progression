@@ -44,7 +44,10 @@ public final class Origins {
             .map(player::getAttribute).orElse(null);
     }
 
-    public static boolean available(ServerPlayer player, String id) { return !id.equals("tnk:hedge_mage") || manaAvailable(player); }
+    public static boolean ascendedUnlocked(ServerPlayer player){return ProgressionAPI.profile(player).getBoolean("ascended_origins_unlocked");}
+    public static void ascend(ServerPlayer player){var n=ProgressionAPI.profile(player);n.putBoolean("ascended_origins_unlocked",true);n.putLong("origin_selection_request",n.getLong("origin_selection_request")+1);adminReset(player);open(player);}
+    public static boolean available(ServerPlayer player,String id){var origin=OriginRules.find(id);if(origin.isEmpty() || OriginRules.isAscended(id)&&!ascendedUnlocked(player))return false;var perks=origin.get().bonuses();return (!perks.containsKey(OriginRules.Perk.MANA)&&!perks.containsKey(OriginRules.Perk.MANA_REGEN))||manaAvailable(player);}
+
 
     public static boolean open(ServerPlayer player) {
         CompoundTag profile = ProgressionAPI.profile(player);
@@ -57,7 +60,7 @@ public final class Origins {
 
     public static boolean choose(ServerPlayer player, String id) {
         CompoundTag profile = ProgressionAPI.profile(player);
-        if (!OriginRules.mayChoose(profile.getBoolean("origin_prompted"), profile.contains(KEY), id) || !available(player, id)) return false;
+        if (!OriginRules.mayChoose(profile.getBoolean("origin_prompted"), profile.contains(KEY), id, ascendedUnlocked(player)) || !available(player, id)) return false;
         store(player, id);
         return true;
     }

@@ -18,7 +18,7 @@ public record CharacterAction(String action,String value) implements CustomPacke
   if(action.equals("origin_open") && value.isEmpty())Origins.open(p);
   if(n.contains("character_packet_tick") && now>=n.getLong("character_packet_tick") && now-n.getLong("character_packet_tick")<2)return;
   n.putLong("character_packet_tick",now);
-  if(!CharacterState.action(p,action,value))p.sendSystemMessage(net.minecraft.network.chat.Component.literal(action.startsWith("origin")?"Origin unavailable. Your origin is permanent; only an administrator can change it.":action.equals("skills")?"Skill tree unavailable. Check that a compatible Pufferfish's Skills build is loaded and the configured character category is enabled.":"Title unavailable or swap cooldown active."));
+  if(!CharacterState.action(p,action,value))p.sendSystemMessage(net.minecraft.network.chat.Component.literal(action.startsWith("origin")?"Origin unavailable. Use a Sigil of Ascension to unlock the advanced origins and choose again.":action.equals("skills")?"Skill tree unavailable. Check that a compatible Pufferfish's Skills build is loaded and the configured character category is enabled.":"Title unavailable or swap cooldown active."));
   CharacterState.sendFull(p);
  }
 }

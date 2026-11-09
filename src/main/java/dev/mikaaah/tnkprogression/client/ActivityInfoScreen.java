@@ -72,8 +72,8 @@ public final class ActivityInfoScreen extends Screen {
         graphics.drawWordWrap(font, Component.literal("Qualifying actions and current server rules"), 24, 139, 96, CharacterTheme.LIGHT);
         CharacterTheme.heading(graphics, font, "What counts · " + CharacterTheme.name(activity), 150, 20, CharacterTheme.INK);
         if (value != null) {
-            CharacterTheme.text(graphics, font, CharacterTheme.number(value.work()) + " / " + CharacterTheme.number(value.required()) + " Work  ·  +" + CharacterTheme.number(value.reward()) + " XP", 150, 44, CharacterTheme.MUTED);
-            CharacterTheme.bar(graphics, 150, 56, 354, 4, value.work() / value.required(), CharacterTheme.activityColour(activity));
+            CharacterTheme.text(graphics, font, CharacterTheme.number(value.earned()) + " XP earned  ·  Last +" + CharacterTheme.number(value.lastGain()) + " XP", 150, 44, CharacterTheme.MUTED);
+            graphics.fill(150,56,504,58,CharacterTheme.activityColour(activity));
         }
         CharacterTheme.panel(graphics, 146, 64, 362, 199, CharacterTheme.CARD);
         int start = page * LINES_PER_PAGE;

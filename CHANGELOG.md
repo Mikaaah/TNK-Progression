@@ -1,3 +1,14 @@
+## 1.5.0-private.1 — Direct XP, based on 1.4.0
+
+- Preserve 1.4.0 Ascension, 15 ascended origins, Sigil and supplied assets.
+- Replace activity milestones with fixed direct character XP from combat, natural mining, farming, cooking, fishing and exploration. Remove automatic crafting/engineering XP.
+- Set default level cost to 1,000 × current level: 4,950,000 XP cumulatively for level 100. Migrate existing levels and within-level percentage once.
+- Add optional Starcatcher catch/rarity integration, including entity catches, with no hard dependency.
+- Track quest commands separately; reuse `tnkprogress xp {p} 150` across FTB Quests chapters (permission level 2). No unique reward IDs required.
+- Show direct XP totals/recent gains and live qualification/reward details in the character UI. Preserve chapter ceilings and boss levels.
+- Protect placed/generated/moved blocks, contributed kills and manually loaded cooking. Retarget Millwright/Artificer XP perks to quest rewards.
+- Target Minecraft 1.21.1 / NeoForge 21.1.262+ / Java 21. See [full rules and setup](docs/DIRECT-XP.md).
+
 ## 1.3.0-private.1
 
 - Added an Info button to every activity, explaining qualifying actions, Work, cooldowns and exclusions.

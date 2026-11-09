@@ -88,10 +88,10 @@ public final class CharacterScreen extends Screen {
   CharacterTheme.bar(g,150,94,354,12,s.level()>=s.ceiling()?1:s.xp()/(double)s.required(),CharacterTheme.PURPLE);
   text(g,s.level()>=s.ceiling()?s.level()==100?"Maximum level reached":"XP paused at your campaign ceiling":CharacterTheme.number(s.xp())+" / "+CharacterTheme.number(s.required())+" character XP",150,113,CharacterTheme.INK);
   heading(g,"Skill Points",150,130,CharacterTheme.INK);text(g,s.pointsEarned()+" Earned"+(s.pointsSpent()<0?"":" · "+s.pointsSpent()+" Spent"),150,141,CharacterTheme.MUTED);
-  wrap(g,"Next Milestone: "+s.gate(),150,159,350,CharacterTheme.MUTED);
+  wrap(g,"Next chapter: "+s.gate(),150,159,350,CharacterTheme.MUTED);
   CharacterTheme.panel(g,146,182,362,53,CharacterTheme.CARD);
-  s.activities().stream().filter(a->a.id().equals(s.tracked())).findFirst().ifPresent(a->{g.renderItem(CharacterTheme.activityIcon(a.id()),155,191);heading(g,"Tracking · "+CharacterTheme.name(a.id()),178,190,CharacterTheme.INK);text(g,CharacterTheme.number(a.work())+" / "+CharacterTheme.number(a.required())+" Work  ·  +"+CharacterTheme.number(a.reward())+" XP",178,204,CharacterTheme.MUTED);CharacterTheme.bar(g,155,220,342,6,a.work()/a.required(),CharacterTheme.activityColour(a.id()));});
-  heading(g,"Recent Milestones",150,245,CharacterTheme.INK);g.fill(150,256,504,257,0x509D7657);
+  s.activities().stream().filter(a->a.id().equals(s.tracked())).findFirst().ifPresent(a->{g.renderItem(CharacterTheme.activityIcon(a.id()),155,191);heading(g,"Tracking · "+CharacterTheme.name(a.id()),178,190,CharacterTheme.INK);text(g,CharacterTheme.number(a.earned())+" XP earned  ·  Last +"+CharacterTheme.number(a.lastGain()),178,204,CharacterTheme.MUTED);text(g,"Direct rewards · open Activities for details",155,220,CharacterTheme.MUTED);});
+  heading(g,"Recent XP",150,245,CharacterTheme.INK);g.fill(150,256,504,257,0x509D7657);
   if(s.recent().isEmpty())text(g,"Complete an activity to begin your journal.",150,263,CharacterTheme.INK);
   for(int i=0;i<Math.min(3,s.recent().size());i++){CharacterTheme.rounded(g,150,264+i*13,3,3,CharacterTheme.PURPLE);text(g,font.plainSubstrByWidth(CharacterTheme.journal(s.recent().get(i)),342),159,261+i*13,CharacterTheme.INK);}
  }
@@ -110,9 +110,9 @@ public final class CharacterScreen extends Screen {
  private void activities(GuiGraphics g,CharacterState.Snapshot s){
   for(int i=0;i<s.activities().size();i++){var a=s.activities().get(i);int y=54+i*33;
    CharacterTheme.panel(g,146,y,362,31,i%2==0?CharacterTheme.CARD:0xFF805044);g.fill(148,y+4,150,y+27,CharacterTheme.activityColour(a.id()));g.renderItem(CharacterTheme.activityIcon(a.id()),155,y+6);
-   heading(g,font.plainSubstrByWidth(CharacterTheme.name(a.id())+"  ·  Milestone "+(a.rank()+1),208),178,y+4,CharacterTheme.INK);
-   text(g,font.plainSubstrByWidth(CharacterTheme.number(a.work())+" / "+CharacterTheme.number(a.required())+"   +"+CharacterTheme.number(a.reward())+" XP",208),178,y+15,CharacterTheme.MUTED);
-   CharacterTheme.bar(g,178,y+26,208,2,a.work()/a.required(),CharacterTheme.activityColour(a.id()));
+   heading(g,font.plainSubstrByWidth(CharacterTheme.name(a.id()),208),178,y+4,CharacterTheme.INK);
+   text(g,font.plainSubstrByWidth(CharacterTheme.number(a.earned())+" XP earned · last +"+CharacterTheme.number(a.lastGain()),208),178,y+15,CharacterTheme.MUTED);
+
   }
   text(g,"Info shows qualifying actions, recipes and limits.",150,288,CharacterTheme.MUTED);
  }

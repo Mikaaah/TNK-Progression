@@ -9,17 +9,19 @@
 <p align="center"><img src="https://img.shields.io/badge/Minecraft-1.21.1-5b8731?style=flat-square" alt="Minecraft 1.21.1"> <img src="https://img.shields.io/badge/NeoForge-d77828?style=flat-square" alt="NeoForge"> <a href="https://mikaaah.github.io/TownsAndKingdoms/projects/"><img src="https://img.shields.io/badge/Towns_%26_Kingdoms-Modding_Hub-7f384a?style=flat-square" alt="Towns & Kingdoms Modding Hub"></a></p>
 
 
+**1.5.0 private preview:** based on the actual 1.4.0 build, with direct XP and a 4,950,000 XP journey to level 100. [Current rewards, migration and FTB Quests setup](docs/DIRECT-XP.md).
+
 ## Make everyday adventures count
 
-- **Seven activity tracks:** mining, combat, fishing, farming, crafting, engineering and exploration.
-- **A character of your own:** personal levels, a milestone journal, titles and a compact optional HUD.
+- **Direct character XP:** combat, natural mining, farming, cooking, vanilla/Starcatcher fishing, exploration and separate quest rewards.
+- **A character of your own:** personal levels, an XP journal, titles and a compact optional HUD.
 - **A meaningful skill budget:** up to 175 earned points at level 100, with an external Pufferfish Skills tree.
-- **A connected party:** optional FTB Teams milestone sharing while character XP stays personal.
-- **Pack author controls:** configurable activity curves, unlock ceilings, mob scaling and quest rewards.
+- **A connected party:** optional FTB Teams chapter-ceiling sharing while character XP stays personal.
+- **Pack author controls:** configurable direct XP rewards, unlock ceilings, mob scaling and quest rewards.
 
 ## Origins, titles and boss challenges
 
-Choose one of **20 permanent origins**, keep separate **cosmetic and passive title slots**, and inspect activity details that explain what earns progress under the server’s settings.
+Choose one of **20 base origins**, then use a **Sigil of Ascension** to unlock **15 ascended origins** and choose again. Keep separate **cosmetic and passive title slots**, and inspect activity details that explain what earns progress under the server’s settings.
 
 Configured bosses use **the greater of their base level and the nearest eligible player’s level + 10**, capped at 110. For example, the Twilight Lich has a base of 20 and Ignis has a base of 75. Ordinary hostile mobs keep the usual player-level variance.
 

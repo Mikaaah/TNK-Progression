@@ -35,10 +35,11 @@ class OriginRulesTest {
         assertEquals(.15, OriginRules.bonus("tnk:librarian", 2, OriginRules.Perk.GRINDSTONE_XP));
         assertEquals(.10, OriginRules.bonus("tnk:miner", 2, OriginRules.Perk.PICKAXE_SPEED));
         assertFalse(OriginRules.mayChoose(true, false, "tnk:miner"));
-        assertEquals(27, OriginRules.known().size());
+        assertEquals(42, OriginRules.known().size());
         for (var origin : OriginRules.all()) assertEquals(2, origin.bonuses().size());
     }
 
+    @Test void ascendedOriginsRequireTheSigilUnlock(){assertEquals(15,OriginRules.ascended().size());assertEquals(20,OriginRules.selectable(false).size());assertEquals(35,OriginRules.selectable(true).size());assertFalse(OriginRules.mayChoose(true,false,"tnk:dreadnought"));assertTrue(OriginRules.mayChoose(true,false,"tnk:dreadnought",true));assertFalse(OriginRules.mayChoose(true,true,"tnk:dreadnought",true));}
     @Test void fractionalYieldConservesSmallBonuses() {
         double carry = 0; int total = 0;
         for (int i = 0; i < 1000; i++) {

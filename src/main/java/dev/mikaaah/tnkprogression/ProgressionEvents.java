@@ -47,10 +47,4 @@ public final class ProgressionEvents {
  }
 
  @SubscribeEvent public static void login(PlayerEvent.PlayerLoggedInEvent e){if(e.getEntity() instanceof ServerPlayer p)SkillBridge.sync(p);}
- @SubscribeEvent public static void tick(PlayerTickEvent.Post e){
-  if(!(e.getEntity() instanceof ServerPlayer p) || p.tickCount%20!=0 || !ActivityGuard.player(p))return;
-  CompoundTag n=ProgressionAPI.profile(p);
-  String chunk=p.level().dimension().location()+"/"+ChunkPos.asLong(p.chunkPosition().x,p.chunkPosition().z);
-  CompoundTag seen=n.getCompound("explored");if(!seen.contains(chunk)){seen.putBoolean(chunk,true);n.put("explored",seen);if(ActivityGuard.ready(p,"explore",100))ProgressionAPI.activity(p,"exploration",1);ProgressionData.get(p.server).setDirty();}
- }
 }

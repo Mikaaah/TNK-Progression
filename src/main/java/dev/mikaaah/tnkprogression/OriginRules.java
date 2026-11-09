@@ -1,6 +1,7 @@
 package dev.mikaaah.tnkprogression;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 /** Stable background IDs and modest, level-independent origin rules. */
@@ -43,7 +44,7 @@ public final class OriginRules {
         new Origin("tnk:huntsman", "Huntsman", "You supplied a remote settlement with meat and hides.", "tnkprogression:textures/gui/origins/bone_bow.png", 0xacb680, List.of("+5% bow and crossbow damage.", "+10% meat and leather drops from your kills."), java.util.Map.of(Perk.RANGED_DAMAGE, 0.05, Perk.HUNT_YIELD, 0.1)),
         new Origin("tnk:forgehand", "Forgehand", "Years at the anvil taught you how to keep equipment working.", "tnkprogression:textures/gui/origins/hammer.png", 0xc4997c, List.of("10% of anvil repair XP refunded; normal requirements apply.", "10% less weapon durability loss."), java.util.Map.of(Perk.ANVIL_REPAIR_REFUND, 0.1, Perk.WEAPON_DURABILITY_REDUCTION, 0.1)),
         new Origin("tnk:stonemason", "Stonemason", "You helped build walls, bridges and castles that would outlive you.", "tnkprogression:textures/gui/origins/bricks.png", 0xb8b1a6, List.of("+15% stone breaking speed.", "+0.5 block reach while holding a building block."), java.util.Map.of(Perk.STONE_SPEED, 0.15, Perk.PLACEMENT_REACH, 0.5)),
-        new Origin("tnk:millwright", "Millwright", "You maintained waterwheels, mills and machinery for your village.", "tnkprogression:textures/gui/origins/wrench.png", 0xb8a58b, List.of("+10% engineering activity XP.", "+1 block interaction reach while holding a wrench."), java.util.Map.of(Perk.ENGINEERING_XP, 0.1, Perk.WRENCH_REACH, 1.0)),
+        new Origin("tnk:millwright", "Millwright", "You maintained waterwheels, mills and machinery for your village.", "tnkprogression:textures/gui/origins/wrench.png", 0xb8a58b, List.of("+10% quest command XP.", "+1 block interaction reach while holding a wrench."), java.util.Map.of(Perk.ENGINEERING_XP, 0.1, Perk.WRENCH_REACH, 1.0)),
         new Origin("tnk:librarian", "Librarian", "You cared for dusty shelves and books containing forgotten knowledge.", "tnkprogression:textures/gui/origins/golden_book.png", 0xb896d6, List.of("10% of enchanting XP refunded; normal requirements apply.", "+15% XP recovered through grindstone disenchanting."), java.util.Map.of(Perk.ENCHANT_REFUND, 0.1, Perk.GRINDSTONE_XP, 0.15)),
         new Origin("tnk:apothecary", "Apothecary", "Your little shop supplied remedies, tonics and questionable mixtures.", "tnkprogression:textures/gui/origins/aquatic_elixir.png", 0x81bfb3, List.of("+15% duration for beneficial potions you drink.", "+10% healing from instant health potions you drink."), java.util.Map.of(Perk.POTION_DURATION, 0.15, Perk.POTION_HEAL, 0.1)),
         new Origin("tnk:hedge_herbalist", "Hedge Herbalist", "You learned which plants could heal, feed or poison a traveller.", "tnkprogression:textures/gui/origins/ghostflower.png", 0xa1bd80, List.of("+10% natural health regeneration.", "10% chance for an extra gathered flower or mushroom."), java.util.Map.of(Perk.NATURAL_HEAL, 0.1, Perk.HERB_CHANCE, 0.1)),
@@ -57,9 +58,26 @@ public final class OriginRules {
         new Origin("tnk:hedge_mage", "Hedge Mage", "Your magical education came from borrowed books and dangerous experiments.", "tnkprogression:textures/gui/origins/mythic_book.png", 0xaf89cb, List.of("+5% maximum mana.", "+5% mana regeneration. Requires Iron's Spells mana attributes."), java.util.Map.of(Perk.MANA, 0.05, Perk.MANA_REGEN, 0.05))
     );
 
-    private static final java.util.Map<String,Origin> CURRENT_BY_ID = index(ALL);
+    private static final List<Origin> ASCENDED = List.of(
+        new Origin("tnk:archmage", "Archmage", "You have mastered the currents that bind spell and machine.", "tnkprogression:textures/gui/origins/mythic_book.png", 12027349, List.of("+30% maximum mana.", "+25% mana regeneration."), Map.of(Perk.MANA, 0.3, Perk.MANA_REGEN, 0.25)),
+        new Origin("tnk:battlemage", "Battlemage", "Steel and sorcery answer the same practiced hand.", "tnkprogression:textures/gui/origins/spear.png", 12095954, List.of("+2 attack damage.", "+3 armour.", "+20% maximum mana."), Map.of(Perk.ATTACK, 2.0, Perk.ARMOUR, 3.0, Perk.MANA, 0.2)),
+        new Origin("tnk:dreadnought", "Dreadnought", "Your resolve has become the wall others shelter behind.", "tnkprogression:textures/gui/origins/bricks.png", 12104102, List.of("+8 maximum health.", "+5 armour.", "+25% knockback resistance."), Map.of(Perk.HEALTH, 8.0, Perk.ARMOUR, 5.0, Perk.KNOCKBACK_RESISTANCE, 0.25)),
+        new Origin("tnk:berserker", "Berserker", "Every battle has sharpened your will to press forward.", "tnkprogression:textures/gui/origins/bone_knife.png", 13077906, List.of("+4 attack damage.", "+4 maximum health.", "+10% movement speed."), Map.of(Perk.ATTACK, 4.0, Perk.HEALTH, 4.0, Perk.MOVE_SPEED, 0.1)),
+        new Origin("tnk:deadeye", "Deadeye", "Your aim has outgrown distance and doubt.", "tnkprogression:textures/gui/origins/bone_bow.png", 11318912, List.of("+25% bow and crossbow damage.", "+10% movement speed.", "+1 luck."), Map.of(Perk.RANGED_DAMAGE, 0.25, Perk.MOVE_SPEED, 0.1, Perk.LUCK, 1.0)),
+        new Origin("tnk:shadowblade", "Shadowblade", "You learned to cross the space between a shadow and its owner.", "tnkprogression:textures/gui/origins/bone_knife.png", 11838143, List.of("+30% sneaking speed.", "30% shorter hostile detection range while sneaking.", "+3 attack damage."), Map.of(Perk.SNEAK_SPEED, 0.3, Perk.SNEAK_VISIBILITY_REDUCTION, 0.3, Perk.ATTACK, 3.0)),
+        new Origin("tnk:worldstrider", "Worldstrider", "No horizon has proved distant enough to stop you.", "tnkprogression:textures/gui/origins/portal_scroll.png", 10468289, List.of("+15% movement speed.", "60% less fall damage.", "+30% swimming speed."), Map.of(Perk.MOVE_SPEED, 0.15, Perk.FALL_REDUCTION, 0.6, Perk.SWIM_SPEED, 0.3)),
+        new Origin("tnk:deepforged", "Deepforged", "The deep earth recognizes the hand that shaped its treasures.", "tnkprogression:textures/gui/origins/ancient_pickaxe.png", 11121868, List.of("+40% ore mining speed.", "15% chance for extra raw ore from natural deposits.", "+3 armour."), Map.of(Perk.ORE_SPEED, 0.4, Perk.RAW_ORE_CHANCE, 0.15, Perk.ARMOUR, 3.0)),
+        new Origin("tnk:grand_architect", "Grand Architect", "You now build the landmarks that others journey to discover.", "tnkprogression:textures/gui/origins/bricks.png", 13940076, List.of("+50% stone breaking speed.", "+2 block reach while holding a building block."), Map.of(Perk.STONE_SPEED, 0.5, Perk.PLACEMENT_REACH, 2.0)),
+        new Origin("tnk:artificer", "Artificer", "Your factories have turned impossible ideas into ordinary work.", "tnkprogression:textures/gui/origins/wrench.png", 12884348, List.of("+35% quest command XP.", "+3 block interaction reach while holding a wrench.", "20% of anvil repair XP refunded; normal requirements apply."), Map.of(Perk.ENGINEERING_XP, 0.35, Perk.WRENCH_REACH, 3.0, Perk.ANVIL_REPAIR_REFUND, 0.2)),
+        new Origin("tnk:runesmith", "Runesmith", "You weave enchantment into steel with the certainty of a master.", "tnkprogression:textures/gui/origins/hammer.png", 12097238, List.of("25% of enchanting XP refunded; normal requirements apply.", "25% of anvil repair XP refunded.", "35% less weapon durability loss."), Map.of(Perk.ENCHANT_REFUND, 0.25, Perk.ANVIL_REPAIR_REFUND, 0.25, Perk.WEAPON_DURABILITY_REDUCTION, 0.35)),
+        new Origin("tnk:wildwarden", "Wildwarden", "The fields and forests flourish beneath your patient care.", "tnkprogression:textures/gui/origins/sun_carrot.png", 9154435, List.of("+30% mature crop yield when harvested by hand.", "+25% natural health regeneration.", "+25% meat and leather drops from your kills."), Map.of(Perk.CROP_YIELD, 0.3, Perk.NATURAL_HEAL, 0.25, Perk.HUNT_YIELD, 0.25)),
+        new Origin("tnk:tidecaller", "Tidecaller", "The rivers that once guided you now answer your passage.", "tnkprogression:textures/gui/origins/blue_coral.png", 8632526, List.of("+50% swimming speed.", "+30 seconds of underwater breathing time.", "25% shorter fishing wait."), Map.of(Perk.SWIM_SPEED, 0.5, Perk.AIR_TICKS, 600.0, Perk.FISH_WAIT_REDUCTION, 0.25)),
+        new Origin("tnk:grand_alchemist", "Grand Alchemist", "Your remedies have become a discipline of measured miracles.", "tnkprogression:textures/gui/origins/aquatic_elixir.png", 8503219, List.of("+35% duration for beneficial potions you drink.", "+25% healing from instant health potions you drink.", "25% shorter harmful potion effects."), Map.of(Perk.POTION_DURATION, 0.35, Perk.POTION_HEAL, 0.25, Perk.HARMFUL_DURATION_REDUCTION, 0.25)),
+        new Origin("tnk:dawnbringer", "Dawnbringer", "You have stood against the darkness and returned bearing its end.", "tnkprogression:textures/gui/origins/book_of_star.png", 12297169, List.of("+8 maximum health.", "25% less damage from undead attackers.", "+35% vanilla XP from undead kills."), Map.of(Perk.HEALTH, 8.0, Perk.UNDEAD_REDUCTION, 0.25, Perk.UNDEAD_XP, 0.35)));
+ private static final List<Origin> SELECTABLE=java.util.stream.Stream.concat(ALL.stream(),ASCENDED.stream()).toList();
+     private static final java.util.Map<String,Origin> CURRENT_BY_ID=index(SELECTABLE);
     private static final java.util.Map<String,Origin> LEGACY_BY_ID = index(LEGACY);
-    private static final List<Origin> KNOWN = java.util.stream.Stream.concat(ALL.stream(), LEGACY.stream())
+    private static final List<Origin> KNOWN = java.util.stream.Stream.concat(SELECTABLE.stream(), LEGACY.stream())
         .collect(java.util.stream.Collectors.toMap(Origin::id, x -> x, (current, old) -> current, java.util.LinkedHashMap::new))
         .values().stream().toList();
 
@@ -71,17 +89,19 @@ public final class OriginRules {
 
     public static List<Origin> all() { return ALL; }
 
-    public static Optional<Origin> find(String id) {
+    public static List<Origin> ascended(){return ASCENDED;}
+ public static List<Origin> selectable(boolean unlocked){return unlocked?SELECTABLE:ALL;}
+ public static boolean isAscended(String id){return ASCENDED.stream().anyMatch(o->o.id().equals(id));}
+ public static Optional<Origin> find(String id) {
         return id == null ? Optional.empty() : Optional.ofNullable(CURRENT_BY_ID.getOrDefault(id, LEGACY_BY_ID.get(id)));
     }
 
-    public static boolean mayChoose(boolean prompted, boolean alreadyChosen, String id) {
-        return prompted && !alreadyChosen && id != null && CURRENT_BY_ID.containsKey(id);
-    }
+    public static boolean mayChoose(boolean prompted,boolean alreadyChosen,String id){return mayChoose(prompted,alreadyChosen,id,false);}
+ public static boolean mayChoose(boolean prompted,boolean alreadyChosen,String id,boolean unlocked){return prompted && !alreadyChosen && id!=null && CURRENT_BY_ID.containsKey(id) && (!isAscended(id)||unlocked);}
 
     public static List<Origin> known() { return KNOWN; }
 
-    public static Optional<Origin> find(String id, int revision) {
+ public static Optional<Origin> find(String id, int revision) {
         if (id == null) return Optional.empty();
         if (revision < 2 && LEGACY_BY_ID.containsKey(id)) return Optional.of(LEGACY_BY_ID.get(id));
         return find(id);

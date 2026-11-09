@@ -6,16 +6,14 @@ import net.minecraft.network.chat.Component;
 public final class ProgressionAPI {
  public static CompoundTag profile(ServerPlayer p){
   var data=ProgressionData.get(p.server);var n=data.entry("player:"+p.getUUID());
-  if(!n.contains("balance_curve_version")){
-   int level=Math.max(1,n.getInt("level"));long oldXp=100L+40L*level*level;
-   n.putLong("xp",Math.min(ProgressionMath.levelCost(level)-1,(long)(Math.clamp(n.getLong("xp")/(double)oldXp,0,1)*ProgressionMath.levelCost(level))));
-   for(var entry:ProgressionConfig.current.activities.entrySet()){
-    String key=entry.getKey();long rank=n.getLong(key+"_rank"),base=ProgressionConfig.current.legacyActivityRequirements.getOrDefault(key,entry.getValue().initialRequirement());
-    double oldCost=base*(1+rank*.65+rank*(double)rank*.08),ratio=Math.clamp((n.getLong(key+"_work")+n.getDouble(key+"_fraction"))/oldCost,0,1);
-    double next=ProgressionMath.taskCost(entry.getValue().initialRequirement(),rank),converted=Math.min(Math.nextDown(next),ratio*next);long whole=(long)converted;
-    n.putLong(key+"_work",whole);n.putDouble(key+"_fraction",converted-whole);
-   }
-   n.putInt("balance_curve_version",2);data.setDirty();
+  if(n.getInt("direct_xp_version")<3){
+   int level=Math.clamp(n.getInt("level"),1,100);
+   long oldCost=n.contains("balance_curve_version")?BalanceConfig.current.previousCost(level):100L+40L*level*level;
+   n.putLong("xp",Math.min(ProgressionMath.levelCost(level)-1,(long)(Math.clamp(n.getLong("xp")/(double)oldCost,0,1)*ProgressionMath.levelCost(level))));
+   n.putInt("level",level);n.putInt("direct_xp_version",3);n.putInt("balance_curve_version",3);
+   // Archive the old history; milestones no longer drive XP or activity displays.
+   if(n.contains("activity_history")){n.put("legacy_activity_history",n.get("activity_history").copy());n.remove("activity_history");}
+   data.setDirty();
   }
   return n;
  }
@@ -39,7 +37,7 @@ public final class ProgressionAPI {
  }
  public static boolean rewardOnce(ServerPlayer p,String id,long amount){
   CompoundTag n=profile(p),claims=n.getCompound("claims");if(claims.getBoolean(id))return false;
-  claims.putBoolean(id,true);n.put("claims",claims);awardXp(p,amount);ProgressionData.get(p.server).setDirty();return true;
+  if(awardSourceXp(p,"quest",amount)<=0)return false;claims.putBoolean(id,true);n.put("claims",claims);ProgressionData.get(p.server).setDirty();return true;
  }
  public static void unlock(ServerPlayer p,int cap){
   if(java.util.Arrays.stream(ProgressionConfig.current.ceilings).noneMatch(c->c==cap))throw new IllegalArgumentException("Use a configured milestone ceiling");
@@ -47,28 +45,23 @@ public final class ProgressionAPI {
   TeamBridge.key(p).ifPresent(k->{CompoundTag t=ProgressionData.get(p.server).entry(k);t.putInt("ceiling",Math.max(cap,t.getInt("ceiling")));});
   ProgressionData.get(p.server).setDirty();
  }
- /** Fractional weighted work persists; a teammate's small share is never rounded away per kill. */
- public static void activityFractional(ServerPlayer p,String key,double units){
-  if(!ActivityGuard.player(p) || !Double.isFinite(units) || units<=0 || level(p)>=ceiling(p) || level(p)>=100)return;
-  CompoundTag n=profile(p); double total=n.getDouble(key+"_fraction")+units;
-  long whole=(long)Math.floor(total); n.putDouble(key+"_fraction",total-whole);
-  if(whole>0)activity(p,key,whole); ProgressionData.get(p.server).setDirty();
+ /** Direct XP sources share one character bar; source totals are accounting, not skill levels. */
+ public static long awardSourceXp(ServerPlayer p,String key,double amount){
+  if(!CharacterState.ACTIVITIES.contains(key)||(key.equals("quest")?p instanceof net.neoforged.neoforge.common.util.FakePlayer:!ActivityGuard.player(p))||!Double.isFinite(amount)||amount<=0||level(p)>=ceiling(p)||level(p)>=100)return 0;
+  var n=profile(p);double adjusted=Math.min(1_000_000_000,amount);
+  if(key.equals("quest"))adjusted*=1+Origins.bonus(p,OriginRules.Perk.ENGINEERING_XP);
+  String remainder=key+"_xp_remainder";double total=n.getDouble(remainder)+adjusted;
+  long paid=awardXp(p,(long)Math.floor(total));
+  n.putDouble(remainder,level(p)>=ceiling(p)||level(p)>=100?0:total-Math.floor(total));
+  n.putDouble(key+"_xp_earned",n.getDouble(key+"_xp_earned")+paid);
+  n.putDouble(key+"_xp_last",paid);n.putLong(key+"_actions",n.getLong(key+"_actions")+1);
+  if(paid>0){var history=n.getList("activity_history",net.minecraft.nbt.Tag.TAG_STRING);String line=key+"  +"+paid+" XP";
+   if(history.isEmpty()||!history.getString(0).equals(line))history.add(0,net.minecraft.nbt.StringTag.valueOf(line));
+   while(history.size()>8)history.remove(history.size()-1);n.put("activity_history",history);}
+  ProgressionData.get(p.server).setDirty();return paid;
  }
- public static boolean engineeringObjective(ServerPlayer p,String id){
-  Double units=ProgressionConfig.current.engineeringObjectives.get(id);if(units==null)return false;
-  CompoundTag n=profile(p),claims=n.getCompound("engineering_claims");if(claims.getBoolean(id))return false;
-  claims.putBoolean(id,true);n.put("engineering_claims",claims);activityFractional(p,"engineering",units);ProgressionData.get(p.server).setDirty();return true;
- }
- public static void activity(ServerPlayer p,String key,long units){
-  if(!ActivityGuard.player(p) || units<=0 || level(p)>=ceiling(p) || level(p)>=100)return;
-  var a=ProgressionConfig.current.activities.get(key);if(a==null)return;
-  CompoundTag n=profile(p);long rank=Math.max(0,n.getLong(key+"_rank")),work=Math.max(0,n.getLong(key+"_work"));
-  work=units>Long.MAX_VALUE-work?Long.MAX_VALUE:work+units;
-  while(work>=ProgressionMath.taskCost(a.initialRequirement(),rank)){
-   work-=ProgressionMath.taskCost(a.initialRequirement(),rank);long reward=ProgressionMath.taskReward(a.initialXp(),rank);if(key.equals("engineering"))reward+=Origins.extra(p,"engineering_xp",(int)Math.min(Integer.MAX_VALUE,reward),Origins.bonus(p,OriginRules.Perk.ENGINEERING_XP));long paid=awardXp(p,reward);if(rank<Long.MAX_VALUE)rank++;
-   var history=n.getList("activity_history",net.minecraft.nbt.Tag.TAG_STRING);history.add(0,net.minecraft.nbt.StringTag.valueOf(key+" milestone "+rank+"  +"+paid+" XP"));while(history.size()>8)history.remove(history.size()-1);n.put("activity_history",history);
-   if(level(p)>=ceiling(p) || level(p)>=100){work=0;n.putDouble(key+"_fraction",0);break;}
-  }
-  n.putLong(key+"_rank",rank);n.putLong(key+"_work",work);ProgressionData.get(p.server).setDirty();
- }
+ /** Compatibility entry points now accept direct XP. Removed sources intentionally award nothing. */
+ public static void activityFractional(ServerPlayer p,String key,double xp){awardSourceXp(p,key,xp);}
+ public static void activity(ServerPlayer p,String key,long xp){awardSourceXp(p,key,xp);}
+ @Deprecated public static boolean engineeringObjective(ServerPlayer p,String id){return false;}
 }

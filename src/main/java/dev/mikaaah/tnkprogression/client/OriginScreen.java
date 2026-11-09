@@ -55,7 +55,7 @@ public final class OriginScreen extends Screen {
                 }).accent(0xFF000000 | origin.colour()).textInset(24);
             }
             button("< Previous", 150, 272, 102, 22, button -> { page--; rebuild(); }).active = page > 0;
-            button("Next >", 402, 272, 102, 22, button -> { page++; rebuild(); }).active = page < (OriginRules.all().size() - 1) / PAGE_SIZE;
+            button("Next >", 402, 272, 102, 22, button -> { page++; rebuild(); }).active = page < (selectableOrigins().size() - 1) / PAGE_SIZE;
         } else {
             button("Back", 150, 272, 102, 22, button -> { preview = ""; rebuild(); });
             confirm = button("Confirm Origin", 260, 272, 244, 22, button -> {
@@ -77,13 +77,15 @@ public final class OriginScreen extends Screen {
         if (state != null && !state.origin().isEmpty()) minecraft.setScreen(character);
     }
 
+    private java.util.List<OriginRules.Origin> selectableOrigins(){var s=CharacterClientState.current;return OriginRules.selectable(s!=null && s.ascendedOriginsUnlocked());}
+
     private java.util.List<OriginRules.Origin> visibleOrigins() {
         int start = page * PAGE_SIZE;
-        return OriginRules.all().subList(start, Math.min(start + PAGE_SIZE, OriginRules.all().size()));
+        return selectableOrigins().subList(start, Math.min(start + PAGE_SIZE, selectableOrigins().size()));
     }
 
     private boolean available(String id) {
-        return !id.equals("tnk:hedge_mage") || CharacterClientState.current != null && CharacterClientState.current.manaAvailable();
+        var o=OriginRules.find(id).orElseThrow();return (!o.bonuses().containsKey(OriginRules.Perk.MANA)&&!o.bonuses().containsKey(OriginRules.Perk.MANA_REGEN)) || CharacterClientState.current!=null && CharacterClientState.current.manaAvailable();
     }
 
     public static void drawIcon(GuiGraphics graphics, OriginRules.Origin origin, int x, int y) {
@@ -117,10 +119,10 @@ public final class OriginScreen extends Screen {
             CharacterTheme.text(graphics, font, "Preview a background to read its story and perks.", 150, 75, CharacterTheme.MUTED);
             super.render(graphics, vx, vy, delta);
             for (int i = 0; i < visibleOrigins().size(); i++) drawIcon(graphics, visibleOrigins().get(i), 158 + i % 2 * 180, 105 + i / 2 * 40);
-            graphics.drawCenteredString(font, "Page " + (page + 1) + " / " + ((OriginRules.all().size() + PAGE_SIZE - 1) / PAGE_SIZE), 327, 279, CharacterTheme.MUTED);
+            graphics.drawCenteredString(font, "Page " + (page + 1) + " / " + ((selectableOrigins().size() + PAGE_SIZE - 1) / PAGE_SIZE), 327, 279, CharacterTheme.MUTED);
         } else {
             var origin = OriginRules.find(preview).orElseThrow();
-            CharacterTheme.section(graphics, font, "Your Beginning", 146, 50, 362, CharacterTheme.PURPLE);
+            CharacterTheme.section(graphics, font, OriginRules.isAscended(preview)?"Your Ascension":"Your Beginning", 146, 50, 362, CharacterTheme.PURPLE);
             CharacterTheme.panel(graphics, 150, 76, 354, 37, CharacterTheme.CARD);
             drawIcon(graphics, origin, 160, 86);
             CharacterTheme.heading(graphics, font, origin.label(), 185, 87, CharacterTheme.INK);
