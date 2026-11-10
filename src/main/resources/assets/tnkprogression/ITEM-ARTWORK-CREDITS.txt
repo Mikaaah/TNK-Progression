@@ -1,0 +1,5 @@
+Sigil of Ascension item texture: PixelMine, MCMMO Job Items.
+Source: user-supplied PixelMine_Graphic_PixelArt_MCMMOJobItems.zip.
+Original asset: magic_card.png (16 x 16); copied without alteration.
+Bundled path: textures/item/origin_ascension.png.
+SHA-256: 2612118421ade715cc10fe4738a208647405c519bf899cd4d35cd64eed2fb49f

@@ -1,3 +1,11 @@
+## 1.1.0 — Origin token texture fix
+
+- Fix the Sigil of Ascension missing texture using the supplied purple PixelMine magic-card artwork.
+- Give the token its own item texture so it is included in the item atlas.
+- Align the embedded version and release filename with CurseForge 1.1.0. Retain direct XP, Starcatcher rewards, Ascension and existing saves from the former 1.5.0-private.1 development build.
+
+Minecraft 1.21.1 · NeoForge 21.1.262+ · Java 21.
+
 ## 1.5.0-private.1 — Direct XP, based on 1.4.0
 
 - Preserve 1.4.0 Ascension, 15 ascended origins, Sigil and supplied assets.

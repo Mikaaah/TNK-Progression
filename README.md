@@ -9,7 +9,7 @@
 <p align="center"><img src="https://img.shields.io/badge/Minecraft-1.21.1-5b8731?style=flat-square" alt="Minecraft 1.21.1"> <img src="https://img.shields.io/badge/NeoForge-d77828?style=flat-square" alt="NeoForge"> <a href="https://mikaaah.github.io/TownsAndKingdoms/projects/"><img src="https://img.shields.io/badge/Towns_%26_Kingdoms-Modding_Hub-7f384a?style=flat-square" alt="Towns & Kingdoms Modding Hub"></a></p>
 
 
-**1.5.0 private preview:** based on the actual 1.4.0 build, with direct XP and a 4,950,000 XP journey to level 100. [Current rewards, migration and FTB Quests setup](docs/DIRECT-XP.md).
+**1.1.0:** release numbering aligned with CurseForge, preserving direct XP and a 4,950,000 XP journey to level 100. The Sigil of Ascension uses the supplied purple PixelMine token artwork. [Current rewards, migration and FTB Quests setup](docs/DIRECT-XP.md).
 
 ## Make everyday adventures count
 

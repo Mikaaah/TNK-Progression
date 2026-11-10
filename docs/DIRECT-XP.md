@@ -1,6 +1,6 @@
-# Direct character XP — 1.5.0-private.1
+# Direct character XP — 1.1.0
 
-Built from the actual **1.4.0-private.1** distribution, restoring its source-only Ascension changes to the isolated `feat/direct-xp-starcatcher` branch. The 20 base origins, 15 ascended origins, consumable Sigil of Ascension, title slots, supplied artwork, boss levels, chapter ceilings and Pufferfish Skills integration remain available.
+Release **1.1.0** continues the former **1.5.0-private.1** development build under the CurseForge version number. That development build was based on the actual **1.4.0-private.1** distribution, restoring its source-only Ascension changes on `feat/direct-xp-starcatcher`. The 20 base origins, 15 ascended origins, consumable Sigil of Ascension, title slots, supplied artwork, boss levels, chapter ceilings and Pufferfish Skills integration remain available.
 
 ## Progression
 

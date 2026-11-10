@@ -1,5 +1,5 @@
 plugins { id 'java-library'; id 'net.neoforged.moddev' version '2.0.148' }
-version = '1.5.0-private.1'
+version = '1.1.0'
 group = 'dev.mikaaah.tnkprogression'
 base { archivesName = 'tnkprogression' }
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
@@ -52,6 +52,7 @@ tasks.named('processResources') { dependsOn 'verifyBundledArtwork' }
 // Optional: rebuild the badge overlay from the original archive, preserving its PNG bytes.
 def prefixArtworkSource = providers.gradleProperty('tnkArtworkSource')
 tasks.named('jar', Jar) {
+ archiveFileName = "tnkprogression-${project.version}-neoforge-1.21.1.jar"
  if (prefixArtworkSource.isPresent()) {
   inputs.file(prefixArtworkSource.get()).withPropertyName('prefixArtwork')
   inputs.files('tools/embed_prefix_artwork.py', 'tools/package_number_prefixes.py', 'tools/package_title_prefixes.py')
