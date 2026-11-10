@@ -1,0 +1,14 @@
+{
+  "project": "progression",
+  "mod_id": "tnkprogression",
+  "version": "1.1.0",
+  "filename": "tnkprogression-1.1.0-neoforge-1.21.1.jar",
+  "minecraft": "1.21.1",
+  "loader": "neoforge",
+  "minimum_loader_version": "21.1.262",
+  "java": 21,
+  "source_commit": "1556fc7636c31a40df6c57f492d376ae61fcfb95",
+  "sha256": "52e5b2dd1003404afc50c9b8b9e5bfa416a2c9a77e30b429fa70c4f9716ae8f2",
+  "previous_development_label": "1.5.0-private.1",
+  "verification": "docs/VERIFICATION-1.1.0.md"
+}

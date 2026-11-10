@@ -1,25 +1,59 @@
-# Quest ranks using the supplied artwork — historical proposal
+# FTB Quests rewards — 1.1.0
 
-The implemented collectible title system is documented in [TITLES.md](TITLES.md). Its campaign titles reward completing a chapter; this earlier tier-entry proposal is retained as design context.
+Use a **Command Reward** with **permission level 2**. Enter commands without a leading slash. FTB Quests substitutes `{p}` with the claiming player’s name.
 
-The Advanced Pack contains 18 colour styles and existing English role labels, so these require no image editing. Roles are a campaign identity, separate from character level: a level-80 dedicated miner can still be an early-tier Technician until their quest team advances. Keep the number-only level prefix as requested; do not automatically add these role labels beside it until a separate rank display is wanted.
+## Reusable character XP
 
-This is a proposed mapping, not an enabled name-prefix feature. It uses the actual chapter source and stage script inspected at pack commit recorded in the release notes. Tier 1 is the starting campaign tier. Entering a later tier corresponds to completing the previous chapter, consistent with the existing `tk3_stages.js`.
+```text
+tnkprogress xp {p} 150
+```
 
-| Tier entered | Current chapter theme | Existing artwork label | Required previous COMPLETE CHAPTER quest |
-|---|---|---|---|
-| 1 | Kinetic workshop | APPRENTICE | Starting rank |
-| 2 | Hydraulic machinery | TECHNICIAN | `B0A94968CD02DE8A` |
-| 3 | Precision machinery | ENGINEER | `60278B0905A64DC9` |
-| 4 | Inductive/network machinery | SPECIALIST | `B81077B20C8371D3` |
-| 5 | Ender machinery | EXPERT | `1CD504854E287D44` |
-| 6 | Chemical machinery | MASTER | `4B5E0820B553B7C9` |
-| 7 | Expedition frame | GRANDMASTER | `DCEB2AF9B398CAEB` |
-| 8 | Containment frame | CHAMPION | `BCC05513E2AD3BA9` |
-| 9 | Singularity frame | LEGEND | `91CC6BEFB3017B3F` |
+Apply the same reward to every quest in a chapter and adjust only the amount. No unique reward ID is required. FTB Quests controls whether its rewards can be claimed once or repeatedly. This fills the personal character XP bar and records the gain under **Quest**.
 
-The current source also has a **tenth Sovereign chapter**, entered after `DD2408B49260ECA5`; MONARCH is an available existing artwork label if a tenth rank is desired. The pack does not contain a SOVEREIGN label, so that name would require new artwork, which is outside this change.
+| Quest size | Suggested XP |
+| --- | ---: |
+| Small | 50 |
+| Normal | 150 |
+| Major | 400 |
+| Boss | 1,200+ |
+| Chapter finale | 2,000–5,000 |
+| Repeatable | 50–200 |
 
-Before implementing rank sync, choose whether the rank means highest campaign achievement (permanent) or current team's tier (can decrease after leaving). A sensible default is current team progression for the active rank, with permanent personal achievements retained separately. Sync completion/team data at login, team changes and relevant quest completions, including offline team members on their next login. Do not derive ranks from character level or grant an old team's rank permanently just by joining temporarily. Rank assignments must remain cosmetic unless new restrictions are explicitly designed.
+These are pack-author starting points, not automatic chapter edits. Millwright and Artificer apply their +10% / +35% XP perk to quest command rewards.
 
-Existing chapter completion tasks are checkmarks labelled “Confirm the working setup”, behind chapter dependencies. They are not machine-verification sensors. Awarding a rank at these IDs follows the current quest book, and does not prove a factory is still operating.
+## Chapter unlocks
+
+For a chapter that opens the level-30 ceiling:
+
+```text
+tnkprogress unlock {p} 30
+```
+
+The number must be one of the server’s configured ceilings. Unlock the ceiling **before** awarding chapter-completion XP. XP claimed while capped is not stored for later. Add the commands to the actual chapter’s completion quest; this repository does not silently rewrite the pack’s quest IDs.
+
+Optional FTB Teams sharing follows `config/tnkprogression.json`; character XP remains personal.
+
+## Persistent one-time integration receipts
+
+Integrations that need their own permanent per-player receipt can still use:
+
+```text
+tnkprogress reward {p} tnk:chapter_1_complete 2000
+```
+
+Use a stable unique ID for that particular reward. Reusing it for unrelated quests will prevent later claims. Prefer the reusable `xp` command for ordinary FTB Quests rewards.
+
+## Titles and Ascension
+
+```text
+tnkprogress title grant {p} tnk:beta_tester
+give {p} tnkprogression:origin_ascension 1
+```
+
+The first example grants the Founder title. The second supplies a Sigil of Ascension; it unlocks 15 ascended origins and enables reselection when used. Title grants and an origin are separate from character XP.
+
+## Updating an old integration
+
+The former `tnkprogress engineering` command has been removed. Remove `tnk_activity_commissions.js` from installed `kubejs/server_scripts/progression/` folders and use the explicit chapter commands above. The old bridge is kept only as [historical source](history/tnk_activity_commissions.js.txt), outside the executable integration folder.
+
+[Direct XP rules](DIRECT-XP.md) · [Optional title integrations](../integration/README.md) · [Old quest-rank proposal](history/QUEST-ROLES.md)

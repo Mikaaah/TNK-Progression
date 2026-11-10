@@ -1,8 +1,8 @@
 # Founder beta reward and pack-wide title grants
 
-**0.7.1 update:** Founder can supply First Footsteps (+3% base movement speed) and Founding Hands (+5% base block-breaking speed) through the passive slot. Its cosmetic badge stays independent. Owner and Admin remain command-only cosmetics; the UUID `earn` roster cannot award those staff titles. See [TITLE-SLOTS.md](TITLE-SLOTS.md).
+**Current behavior:** Founder supplies fixed additive movement-speed (+0.003) and block-breaking-speed (+0.05) bonuses through the passive slot. Its cosmetic badge stays independent. Owner and Admin remain command-only cosmetics; the UUID `earn` roster cannot award those staff titles. See [TITLE-SLOTS.md](TITLE-SLOTS.md).
 
-Minecraft 1.21.1 / NeoForge 21.1.262 / Java 21; TNK Progression 1.1.0-private.1, made for Towns & Kingdoms 3 | Beyond the Forge.
+Minecraft 1.21.1 / NeoForge 21.1.262 / Java 21; TNK Progression 1.1.0, made for Towns & Kingdoms 3 | Beyond the Forge.
 The shipped pack integration uses its existing KubeJS installation; the progression JAR gains no new hard dependency.
 
 `tnk:beta_tester` displays **Founder** using the original amethyst artwork. Its description records participation in the Towns & Kingdoms 3 beta. Selecting it as the passive grants the two modest movement/breaking bonuses described above. Displaying the badge alone supplies no benefits. It grants no XP, skill points, permissions or progression bypasses.
@@ -39,8 +39,10 @@ Removing a UUID/title from this roster prevents future automatic grants; it does
 
 ## Installation
 
-Replace the previous progression JAR with `tnkprogression-1.1.0-private.1.jar` on clients and server. For UUID-default grants, install `integration/kubejs/server_scripts/progression/tnk_default_titles.js` and `integration/kubejs/config/tnk-title-defaults.json` under the instance's `kubejs/` folder, preserving any existing roster. Include the roster in client pack updates for singleplayer use. Badge and GUI artwork is embedded in the JAR and needs no KubeJS assets. Keep the original 588-node skill tree/config and unrelated scripts, configs and addon JARs. Do not install a second progression JAR.
+Replace the previous progression JAR with `tnkprogression-1.1.0-neoforge-1.21.1.jar` on clients and server. For UUID-default grants, install `integration/kubejs/server_scripts/progression/tnk_default_titles.js` and `integration/kubejs/config/tnk-title-defaults.json` under the instance's `kubejs/` folder, preserving any existing roster. Include the roster in client pack updates for singleplayer use. Badge and GUI artwork is embedded in the JAR and needs no KubeJS assets. Keep the original 588-node skill tree/config and unrelated scripts, configs and addon JARs. Do not install a second progression JAR.
 
-## Verification
+## Earlier feature verification
 
-Built with Java 21 and checked with 26 unit tests, the NeoForge dedicated-server suite and a disposable integrated Minecraft client. Founder checks cover its fixed early/late additive contributions, no stacking, configuration migration, real menu selection, synced movement/breaking attributes and an independent staff cosmetic. GUI scales 2 and 4 were checked. This is isolated client/server verification, not a full TNK3 mod-list test. All original number/title image bytes are preserved. KubeJS UUID award fixtures and existing quest-binding fixtures also pass; the default-title roster still needs distribution to each singleplayer installation.
+The original Founder feature was built with Java 21 and checked with 26 unit tests, the NeoForge dedicated-server suite and a disposable integrated Minecraft client. Founder checks cover its fixed early/late additive contributions, no stacking, configuration migration, real menu selection, synced movement/breaking attributes and an independent staff cosmetic. GUI scales 2 and 4 were checked. This is isolated client/server verification, not a full TNK3 mod-list test. All original number/title image bytes are preserved. KubeJS UUID award fixtures and existing quest-binding fixtures also pass; the default-title roster still needs distribution to each singleplayer installation.
+
+Current 1.1.0 packaging checks are recorded in [release verification](VERIFICATION-1.1.0.md).

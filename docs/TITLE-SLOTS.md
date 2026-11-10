@@ -1,6 +1,6 @@
-# Cosmetic and passive titles — 1.1.0-private.1
+# Cosmetic and passive titles — 1.1.0
 
-Minecraft 1.21.1, NeoForge 21.1.262+, Java 21. Update the progression JAR on **both clients and server**; network protocol 6 carries both selections.
+Minecraft 1.21.1, NeoForge 21.1.262+, Java 21. Update the progression JAR on **both clients and server**; network protocol 9 carries the current character state.
 
 ## Two independent choices
 

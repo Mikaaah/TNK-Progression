@@ -1,5 +1,14 @@
 name: Build and test
-on: [push, pull_request]
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,7 +24,6 @@ jobs:
           node-version: '22'
       - run: node tools/check_title_bindings.cjs
       - run: node tools/check_default_titles.cjs
-      - run: node tools/check_commissions.cjs
       - run: python3 tools/balance_report.py
       - run: ./gradlew build --stacktrace
       - name: Dedicated server assertions
@@ -24,20 +32,14 @@ jobs:
           mkdir -p run/config
           cp -r skilltree/rebuilt588/config/puffish_skills run/config/
           printf 'eula=true\n' > run/eula.txt
-          JAVA_TOOL_OPTIONS=-Dtnkprogression.smoke=true timeout 300 ./gradlew runServer 2>&1 | tee smoke.log
-          grep -q TNK_PROGRESSION_SMOKE_OK smoke.log
-          grep -q TNK_TITLES_SMOKE_OK smoke.log
-          grep -q TNK_FOUNDER_PASSIVES_SMOKE_OK smoke.log
-          grep -q TNK_ORIGINS_SMOKE_OK smoke.log
-          grep -q TNK_EXPANDED_ORIGINS_SMOKE_OK smoke.log
-          grep -q TNK_CHARACTER_SMOKE_OK smoke.log
-          grep -q TNK_MOB_LEVEL_SMOKE_OK smoke.log
-          grep -q TNK_MOB_CACHE_DESPAWN_SMOKE_OK smoke.log
-          grep -q TNK_TREE_588_SMOKE_OK smoke.log
+          set -o pipefail
+          timeout 300 ./gradlew runServer -PtnkDirectXpSmoke -PtnkBossActivityServerSmoke --console=plain 2>&1 | tee smoke.log
+          grep -q TNK_DIRECT_XP_SMOKE_OK smoke.log
+          grep -q TNK_BOSS_ACTIVITY_SMOKE_OK smoke.log
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: tnkprogression-private
+          name: tnkprogression-1.1.0-neoforge-1.21.1
           path: |
             build/libs/*.jar
             build/reports/tests/

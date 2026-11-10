@@ -1,10 +1,24 @@
-## 1.1.0 — Origin token texture fix
+# Changelog
 
-- Fix the Sigil of Ascension missing texture using the supplied purple PixelMine magic-card artwork.
-- Give the token its own item texture so it is included in the item atlas.
-- Align the embedded version and release filename with CurseForge 1.1.0. Retain direct XP, Starcatcher rewards, Ascension and existing saves from the former 1.5.0-private.1 development build.
+## 1.1.0
 
-Minecraft 1.21.1 · NeoForge 21.1.262+ · Java 21.
+Minecraft **1.21.1** · **NeoForge 21.1.262+** · **Java 21**
+
+- Earn direct character XP through combat, natural mining, farming, cooking, fishing, exploration and quests. Activity milestones and automatic crafting/engineering XP have been retired.
+- Reach level 100 through the default **4,950,000 XP** curve. Existing character levels and within-level progress migrate once.
+- Catch Starcatcher fish for configurable rarity-based XP, including supported entity catches.
+- Use **20 base origins**, **15 ascended origins** and the consumable **Sigil of Ascension**. Keep separate cosmetic/passive title slots and the existing skill-point integration.
+- Give the Sigil its own correctly stitched item texture using the supplied purple PixelMine artwork.
+- Reuse `tnkprogress xp {p} 150` across FTB Quests chapters, with permission level 2. No unique claim IDs are needed for ordinary command rewards.
+- Retain boss level floors, configurable chapter ceilings, placed-block protection and server-backed activity information.
+
+Replace the previous JAR on **clients and server**. [XP rules and migration](docs/DIRECT-XP.md) · [Quest setup](docs/QUEST-ROLES.md) · [Verification](docs/VERIFICATION-1.1.0.md).
+
+### Earlier development labels
+
+The `1.5.0-private.1` direct-XP development build was aligned to the requested **1.1.0** release number. Those labels are preserved below as development history; they do not indicate a newer published release. [Version aliases](docs/VERSIONING.md).
+
+---
 
 ## 1.5.0-private.1 — Direct XP, based on 1.4.0
 
@@ -28,7 +42,7 @@ Minecraft 1.21.1 · NeoForge 21.1.262+ · Java 21.
 
 Minecraft 1.21.1 · NeoForge · Java 21. Replace the previous Progression JAR on both client and server, then restart. Existing progression config files gain the boss roster automatically without resetting other settings or player progress.
 
-# 1.2.0-private.1
+## 1.2.0-private.1
 
 - Add the complete 20-origin roster with both perks per background and 20 supplied original pixel icons bundled in the mod.
 - Add three chooser pages with centered icon labels, preview/back/confirm and optional-mana availability feedback. Keep the permanence notices removed.
@@ -36,13 +50,13 @@ Minecraft 1.21.1 · NeoForge · Java 21. Replace the previous Progression JAR on
 - Preserve existing eight-origin characters and their original perk values using saved revisions. The new Librarian has 10% enchanting refunds and 15% grindstone XP; existing Librarians keep their former perks.
 - Require protocol 7 on both client and server. Minecraft 1.21.1, NeoForge 21.1.262+, Java 21. No new hard mod dependency or KubeJS asset update.
 
-# 1.1.0-private.2
+## 1.1.0-private.2
 
 - Remove the permanence notices from the origin preview and Character Origin tab.
 - Rename the Origin tab's perk heading to "Origin Perks". Keep existing origin choices, perks and admin-only overrides.
 - Minecraft 1.21.1, NeoForge 21.1.262+ and Java 21; protocol 6 remains compatible with private.1.
 
-# 1.1.0-private.1
+## 1.1.0-private.1
 
 - Add eight permanent origin backgrounds: Miner, Librarian, Forester, Farmer, Soldier, Wanderer, Fisher and Blacksmith.
 - Show a story/perk preview and permanent confirmation on the first Character visit; add a read-only Origin tab afterward.
@@ -51,7 +65,7 @@ Minecraft 1.21.1 · NeoForge · Java 21. Replace the previous Progression JAR on
 - Guard extra ore/log yields against repeated placements and harvests, preserve normal enchanting requirements, and refund only XP actually spent.
 - Keep all existing badges, GUI artwork, title slots, progression and the external 588-node tree. Both sides must update to protocol 6.
 
-# 1.0.0-private.1
+## 1.0.0-private.1
 
 - Package the cumulative character GUI, original badges and matching skill-tree resources for Towns & Kingdoms 3 | Beyond the Forge.
 - Separate cosmetic and passive title selections, with independent clear buttons and the existing server-enforced passive swap cooldown.
@@ -62,7 +76,7 @@ Minecraft 1.21.1 · NeoForge · Java 21. Replace the previous Progression JAR on
 - Retain the external 588-node tree, 175-point entitlement, saved title selections and protocol 5.
 - This is a private feature-testing baseline. The broader cleanup audit remains pending.
 
-# 0.6.0-beta.1
+## 0.6.0-beta.1
 
 - Rewrite all 588 node tooltips with branch/subclass, tier, cost, exact effects/conditions, wrapped lines and explicit adaptation notes. Masteries name their title reward.
 - Remove duplicate Ars mana-capacity, mana-regeneration and general spell-damage rewards. Use one Iron's route for Ars 'n Spells to bridge; retain independent warding.
@@ -71,34 +85,34 @@ Minecraft 1.21.1 · NeoForge · Java 21. Replace the previous Progression JAR on
 - Add 12 subclass mastery titles and modest equipped perks; append unmodified original purple sprites for 55 total titles. Merge additions once into existing catalogs without replacing custom entries. Keep the existing 43 glyph indices.
 - Retain all source IDs/positions/links, the external config location, 175 points at level 100, TNK purple GUI and protocol 4. No identification discount or original-space artwork is added.
 
-# 0.5.4-beta.1
+## 0.5.4-beta.1
 
 - Use TNK purple for primary character accents, the Activities tab and former blue fishing accents; keep warm parchment, brown frames and distinct activity colors.
 - Add restrained vertical gradients to panels, selected buttons, section ribbons and progress fills, plus a soft plum player backdrop. Preserve the clipped pixel corners and readable text.
 - Appearance-only update; retain protocol 4, the existing external skilltree config and original unmodified number/title sprites.
 
-# 0.5.3-beta.1
+## 0.5.3-beta.1
 
 - Replace the survival inventory's recipe-book button with a player portrait that opens Character. Close previously open inventory recipe books before layout, keep the inventory centered, and return to inventory when closing Character. The I key remains available.
 - Refine the warm parchment GUI with softer corners, colored active tabs/section headers, bold headings, activity icons, colored progress bars and clearer point-counter spacing. Capitalize Milestone consistently, including historical journal entries. Use the original number badge on the character sheet and compact HUD.
 - Render mob labels as two centered lines: original number badge above the mob's name. Send the saved level only when entity tracking begins; use client rendering rather than generating custom names. Preserve custom/affixed names and natural despawn, remove only exact former TNK-generated names on reload, and keep nearest-player scaling/loot rules unchanged.
 - Update client/server protocol to 4. Retain all 588 skilltree nodes exclusively under config/puffish_skills; artwork remains embedded in the private JAR.
 
-# 0.5.2-beta.1
+## 0.5.2-beta.1
 
 - Remove the entire Pufferfish tree and passive-node data from the mod JAR. Supply it exclusively under config/puffish_skills, with native config.json and categories/character/*.json files.
 - Load conditional-node coefficients from config/puffish_skills/tnk_passives.json. Keep icons, frames, warm background and original number/title artwork inside the mod.
 - Use Pufferfish's native config-folder category ID puffish_skills:character. Migrate the known former tnk:character bridge/title settings; retain 175 level-based points, all node effects and earned titles.
 - Keep the Skill tree entry point on the I-key screen and open the configured native category. Verify the JAR has no embedded tree and the actual Pufferfish mod loads all 588 nodes from config.
 
-# 0.5.1-beta.1
+## 0.5.1-beta.1
 
 - Add a Skill tree button beside the skill-point counter in the I-key character screen. The complete 588-node tree was already embedded in 0.5.0; this patch adds the missing direct entry point.
 - Open the configured native Pufferfish category through a server-validated GUI action, with no command or client-controlled category/player target.
 - Explain missing Pufferfish/category loading, and warn if an old datapack/config overrides the bundled 588-node tree with a different node count.
 - Keep the complete 588-node graph, 175-point entitlement, own artwork, original prefixes and all perks embedded. Add a loaded-Pufferfish openScreen assertion.
 
-# 0.5.0-beta.1
+## 0.5.0-beta.1
 
 - Replace the basic 240-node draft with the supplied 588-node topology and all 669 original links, retaining six disciplines and roots. Use the existing TNK icons, frame states and warm background; do not port the original space background or original mod sprites.
 - Embed the complete Pufferfish configuration and TNK skilltree assets directly into the mod. Keep original number/title PNGs embedded in the private release. No companion datapack or resource pack is required.
@@ -109,14 +123,14 @@ Minecraft 1.21.1 · NeoForge · Java 21. Replace the previous Progression JAR on
 - Migrate six known old tree-title requirements to valid converted node IDs without revoking earned titles or changing custom unrelated conditions.
 - Add graph/assets/points checks, passive-rule tests and an isolated check through the official Pufferfish 0.19.2 parser and native attribute/tag update/respec implementations. Also load the actual Pufferfish mods in a disposable server to verify 175-point sync and live respec. Full-pack client integration remains to be playtested.
 
-# 0.4.3-beta.1
+## 0.4.3-beta.1
 
 - Correct the delivered private JAR to use the supplied Advanced Pack number/title artwork by default, without requiring an enabled companion resource pack.
 - Embed all 100 original number PNGs and 43 original title PNGs without changing any bytes. Keep the chosen ten-level colour brackets and quartz-white level 100.
 - Remove the old bronze LVL sheet from the private release JAR, override its font mapping with the original number images, and merge title glyph translations without losing keybinding labels.
 - Add a reproducible private-artwork Gradle packaging option and byte/hash/font/class validation. No gameplay, skin, keybind, network or compiled Java behavior changes in this resource-only patch.
 
-# 0.4.2-beta.1
+## 0.4.2-beta.1
 
 - Cache eligible player positions/levels once per dimension per spawning tick and reuse bounded chunk-section candidate shortlists during spawn bursts. Preserve nearest selection on boundaries and a separate random offset for each mob.
 - Add empty/single-player fast paths, lifecycle/teleport/level-up invalidation and world/server cleanup. No recurring per-mob nearest-player scan or entity-retaining spawn cache is added.
@@ -124,7 +138,7 @@ Minecraft 1.21.1 · NeoForge · Java 21. Replace the previous Progression JAR on
 - Verify leveled, saved/reloaded mobs can still naturally distance-despawn; retain existing persistence and custom names without marking ordinary mobs persistent.
 - Add 10,000-position full-search equivalence, cache bounds, multiplayer-boundary and 31-mob burst assertions. Document the original Auto Leveling and Otherworld Apotheosis integration, including the current 1.21.1 port's differences. Apotheosis loot/boss behavior is unchanged by this patch.
 
-# 0.4.1-beta.1
+## 0.4.1-beta.1
 
 - Replace distance-from-spawn, underground depth and dimension-baseline mob levels with the nearest living survival/adventure player's actual character level in the same dimension.
 - Roll a uniform −4 to +4 level offset and clamp to 1–100; configure `mobLevelVariance` (default 4). Ignore creative, spectator and fake players; use level 1 if no eligible player is present.
@@ -132,7 +146,7 @@ Minecraft 1.21.1 · NeoForge · Java 21. Replace the previous Progression JAR on
 - Remove obsolete distance/baseline config keys on reload. Keep mob stat bonuses, Apotheosis behavior, title perks, loot rules and network protocol unchanged.
 - Add level-bound unit checks and dedicated-server nearest-player/multiplayer-selection, fallback, exclusion and persistence assertions.
 
-# 0.4.0-beta.1
+## 0.4.0-beta.1
 
 - Add the I-key character screen with live player model, parchment/bronze controls, XP, campaign ceiling, title picker and seven activity tracks.
 - Add a toggleable compact player/XP/pinned-activity HUD and persistent tracking preferences, plus recent completed milestones.
@@ -144,7 +158,7 @@ Minecraft 1.21.1 · NeoForge · Java 21. Replace the previous Progression JAR on
 - Fix first-client-login name formatting when a badge snapshot has not arrived, and account for transformed player-preview clipping.
 - Add dedicated-server character/perk assertions and an opt-in integrated-client UI test. No identification discount or conditional ability is added.
 
-# 0.3.0-beta.1
+## 0.3.0-beta.1
 
 - Add 43 personal, collectible cosmetic titles with server-validated unlock, equip, hide, revoke and restore commands.
 - Show the equipped title beside the character level in standard chat and overhead display names. Preserve the selection when new titles unlock; retain readable text without an artwork pack.
@@ -155,7 +169,7 @@ Minecraft 1.21.1 · NeoForge · Java 21. Replace the previous Progression JAR on
 - Correct namespaced IDs in title, engineering and one-time quest XP commands, preserving legacy reward IDs.
 - Add title server assertions, three title-rule unit tests and an executable quest-bridge fixture check.
 
-# 0.2.0-beta.1
+## 0.2.0-beta.1
 
 - Add repeatable farming, audited crafting and engineering activity milestones; retain mining, fishing, exploration and combat.
 - Replace fish-stat polling with real catch validation; add open-water, hook-age and duplicate-payout checks.
