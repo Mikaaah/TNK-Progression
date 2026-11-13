@@ -146,7 +146,7 @@ public final class SpiralChecks {
   } finally {if(oldMinimum==null)originConfig.bossBaseLevels.remove("minecraft:zombie");else originConfig.bossBaseLevels.put("minecraft:zombie",oldMinimum);}
  }
  static void loadBridge() throws Exception {
-  // Parse the supplied rotation with only its six target levels changed for precedence checks.
+  // Parse the supplied rotation with changed targets and vanilla boss candidates for isolated checks.
   var gson=new com.google.gson.Gson();var definition=com.google.gson.JsonParser.parseString(java.nio.file.Files.readString(java.nio.file.Path.of("bridge-fixture/rotation.json"))).getAsJsonObject();
   for(var value:definition.getAsJsonArray("floors")){var f=value.getAsJsonObject();f.addProperty("target_level",45+f.get("floor").getAsInt()*5);}
   Map<String,com.google.gson.JsonObject> themes=new TreeMap<>();

@@ -1,0 +1,26 @@
+{
+  "version": "1.1.1",
+  "minecraft": "1.21.1",
+  "neoforge": "21.1.262",
+  "java": "21.0.13+9",
+  "source_commit": "4ee3624de44ad0bdc50db55947513f6118364e31",
+  "progression_base_commit": "f05d58d55a5a7a8a22d70fea7019048cb75fd94d",
+  "loot_commit": "1fee79b367859b74f6f279ec3c0a0f4e9e2c619e",
+  "spiral_source_commit": "085aba1b98dbc5d4ed9ce28a2e9ee83a9f71b4d1",
+  "file": "tnkprogression-1.1.1-neoforge-1.21.1.jar",
+  "sha256": "9989095f4c4ce67423e9640ce0d6785b642d67c4b792330b8148a34de60c2937",
+  "runtime_matching_classes": 137,
+  "bytecode_major": 65,
+  "unit_tests": 41,
+  "unit_failures": 0,
+  "matrix": [
+    "alone",
+    "loot",
+    "spiral",
+    "both",
+    "bridge"
+  ],
+  "existing_direct_xp_smoke": "passed",
+  "existing_boss_activity_smoke": "passed",
+  "interactive_client_test": false
+}
