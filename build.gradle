@@ -1,5 +1,5 @@
 plugins { id 'java-library'; id 'net.neoforged.moddev' version '2.0.148' }
-version = '1.1.0'
+version = '1.1.1'
 group = 'dev.mikaaah.tnkprogression'
 base { archivesName = 'tnkprogression' }
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
@@ -80,3 +80,14 @@ if (providers.gradleProperty("tnkBossActivityClient").isPresent()) {
 }
 
 if (providers.gradleProperty("tnkDirectXpSmoke").isPresent()) { neoForge.runs.server { systemProperty "tnkprogression.directXpSmoke", "true" } }
+
+// Isolated verification only. These jars are neither required nor bundled by production builds.
+if (providers.gradleProperty('tnkAbyssSmoke').isPresent()) {
+ sourceSets.main.java.srcDir('verification/abyss')
+ dependencies { compileOnly fileTree(providers.gradleProperty('tnkVerificationJars').get()) { include '**/*.jar' } }
+ neoForge.runs.server {
+  gameDirectory = file(providers.gradleProperty('tnkVerificationRun').get())
+  systemProperty 'tnkprogression.abyssSmoke', 'true'
+ }
+}
+tasks.named('jar') { exclude 'dev/mikaaah/tnkprogression/verification/**', 'dev/mikaaah/tnkloot/verification/**' }

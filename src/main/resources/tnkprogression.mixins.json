@@ -19,7 +19,9 @@
     "CookingFurnaceMixin",
     "CookingContainerMixin",
     "CookingCampfireMixin",
-    "StarcatcherCatchMixin"
+    "StarcatcherCatchMixin",
+    "AbyssWaveScalingMixin",
+    "AbyssReinforcementsMixin"
   ],
   "injectors": {
     "defaultRequire": 1

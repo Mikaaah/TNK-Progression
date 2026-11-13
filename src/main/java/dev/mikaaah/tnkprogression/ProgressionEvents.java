@@ -18,15 +18,19 @@ import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 public final class ProgressionEvents {
  @SubscribeEvent public static void join(EntityJoinLevelEvent e){
-  if(!(e.getLevel() instanceof ServerLevel world) || !(e.getEntity() instanceof Mob mob) || (!(mob instanceof Enemy) && BossLevels.baseLevel(mob)==0) || !ProgressionConfig.current.scaleMobs)return;
+  if(!(e.getLevel() instanceof ServerLevel world) || !(e.getEntity() instanceof Mob mob) || !ProgressionConfig.current.scaleMobs)return;
   var c=ProgressionConfig.current;CompoundTag n=mob.getPersistentData();boolean fresh=!n.contains("tnk_level");
   int previousLevel=ProgressionAPI.mobLevel(mob);
-  boolean migrateBoss=BossLevels.baseLevel(mob)>0 && !n.getBoolean("tnk_boss_level_v1");
-  if(fresh || migrateBoss)n.putInt("tnk_level",MobLevels.assign(world,mob));
+  boolean arena=AbyssIntegration.prepareJoin(mob);
+  if(!arena && !(mob instanceof Enemy) && BossLevels.baseLevel(mob)==0)return;
+  boolean migrateBoss=!arena && BossLevels.baseLevel(mob)>0 && !n.getBoolean("tnk_boss_level_v1");
+  if(!arena && (fresh || migrateBoss))n.putInt("tnk_level",MobLevels.assign(world,mob));
   if(BossLevels.baseLevel(mob)>0)n.putBoolean("tnk_boss_level_v1",true);
   int level=ProgressionAPI.mobLevel(mob);
-  scale(mob.getAttribute(Attributes.MAX_HEALTH),"health",c.healthPerLevel*(level-1));
-  scale(mob.getAttribute(Attributes.ATTACK_DAMAGE),"damage",c.damagePerLevel*(level-1));
+  scale(mob.getAttribute(Attributes.MAX_HEALTH),"health",arena && (!AbyssIntegration.healthBaseline(mob) || AbyssIntegration.skipHealth(mob))?0:c.healthPerLevel*(level-1));
+  // Arena damage is scaled once at the damage event for melee AND fixed-damage attacks.
+  // Scaling this attribute too would double melee and attribute-derived spells/projectiles.
+  scale(mob.getAttribute(Attributes.ATTACK_DAMAGE),"damage",arena?0:c.damagePerLevel*(level-1));
   if(fresh)mob.setHealth(mob.getMaxHealth());
   else if(mob.getHealth()>mob.getMaxHealth())mob.setHealth(mob.getMaxHealth());
   // Remove only our exact old generated name. Never rename player-named or affixed mobs.

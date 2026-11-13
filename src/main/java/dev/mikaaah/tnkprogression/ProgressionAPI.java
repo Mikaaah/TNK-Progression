@@ -24,7 +24,9 @@ public final class ProgressionAPI {
   return Math.max(ProgressionConfig.current.ceilings[0],Math.max(personal,team));
  }
  public static int rarityCap(ServerPlayer p){int cap=ceiling(p),i=0;while(i+1<ProgressionConfig.current.ceilings.length && cap>=ProgressionConfig.current.ceilings[i+1])i++;return ProgressionConfig.current.rarityCaps[i];}
+ /** Actual saved combat level, including bosses at 110. Never recipient-capped. */
  public static int mobLevel(LivingEntity e){return Math.max(1,Math.min(BossLevels.MAX_LEVEL,e.getPersistentData().getInt("tnk_level")));}
+ /** Ordinary mob loot only. Authored dungeon rewards use Loot's own saved source/tier/rarity. */
  public static int lootLevel(ServerPlayer p,LivingEntity mob){return Math.min(mobLevel(mob),ceiling(p));}
  public static long awardXp(ServerPlayer p,long amount){
   if(amount<=0 || level(p)>=ceiling(p) || level(p)>=100)return 0;

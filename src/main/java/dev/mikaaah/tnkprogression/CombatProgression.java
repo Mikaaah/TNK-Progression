@@ -25,7 +25,7 @@ public final class CombatProgression {
         catch(ClassNotFoundException ignored) {} catch(ReflectiveOperationException | LinkageError ex) { TnkProgression.LOG.warn("Iron spell summon integration unavailable",ex); }
         MAGIC_SUMMON=type;GET_SUMMONER=method;
     }
-    private static Entity magicOwner(Entity source) {
+    static Entity magicOwner(Entity source) {
         if(MAGIC_SUMMON==null || GET_SUMMONER==null || !MAGIC_SUMMON.isInstance(source))return null;
         try {return GET_SUMMONER.invoke(source) instanceof Entity owner?owner:null;}
         catch(ReflectiveOperationException ex){return null;}
@@ -56,12 +56,17 @@ public final class CombatProgression {
         for(var child:event.getChildren()) {
             child.getPersistentData().putString("tnk_spawn_reason","SPLIT");
             child.getPersistentData().putInt("tnk_level",ProgressionAPI.mobLevel(event.getParent()));
+            AbyssIntegration.inherit(event.getParent(),child);
         }
     }
     @SubscribeEvent(priority=EventPriority.LOWEST)
     public static void conversion(LivingConversionEvent.Post event) {
         var from=event.getEntity().getPersistentData();var to=event.getOutcome().getPersistentData();
         for(String key:List.of("tnk_level","tnk_spawn_reason","tnk_combat_paid","tnk_contributions"))if(from.contains(key))to.put(key,from.get(key).copy());
+        if(event.getEntity() instanceof Mob root && event.getOutcome() instanceof Mob child) {
+            AbyssIntegration.inherit(root,child);
+            if(AbyssIntegration.assigned(child))ProgressionEvents.join(new net.neoforged.neoforge.event.entity.EntityJoinLevelEvent(child,child.level()));
+        }
     }
     @SubscribeEvent(priority=EventPriority.LOWEST)
     public static void before(LivingDamageEvent.Pre event) {
@@ -95,7 +100,9 @@ public final class CombatProgression {
         var n=target.getPersistentData();if(n.getBoolean("tnk_combat_paid"))return;
         n.putBoolean("tnk_combat_paid",true);
         var c=ProgressionConfig.current;
-        if(Set.of("SPAWN_EGG","DISPENSER","COMMAND","BREEDING","MOB_SUMMONED","SPLIT").contains(n.getString("tnk_spawn_reason"))
+        String reason=n.getString("tnk_spawn_reason");
+        if((Set.of("SPAWN_EGG","DISPENSER","COMMAND","BREEDING","MOB_SUMMONED","SPLIT").contains(reason)
+                && !(reason.equals("COMMAND") && AbyssIntegration.assigned(target)))
             || (MAGIC_SUMMON!=null && MAGIC_SUMMON.isInstance(target))
             || (target instanceof OwnableEntity owned && owned.getOwnerUUID()!=null)
             || owner(target)!=null)return;
