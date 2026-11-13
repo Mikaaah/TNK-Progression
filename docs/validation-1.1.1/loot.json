@@ -1,0 +1,8 @@
+{
+  "ordinary_world_and_API": true,
+  "ordinary_loot_cap_and_legacy_cases": 100,
+  "spiral": false,
+  "loot": true,
+  "bridge": false,
+  "status": "passed"
+}

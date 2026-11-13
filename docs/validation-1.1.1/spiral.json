@@ -1,0 +1,10 @@
+{
+  "ordinary_world_and_API": true,
+  "floor_player_cases": 12,
+  "boss_slots": 3,
+  "reload_damage_scaling_reinforcements_XP": true,
+  "spiral": true,
+  "loot": false,
+  "bridge": false,
+  "status": "passed"
+}

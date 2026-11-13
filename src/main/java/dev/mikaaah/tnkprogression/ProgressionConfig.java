@@ -14,6 +14,15 @@ public final class ProgressionConfig {
  public int balanceVersion=2;
  public Map<String,Long> legacyActivityRequirements=new HashMap<>(Map.of("mining",100L,"combat",10L,"fishing",1L,"exploration",10L,"farming",40L,"crafting",30L,"engineering",10L));
  public double healthPerLevel = 0.03, damagePerLevel = 0.0125;
+ public Abyss abyss = new Abyss();
+ public static final class Abyss {
+  public boolean enabled = true;
+  public int[] floorLevels = {50,60,70,80,90,100};
+  // False retains Spiral's original scaling for that stat, without adding TNK scaling again.
+  public boolean tnkHealthBaseline = true, tnkDamageBaseline = true;
+  // Arena melee and owned indirect attacks share one outgoing damage factor.
+  public boolean scaleIndirectDamage = true;
+ }
  public Map<String,Activity> activities = defaults();
  public static Map<String,Activity> defaults() { return new HashMap<>(Map.of("mining",new Activity(100,800),"combat",new Activity(10,2000),"fishing",new Activity(20,3000),"exploration",new Activity(30,1500),"farming",new Activity(40,1000),"crafting",new Activity(30,1800),"engineering",new Activity(10,4500))); }
  public int contributionTicks = 1200, combatWindowTicks = 12000, harvestCooldownTicks = 1200;
@@ -35,6 +44,9 @@ public final class ProgressionConfig {
    if (!Files.exists(path)) Files.writeString(path,gson.toJson(new ProgressionConfig()));
    JsonObject raw=gson.fromJson(Files.readString(path),JsonObject.class);
    ProgressionConfig c=gson.fromJson(raw,ProgressionConfig.class);
+   boolean abyssMigration=!raw.has("abyss");
+   if(c.abyss==null || c.abyss.floorLevels==null || c.abyss.floorLevels.length!=6)throw new IllegalArgumentException("Six Abyss floor levels are required");
+   for(int level:c.abyss.floorLevels)if(level<1 || level>100)throw new IllegalArgumentException("Abyss regular levels must be 1-100");
    boolean bossMigration=!raw.has("bossBaseLevels");
    if(c.bossBaseLevels==null || c.bossBaseLevels.size()>512)throw new IllegalArgumentException("Invalid boss level roster");
    for(var boss:c.bossBaseLevels.entrySet())if(net.minecraft.resources.ResourceLocation.tryParse(boss.getKey())==null || boss.getValue()==null || boss.getValue()<1 || boss.getValue()>BossLevels.MAX_LEVEL)throw new IllegalArgumentException("Invalid boss base level");
@@ -55,7 +67,7 @@ public final class ProgressionConfig {
    for(var rules:List.of(c.craftingRecipes,c.engineeringRecipes,c.engineeringObjectives))for(var rule:rules.entrySet())if(net.minecraft.resources.ResourceLocation.tryParse(rule.getKey())==null || rule.getValue()==null || !Double.isFinite(rule.getValue()) || rule.getValue()<=0 || rule.getValue()>1000)throw new IllegalArgumentException("Invalid activity recipe/objective");
    for(String key:defaults().keySet()) { Activity a=c.activities.get(key); if(a==null || a.initialRequirement<1 || a.initialXp<1)throw new IllegalArgumentException("Invalid activity "+key); }
    if(c.skillCategory==null || net.minecraft.resources.ResourceLocation.tryParse(c.skillCategory)==null)throw new IllegalArgumentException("Invalid skill category");
-   if(migrate || treeMigration || bossMigration || raw.has("blocksPerMobLevel") || raw.has("dimensionBaseLevels"))Files.writeString(path,gson.toJson(c));current=c; return true;
+   if(migrate || treeMigration || bossMigration || abyssMigration || raw.has("blocksPerMobLevel") || raw.has("dimensionBaseLevels"))Files.writeString(path,gson.toJson(c));current=c; return true;
   } catch(Exception e){ TnkProgression.LOG.error("Keeping previous progression config",e); return false; }
  }
 }

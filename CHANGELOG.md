@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.1.1
+
+Minecraft **1.21.1** · **NeoForge 21.1.262** · **Java 21**
+
+- Add optional fixed-level integration for Spiral Abyss 2.0.5 normal floors: 50/60/70/80/90/100. Full bosses use the floor target +10 or their configured minimum, capped at 110.
+- Respect verified monthly rotation targets and actual full-boss slots; preserve saved levels, phase/reinforcement context and normal-world scaling.
+- Use TNK level stats as the normal-floor baseline with party scaling once, including owned projectile/spell/area damage and native health exceptions.
+- Keep patched Unidentified Loot 1.1.3 authored rewards intact, with ordinary loot caps and reforging access unchanged.
+- Allow verified wave enemies to earn the existing combat XP despite their internal command spawn reason.
+
+[Integration and defaults](docs/ABYSS-COMPATIBILITY.md) · [Validation](docs/VERIFICATION-1.1.1.md).
+
 ## 1.1.0
 
 Minecraft **1.21.1** · **NeoForge 21.1.262+** · **Java 21**

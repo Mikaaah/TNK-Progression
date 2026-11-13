@@ -1,0 +1,33 @@
+{
+  "ordinary_world_and_API": true,
+  "floor_player_cases": 12,
+  "boss_slots": 3,
+  "reload_damage_scaling_reinforcements_XP": true,
+  "ordinary_loot_cap_and_legacy_cases": 100,
+  "authored_dungeon_regression": {
+    "ordinary_resources_stack_normally": true,
+    "vanilla_loot_functions": true,
+    "floor_chest_cases": 18,
+    "preview_variants": 6,
+    "preview_rng_unchanged": true,
+    "native_preview_network_roundtrip": true,
+    "exact_equipment_save_identify_checks": 96,
+    "monthly_rotation_and_reforge_preserved": true,
+    "paid_npc_saved_result": true,
+    "reforge_material_and_rarity": true,
+    "journal_bosses_checked": 4,
+    "golden_payouts_checked": 900,
+    "party_chest_cases": 9,
+    "rare_prize_counts": {
+      "Arcane Champion's Crown": 292,
+      "Arcane Champion's Blade": 432,
+      "Arcane Champion's Longbow": 176
+    },
+    "native_rare_pickup_announcement": true,
+    "invalid_reload_retained_catalog": true
+  },
+  "spiral": true,
+  "loot": true,
+  "bridge": false,
+  "status": "passed"
+}
