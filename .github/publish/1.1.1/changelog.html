@@ -1,0 +1,57 @@
+<div style="font-family:'Segoe UI',Tahoma,Verdana,Arial,sans-serif;font-size:16px;line-height:1.65">
+<p style="text-align:center"><img src="https://i.imgur.com/JGT2lvz.png" alt="Changelog" width="728" height="125" style="display:block;width:100%;height:auto;margin:auto"></p>
+<h2 style="font-family:'Arial Black',Impact,Arial,sans-serif;font-size:27px;color:#729aa1;text-align:center"><strong>TNK PROGRESSION — 1.1.1</strong></h2>
+<p style="color:#729aa1;text-align:center"><strong>Minecraft 1.21.1 · NeoForge 21.1.262 · Java 21</strong></p>
+<p><strong>Spiral Abyss compatibility, consistent arena scaling and support for Unidentified Loot’s latest compatibility patch.</strong> Take on fixed-level encounters while keeping earned equipment and character progress intact.</p>
+
+<h2 style="font-family:'Trebuchet MS',Verdana,Arial,sans-serif;font-size:23px;font-weight:800;color:#c09473">Spiral Abyss integration</h2>
+<ul>
+<li>Added optional support for <strong>Spiral Abyss 2.0.5</strong> and <strong>TNK’s monthly rotations</strong>.</li>
+<li>Normal arena enemies now use <strong>configurable floor levels</strong>, independently of nearby players.</li>
+</ul>
+<table style="border-collapse:collapse;width:100%;max-width:440px;margin:16px auto;text-align:center">
+<thead><tr><th style="padding:8px 16px;color:#c09473;border-bottom:2px solid #c09473">Floor</th><th style="padding:8px 16px;color:#c09473;border-bottom:2px solid #c09473">Enemy level</th></tr></thead>
+<tbody>
+<tr><td style="padding:5px 16px">1</td><td style="padding:5px 16px"><strong>50</strong></td></tr>
+<tr><td style="padding:5px 16px">2</td><td style="padding:5px 16px"><strong>60</strong></td></tr>
+<tr><td style="padding:5px 16px">3</td><td style="padding:5px 16px"><strong>70</strong></td></tr>
+<tr><td style="padding:5px 16px">4</td><td style="padding:5px 16px"><strong>80</strong></td></tr>
+<tr><td style="padding:5px 16px">5</td><td style="padding:5px 16px"><strong>90</strong></td></tr>
+<tr><td style="padding:5px 16px">6</td><td style="padding:5px 16px"><strong>100</strong></td></tr>
+</tbody>
+</table>
+<ul>
+<li>Full bosses use <strong>the floor level +10 or their configured minimum</strong>, whichever is higher, capped at <strong>level 110</strong>.</li>
+<li>Preserved full-boss encounters on <strong>floor 5, wave 3</strong> and <strong>floor 6, waves 2–3</strong>. Elites and minibosses do not automatically receive full-boss levels.</li>
+<li>Monthly rotation targets take priority over the default floor settings.</li>
+<li>Arena reinforcements and boss phases retain their encounter’s level context.</li>
+</ul>
+
+<h2 style="font-family:'Trebuchet MS',Verdana,Arial,sans-serif;font-size:23px;font-weight:800;color:#c09473">Unidentified Loot compatibility</h2>
+<ul>
+<li>Updated compatibility with <strong>Unidentified Loot 1.1.3</strong>, including its latest TNK compatibility patch.</li>
+<li>Dungeon rewards retain their <strong>selected equipment, source level, tier, rarity and guaranteed bonuses</strong>.</li>
+<li>Lower-level recipients can receive and identify saved dungeon rewards without downgrading or rerolling them.</li>
+<li>A boss’s level <strong>110</strong> remains separate from a chest reward authored at level <strong>100</strong>.</li>
+<li>Preserved ordinary loot caps, native item components, equipment exclusions, reforging requirements and golden-prize limits.</li>
+</ul>
+
+<h2 style="font-family:'Trebuchet MS',Verdana,Arial,sans-serif;font-size:23px;font-weight:800;color:#c09473">Fixes and reliability</h2>
+<ul>
+<li>Prevented overlapping TNK and Spiral health/damage scaling from applying difficulty bonuses twice.</li>
+<li>Retained party scaling once across <strong>melee, projectile, spell and area damage</strong>, while preserving native boss health exceptions.</li>
+<li>Allowed legitimate arena kills to earn normal combat XP while retaining duplicate-award protection.</li>
+<li>Prevented ordinary boss migration from overwriting established arena levels.</li>
+<li>Saved enemies retain their levels and damage taken without stacking modifiers or healing on reload.</li>
+<li>Kept level badges, combat XP and Loot’s level queries consistent with saved arena levels.</li>
+</ul>
+
+<h2 style="font-family:'Trebuchet MS',Verdana,Arial,sans-serif;font-size:23px;font-weight:800;color:#c09473">Installation notes</h2>
+<ul>
+<li><strong>Update Progression on both client and server.</strong> Use the original Spiral Abyss 2.0.5 JAR and the maintained TNK build of Unidentified Loot 1.1.3 for these integrations.</li>
+<li>Existing configuration automatically receives the new Abyss settings.</li>
+<li>Existing character progress, origins, Ascension, titles and skill points are preserved.</li>
+<li>Normal-world mob scaling, Endless Mode and portal access remain unchanged.</li>
+</ul>
+<p><strong>Validation:</strong> 41 automated tests passed, alongside focused dedicated-server checks across all five integration combinations. Full-pack client playtesting remains pending.</p>
+</div>

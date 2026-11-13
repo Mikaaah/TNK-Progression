@@ -1,0 +1,31 @@
+name: Publish approved TNK Progression 1.1.1
+on:
+  push:
+    branches: [publish/curseforge-1.1.1]
+    paths:
+      - '.github/publish/1.1.1/request.json'
+concurrency:
+  group: curseforge-tnk-progression-1789363-1.1.1
+  cancel-in-progress: false
+permissions:
+  contents: read
+jobs:
+  publish:
+    if: github.repository == 'Mikaaah/TNK-Progression' && github.ref == 'refs/heads/publish/curseforge-1.1.1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Upload the approved existing JAR and full HTML changelog
+        env:
+          CURSEFORGE_TOKEN: ${{ secrets.curseforge_token }}
+        run: python .github/scripts/upload_approved_curseforge.py
+      - name: Keep the upload receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: TNK-Progression-1.1.1-CurseForge-receipt
+          path: curseforge-upload-receipt.json
