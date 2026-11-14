@@ -6,7 +6,7 @@
 
 <p align="center"><a href="https://www.curseforge.com/minecraft/mc-mods/towns-kingdoms-progression">Download</a> · <a href="docs/CHARACTER-GUIDE.md">Player guide</a> · <a href="https://github.com/Mikaaah/TNK-Progression/wiki">Wiki</a> · <a href="CHANGELOG.md">Changelog</a> · <a href="https://github.com/Mikaaah/TNK-Progression/issues">Report an issue</a></p>
 
-<p align="center"><img src="https://img.shields.io/badge/Progression-1.1.1-7f384a?style=flat-square" alt="Progression 1.1.1"> <img src="https://img.shields.io/badge/Minecraft-1.21.1-5b8731?style=flat-square" alt="Minecraft 1.21.1"> <img src="https://img.shields.io/badge/Loader-NeoForge-d77828?style=flat-square" alt="NeoForge"></p>
+<p align="center"><img src="https://img.shields.io/badge/Progression-1.1.2-7f384a?style=flat-square" alt="Progression 1.1.2"> <img src="https://img.shields.io/badge/Minecraft-1.21.1-5b8731?style=flat-square" alt="Minecraft 1.21.1"> <img src="https://img.shields.io/badge/Loader-NeoForge-d77828?style=flat-square" alt="NeoForge"></p>
 
 ## Make everyday adventures count
 
@@ -21,7 +21,9 @@ Explore unfamiliar places, mine natural deposits, bring in a rare catch or take 
 
 Press **I**, or click the **player portrait in your survival inventory**, to open Character. Change the key under Controls → Towns & Kingdoms.
 
-## Current release: 1.1.1
+## Current release: 1.1.2
+
+The character HUD is now **hidden by default**, with a configurable pack default and a saved per-player toggle. [HUD setup](docs/CHARACTER-HUD.md#hud-default-for-modpacks).
 
 Optional [Spiral Abyss integration](docs/ABYSS-COMPATIBILITY.md) adds fixed normal-floor levels, verified rotation context and coordinated stat scaling, while respecting patched Unidentified Loot 1.1.3 saved rewards.
 
@@ -31,7 +33,7 @@ Direct XP replaces the old activity milestones. The default journey from level 1
 
 ## Install
 
-1. Put **`tnkprogression-1.1.1-neoforge-1.21.1.jar`** in `mods/` on the server and clients. Replace the previous Progression JAR.
+1. Put **`tnkprogression-1.1.2-neoforge-1.21.1.jar`** in `mods/` on the server and clients. Replace the previous Progression JAR.
 2. For the TNK skill tree, install the pack’s matching Pufferfish Skills/Attributes setup and the external [588-node configuration](skilltree/rebuilt588/README.md). Keep the configuration on both sides.
 3. Pack authors can add [quest rewards](docs/QUEST-ROLES.md) and the optional [title integrations](integration/README.md).
 
@@ -61,7 +63,7 @@ Character XP stays personal. Pack authors control chapter ceilings, rewards and 
 | [Title slots](docs/TITLE-SLOTS.md) | Cosmetic badges, passive benefits and cooldowns |
 | [Founder and default titles](docs/DEFAULT-TITLES.md) | Optional pack-wide title awards |
 | [Skill tree](skilltree/rebuilt588/README.md) | External configuration and point entitlement |
-| [Release verification](docs/VERIFICATION-1.1.1.md) | Checks performed for the delivered JAR |
+| [Release verification](docs/VERIFICATION-1.1.2.md) | Checks performed for the delivered JAR |
 
 ## Pull up a chair
 

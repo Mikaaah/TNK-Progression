@@ -31,6 +31,21 @@ public final class DirectXpSmoke {
    var players=PlayerList.class.getDeclaredField("players");players.setAccessible(true);((List<ServerPlayer>)players.get(server.getPlayerList())).add(p);world.players().add(p);
    var n=ProgressionAPI.profile(p);n.putInt("ceiling",100);n.putInt("level",55);n.putInt("balance_curve_version",2);n.remove("direct_xp_version");n.putLong("xp",BalanceConfig.current.previousCost(55)/2);
    n=ProgressionAPI.profile(p);check(ProgressionAPI.level(p)==55&&Math.abs(n.getLong("xp")-27500)<20,"migration keeps level and within-level fraction");
+   // Missing preference and explicit false are different: pack defaults must not erase player choices.
+   var config=ProgressionConfig.current;
+   var configJson=com.google.gson.JsonParser.parseString(java.nio.file.Files.readString(net.neoforged.fml.loading.FMLPaths.CONFIGDIR.get().resolve("tnkprogression.json"))).getAsJsonObject();
+   check(configJson.has("hudEnabledByDefault")&&!configJson.get("hudEnabledByDefault").getAsBoolean(),"existing config gains disabled HUD default");
+   check(!n.contains("hud_hidden")&&!CharacterState.snapshot(p).hud(),"new and untouched profiles use hidden HUD default");
+   check(CharacterState.action(p,"hud","on")&&CharacterState.snapshot(p).hud(),"player can opt in over disabled pack default");
+   var hudSaved=ProgressionData.get(server).save(new net.minecraft.nbt.CompoundTag(),p.registryAccess());
+   var hudStored=ProgressionData.load(hudSaved,p.registryAccess()).entry("player:"+p.getUUID());
+   check(hudStored.contains("hud_hidden")&&!hudStored.getBoolean("hud_hidden"),"explicit HUD opt-in survives saved-data roundtrip");
+   config.hudEnabledByDefault=true;
+   check(CharacterState.action(p,"hud","off")&&!CharacterState.snapshot(p).hud(),"explicit hide wins over enabled pack default");
+   n.remove("hud_hidden");check(CharacterState.snapshot(p).hud(),"pack can still choose an enabled default");
+   config.hudEnabledByDefault=false;
+   check(!CharacterState.snapshot(p).hud()&&ProgressionAPI.level(p)==55&&Math.abs(n.getLong("xp")-27500)<20,"changing HUD defaults preserves character level and XP");
+   TnkProgression.LOG.info("TNK_HUD_DEFAULT_SMOKE_OK: config migration, default hidden, explicit opt-in/out, saved preference and unchanged progress");
    long preserved=n.getLong("xp");Origins.open(p);check(Origins.choose(p,"tnk:deepdelver"),"base origin selectable");check(!Origins.choose(p,"tnk:dreadnought"),"ascended origin starts locked");
    p.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND,AscensionItem.SIGIL.toStack());AscensionItem.SIGIL.get().use(world,p,net.minecraft.world.InteractionHand.MAIN_HAND);
    check(p.getMainHandItem().isEmpty()&&Origins.ascendedUnlocked(p)&&Origins.selected(p).isEmpty(),"1.4 sigil consumes and unlocks reselection");

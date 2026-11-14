@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.2
+
+- Hide the character HUD by default for new players and existing characters without an explicit HUD preference.
+- Add top-level `hudEnabledByDefault: false` to `config/tnkprogression.json`, including automatic migration of existing configuration files.
+- Preserve saved player show/hide choices and the Character screen HUD toggle.
+
+Minecraft **1.21.1** · **NeoForge 21.1.262** · **Java 21**. Update clients and server together.
+
 ## 1.1.1
 
 Minecraft **1.21.1** · **NeoForge 21.1.262** · **Java 21**
