@@ -1,0 +1,28 @@
+<div style="font-family:'Segoe UI',Tahoma,Verdana,Arial,sans-serif;font-size:16px;line-height:1.65">
+<p style="text-align:center"><img src="https://i.imgur.com/JGT2lvz.png" alt="Changelog" width="728" height="125" style="display:block;width:100%;height:auto;margin:auto"></p>
+<h2 style="font-family:'Arial Black',Impact,Arial,sans-serif;font-size:27px;color:#729aa1;text-align:center"><strong>TNK PROGRESSION — 1.1.3</strong></h2>
+<p style="color:#729aa1;text-align:center"><strong>Minecraft 1.21.1 · NeoForge 21.1.262 · Java 21</strong></p>
+<p><strong>Spiral Abyss 2.0.6 compatibility fixed.</strong> Corrects the integration crash that could also occur while ordinary mobs spawned in the overworld.</p>
+
+<h2 style="font-family:'Trebuchet MS',Verdana,Arial,sans-serif;font-size:23px;font-weight:800;color:#c09473">Spiral Abyss compatibility</h2>
+<ul>
+<li>Fix the wave-scaling callback for Spiral Abyss 2.0.6, including the crash triggered by reading mob health during spawning.</li>
+<li>Fix the matching signature change in boss-phase handling.</li>
+<li>Retain compatibility with <strong>Spiral Abyss 2.0.5</strong>.</li>
+<li>Spiral's non-Mob living encounters retain their native scaling.</li>
+</ul>
+
+<h2 style="font-family:'Trebuchet MS',Verdana,Arial,sans-serif;font-size:23px;font-weight:800;color:#c09473">Existing character settings</h2>
+<ul>
+<li>Retain the <strong>hidden-by-default character HUD</strong> from 1.1.2, its configurable pack default and each player's saved show/hide choice.</li>
+<li>Character levels, XP, origins, Ascension, titles and skill points are preserved.</li>
+</ul>
+
+<h2 style="font-family:'Trebuchet MS',Verdana,Arial,sans-serif;font-size:23px;font-weight:800;color:#c09473">Installation</h2>
+<ul>
+<li><strong>Replace the previous Progression JAR on both clients and server with 1.1.3, then restart.</strong></li>
+<li>No configuration or player-data reset is required.</li>
+<li>Spiral Abyss remains optional. This patch updates Progression's integration; the separate TNK Abyss Rotations bridge is not included.</li>
+</ul>
+<p><strong>Validation:</strong> 41 automated tests passed, plus dedicated-server integration checks with original Spiral Abyss 2.0.5 and 2.0.6 JARs. Checks covered ordinary mob spawning, all six normal floors, boss slots and phases, reinforcements, saved levels and health, damage scaling and combat XP. All 137 packaged production classes match the tested server classes. No graphical client or complete TNK modpack playtest was performed.</p>
+</div>
