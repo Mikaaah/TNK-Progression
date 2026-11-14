@@ -1,0 +1,28 @@
+<div style="font-family:'Segoe UI',Tahoma,Verdana,Arial,sans-serif;font-size:16px;line-height:1.65">
+<p style="text-align:center"><img src="https://i.imgur.com/JGT2lvz.png" alt="Changelog" width="728" height="125" style="display:block;width:100%;height:auto;margin:auto"></p>
+<h2 style="font-family:'Arial Black',Impact,Arial,sans-serif;font-size:27px;color:#729aa1;text-align:center"><strong>TNK PROGRESSION — 1.1.2</strong></h2>
+<p style="color:#729aa1;text-align:center"><strong>Minecraft 1.21.1 · NeoForge 21.1.262 · Java 21</strong></p>
+<p><strong>A quieter screen by default.</strong> The character HUD now starts hidden, with a configurable modpack default and the existing per-player toggle.</p>
+
+<h2 style="font-family:'Trebuchet MS',Verdana,Arial,sans-serif;font-size:23px;font-weight:800;color:#c09473">HUD hidden by default</h2>
+<ul>
+<li>The character HUD is now <strong>off by default</strong> for new players and existing characters who have never selected a HUD preference.</li>
+<li>Added the top-level <code>"hudEnabledByDefault": false</code> setting to <code>config/tnkprogression.json</code>. Pack authors can choose the default without changing individual player data.</li>
+<li>Existing configuration files receive the new setting automatically while retaining their existing settings.</li>
+</ul>
+
+<h2 style="font-family:'Trebuchet MS',Verdana,Arial,sans-serif;font-size:23px;font-weight:800;color:#c09473">Player control and saved preferences</h2>
+<ul>
+<li>Players can still open Character with <strong>I</strong> and use the <strong>HUD: Hidden / HUD: Shown</strong> button.</li>
+<li>Explicit show/hide choices remain saved and take priority over the pack default, including an existing choice to keep the HUD visible.</li>
+<li>Changing the HUD default preserves character levels, XP, origins, Ascension, titles and skill points.</li>
+</ul>
+
+<h2 style="font-family:'Trebuchet MS',Verdana,Arial,sans-serif;font-size:23px;font-weight:800;color:#c09473">Installation notes</h2>
+<ul>
+<li><strong>Update Progression on both client and server to 1.1.2.</strong></li>
+<li>For a hidden default, keep <code>hudEnabledByDefault</code> set to <code>false</code>. Existing players who explicitly enabled their HUD can hide it through Character.</li>
+<li>The Unidentified Loot 1.1.3 and Spiral Abyss 2.0.5 compatibility added in 1.1.1 is retained.</li>
+</ul>
+<p><strong>Validation:</strong> 41 automated tests passed. Focused dedicated-server checks confirmed configuration migration, the hidden default, explicit player overrides, saved preference persistence and unchanged character progress. The existing direct-XP and Ascension server checks also passed. No graphical client playtest was performed for this small preference change.</p>
+</div>
