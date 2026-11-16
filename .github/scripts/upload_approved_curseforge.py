@@ -3,17 +3,17 @@ from pathlib import Path
 import hashlib, io, json, os, sys, tomllib, urllib.error, urllib.request, uuid, zipfile
 
 ROOT = Path(__file__).resolve().parents[2]
-FOLDER = ROOT / '.github/publish/1.1.3'
+FOLDER = ROOT / '.github/publish/1.1.6'
 CF = 'https://minecraft.curseforge.com'
 RECEIPT = ROOT / 'curseforge-upload-receipt.json'
 TOKEN = os.environ.get('CURSEFORGE_TOKEN', '')
-state = {'project_id': 1789363, 'version': '1.1.3', 'status': 'preparing'}
+state = {'project_id': 1789363, 'version': '1.1.6', 'status': 'preparing'}
 
 def save():
     RECEIPT.write_text(json.dumps(state, indent=2) + '\n')
 
 def request_json(url, *, authenticated=False, body=None, content_type=None):
-    headers = {'Accept': 'application/json', 'User-Agent': 'TNK-Progression-release/1.1.3'}
+    headers = {'Accept': 'application/json', 'User-Agent': 'TNK-Progression-release/1.1.6'}
     if authenticated:
         headers['X-Api-Token'] = TOKEN
     if content_type:
@@ -35,12 +35,12 @@ def version_id(versions, name):
     return ids.pop()
 
 def main():
-    if os.environ.get('GITHUB_REPOSITORY') != 'Mikaaah/TNK-Progression' or os.environ.get('GITHUB_REF') != 'refs/heads/publish/curseforge-1.1.3':
+    if os.environ.get('GITHUB_REPOSITORY') != 'Mikaaah/TNK-Progression' or os.environ.get('GITHUB_REF') != 'refs/heads/publish/curseforge-1.1.6':
         raise RuntimeError('Publishing is restricted to the authorized repository and release branch')
     if not TOKEN:
         raise RuntimeError('curseforge_token repository secret is missing')
     spec = json.loads((FOLDER / 'request.json').read_text())
-    if spec['project_id'] != 1789363 or spec['version'] != '1.1.3' or spec['filename'] != 'tnkprogression-1.1.3-neoforge-1.21.1.jar':
+    if spec['project_id'] != 1789363 or spec['version'] != '1.1.6' or spec['filename'] != 'tnkprogression-1.1.6-neoforge-1.21.1.jar':
         raise RuntimeError('Unexpected release identity')
     # Transport fragments contain the original bytes; joining them is not a rebuild.
     payload = b''.join((FOLDER / name).read_bytes() for name in spec['transport_parts'])
@@ -49,7 +49,7 @@ def main():
         raise RuntimeError('Approved artifact checksum mismatch')
     with zipfile.ZipFile(io.BytesIO(payload)) as z:
         meta = tomllib.loads(z.read('META-INF/neoforge.mods.toml').decode())
-        if meta['mods'][0]['modId'] != 'tnkprogression' or meta['mods'][0]['version'] != '1.1.3':
+        if meta['mods'][0]['modId'] != 'tnkprogression' or meta['mods'][0]['version'] != '1.1.6':
             raise RuntimeError('FML release identity mismatch')
     changelog = (FOLDER / 'changelog.html').read_bytes()
     if hashlib.sha256(changelog).hexdigest() != spec['changelog_sha256']:
