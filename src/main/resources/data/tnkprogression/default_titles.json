@@ -7,7 +7,7 @@
       "artwork": "APPRENTICE",
       "style": "ŻELAZO",
       "colour": "DADADA",
-      "description": "Complete the first Kinetic workshop chapter.",
+      "description": "Quest reward: complete Chapter I | Getting Started.",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -18,7 +18,7 @@
       "artwork": "TECHNICIAN",
       "style": "MIEDŹ",
       "colour": "DD873A",
-      "description": "Complete the Hydraulic workshop chapter.",
+      "description": "Quest reward: complete Chapter II | Andesite (Kinetic).",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -29,7 +29,7 @@
       "artwork": "ENGINEER",
       "style": "ZŁOTO",
       "colour": "EDC74B",
-      "description": "Complete the Precision workshop chapter.",
+      "description": "Quest reward: complete Chapter III | Copper (Sealed).",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -40,7 +40,7 @@
       "artwork": "SPECIALIST",
       "style": "SZMARAGD",
       "colour": "51D975",
-      "description": "Complete the Inductive and network chapter.",
+      "description": "Quest reward: complete Chapter IV | Brass (Precision).",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -51,7 +51,7 @@
       "artwork": "EXPERT",
       "style": "PRYZMARYN",
       "colour": "50C5BE",
-      "description": "Complete the Ender machinery chapter.",
+      "description": "Quest reward: complete Chapter V | AE2 (Calculation).",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -62,7 +62,7 @@
       "artwork": "MASTER",
       "style": "DIAMENT",
       "colour": "4BD6ED",
-      "description": "Complete the Chemical machinery chapter.",
+      "description": "Quest reward: complete Chapter VI | Light Engineering (Steel).",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -73,7 +73,7 @@
       "artwork": "GRANDMASTER",
       "style": "LAPIS",
       "colour": "6489FF",
-      "description": "Complete the Expedition frame chapter.",
+      "description": "Quest reward: complete Chapter VII | Heavy Engineering (Aluminium & Oil).",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -84,7 +84,7 @@
       "artwork": "CHAMPION",
       "style": "AMETYST",
       "colour": "C58BF5",
-      "description": "Complete the Containment chapter.",
+      "description": "Quest reward: complete Chapter VIII | Magic & Mana.",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -95,7 +95,7 @@
       "artwork": "LEGEND",
       "style": "RUBIN",
       "colour": "EF5D8C",
-      "description": "Complete the Singularity chapter.",
+      "description": "Quest reward: complete Chapter IX | Radiant & Shadow.",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -106,7 +106,7 @@
       "artwork": "MONARCH",
       "style": "KWARC",
       "colour": "F3EADA",
-      "description": "Complete the Sovereign chapter.",
+      "description": "Quest reward: complete Chapter X | Creative Core.",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -117,7 +117,7 @@
       "artwork": "INITIATE",
       "style": "ŻELAZO",
       "colour": "DADADA",
-      "description": "Spend 10 points in the TNK character skilltree.",
+      "description": "Automatic: spend 10 Skill Points in the Character skill tree.",
       "skillCategory": "puffish_skills:character",
       "minSpentPoints": 10,
       "requiredSkills": []
@@ -128,7 +128,7 @@
       "artwork": "DISCIPLINED",
       "style": "MIEDŹ",
       "colour": "DD873A",
-      "description": "Spend 25 points in the TNK character skilltree.",
+      "description": "Automatic: spend 25 Skill Points in the Character skill tree.",
       "skillCategory": "puffish_skills:character",
       "minSpentPoints": 25,
       "requiredSkills": []
@@ -139,7 +139,7 @@
       "artwork": "VETERAN",
       "style": "AMETYST",
       "colour": "C58BF5",
-      "description": "Spend 50 points in the TNK character skilltree.",
+      "description": "Automatic: spend 50 Skill Points in the Character skill tree.",
       "skillCategory": "puffish_skills:character",
       "minSpentPoints": 50,
       "requiredSkills": []
@@ -150,7 +150,7 @@
       "artwork": "PARAGON",
       "style": "KWARC",
       "colour": "F3EADA",
-      "description": "Spend 100 points in the TNK character skilltree.",
+      "description": "Automatic: spend 100 Skill Points in the Character skill tree.",
       "skillCategory": "puffish_skills:character",
       "minSpentPoints": 100,
       "requiredSkills": []
@@ -161,7 +161,7 @@
       "artwork": "WANDERER",
       "style": "DIAMENT",
       "colour": "4BD6ED",
-      "description": "Unlock hunter subclass 1 mastery in the character tree.",
+      "description": "Automatic: unlock Ranger Mastery in Character > Hunter > Ranger.",
       "skillCategory": "puffish_skills:character",
       "minSpentPoints": 0,
       "requiredSkills": [
@@ -174,7 +174,7 @@
       "artwork": "ADAMANT",
       "style": "MIEDŹ",
       "colour": "DD873A",
-      "description": "Unlock miner mastery in the character tree.",
+      "description": "Automatic: unlock Miner Mastery in the Character skill tree.",
       "skillCategory": "puffish_skills:character",
       "minSpentPoints": 0,
       "requiredSkills": [
@@ -187,7 +187,7 @@
       "artwork": "CARETAKER",
       "style": "SZMARAGD",
       "colour": "51D975",
-      "description": "Unlock cook mastery in the character tree.",
+      "description": "Automatic: unlock Cook Mastery in the Character skill tree.",
       "skillCategory": "puffish_skills:character",
       "minSpentPoints": 0,
       "requiredSkills": [
@@ -200,7 +200,7 @@
       "artwork": "CREATOR",
       "style": "ZŁOTO",
       "colour": "EDC74B",
-      "description": "Unlock blacksmith mastery in the character tree.",
+      "description": "Automatic: unlock Blacksmith Mastery in the Character skill tree.",
       "skillCategory": "puffish_skills:character",
       "minSpentPoints": 0,
       "requiredSkills": [
@@ -213,7 +213,7 @@
       "artwork": "UNBROKEN",
       "style": "KWARC",
       "colour": "F3EADA",
-      "description": "Unlock blacksmith defensive keystone 1 in the character tree.",
+      "description": "Automatic: unlock the first Blacksmith Defensive Keystone in the Character skill tree.",
       "skillCategory": "puffish_skills:character",
       "minSpentPoints": 0,
       "requiredSkills": [
@@ -226,7 +226,7 @@
       "artwork": "ADVENTURER",
       "style": "RUBIN",
       "colour": "EF5D8C",
-      "description": "Unlock hunter mastery in the character tree.",
+      "description": "Automatic: unlock Hunter Mastery in the Character skill tree.",
       "skillCategory": "puffish_skills:character",
       "minSpentPoints": 0,
       "requiredSkills": [
@@ -239,7 +239,7 @@
       "artwork": "RECRUIT",
       "style": "ŻELAZO",
       "colour": "DADADA",
-      "description": "Complete your first bulletin-board commission.",
+      "description": "Quest reward: complete the Adventure milestone for your first project-board assignment.",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -250,7 +250,7 @@
       "artwork": "CITIZEN",
       "style": "SZMARAGD",
       "colour": "51D975",
-      "description": "Complete a substantial set of settlement commissions.",
+      "description": "Quest reward: complete the Adventure milestone for three project-board assignments.",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -261,7 +261,7 @@
       "artwork": "TASKMASTER",
       "style": "ZŁOTO",
       "colour": "EDC74B",
-      "description": "Complete the bulletin-board milestone quest.",
+      "description": "Quest reward: complete the Adventure milestone for all seven project-board assignments.",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -272,7 +272,7 @@
       "artwork": "SURVIVOR",
       "style": "MIEDŹ",
       "colour": "DD873A",
-      "description": "Complete the useful-items preparation milestone.",
+      "description": "Quest reward: complete the Adventure preparation quest for a Backpack, Hopper Upgrade and Pickup Upgrade.",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -283,7 +283,7 @@
       "artwork": "PLANNER",
       "style": "PRYZMARYN",
       "colour": "50C5BE",
-      "description": "Complete the storage and transport preparation milestone.",
+      "description": "Quest reward: complete the Adventure storage and transport milestone.",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -294,51 +294,7 @@
       "artwork": "ARCHITECT",
       "style": "ZŁOTO",
       "colour": "EDC74B",
-      "description": "Complete the building chapter milestone.",
-      "skillCategory": "",
-      "minSpentPoints": 0,
-      "requiredSkills": []
-    },
-    {
-      "id": "tnk:letsdo_creator",
-      "label": "Creator",
-      "artwork": "CREATOR",
-      "style": "MIEDŹ",
-      "colour": "DD873A",
-      "description": "Complete the Let’s Do baking or brewing chapter milestone.",
-      "skillCategory": "",
-      "minSpentPoints": 0,
-      "requiredSkills": []
-    },
-    {
-      "id": "tnk:letsdo_host",
-      "label": "Host",
-      "artwork": "HOST",
-      "style": "ZŁOTO",
-      "colour": "EDC74B",
-      "description": "Complete the Let’s Do Candlelight or hospitality milestone.",
-      "skillCategory": "",
-      "minSpentPoints": 0,
-      "requiredSkills": []
-    },
-    {
-      "id": "tnk:letsdo_caretaker",
-      "label": "Caretaker",
-      "artwork": "CARETAKER",
-      "style": "SZMARAGD",
-      "colour": "51D975",
-      "description": "Complete the Let’s Do farming or Meadow chapter milestone.",
-      "skillCategory": "",
-      "minSpentPoints": 0,
-      "requiredSkills": []
-    },
-    {
-      "id": "tnk:letsdo_expert",
-      "label": "Expert",
-      "artwork": "EXPERT",
-      "style": "RUBIN",
-      "colour": "EF5D8C",
-      "description": "Complete the Let’s Do Vinery chapter milestone.",
+      "description": "Quest reward: complete the Adventure building milestone.",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -349,7 +305,7 @@
       "artwork": "ARCANE",
       "style": "AMETYST",
       "colour": "C58BF5",
-      "description": "Complete the Iron’s Spells and Spellbooks quest chapter.",
+      "description": "Quest reward: complete the Iron's Spells questline in Magic & Mana.",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -360,7 +316,7 @@
       "artwork": "MYSTIC",
       "style": "PRYZMARYN",
       "colour": "50C5BE",
-      "description": "Complete the Ars Nouveau quest chapter.",
+      "description": "Quest reward: complete the Ars Nouveau questline in Magic & Mana.",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -371,7 +327,7 @@
       "artwork": "ORACLE",
       "style": "OBSYDIAN",
       "colour": "AA8DDD",
-      "description": "Complete the Witchery quest chapter.",
+      "description": "Quest reward: complete the Witchery questline in Magic & Mana.",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -382,7 +338,7 @@
       "artwork": "SLAYER",
       "style": "ENDER",
       "colour": "C17AFF",
-      "description": "Complete the Ender Dragon defeat quest.",
+      "description": "Quest reward: complete Adventure > Defeat Ender Dragon.",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -393,7 +349,7 @@
       "artwork": "VANQUISHER",
       "style": "KWARC",
       "colour": "F3EADA",
-      "description": "Complete the Wither defeat quest.",
+      "description": "Quest reward: complete Adventure > Defeat Wither.",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -404,7 +360,7 @@
       "artwork": "INFERNO",
       "style": "RUBIN",
       "colour": "EF5D8C",
-      "description": "Complete the Ignis defeat quest.",
+      "description": "Quest reward: complete Adventure > Defeat Ignis.",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -415,7 +371,7 @@
       "artwork": "CONQUEROR",
       "style": "RUBIN",
       "colour": "EF5D8C",
-      "description": "Complete the Harbinger defeat quest.",
+      "description": "Quest reward: complete Adventure > Defeat Harbinger.",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -426,7 +382,7 @@
       "artwork": "TIDAL",
       "style": "PRYZMARYN",
       "colour": "50C5BE",
-      "description": "Complete the Leviathan defeat quest.",
+      "description": "Quest reward: complete Adventure > Defeat Leviathan.",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -437,7 +393,7 @@
       "artwork": "TITANIUM",
       "style": "ŻELAZO",
       "colour": "DADADA",
-      "description": "Complete the Netherite Monstrosity defeat quest.",
+      "description": "Quest reward: complete Adventure > Defeat Netherite Monstrosity.",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -448,7 +404,7 @@
       "artwork": "ANCIENT",
       "style": "ZŁOTO",
       "colour": "EDC74B",
-      "description": "Complete the Ancient Remnant defeat quest.",
+      "description": "Quest reward: complete Adventure > Defeat Ancient Remnant.",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -459,7 +415,7 @@
       "artwork": "HUNTER",
       "style": "SZMARAGD",
       "colour": "51D975",
-      "description": "Complete the Naga defeat quest.",
+      "description": "Quest reward: complete Adventure > Defeat Naga.",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -470,7 +426,7 @@
       "artwork": "PHANTOM",
       "style": "AMETYST",
       "colour": "C58BF5",
-      "description": "Complete the Twilight Lich defeat quest.",
+      "description": "Quest reward: complete Adventure > Defeat Twilight Lich.",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -481,166 +437,10 @@
       "artwork": "SENTINEL",
       "style": "ENDER",
       "colour": "C17AFF",
-      "description": "Complete the Ender Guardian defeat quest.",
+      "description": "Quest reward: complete Adventure > Defeat Ender Guardian.",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
-    },
-    {
-      "id": "tnk:mastery_alchemist_1",
-      "label": "Shadow",
-      "artwork": "SHADOW",
-      "style": "AMETYST",
-      "colour": "B896D6",
-      "description": "Master Alchemist / Assassin: unlock its Mastery with at least 60 spent Skill Points.",
-      "skillCategory": "puffish_skills:character",
-      "minSpentPoints": 60,
-      "requiredSkills": [
-        "alchemist_subclass_1_mastery"
-      ]
-    },
-    {
-      "id": "tnk:mastery_alchemist_2",
-      "label": "Guardian",
-      "artwork": "GUARDIAN",
-      "style": "AMETYST",
-      "colour": "B896D6",
-      "description": "Master Alchemist / Healer: unlock its Mastery with at least 60 spent Skill Points.",
-      "skillCategory": "puffish_skills:character",
-      "minSpentPoints": 60,
-      "requiredSkills": [
-        "alchemist_subclass_2_mastery"
-      ]
-    },
-    {
-      "id": "tnk:mastery_blacksmith_1",
-      "label": "Soldier",
-      "artwork": "SOLDIER",
-      "style": "AMETYST",
-      "colour": "B896D6",
-      "description": "Master Blacksmith / Soldier: unlock its Mastery with at least 60 spent Skill Points.",
-      "skillCategory": "puffish_skills:character",
-      "minSpentPoints": 60,
-      "requiredSkills": [
-        "blacksmith_subclass_1_mastery"
-      ]
-    },
-    {
-      "id": "tnk:mastery_blacksmith_2",
-      "label": "Steel",
-      "artwork": "STEEL",
-      "style": "AMETYST",
-      "colour": "B896D6",
-      "description": "Master Blacksmith / Artisan: unlock its Mastery with at least 60 spent Skill Points.",
-      "skillCategory": "puffish_skills:character",
-      "minSpentPoints": 60,
-      "requiredSkills": [
-        "blacksmith_subclass_2_mastery"
-      ]
-    },
-    {
-      "id": "tnk:mastery_cook_1",
-      "label": "Berserker",
-      "artwork": "BERSERKER",
-      "style": "AMETYST",
-      "colour": "B896D6",
-      "description": "Master Cook / Berserker: unlock its Mastery with at least 60 spent Skill Points.",
-      "skillCategory": "puffish_skills:character",
-      "minSpentPoints": 60,
-      "requiredSkills": [
-        "cook_subclass_1_mastery"
-      ]
-    },
-    {
-      "id": "tnk:mastery_cook_2",
-      "label": "Tide",
-      "artwork": "TIDE",
-      "style": "AMETYST",
-      "colour": "B896D6",
-      "description": "Master Cook / Fisherman: unlock its Mastery with at least 60 spent Skill Points.",
-      "skillCategory": "puffish_skills:character",
-      "minSpentPoints": 60,
-      "requiredSkills": [
-        "cook_subclass_2_mastery"
-      ]
-    },
-    {
-      "id": "tnk:mastery_enchanter_1",
-      "label": "Blaze",
-      "artwork": "BLAZE",
-      "style": "AMETYST",
-      "colour": "B896D6",
-      "description": "Master Enchanter / Arsonist: unlock its Mastery with at least 60 spent Skill Points.",
-      "skillCategory": "puffish_skills:character",
-      "minSpentPoints": 60,
-      "requiredSkills": [
-        "enchanter_subclass_1_mastery"
-      ]
-    },
-    {
-      "id": "tnk:mastery_enchanter_2",
-      "label": "Astral",
-      "artwork": "ASTRAL",
-      "style": "AMETYST",
-      "colour": "B896D6",
-      "description": "Master Enchanter / Scholar: unlock its Mastery with at least 60 spent Skill Points.",
-      "skillCategory": "puffish_skills:character",
-      "minSpentPoints": 60,
-      "requiredSkills": [
-        "enchanter_subclass_2_mastery"
-      ]
-    },
-    {
-      "id": "tnk:mastery_hunter_1",
-      "label": "Ranger",
-      "artwork": "RANGER",
-      "style": "AMETYST",
-      "colour": "B896D6",
-      "description": "Master Hunter / Ranger: unlock its Mastery with at least 60 spent Skill Points.",
-      "skillCategory": "puffish_skills:character",
-      "minSpentPoints": 60,
-      "requiredSkills": [
-        "hunter_subclass_1_mastery"
-      ]
-    },
-    {
-      "id": "tnk:mastery_hunter_2",
-      "label": "Archer",
-      "artwork": "ARCHER",
-      "style": "AMETYST",
-      "colour": "B896D6",
-      "description": "Master Hunter / Fletcher: unlock its Mastery with at least 60 spent Skill Points.",
-      "skillCategory": "puffish_skills:character",
-      "minSpentPoints": 60,
-      "requiredSkills": [
-        "hunter_subclass_2_mastery"
-      ]
-    },
-    {
-      "id": "tnk:mastery_miner_1",
-      "label": "Explorer",
-      "artwork": "EXPLORER",
-      "style": "AMETYST",
-      "colour": "B896D6",
-      "description": "Master Miner / Explorer: unlock its Mastery with at least 60 spent Skill Points.",
-      "skillCategory": "puffish_skills:character",
-      "minSpentPoints": 60,
-      "requiredSkills": [
-        "miner_subclass_1_mastery"
-      ]
-    },
-    {
-      "id": "tnk:mastery_miner_2",
-      "label": "Amethyst",
-      "artwork": "AMETHYST",
-      "style": "AMETYST",
-      "colour": "B896D6",
-      "description": "Master Miner / Jeweler: unlock its Mastery with at least 60 spent Skill Points.",
-      "skillCategory": "puffish_skills:character",
-      "minSpentPoints": 60,
-      "requiredSkills": [
-        "miner_subclass_2_mastery"
-      ]
     },
     {
       "id": "tnk:beta_tester",
@@ -648,7 +448,7 @@
       "artwork": "FOUNDER",
       "style": "AMETYST",
       "colour": "B896D6",
-      "description": "Helped shape Towns & Kingdoms 3: Beyond the Forge during its beta.",
+      "description": "Staff award: participation in the Towns & Kingdoms 3 beta. Assigned by pack staff.",
       "skillCategory": "",
       "minSpentPoints": 0,
       "requiredSkills": []
@@ -657,8 +457,8 @@
       "id": "tnk:owner",
       "label": "Owner",
       "artwork": "OWNER",
-      "style": "ZŁOTO",
-      "colour": "EDC74B",
+      "style": "PODSTAWOWY",
+      "colour": "7DABF2",
       "description": "Command-only staff title. Cosmetic only; grants no permissions or gameplay bonuses.",
       "skillCategory": "",
       "minSpentPoints": 0,

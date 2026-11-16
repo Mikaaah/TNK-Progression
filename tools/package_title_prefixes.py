@@ -9,6 +9,10 @@ from package_number_prefixes import package
 ROOT=Path(__file__).resolve().parents[1]
 def build(source,target,catalog):
     defs=json.loads(Path(catalog).read_text())['titles'];manifest=[];providers=[];lang={};missing=[]
+    legacy=Path(catalog).with_name('default_legacy_titles.json' if Path(catalog).name=='default_titles.json' else 'tnk-title-legacy.json')
+    if legacy.exists():
+        existing={d['id'] for d in defs}
+        defs.extend(d for d in json.loads(legacy.read_text())['titles'] if d['id'] not in existing)
     assert len(defs)<=256
     with tempfile.TemporaryDirectory() as tmp:
         numbers=Path(tmp)/'numbers.zip';package(source,numbers)

@@ -1,5 +1,5 @@
 plugins { id 'java-library'; id 'net.neoforged.moddev' version '2.0.148' }
-version = '1.1.4'
+version = '1.1.5'
 group = 'dev.mikaaah.tnkprogression'
 base { archivesName = 'tnkprogression' }
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
@@ -31,7 +31,7 @@ if (providers.gradleProperty('tnkOriginsSmoke').isPresent()) {
  }
 }
 repositories { mavenCentral() }
-dependencies { testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'; testRuntimeOnly 'org.junit.platform:junit-platform-launcher'; testRuntimeOnly 'com.google.code.gson:gson:2.10.1' }
+dependencies { testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'; testRuntimeOnly 'org.junit.platform:junit-platform-launcher'; testImplementation 'com.google.code.gson:gson:2.10.1' }
 tasks.named('test', Test) { useJUnitPlatform() }
 java { withSourcesJar() }
 tasks.named('processResources') { inputs.property('version', project.version); filesMatching('META-INF/neoforge.mods.toml') { expand(version: project.version) } }
@@ -44,7 +44,7 @@ tasks.named('processResources') {
 tasks.register('verifyBundledArtwork', Exec) {
  inputs.file('tools/verify_bundled_artwork.py')
  inputs.files(fileTree('src/main/resources/assets/tnkprogression'))
- inputs.file('src/main/resources/data/tnkprogression/default_titles.json')
+ inputs.files('src/main/resources/data/tnkprogression/default_titles.json', 'src/main/resources/data/tnkprogression/default_legacy_titles.json')
  commandLine 'python3', 'tools/verify_bundled_artwork.py'
 }
 tasks.named('processResources') { dependsOn 'verifyBundledArtwork' }
@@ -80,6 +80,7 @@ if (providers.gradleProperty("tnkBossActivityClient").isPresent()) {
 }
 
 if (providers.gradleProperty("tnkDirectXpSmoke").isPresent()) { neoForge.runs.server { systemProperty "tnkprogression.directXpSmoke", "true" } }
+if (providers.gradleProperty("tnkTitleCleanupSmoke").isPresent()) { neoForge.runs.server { systemProperty "tnkprogression.titleCleanupSmoke", "true" } }
 
 // Isolated verification only. These jars are neither required nor bundled by production builds.
 if (providers.gradleProperty('tnkAbyssSmoke').isPresent()) {

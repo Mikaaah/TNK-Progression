@@ -7,6 +7,7 @@ const assert = require('node:assert/strict');
 const root = path.resolve(__dirname, '..');
 const config = JSON.parse(fs.readFileSync(path.join(root, 'integration/kubejs/config/tnk-title-quests.json'), 'utf8'));
 const catalog = JSON.parse(fs.readFileSync(path.join(root, 'src/main/resources/data/tnkprogression/default_titles.json'), 'utf8'));
+catalog.titles.push(...JSON.parse(fs.readFileSync(path.join(root, 'src/main/resources/data/tnkprogression/default_legacy_titles.json'), 'utf8')).titles);
 const titles = new Set(catalog.titles.map(t => t.id));
 assert.equal(titles.size, 58);
 for (const binding of config.bindings) {

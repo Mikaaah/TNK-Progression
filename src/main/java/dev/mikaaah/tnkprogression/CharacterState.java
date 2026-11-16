@@ -13,7 +13,9 @@ public final class CharacterState {
  public static final List<String> ACTIVITIES=List.of("combat","mining","farming","cooking","fishing","exploration","quest");
  public record Activity(String id,double earned,double lastGain,long actions,List<String> info) {}
  public record Perk(String text,boolean available) {}
- public record Title(String id,String label,String description,String translation,int colour,boolean earned,List<Perk> perks) {}
+ public record Title(String id,String label,String description,String translation,int colour,boolean earned,List<Perk> perks,boolean legacy,List<String> info) {
+  public Title(String id,String label,String description,String translation,int colour,boolean earned,List<Perk> perks){this(id,label,description,translation,colour,earned,perks,false,List.of(description));}
+ }
  public record Snapshot(int level,int ceiling,long xp,long required,String gate,int pointsEarned,int pointsSpent,String selected,String passive,String tracked,boolean hud,long swapTicks,List<Activity> activities,List<Title> titles,List<String> recent,String origin,int originRevision,boolean manaAvailable,boolean ascendedOriginsUnlocked,long originSelectionRequest) {}
  public static final Gson JSON=new Gson();
  private static final Map<ServerPlayer,String> LAST=new WeakHashMap<>();
@@ -22,7 +24,15 @@ public final class CharacterState {
   var n=ProgressionAPI.profile(p);List<Activity> activities=new ArrayList<>();
   for(String key:ACTIVITIES)activities.add(new Activity(key,n.getDouble(key+"_xp_earned"),n.getDouble(key+"_xp_last"),n.getLong(key+"_actions"),ActivityHelp.describe(p,key)));
   List<Title> titles=new ArrayList<>();
-  if(includeTitles)for(var t:TitleConfig.current.titles())titles.add(new Title(t.id(),t.label(),t.description(),t.translationKey(),t.rgb(),Titles.unlocked(p,t.id()),TitlePerks.forTitle(t.id()).stream().map(perk->new Perk(perk.description(),TitlePerks.available(p,perk))).toList()));
+  if(includeTitles){
+   var snapshots=new HashMap<String,Optional<SkillBridge.TitleSnapshot>>();
+   var activeIds=new HashSet<String>();TitleConfig.current.titles().forEach(t->activeIds.add(t.id()));
+   for(var t:TitleConfig.all()){
+    boolean legacy=!activeIds.contains(t.id());if(legacy && !Titles.unlocked(p,t.id()))continue;
+    var skills=t.automatic()?snapshots.computeIfAbsent(t.skillCategory(),id->SkillBridge.titleSnapshot(p,id)):Optional.<SkillBridge.TitleSnapshot>empty();
+    titles.add(new Title(t.id(),t.label(),t.description(),t.translationKey(),t.rgb(),Titles.unlocked(p,t.id()),TitlePerks.forTitle(t.id()).stream().map(perk->new Perk(perk.description(),TitlePerks.available(p,perk))).toList(),legacy,TitleHelp.describe(t,legacy,skills)));
+   }
+  }
   int cap=ProgressionAPI.ceiling(p);String gate=switch(cap){case 10->"Chapter 1 · Kinetic workshop";case 30->"Chapter 3 · Precision workshop";case 50->"Chapter 5 · Ender machinery";case 70->"Chapter 6 · Chemical machinery";case 80->"Chapter 8 · Containment";case 94->"Chapter 10 · Sovereign";default->cap>=100?"Maximum level":"Your next campaign milestone";};
   int spent=SkillBridge.titleSnapshot(p,ProgressionConfig.current.skillCategory).map(SkillBridge.TitleSnapshot::spent).orElse(-1);
   return new Snapshot(ProgressionAPI.level(p),cap,n.getLong("xp"),ProgressionMath.levelCost(ProgressionAPI.level(p)),gate,ProgressionMath.skillPoints(ProgressionAPI.level(p)),spent,Titles.selected(p),Titles.passive(p),tracked(p),n.contains("hud_hidden")?!n.getBoolean("hud_hidden"):ProgressionConfig.current.hudEnabledByDefault,TitlePerks.cooldown(p),activities,titles,n.getList("activity_history",net.minecraft.nbt.Tag.TAG_STRING).stream().map(net.minecraft.nbt.Tag::getAsString).toList(),Origins.selected(p),Origins.revision(p),Origins.manaAvailable(p),Origins.ascendedUnlocked(p),n.getLong("origin_selection_request"));

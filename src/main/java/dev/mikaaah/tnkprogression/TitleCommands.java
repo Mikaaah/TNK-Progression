@@ -17,7 +17,7 @@ public final class TitleCommands {
             .then(Commands.literal("catalog").executes(c->list(c.getSource(),true,1))
                 .then(Commands.argument("page",IntegerArgumentType.integer(1)).executes(c->list(c.getSource(),true,IntegerArgumentType.getInteger(c,"page")))))
             .then(Commands.literal("select").then(Commands.argument("id",StringArgumentType.greedyString())
-                .suggests((c,b)->SharedSuggestionProvider.suggest(TitleConfig.current.titles().stream().filter(t->c.getSource().getEntity() instanceof ServerPlayer p && Titles.unlocked(p,t.id())).map(TitleConfig.Definition::id),b))
+                .suggests((c,b)->SharedSuggestionProvider.suggest(TitleConfig.all().stream().filter(t->c.getSource().getEntity() instanceof ServerPlayer p && Titles.unlocked(p,t.id())).map(TitleConfig.Definition::id),b))
                 .executes(c->{var p=c.getSource().getPlayerOrException();String id=StringArgumentType.getString(c,"id").trim();if(!Titles.select(p,id)){c.getSource().sendFailure(Component.literal("Title unavailable or swap cooldown active."));return 0;}c.getSource().sendSuccess(()->Component.literal("Selected title: "+TitleConfig.get(id).orElseThrow().label()),false);return 1;})))
             .then(Commands.literal("clear").executes(c->{Titles.select(c.getSource().getPlayerOrException(),"");c.getSource().sendSuccess(()->Component.literal("Title hidden. Your unlocked titles are kept."),false);return 1;}))
             .then(selection("cosmetic",false))
@@ -44,7 +44,7 @@ public final class TitleCommands {
                 .executes(c->{var p=c.getSource().getPlayerOrException();String id=StringArgumentType.getString(c,"id").trim();boolean ok=passive?Titles.selectPassive(p,id):Titles.select(p,id);if(!ok){c.getSource().sendFailure(Component.literal(passive?"Passive unavailable or swap cooldown active.":"Cosmetic title unavailable."));return 0;}c.getSource().sendSuccess(()->Component.literal((passive?"Passive":"Cosmetic")+" title: "+TitleConfig.get(id).orElseThrow().label()),false);return 1;}));
     }
     private static int list(CommandSourceStack source,boolean catalog,int page)throws com.mojang.brigadier.exceptions.CommandSyntaxException {
-        var p=source.getPlayerOrException();var defs=TitleConfig.current.titles().stream().filter(t->catalog || Titles.unlocked(p,t.id())).toList();
+        var p=source.getPlayerOrException();var defs=(catalog?TitleConfig.current.titles():TitleConfig.all()).stream().filter(t->catalog || Titles.unlocked(p,t.id())).toList();
         int pages=Math.max(1,(defs.size()+7)/8),current=Math.min(page,pages);
         source.sendSuccess(()->Component.literal((catalog?"Title catalog":"Unlocked titles")+" — "+current+"/"+pages+" | Cosmetic: "+TitleConfig.get(Titles.selected(p)).map(TitleConfig.Definition::label).orElse("none")+" | Passive: "+TitleConfig.get(Titles.passive(p)).map(TitleConfig.Definition::label).orElse("none")),false);
         for(var d:defs.subList(Math.min(defs.size(),(current-1)*8),Math.min(defs.size(),current*8))){

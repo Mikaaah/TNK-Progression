@@ -11,7 +11,7 @@ public final class TitleSmoke {
     public static void run(MinecraftServer server)throws Exception {
         var p=FakePlayerFactory.get(server.overworld(),new com.mojang.authlib.GameProfile(UUID.fromString("657bf016-419a-43dd-9b37-e0f29f08009c"),"TitleTest"));
         var n=ProgressionAPI.profile(p);for(String key:Set.copyOf(n.getAllKeys()))n.remove(key);
-        check(TitleConfig.current.titles().size()>=43,"catalog loaded");
+        check(TitleConfig.current.titles().size()>=42,"catalog loaded");
         check(!Titles.grant(p,"tnk:invented"),"unknown title rejected");
         var dispatcher=server.getCommands().getDispatcher();
         check(dispatcher.execute("tnkprogress title grant @s tnk:ars_mystic",p.createCommandSourceStack().withPermission(2))==1,"FTB-style namespaced grant command");

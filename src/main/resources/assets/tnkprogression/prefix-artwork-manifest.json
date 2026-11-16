@@ -1040,9 +1040,9 @@
     },
     {
       "id": "tnk:owner",
-      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-OWNER-ZŁOTO.png",
+      "source": "nexo/pack/assets/generated/textures/glyphs/NUSSE-OWNER-PODSTAWOWY.png",
       "target": "assets/tnkprogression/textures/font/titles/title_56.png",
-      "sha256": "ca79e90c89a9d71670f6badab130d88f212d434086659d58f0c26aaca3353f45"
+      "sha256": "9a485ecfa1cf1b8ca8c54b409b530b5a6c48671d59677fa6e114fdf5939b4fca"
     },
     {
       "id": "tnk:admin",

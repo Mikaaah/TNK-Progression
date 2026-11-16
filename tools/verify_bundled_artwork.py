@@ -11,6 +11,7 @@ def main():
     assets = resources / 'assets/tnkprogression'
     manifest = json.loads((assets / 'prefix-artwork-manifest.json').read_text())
     catalog = json.loads((resources / 'data/tnkprogression/default_titles.json').read_text())
+    catalog['titles'] += json.loads((resources / 'data/tnkprogression/default_legacy_titles.json').read_text())['titles']
     if len(manifest['numbers']) != 100 or len(manifest['titles']) != len(catalog['titles']):
         raise ValueError('Incomplete number/title artwork manifest')
     targets = set()

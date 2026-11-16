@@ -94,7 +94,7 @@ public final class TreeSmoke {
    victim.hurt(active.damageSources().playerAttack(active),4);check(Math.abs(victim.getHealth()-15.8)<.01,"source +5% damage applies to an actually poisoned victim");
    type.getMethod("resetSkills",net.minecraft.server.level.ServerPlayer.class).invoke(categoryApi,active);SourceTreeBonuses.refresh(active);
    for(var title:TitleConfig.current.titles())if(title.id().startsWith("tnk:mastery_")){check(TitleConfig.qualifies(title,60,Set.copyOf(title.requiredSkills())),"mastery title unlock criteria");check(!TitleConfig.qualifies(title,59,Set.copyOf(title.requiredSkills())),"mastery title spending requirement enforced");}
-   TnkProgression.LOG.info("TNK_SOURCE_VALUES_LIVE_OK: +2 conditional Health, no stacking, condition removal, respec and +5% poisoned-target damage; 12 mastery titles validated");
+   TnkProgression.LOG.info("TNK_SOURCE_VALUES_LIVE_OK: +2 conditional Health, no stacking, condition removal, respec and +5% poisoned-target damage; active title requirements validated; retired subclass badges excluded");
    TnkProgression.LOG.info("TNK_SECOND_WIND_LIVE_OK: real damage, recovery and saved cooldown through respec");
    TnkProgression.LOG.info("TNK_PUFFERFISH_LIVE_POINTS_RESPEC_OK: actual loaded mod, 175 points, no duplicates, attributes/tags and full respec verified");
   }

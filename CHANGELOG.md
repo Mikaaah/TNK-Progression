@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.1.5
+
+- Reduce the default catalogue from 58 to 42 distinct titles; retain earned retired badges, selections and original perks under Legacy Titles.
+- Archive duplicate colour/name variants, unused Let’s Do placeholders and extra subclass badges without erasing saved ownership or revocations.
+- Repair obsolete skill-node IDs even after the category has already migrated, without reviving activity ranks.
+- Add a full Unlock Info page with explicit quest/staff/skill acquisition sources and live skill purchase progress.
+- Update chapter descriptions to the current TNK3 chapter names. Preserve customized descriptions during migration.
+- Keep all 29 quest and boss titles manual; provide exact FTB Quests reward commands without editing quests or enabling automatic boss/quest grants.
+- Replace Owner’s gold badge with the supplied original clean blue PODSTAWOWY artwork. Owner remains cosmetic-only and command-only.
+- Preserve 1.1.4 boss balance and all existing XP, equipment and Spiral/Loot compatibility.
+
+Minecraft **1.21.1** · **NeoForge 21.1.262** · **Java 21**. [Quest command reference](docs/TITLE-QUEST-REWARDS-1.1.5.md).
+
 ## 1.1.4
 
 - Set Warden's base minimum to 35, Clawdian to 30, Kraken to 45, Underworld Knight (Helvar) to 55, Magnetron to 30 and Brainiac to 20.

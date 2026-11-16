@@ -10,7 +10,7 @@ import java.util.*;
 /** Virtual coordinates keep the full character sheet usable at different GUI scales. */
 public final class CharacterScreen extends Screen {
  public static final int W=526,H=312;
- private int tab,page;private boolean ownedOnly;private String focus="";private double scale;private int left,top;
+ private int tab,page,titleView;private String focus="";private double scale;private int left,top;
  private String widgetSignature="";
  private final Screen parent;
  public CharacterScreen(){this(null);}
@@ -22,7 +22,7 @@ public final class CharacterScreen extends Screen {
  @Override protected void init(){layout();rebuild();}
  private void layout(){scale=Math.min(1.35,Math.min((width-28)/(double)W,(height-40)/(double)H));left=(int)((width-W*scale)/2);top=(int)((height-H*scale)/2);}
  private ParchmentButton button(String label,int x,int y,int w,int h,net.minecraft.client.gui.components.Button.OnPress action){return addRenderableWidget(new ParchmentButton(x,y,w,h,Component.literal(label),action));}
- private List<CharacterState.Title> choices(){var s=state();return s==null?List.of():s.titles().stream().filter(t->!ownedOnly||t.earned()).sorted(Comparator.comparing(CharacterState.Title::earned).reversed().thenComparing(CharacterState.Title::label)).toList();}
+ private List<CharacterState.Title> choices(){var s=state();return s==null?List.of():s.titles().stream().filter(t->titleView==2?t.legacy()&&t.earned():!t.legacy()&&(titleView==0||t.earned())).sorted(Comparator.comparing(CharacterState.Title::earned).reversed().thenComparing(CharacterState.Title::label)).toList();}
  private void rebuild(){
   clearWidgets();var s=state();
   button("Character",142,14,88,22,b->{tab=0;rebuild();}).selected(tab==0);button("Titles",234,14,88,22,b->{tab=1;rebuild();}).accent(CharacterTheme.ROSE).selected(tab==1);button("Activities",326,14,88,22,b->{tab=2;rebuild();}).accent(CharacterTheme.PURPLE).selected(tab==2);button("Origin",418,14,92,22,b->{tab=3;rebuild();}).selected(tab==3);
@@ -30,14 +30,16 @@ public final class CharacterScreen extends Screen {
   if(s==null)return;
   button(s.hud()?"HUD: Shown":"HUD: Hidden",20,274,104,20,b->CharacterClient.action("hud",s.hud()?"off":"on"));
   if(tab==1){
-   var list=choices();if(focus.isEmpty())focus=!s.selected().isEmpty()?s.selected():list.isEmpty()?"":list.get(0).id();int pages=Math.max(1,(list.size()+5)/6);page=Math.clamp(page,0,pages-1);
-   button(ownedOnly?"Owned Titles":"All Titles",148,52,174,19,b->{ownedOnly=!ownedOnly;page=0;rebuild();});
+   boolean hasLegacy=s.titles().stream().anyMatch(CharacterState.Title::legacy);if(!hasLegacy && titleView==2)titleView=0;
+   var list=choices();if(list.stream().noneMatch(t->t.id().equals(focus)))focus=list.stream().filter(t->t.id().equals(s.selected())).findFirst().or(()->list.stream().findFirst()).map(CharacterState.Title::id).orElse("");int pages=Math.max(1,(list.size()+5)/6);page=Math.clamp(page,0,pages-1);
+   button(titleView==2?"Legacy Titles":titleView==1?"Owned Titles":"All Titles",148,52,174,19,b->{titleView=(titleView+1)%(hasLegacy?3:2);page=0;focus="";rebuild();});
    for(int i=page*6;i<Math.min(list.size(),page*6+6);i++){
     var t=list.get(i);int y=78+(i%6)*27;
     button((t.earned()?"":"Locked · ")+t.label(),148,y,174,24,b->{focus=t.id();rebuild();}).accent(t.earned()?CharacterTheme.PURPLE:CharacterTheme.MUTED).selected(focus.equals(t.id()));
    }
    button("<",148,248,30,20,b->{page=Math.max(0,page-1);rebuild();});button(">",292,248,30,20,b->{page=Math.min(pages-1,page+1);rebuild();});
    var t=s.titles().stream().filter(v->v.id().equals(focus)).findFirst().orElse(null);
+   button("Unlock Info",344,131,152,17,b->{if(t!=null)minecraft.setScreen(new TitleInfoScreen(this,t.id()));}).active=t!=null;
    var cosmetic=button(t!=null&&s.selected().equals(t.id())?"Cosmetic: Active":"Use Cosmetic",340,248,130,22,b->{if(t!=null)CharacterClient.action("title",t.id());}).selected(t!=null&&s.selected().equals(t.id()));cosmetic.active=t!=null&&t.earned();
    button("X",474,248,30,22,b->CharacterClient.action("title",""));
    boolean cosmeticOnly=t!=null&&Titles.cosmeticOnly(t.id());
@@ -101,7 +103,7 @@ public final class CharacterScreen extends Screen {
   text(g,(page+1)+" / "+Math.max(1,(choices().size()+5)/6),218,254,CharacterTheme.INK);
   if(title==null){wrap(g,"Choose a title to view its perks and requirements.",344,66,152,CharacterTheme.INK);return;}
   CharacterTheme.rounded(g,339,55,164,21,CharacterTheme.BROWN);g.drawString(font,titleBadge(title),344,63,0xFFFFFF,false);heading(g,title.earned()?"Unlocked":"Locked",344,83,title.earned()?CharacterTheme.PURPLE:CharacterTheme.ROSE);
-  var desc=font.split(Component.literal(title.description()),152);for(int i=0;i<Math.min(4,desc.size());i++)g.drawString(font,desc.get(i),344,101+i*10,CharacterTheme.INK,false);
+  var desc=font.split(Component.literal(title.description()),152);for(int i=0;i<Math.min(3,desc.size());i++)g.drawString(font,desc.get(i),344,101+i*10,CharacterTheme.INK,false);
   heading(g,"Passive Benefits",344,151,CharacterTheme.PURPLE);
   if(title.perks().isEmpty())wrap(g,Titles.cosmeticOnly(title.id())?"Cosmetic only. Choose another earned title for passive benefits.":"No passive benefits configured.",344,166,152,CharacterTheme.MUTED);
   for(int i=0;i<title.perks().size();i++){var p=title.perks().get(i);var lines=font.split(Component.literal(p.text()+(p.available()?"":" (unavailable)")),152);for(int j=0;j<Math.min(2,lines.size());j++)g.drawString(font,lines.get(j),344,166+i*20+j*9,p.available()?CharacterTheme.INK:CharacterTheme.MUTED,false);}
