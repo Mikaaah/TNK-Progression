@@ -64,6 +64,35 @@ public final class BossActivitySmoke {
             var neutral = EntityType.VILLAGER.create(world);
             ProgressionEvents.join(new EntityJoinLevelEvent(neutral, world));
             check(ProgressionAPI.mobLevel(neutral) == 35, "configured bosses need not implement Enemy");
+            // Apotheosis uses a registry-id string before its delayed join callback,
+            // then boolean flags. Neither state may inherit the zombie's boss floor.
+            var elite = EntityType.ZOMBIE.create(world);
+            elite.getPersistentData().putString("apoth.miniboss", "apotheosis:test_elite");
+            ProgressionEvents.join(new EntityJoinLevelEvent(elite, world));
+            check(ProgressionAPI.mobLevel(elite) <= 5, "level 1 player gets a nearby-level elite, not a level 65 boss");
+            var invader = EntityType.ZOMBIE.create(world);
+            invader.getPersistentData().putBoolean("apoth.boss", true);
+            ProgressionEvents.join(new EntityJoinLevelEvent(invader, world));
+            check(ProgressionAPI.mobLevel(invader) == 6, "invaders use player +5 and bypass native boss minimums");
+            boolean wasMini = config.minibosses.contains("minecraft:zombie");
+            config.minibosses.add("minecraft:zombie");
+            try {
+                n.putInt("level", 100);
+                MobLevels.invalidate(world);
+                var mini = EntityType.ZOMBIE.create(world);
+                ProgressionEvents.join(new EntityJoinLevelEvent(mini, world));
+                check(ProgressionAPI.mobLevel(mini) == 100, "native miniboss cap is 100");
+                mini.setHealth(7);
+                var saved = mini.saveWithoutId(new net.minecraft.nbt.CompoundTag());
+                saved.putString("id", "minecraft:zombie");
+                var loaded = (net.minecraft.world.entity.Mob) EntityType.loadEntityRecursive(saved, world, entity -> entity);
+                ProgressionEvents.join(new EntityJoinLevelEvent(loaded, world));
+                check(ProgressionAPI.mobLevel(loaded) == 100 && loaded.getHealth() == 7
+                        && loaded.getMaxHealth() == mini.getMaxHealth(), "NBT reload preserves miniboss level, health and modifiers");
+                loaded.getPersistentData().putInt("tnk_level", 110);
+                ProgressionEvents.join(new EntityJoinLevelEvent(loaded, world));
+                check(ProgressionAPI.mobLevel(loaded) == 100 && loaded.getHealth() == 7, "legacy minibosses clamp without healing");
+            } finally { if (!wasMini) config.minibosses.remove("minecraft:zombie"); }
             check(LevelBadges.mobBadge(110).getString().contains("110"), "level 110 badge never silently displays 100");
             var packet = new MobLevelPayload(12, mob.getUUID(), 110);
             var buffer = new net.minecraft.network.RegistryFriendlyByteBuf(io.netty.buffer.Unpooled.buffer(), world.registryAccess());
@@ -83,7 +112,7 @@ public final class BossActivitySmoke {
             check(snapshot.activities().stream().allMatch(activity -> !activity.info().isEmpty()), "all seven activities have help");
             check(CharacterState.JSON.fromJson(CharacterState.JSON.toJson(snapshot), CharacterState.Snapshot.class).equals(snapshot), "help survives server snapshot roundtrip");
             check(BossLevels.defaults().get("deeperdarker:stalker") == 35, "Stalker included as a miniboss");
-            TnkProgression.LOG.info("TNK_BOSS_ACTIVITY_SMOKE_OK: boss floor, +10, cap 110, saved-level migration, neutral bosses, codec, badge and all activity help");
+            TnkProgression.LOG.info("TNK_BOSS_ACTIVITY_SMOKE_OK: boss floor, +10, caps 100/110, Apotheosis flags, saved-level migration, miniboss NBT persistence, neutral bosses, codec, badge and all activity help");
         } catch (Throwable failure) { TnkProgression.LOG.error("TNK_BOSS_ACTIVITY_SMOKE_FAILED", failure); }
         finally {
             if (zombie == null) config.bossBaseLevels.remove("minecraft:zombie"); else config.bossBaseLevels.put("minecraft:zombie", zombie);

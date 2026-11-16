@@ -22,9 +22,10 @@ public final class ProgressionEvents {
   var c=ProgressionConfig.current;CompoundTag n=mob.getPersistentData();boolean fresh=!n.contains("tnk_level");
   int previousLevel=ProgressionAPI.mobLevel(mob);
   boolean arena=AbyssIntegration.prepareJoin(mob);
-  if(!arena && !(mob instanceof Enemy) && BossLevels.baseLevel(mob)==0)return;
+  if(!arena && !(mob instanceof Enemy) && BossLevels.baseLevel(mob)==0 && !BossLevels.isMiniboss(mob))return;
   boolean migrateBoss=!arena && BossLevels.baseLevel(mob)>0 && !n.getBoolean("tnk_boss_level_v1");
   if(!arena && (fresh || migrateBoss))n.putInt("tnk_level",MobLevels.assign(world,mob));
+  if(!arena && BossLevels.isMiniboss(mob) && n.getInt("tnk_level")>100)n.putInt("tnk_level",100);
   if(BossLevels.baseLevel(mob)>0)n.putBoolean("tnk_boss_level_v1",true);
   int level=ProgressionAPI.mobLevel(mob);
   scale(mob.getAttribute(Attributes.MAX_HEALTH),"health",arena && (!AbyssIntegration.healthBaseline(mob) || AbyssIntegration.skipHealth(mob))?0:c.healthPerLevel*(level-1));

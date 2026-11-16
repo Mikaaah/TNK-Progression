@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.1.4
+
+- Set Warden's base minimum to 35, Clawdian to 30, Kraken to 45, Underworld Knight (Helvar) to 55, Magnetron to 30 and Brainiac to 20.
+- Keep all 16 End Remastered eye-boss default minimums below 60; set affected high-level bosses to 55, add Last of Deepslate at 55 and set the Ender Dragon minimum to 75.
+- Reduce native miniboss minimums to at most 35, with Cataclysm dungeon minibosses at no more than half their associated full boss's default minimum.
+- Separate configurable native miniboss IDs from full bosses: native minibosses retain player +10 scaling but stop at 100; full bosses retain the 110 limit.
+- Assign Apotheosis invaders at nearest eligible player level +5, capped at 100 with no variance. Apotheosis elites use ordinary player-relative variance without native dungeon-boss minimums. Preserve Apotheosis's own stats and rewards.
+- Migrate unchanged old configuration defaults once, preserving custom values and removed entries. Preserve saved levels except for clamping non-arena minibosses above 100, without healing or stacking modifiers.
+- Preserve saved Spiral arena contexts and the 1.1.3 Spiral 2.0.5/2.0.6 compatibility fixes.
+
+Minecraft **1.21.1** · **NeoForge 21.1.262** · **Java 21**. Update clients and server together. See [boss balance](docs/BOSS-BALANCE.md).
+
+## 1.1.3
+
+- Fix Spiral Abyss 2.0.6 wave-scaling and reinforcement callback signatures while retaining 2.0.5 compatibility.
+- Preserve the hidden-by-default HUD and existing character settings from 1.1.2.
+
 ## 1.1.2
 
 - Hide the character HUD by default for new players and existing characters without an explicit HUD preference.

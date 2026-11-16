@@ -1,11 +1,6 @@
 package dev.mikaaah.tnkprogression;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 import java.util.Map;
-import java.util.LinkedHashMap;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.OwnableEntity;
@@ -16,12 +11,26 @@ public final class BossLevels {
     private BossLevels() {}
 
     public static Map<String, Integer> defaults() {
-        var stream = BossLevels.class.getResourceAsStream("/data/tnkprogression/boss_levels.json");
-        if (stream == null) throw new IllegalStateException("Missing boss level defaults");
-        try (var reader = new InputStreamReader(stream, StandardCharsets.UTF_8)) {
-            Map<String, Integer> levels = new Gson().fromJson(reader, new TypeToken<LinkedHashMap<String, Integer>>() {}.getType());
-            return levels;
-        } catch (java.io.IOException ex) { throw new IllegalStateException("Cannot read boss level defaults", ex); }
+        return BossLevelDefaults.levels();
+    }
+
+    public static boolean apotheosisEncounter(Mob mob) {
+        // Apotheosis 1.21 marks elites with a registry-id string before world insertion,
+        // then a boolean after its LOWEST-priority join listener initializes them.
+        var data = mob.getPersistentData();
+        return isInvader(mob) || data.getBoolean("apoth.miniboss")
+                || (data.contains("apoth.miniboss", 8)
+                    && net.minecraft.resources.ResourceLocation.tryParse(data.getString("apoth.miniboss")) != null);
+    }
+
+    public static boolean isInvader(Mob mob) {
+        return mob.getPersistentData().getBoolean("apoth.boss");
+    }
+
+    public static boolean isMiniboss(Mob mob) {
+        if (mob instanceof OwnableEntity owned && owned.getOwnerUUID() != null) return false;
+        return apotheosisEncounter(mob) || ProgressionConfig.current.minibosses.contains(
+                BuiltInRegistries.ENTITY_TYPE.getKey(mob.getType()).toString());
     }
 
     public static int baseLevel(Mob mob) {

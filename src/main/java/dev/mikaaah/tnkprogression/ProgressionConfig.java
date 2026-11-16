@@ -12,6 +12,8 @@ public final class ProgressionConfig {
  public boolean scaleMobs = true;
  public int mobLevelVariance = 4;
  public Map<String,Integer> bossBaseLevels = BossLevels.defaults();
+ public int bossBalanceVersion = BossLevelDefaults.REVISION;
+ public Set<String> minibosses = BossLevelDefaults.minibosses();
  public int balanceVersion=2;
  public Map<String,Long> legacyActivityRequirements=new HashMap<>(Map.of("mining",100L,"combat",10L,"fishing",1L,"exploration",10L,"farming",40L,"crafting",30L,"engineering",10L));
  public double healthPerLevel = 0.03, damagePerLevel = 0.0125;
@@ -50,7 +52,12 @@ public final class ProgressionConfig {
    if(c.abyss==null || c.abyss.floorLevels==null || c.abyss.floorLevels.length!=6)throw new IllegalArgumentException("Six Abyss floor levels are required");
    for(int level:c.abyss.floorLevels)if(level<1 || level>100)throw new IllegalArgumentException("Abyss regular levels must be 1-100");
    boolean bossMigration=!raw.has("bossBaseLevels");
+   boolean bossBalanceMigration=!raw.has("bossBalanceVersion") || c.bossBalanceVersion<BossLevelDefaults.REVISION;
    if(c.bossBaseLevels==null || c.bossBaseLevels.size()>512)throw new IllegalArgumentException("Invalid boss level roster");
+   if(bossBalanceMigration){BossLevelDefaults.migrate(c.bossBaseLevels);c.bossBalanceVersion=BossLevelDefaults.REVISION;}
+   if(c.minibosses==null || c.minibosses.size()>512)throw new IllegalArgumentException("Invalid miniboss roster");
+   for(String id:c.minibosses)if(net.minecraft.resources.ResourceLocation.tryParse(id)==null)throw new IllegalArgumentException("Invalid miniboss ID");
+   boolean minibossMigration=!raw.has("minibosses");
    for(var boss:c.bossBaseLevels.entrySet())if(net.minecraft.resources.ResourceLocation.tryParse(boss.getKey())==null || boss.getValue()==null || boss.getValue()<1 || boss.getValue()>BossLevels.MAX_LEVEL)throw new IllegalArgumentException("Invalid boss base level");
    boolean treeMigration="tnk:character".equals(c.skillCategory);
    if(treeMigration)c.skillCategory="puffish_skills:character";
@@ -69,7 +76,7 @@ public final class ProgressionConfig {
    for(var rules:List.of(c.craftingRecipes,c.engineeringRecipes,c.engineeringObjectives))for(var rule:rules.entrySet())if(net.minecraft.resources.ResourceLocation.tryParse(rule.getKey())==null || rule.getValue()==null || !Double.isFinite(rule.getValue()) || rule.getValue()<=0 || rule.getValue()>1000)throw new IllegalArgumentException("Invalid activity recipe/objective");
    for(String key:defaults().keySet()) { Activity a=c.activities.get(key); if(a==null || a.initialRequirement<1 || a.initialXp<1)throw new IllegalArgumentException("Invalid activity "+key); }
    if(c.skillCategory==null || net.minecraft.resources.ResourceLocation.tryParse(c.skillCategory)==null)throw new IllegalArgumentException("Invalid skill category");
-   if(migrate || treeMigration || bossMigration || abyssMigration || hudMigration || raw.has("blocksPerMobLevel") || raw.has("dimensionBaseLevels"))Files.writeString(path,gson.toJson(c));current=c; return true;
+   if(migrate || treeMigration || bossMigration || bossBalanceMigration || minibossMigration || abyssMigration || hudMigration || raw.has("blocksPerMobLevel") || raw.has("dimensionBaseLevels"))Files.writeString(path,gson.toJson(c));current=c; return true;
   } catch(Exception e){ TnkProgression.LOG.error("Keeping previous progression config",e); return false; }
  }
 }
