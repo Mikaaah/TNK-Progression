@@ -1,0 +1,25 @@
+baseline_jar=/workspace/scratch/53794ff7c067/tnk-progression/build/libs/tnkprogression-1.1.5-neoforge-1.21.1.jar
+baseline_sha256=8358c37029c73781501bb771ae2507b7578ac2e42bd3c58d8e4a947c06f84d56
+runtime_jars=230
+Only raw JSON/help fixtures are measured; no server TPS or wire compression.
+combat_help_lines=6
+mining_help_lines=32
+farming_help_lines=5
+cooking_help_lines=5
+fishing_help_lines=12
+exploration_help_lines=5
+quest_help_lines=5
+help_lines_total=70
+active_titles=42
+full_json_utf8=30676
+current_partial_utf8=7174
+lean_partial_utf8=915
+java_version=21.0.13.0.3
+gson_source=file:/home/agent/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.10.1/b3add478d4382b78ea20b1671390a858002feb6c/gson-2.10.1.jar
+warmup_each=2000 iterations_each=10000 rounds_each=3
+current round=0 micros_per_fixture=78.298 bytes_alloc_per_fixture=43654.0 sink=71740000
+lean round=0 micros_per_fixture=9.103 bytes_alloc_per_fixture=7224.0 sink=9150000
+current round=1 micros_per_fixture=36.631 bytes_alloc_per_fixture=43584.0 sink=71740000
+lean round=1 micros_per_fixture=8.329 bytes_alloc_per_fixture=7224.0 sink=9150000
+current round=2 micros_per_fixture=36.958 bytes_alloc_per_fixture=43584.0 sink=71740000
+lean round=2 micros_per_fixture=9.873 bytes_alloc_per_fixture=7224.0 sink=9150000

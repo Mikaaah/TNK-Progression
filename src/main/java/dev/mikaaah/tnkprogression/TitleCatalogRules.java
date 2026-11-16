@@ -9,7 +9,12 @@ public final class TitleCatalogRules {
     public static boolean retiredBuiltin(String id) {
         return id != null && (id.startsWith("tnk:mastery_") || id.startsWith("tnk:letsdo_"));
     }
+    static void requireUniqueIds(List<TitleConfig.Definition> definitions) {
+        var ids=new HashSet<String>();
+        for(var d:definitions)if(d==null || d.id()==null || !ids.add(d.id()))throw new IllegalArgumentException("Invalid/duplicate title ID in catalogue");
+    }
     public static Split split(List<TitleConfig.Definition> definitions, List<TitleConfig.Definition> archived) {
+        requireUniqueIds(definitions);requireUniqueIds(archived);
         var legacy = new LinkedHashMap<String, TitleConfig.Definition>();
         archived.forEach(d -> legacy.put(d.id(), d));
         var active = new ArrayList<TitleConfig.Definition>();

@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
-"""Deterministic pacing model, not a claim of measured playtime. Gates assumed open."""
-import json,math,csv
+"""Default direct-XP curve and passive coefficients; never a playtime estimate."""
+import json, math, csv, re
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1];d=json.loads((ROOT/'docs/BALANCE-PRESET.json').read_text())
-level_cost=lambda level:int(d['levelBase']+d['levelFactor']*level**d['levelExponent'])
-total=sum(level_cost(level) for level in range(1,100))
-rows=[]
-for key,(base,reward,rate) in d['activities'].items():
- xp=0;rank=0;work=0
- while xp<total:
-  work+=int(base*(1+rank*d['activityGrowth'])**d['requirementExponent']+rank)
-  xp+=int(reward*(1+rank*d['activityGrowth'])**d['rewardExponent']);rank+=1
- rows.append([key,rate,work,rank,round(work/rate,1)])
+ROOT=Path(__file__).resolve().parents[1]
+# Read the authoritative default Java fields. Legacy presets are migration history.
+source=(ROOT/'src/main/java/dev/mikaaah/tnkprogression/BalanceConfig.java').read_text()
+match=re.search(r'public double levelBase=([0-9.]+),levelFactor=([0-9.]+),levelExponent=([0-9.]+);',source)
+if not match: raise SystemExit('Default curve declarations changed; update this report reader')
+base,factor,exponent=map(float,match.groups())
+rows=[];total=0
+for level in range(1,100):
+ cost=max(1,int(base+factor*math.pow(level,exponent)));total+=cost
+ rows.append([level,level+1,cost,total])
 with (ROOT/'docs/BALANCE-PACING.csv').open('w') as f:
- w=csv.writer(f,lineterminator="\n");w.writerow(['Activity','Assumed eligible units/hour','Total units to level 100','Milestones','Modelled hours without quest XP']);w.writerows(rows)
-print('XP from 1 to 100:',total)
-for row in rows:print(row)
+ w=csv.writer(f,lineterminator="\n");w.writerow(['From level','To level','Default character XP cost','Cumulative XP from level 1']);w.writerows(rows)
+print('Default direct XP from 1 to 100:',total)
+print('Activity mastery and automatic crafting/engineering rewards are retired; no activity-rank playtime model is generated.')
 # Whole-tree coefficients, including restored source attributes; conditions/multipliers are not a build bound.
 defs=json.loads((ROOT/'skilltree/rebuilt588/config/puffish_skills/categories/character/definitions.json').read_text());agg={}
 for node in defs.values():

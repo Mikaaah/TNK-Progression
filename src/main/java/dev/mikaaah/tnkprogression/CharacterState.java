@@ -18,11 +18,12 @@ public final class CharacterState {
  }
  public record Snapshot(int level,int ceiling,long xp,long required,String gate,int pointsEarned,int pointsSpent,String selected,String passive,String tracked,boolean hud,long swapTicks,List<Activity> activities,List<Title> titles,List<String> recent,String origin,int originRevision,boolean manaAvailable,boolean ascendedOriginsUnlocked,long originSelectionRequest) {}
  public static final Gson JSON=new Gson();
- private static final Map<ServerPlayer,String> LAST=new WeakHashMap<>();
+ private static final class Sent { Snapshot partial,full;long fullTick=Long.MIN_VALUE; }
+ private static final Map<ServerPlayer,Sent> LAST=new WeakHashMap<>();
  public static Snapshot snapshot(ServerPlayer p){return snapshot(p,true);}
  private static Snapshot snapshot(ServerPlayer p,boolean includeTitles){
   var n=ProgressionAPI.profile(p);List<Activity> activities=new ArrayList<>();
-  for(String key:ACTIVITIES)activities.add(new Activity(key,n.getDouble(key+"_xp_earned"),n.getDouble(key+"_xp_last"),n.getLong(key+"_actions"),ActivityHelp.describe(p,key)));
+  for(String key:ACTIVITIES)activities.add(new Activity(key,CharacterSnapshots.displayAmount(n.getDouble(key+"_xp_earned")),CharacterSnapshots.displayAmount(n.getDouble(key+"_xp_last")),Math.max(0,n.getLong(key+"_actions")),includeTitles?ActivityHelp.describe(p,key):List.of()));
   List<Title> titles=new ArrayList<>();
   if(includeTitles){
    var snapshots=new HashMap<String,Optional<SkillBridge.TitleSnapshot>>();
@@ -33,22 +34,31 @@ public final class CharacterState {
     titles.add(new Title(t.id(),t.label(),t.description(),t.translationKey(),t.rgb(),Titles.unlocked(p,t.id()),TitlePerks.forTitle(t.id()).stream().map(perk->new Perk(perk.description(),TitlePerks.available(p,perk))).toList(),legacy,TitleHelp.describe(t,legacy,skills)));
    }
   }
-  int cap=ProgressionAPI.ceiling(p);String gate=switch(cap){case 10->"Chapter 1 · Kinetic workshop";case 30->"Chapter 3 · Precision workshop";case 50->"Chapter 5 · Ender machinery";case 70->"Chapter 6 · Chemical machinery";case 80->"Chapter 8 · Containment";case 94->"Chapter 10 · Sovereign";default->cap>=100?"Maximum level":"Your next campaign milestone";};
-  int spent=SkillBridge.titleSnapshot(p,ProgressionConfig.current.skillCategory).map(SkillBridge.TitleSnapshot::spent).orElse(-1);
-  return new Snapshot(ProgressionAPI.level(p),cap,n.getLong("xp"),ProgressionMath.levelCost(ProgressionAPI.level(p)),gate,ProgressionMath.skillPoints(ProgressionAPI.level(p)),spent,Titles.selected(p),Titles.passive(p),tracked(p),n.contains("hud_hidden")?!n.getBoolean("hud_hidden"):ProgressionConfig.current.hudEnabledByDefault,TitlePerks.cooldown(p),activities,titles,n.getList("activity_history",net.minecraft.nbt.Tag.TAG_STRING).stream().map(net.minecraft.nbt.Tag::getAsString).toList(),Origins.selected(p),Origins.revision(p),Origins.manaAvailable(p),Origins.ascendedUnlocked(p),n.getLong("origin_selection_request"));
+  int level=ProgressionAPI.level(p),cap=ProgressionAPI.ceiling(p);long required=ProgressionMath.levelCost(level);
+  String gate=switch(cap){case 10->"Chapter I · Getting Started";case 30->"Chapter III · Copper (Sealed)";case 50->"Chapter V · AE2 (Calculation)";case 70->"Chapter VI · Light Engineering (Steel)";case 80->"Chapter VIII · Magic & Mana";case 94->"Chapter X · Creative Core";default->cap>=100?"Maximum level":"Your next campaign milestone";};
+  int spent=SkillBridge.spentPoints(p,ProgressionConfig.current.skillCategory).orElse(-1);
+  return new Snapshot(level,cap,Math.clamp(n.getLong("xp"),0,required-1),required,gate,ProgressionMath.skillPoints(level),spent,Titles.selected(p),Titles.passive(p),tracked(p),n.contains("hud_hidden")?!n.getBoolean("hud_hidden"):ProgressionConfig.current.hudEnabledByDefault,TitlePerks.cooldown(p),activities,titles,n.getList("activity_history",net.minecraft.nbt.Tag.TAG_STRING).stream().map(net.minecraft.nbt.Tag::getAsString).toList(),Origins.selected(p),Origins.revision(p),Origins.manaAvailable(p),Origins.ascendedUnlocked(p),n.getLong("origin_selection_request"));
  }
  public static String tracked(ServerPlayer p){String key=ProgressionAPI.profile(p).getString("tracked_activity");return ACTIVITIES.contains(key)?key:"combat";}
  public static boolean track(ServerPlayer p,String id){if(!ACTIVITIES.contains(id))return false;ProgressionAPI.profile(p).putString("tracked_activity",id);ProgressionData.get(p.server).setDirty();return true;}
  public static void send(ServerPlayer p){send(p,false);}
  public static void sendFull(ServerPlayer p){send(p,true);}
  private static void send(ServerPlayer p,boolean full){
-  if(p instanceof net.neoforged.neoforge.common.util.FakePlayer)return;var s=snapshot(p,full);
-  if(!full)s=new Snapshot(s.level(),s.ceiling(),s.xp(),s.required(),s.gate(),s.pointsEarned(),s.pointsSpent(),s.selected(),s.passive(),s.tracked(),s.hud(),s.swapTicks(),s.activities(),List.of(),s.recent(),s.origin(),s.originRevision(),s.manaAvailable(),s.ascendedOriginsUnlocked(),s.originSelectionRequest());
-  String json=JSON.toJson(s);if(full || !json.equals(LAST.get(p))){PacketDistributor.sendToPlayer(p,new CharacterPayload(json));LAST.put(p,json);}
+  if(p instanceof net.neoforged.neoforge.common.util.FakePlayer)return;
+  var s=snapshot(p,full);var sent=LAST.computeIfAbsent(p,ignored->new Sent());long tick=p.server.overworld().getGameTime();
+  if(full){
+   if(sent.fullTick==tick && s.equals(sent.full))return;
+   PacketDistributor.sendToPlayer(p,new CharacterPayload(CharacterSnapshots.encode(s)));
+   sent.fullTick=tick;sent.full=s;sent.partial=CharacterSnapshots.incremental(s);
+  }else{
+   if(sent.fullTick!=tick)sent.full=null;
+   if(s.equals(sent.partial))return;
+   PacketDistributor.sendToPlayer(p,new CharacterPayload(CharacterSnapshots.encode(s)));sent.partial=s;
+  }
  }
  public static boolean action(ServerPlayer p,String action,String value){
   return switch(action){
-   case "refresh"->true;
+   case "refresh"->value.isEmpty();
    case "origin_open"->value.isEmpty() && Origins.open(p);
    case "origin"->Origins.choose(p,value);
    case "skills"->value.isEmpty() && SkillBridge.open(p);
@@ -60,5 +70,7 @@ public final class CharacterState {
   };
  }
  @SubscribeEvent public static void tick(PlayerTickEvent.Post e){if(e.getEntity() instanceof ServerPlayer p && p.tickCount%20==0)send(p);}
- @SubscribeEvent public static void login(PlayerEvent.PlayerLoggedInEvent e){if(e.getEntity() instanceof ServerPlayer p)sendFull(p);}
+ // LevelBadges.login sends the initial full view after synchronizing appearance.
+ @SubscribeEvent public static void logout(PlayerEvent.PlayerLoggedOutEvent e){if(e.getEntity() instanceof ServerPlayer p){LAST.remove(p);CharacterAction.forget(p);}}
+ @SubscribeEvent public static void stopped(net.neoforged.neoforge.event.server.ServerStoppedEvent e){LAST.clear();CharacterAction.clear();}
 }

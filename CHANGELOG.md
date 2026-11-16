@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.1.6
+
+![Changelog](https://i.imgur.com/JGT2lvz.png)
+
+Minecraft **1.21.1** · **NeoForge 21.1.262** · **Java 21**.
+
+- Reduce periodic character-update allocations and packet size; cache verified optional API bindings and compile passive conditions once.
+- Remove added recipe work from empty/unowned campfires, amortize harvest cleanup and skip unchanged exploration surveys.
+- Fix invalid saved XP accounting/ceilings, secondary placed-fruit provenance, stale cooking ownership and exception-leaking action scopes.
+- Apply skill and origin potion-duration bonuses together once; create hunting drops in the victim's dimension.
+- Reconcile title modifiers without stacking/healing, retain explicit empty passive choices, reject duplicate archived IDs and roll back failed paired runtime reloads.
+- Bound oversized character views without removing title ownership or changing configured rewards. Keep interactive selections responsive while pacing full refreshes separately.
+- Preserve injured loaded/adopted mobs, actual arena phase classification, regular reinforcement levels, tracking badges and party scaling once.
+- Preserve current boss balance, all saved character progress, manual quest titles, normal loot caps and exact authored dungeon rewards.
+- Update client/server character protocol to **10**; update both sides together.
+
+[Full technical report and validation](docs/TECHNICAL-AUDIT-1.1.6.md).
+
 ## 1.1.5
 
 - Reduce the default catalogue from 58 to 42 distinct titles; retain earned retired badges, selections and original perks under Legacy Titles.

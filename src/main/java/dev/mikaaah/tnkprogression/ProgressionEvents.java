@@ -8,6 +8,7 @@ import net.minecraft.stats.Stats;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.world.level.ChunkPos;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.EventPriority;
@@ -19,7 +20,7 @@ import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 public final class ProgressionEvents {
  @SubscribeEvent public static void join(EntityJoinLevelEvent e){
   if(!(e.getLevel() instanceof ServerLevel world) || !(e.getEntity() instanceof Mob mob) || !ProgressionConfig.current.scaleMobs)return;
-  var c=ProgressionConfig.current;CompoundTag n=mob.getPersistentData();boolean fresh=!n.contains("tnk_level");
+  var c=ProgressionConfig.current;CompoundTag n=mob.getPersistentData();boolean fresh=!n.contains("tnk_level",Tag.TAG_ANY_NUMERIC);
   int previousLevel=ProgressionAPI.mobLevel(mob);
   boolean arena=AbyssIntegration.prepareJoin(mob);
   if(!arena && !(mob instanceof Enemy) && BossLevels.baseLevel(mob)==0 && !BossLevels.isMiniboss(mob))return;
@@ -32,8 +33,13 @@ public final class ProgressionEvents {
   // Arena damage is scaled once at the damage event for melee AND fixed-damage attacks.
   // Scaling this attribute too would double melee and attribute-derived spells/projectiles.
   scale(mob.getAttribute(Attributes.ATTACK_DAMAGE),"damage",arena?0:c.damagePerLevel*(level-1));
-  if(fresh)mob.setHealth(mob.getMaxHealth());
+  // A missing TNK tag does not make an existing mob undamaged. Native adoption
+  // happens after insertion; phase transfer can also already have preserved health.
+  if(fresh && !e.loadedFromDisk() && world.getEntity(mob.getId())!=mob && !(arena && AbyssIntegration.nativePhase(mob)))mob.setHealth(mob.getMaxHealth());
   else if(mob.getHealth()>mob.getMaxHealth())mob.setHealth(mob.getMaxHealth());
+  // Reinforcements are adopted after world insertion, when players may already
+  // be tracking them. Keep their visible badge in step with the saved combat level.
+  if(fresh || previousLevel!=level)net.neoforged.neoforge.network.PacketDistributor.sendToPlayersTrackingEntity(mob,new MobLevelPayload(mob.getId(),mob.getUUID(),level));
   // Remove only our exact old generated name. Never rename player-named or affixed mobs.
   var old=net.minecraft.network.chat.Component.literal("Lv. "+level+" ").append(mob.getType().getDescription());
   var previousName=net.minecraft.network.chat.Component.literal("Lv. "+previousLevel+" ").append(mob.getType().getDescription());

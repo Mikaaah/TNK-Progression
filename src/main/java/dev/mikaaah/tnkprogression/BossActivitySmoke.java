@@ -61,6 +61,16 @@ public final class BossActivitySmoke {
             old.setHealth(6);
             ProgressionEvents.join(new EntityJoinLevelEvent(old, world));
             check(ProgressionAPI.mobLevel(old) == 65 && old.getHealth() == 6, "old bosses migrate once without healing");
+            var unassignedLoaded = EntityType.ZOMBIE.create(world);
+            unassignedLoaded.setHealth(6);
+            ProgressionEvents.join(new EntityJoinLevelEvent(unassignedLoaded, world, true));
+            check(ProgressionAPI.mobLevel(unassignedLoaded) == 65 && unassignedLoaded.getHealth() == 6,
+                    "disk-loaded mobs without a TNK tag receive a level without healing");
+            var malformed = EntityType.ZOMBIE.create(world);
+            malformed.getPersistentData().putString("tnk_level", "broken");
+            ProgressionEvents.join(new EntityJoinLevelEvent(malformed, world));
+            check(ProgressionAPI.mobLevel(malformed) == 65 && malformed.getHealth() == malformed.getMaxHealth(),
+                    "malformed level tags are repaired and genuinely new mobs still start at scaled full health");
             var neutral = EntityType.VILLAGER.create(world);
             ProgressionEvents.join(new EntityJoinLevelEvent(neutral, world));
             check(ProgressionAPI.mobLevel(neutral) == 35, "configured bosses need not implement Enemy");

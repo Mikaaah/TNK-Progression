@@ -2,6 +2,19 @@ package dev.mikaaah.tnkprogression;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 class ProgressionMathTest {
+ @Test void savedCeilingsRespectConfiguredFloorAndPlayerMaximum(){
+  assertEquals(10,ProgressionMath.effectiveCeiling(10,0,-100));
+  assertEquals(50,ProgressionMath.effectiveCeiling(10,30,50));
+  assertEquals(100,ProgressionMath.effectiveCeiling(10,Integer.MAX_VALUE,0));
+ }
+ @Test void corruptedSourceAccountingCannotPoisonSyncOrMintFractionalXp(){
+  assertEquals(0,ProgressionMath.nonNegativeFinite(Double.NaN));
+  assertEquals(0,ProgressionMath.nonNegativeFinite(Double.POSITIVE_INFINITY));
+  assertEquals(0,ProgressionMath.nonNegativeFinite(-20));
+  assertEquals(123.5,ProgressionMath.nonNegativeFinite(123.5));
+  assertEquals(.75,ProgressionMath.fractionalRemainder(.75));
+  for(double bad:new double[]{Double.NaN,Double.NEGATIVE_INFINITY,Double.POSITIVE_INFINITY,-1,1,99})assertEquals(0,ProgressionMath.fractionalRemainder(bad));
+ }
  @Test void levelBasedPointsReach175WithoutRepeatedAwards(){
   assertEquals(1,ProgressionMath.skillPoints(1));assertEquals(17,ProgressionMath.skillPoints(10));assertEquals(87,ProgressionMath.skillPoints(50));assertEquals(175,ProgressionMath.skillPoints(100));
   for(int level=2;level<=100;level++){int gain=ProgressionMath.skillPoints(level)-ProgressionMath.skillPoints(level-1);assertTrue(gain==1||gain==2);}

@@ -1,5 +1,5 @@
 plugins { id 'java-library'; id 'net.neoforged.moddev' version '2.0.148' }
-version = '1.1.5'
+version = '1.1.6'
 group = 'dev.mikaaah.tnkprogression'
 base { archivesName = 'tnkprogression' }
 java.toolchain.languageVersion = JavaLanguageVersion.of(21)
@@ -88,7 +88,10 @@ if (providers.gradleProperty('tnkAbyssSmoke').isPresent()) {
  dependencies { compileOnly fileTree(providers.gradleProperty('tnkVerificationJars').get()) { include '**/*.jar' } }
  neoForge.runs.server {
   gameDirectory = file(providers.gradleProperty('tnkVerificationRun').get())
-  systemProperty 'tnkprogression.abyssSmoke', 'true'
+  def suite = providers.gradleProperty('tnkAuditSuite').getOrElse('abyss')
+  systemProperty 'tnkprogression.abyssSmoke', (suite == 'abyss').toString()
+  if (suite == 'direct-xp') systemProperty 'tnkprogression.directXpSmoke', 'true'
+  if (suite == 'boss-activity') systemProperty 'tnkprogression.bossActivitySmoke', 'true'
  }
 }
 tasks.named('jar') { exclude 'dev/mikaaah/tnkprogression/verification/**', 'dev/mikaaah/tnkloot/verification/**' }

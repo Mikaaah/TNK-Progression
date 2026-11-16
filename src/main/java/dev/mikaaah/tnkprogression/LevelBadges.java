@@ -55,10 +55,13 @@ public final class LevelBadges {
 
     public static void changed(ServerPlayer player) {
         TitlePerks.apply(player);
-        appearanceChanged(player);
+        syncAppearance(player,true);
     }
     public static void appearanceChanged(ServerPlayer player) {
-        CharacterState.sendFull(player);
+        syncAppearance(player,false);
+    }
+    private static void syncAppearance(ServerPlayer player,boolean full) {
+        if(full)CharacterState.sendFull(player);else CharacterState.send(player);
         player.refreshDisplayName();
         PacketDistributor.sendToAllPlayers(new LevelBadgePayload(player.getUUID(), ProgressionAPI.level(player)));
         PacketDistributor.sendToAllPlayers(new TitleBadgePayload(player.getUUID(),Titles.display(player)));

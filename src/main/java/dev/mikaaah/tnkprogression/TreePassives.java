@@ -2,13 +2,10 @@ package dev.mikaaah.tnkprogression;
 
 import com.google.gson.*;
 import java.util.*;
-import java.io.InputStreamReader;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.entity.monster.Enemy;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.item.PotionItem;
 import net.minecraft.world.item.ShieldItem;
 import net.neoforged.fml.ModList;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -74,12 +71,7 @@ public final class TreePassives {
   var stats=stats(p);if(stats.isEmpty())return;
   var food=event.getItem().get(DataComponents.FOOD);
   if(food!=null && food.nutrition()>0)p.heal((float)(double)stats.getOrDefault("food_recovery",0.0));
-  if(event.getItem().getItem() instanceof PotionItem && stats.getOrDefault("potion_duration",0.0)>0){
-   var contents=event.getItem().get(DataComponents.POTION_CONTENTS);
-   if(contents!=null)for(var effect:contents.getAllEffects())if(effect.getEffect().value().isBeneficial() && !effect.getEffect().value().isInstantenous() && effect.getDuration()>0){
-    p.addEffect(new MobEffectInstance(effect.getEffect(),TreePassiveRules.potionDuration(effect.getDuration(),stats.get("potion_duration")),effect.getAmplifier(),effect.isAmbient(),effect.isVisible(),effect.showIcon()));
-   }
-  }
+
  }
  // Native tag rewards remove effects immediately on respec. Also reconcile tags left by a removed/replaced category.
  @SubscribeEvent public static void reconcile(PlayerTickEvent.Post event){

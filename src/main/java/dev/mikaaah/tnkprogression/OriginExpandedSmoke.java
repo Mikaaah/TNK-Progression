@@ -80,10 +80,10 @@ final class OriginExpandedSmoke {
         p.setItemSlot(EquipmentSlot.MAINHAND,new ItemStack(Items.IRON_SWORD));equal(reach,p.blockInteractionRange(),"placement reach requires block");
         choose(p,"millwright");equal(1,OriginRules.bonus("tnk:millwright",2,WRENCH_REACH),"wrench magnitude");equal(reach,p.blockInteractionRange(),"empty wrench condition does not extend reach");
         n.putInt("level",1);n.putInt("ceiling",100);n.putLong("xp",0);n.putLong("engineering_rank",0);n.putLong("engineering_work",0);
-        var activity=ProgressionConfig.current.activities.get("engineering");long reward=ProgressionMath.taskReward(activity.initialXp(),0);
-        ProgressionAPI.activity(p,"engineering",ProgressionMath.taskCost(activity.initialRequirement(),0));
-        long earned=n.getLong("xp");for(int level=1;level<ProgressionAPI.level(p);level++)earned+=ProgressionMath.levelCost(level);
-        equal(reward+(long)Math.floor(reward*.10),earned,"engineering bonus applies to earned activity XP");
+        ProgressionAPI.activity(p,"engineering",100);ProgressionAPI.activityFractional(p,"crafting",100);
+        check(n.getLong("xp")==0&&ProgressionAPI.level(p)==1&&n.getLong("engineering_rank")==0&&n.getLong("engineering_work")==0,"retired automatic engineering/crafting sources award no XP or ranks");
+        check(!ProgressionAPI.engineeringObjective(p,"tnk:first_workshop"),"retired engineering objective API does not recreate commission awards");
+        check(ProgressionAPI.awardSourceXp(p,"quest",100)==110&&n.getLong("xp")==110,"Millwright bonus applies to explicit authored quest XP");
         n.putInt("level",42);n.putInt("ceiling",50);n.putLong("xp",0);
 
         long seed=0;while(net.minecraft.util.RandomSource.create(seed).nextDouble()>=.05)seed++;
@@ -113,6 +113,11 @@ final class OriginExpandedSmoke {
         choose(p,"huntsman");var zombie=new Zombie(EntityType.ZOMBIE,world);var arrow=new Arrow(world,p,new ItemStack(Items.ARROW),new ItemStack(Items.BOW));equal(10.5,damage(zombie,p.damageSources().arrow(arrow,p)).getAmount(),"Huntsman ranged damage");
         var drops=new ArrayList<ItemEntity>();drops.add(new ItemEntity(world,p.getX(),p.getY(),p.getZ(),new ItemStack(Items.BEEF,10)));
         OriginGameplay.hunt(new LivingDropsEvent(zombie,p.damageSources().playerAttack(p),drops,false));check(drops.size()==2&&drops.get(1).getItem().getCount()==1,"Huntsman meat yield");
+        var otherWorld=Objects.requireNonNull(server.getLevel(net.minecraft.world.level.Level.NETHER));
+        var distantVictim=new Zombie(EntityType.ZOMBIE,otherWorld);var distantDrops=new ArrayList<ItemEntity>();
+        distantDrops.add(new ItemEntity(otherWorld,1,64,1,new ItemStack(Items.BEEF,10)));
+        OriginGameplay.hunt(new LivingDropsEvent(distantVictim,p.damageSources().playerAttack(p),distantDrops,false));
+        check(distantDrops.size()==2 && distantDrops.get(1).level()==otherWorld,"delayed kill bonus belongs to victim dimension when killer is elsewhere");
 
         choose(p,"forgehand");var sword=new ItemStack(Items.IRON_SWORD);sword.hurtAndBreak(10,world,p,item->{});check(sword.getDamageValue()==9,"Forgehand actual weapon wear");
         var pick=new ItemStack(Items.IRON_PICKAXE);pick.hurtAndBreak(10,world,p,item->{});check(pick.getDamageValue()==10,"Forgehand weapon perk excludes tools");

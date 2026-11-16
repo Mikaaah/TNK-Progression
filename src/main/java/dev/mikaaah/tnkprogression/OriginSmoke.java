@@ -165,6 +165,8 @@ public final class OriginSmoke {
         check(Origins.choose(player, "tnk:deepdelver"), "admin reset permits a fresh confirmed selection");
         Origins.adminSet(player, "tnk:miner"); // Legacy IDs remain valid for administrators.
 
+        check(profile.getInt("level") == 42 && profile.getLong("xp") == 123, "origin selection and XP refunds never grant character progression");
+        // Harvest events below intentionally award ordinary source XP through the current direct-XP system.
         // Winning roll is deterministic; verify one extra item, no Fortune multiplication and no XP replay.
         long seed = winningSeed();
         ItemStack pickaxe = new ItemStack(Items.IRON_PICKAXE);
@@ -259,8 +261,9 @@ public final class OriginSmoke {
         check(Origins.captureXp(player, false) == -1 && Origins.captureXp(player, true) == -1, "creative players receive no XP refunds");
         player.setGameMode(GameType.SURVIVAL);
 
+        long harvestedXp=profile.getLong("xp");int harvestedLevel=profile.getInt("level");
         check(dispatcher.execute("tnkprogress origin reset @s", player.createCommandSourceStack().withPermission(2)) == 1, "admin reset command is available");
-        check(profile.getInt("level") == 42 && profile.getLong("xp") == 123, "origin selection and XP refunds never grant character progression");
+        check(profile.getInt("level") == harvestedLevel && profile.getLong("xp") == harvestedXp, "admin reset preserves character XP earned by actual harvests");
         OriginExpandedSmoke.run(server);
         TnkProgression.LOG.info("TNK_ORIGINS_SMOKE_OK: permanent choice, admin permissions, UUID persistence, real enchanting/anvil refunds, origin/title coexistence, no stacking/healing and guarded harvest bonuses");
     }

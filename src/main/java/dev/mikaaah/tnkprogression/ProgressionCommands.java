@@ -11,7 +11,7 @@ public final class ProgressionCommands {
    .then(OriginCommands.tree())
    .then(Commands.literal("status").executes(c->{var p=c.getSource().getPlayerOrException();var n=ProgressionAPI.profile(p);c.getSource().sendSuccess(()->Component.literal("Level "+ProgressionAPI.level(p)+" / ceiling "+ProgressionAPI.ceiling(p)+" | XP "+n.getLong("xp")+" / "+ProgressionMath.levelCost(ProgressionAPI.level(p))+" | points "+ProgressionMath.skillPoints(ProgressionAPI.level(p))),false);return 1;}))
    .then(Commands.literal("activities").executes(c->{var p=c.getSource().getPlayerOrException();var n=ProgressionAPI.profile(p);for(String key:CharacterState.ACTIVITIES)c.getSource().sendSuccess(()->Component.literal(key+": "+(long)n.getDouble(key+"_xp_earned")+" character XP earned"),false);return 1;}))
-   .then(Commands.literal("reload").requires(s->s.hasPermission(2)).executes(c->(ProgressionConfig.reload() & DirectXpConfig.reload())?1:0))
+   .then(Commands.literal("reload").requires(s->s.hasPermission(2)).executes(c->reload(c.getSource())))
    .then(Commands.literal("xp").requires(s->s.hasPermission(2)).then(Commands.argument("player",EntityArgument.player()).then(Commands.argument("amount",LongArgumentType.longArg(1,1000000000L)).executes(c->{ProgressionAPI.awardSourceXp(EntityArgument.getPlayer(c,"player"),"quest",LongArgumentType.getLong(c,"amount"));return 1;}))))
    .then(Commands.literal("reward").requires(s->s.hasPermission(2)).then(Commands.argument("player",EntityArgument.player()).then(Commands.argument("reward",StringArgumentType.greedyString()).executes(c->{
     String raw=StringArgumentType.getString(c,"reward").trim();int split=raw.lastIndexOf(' ');
@@ -22,5 +22,16 @@ public final class ProgressionCommands {
     return ProgressionAPI.rewardOnce(EntityArgument.getPlayer(c,"player"),id,amount)?1:0;
    }))))
    .then(Commands.literal("unlock").requires(s->s.hasPermission(2)).then(Commands.argument("player",EntityArgument.player()).then(Commands.argument("ceiling",IntegerArgumentType.integer(1,100)).executes(c->{int cap=IntegerArgumentType.getInteger(c,"ceiling");if(java.util.Arrays.stream(ProgressionConfig.current.ceilings).noneMatch(v->v==cap)){c.getSource().sendFailure(Component.literal("Not a configured level ceiling"));return 0;}ProgressionAPI.unlock(EntityArgument.getPlayer(c,"player"),cap);return 1;})))));
+ }
+ static int reload(net.minecraft.commands.CommandSourceStack source){
+  var progression=ProgressionConfig.current;var xp=DirectXpConfig.current;
+  boolean progressionOk=ProgressionConfig.reload(),xpOk=DirectXpConfig.reload();
+  if(!progressionOk || !xpOk){
+   ProgressionConfig.current=progression;DirectXpConfig.current=xp;
+   source.sendFailure(Component.literal("Configuration rejected; previous runtime settings retained. Check the server log."));return 0;
+  }
+  for(var world:source.getServer().getAllLevels())MobLevels.invalidate(world);
+  for(var player:source.getServer().getPlayerList().getPlayers())CharacterState.sendFull(player);
+  source.sendSuccess(()->Component.literal("Progression and XP settings reloaded."),false);return 1;
  }
 }

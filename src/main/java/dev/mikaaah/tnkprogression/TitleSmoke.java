@@ -3,13 +3,12 @@ package dev.mikaaah.tnkprogression;
 import java.util.*;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.MinecraftServer;
-import net.neoforged.neoforge.common.util.FakePlayerFactory;
 import net.minecraft.network.chat.Component;
 
 public final class TitleSmoke {
     private static void check(boolean ok,String message){if(!ok)throw new AssertionError(message);}
     public static void run(MinecraftServer server)throws Exception {
-        var p=FakePlayerFactory.get(server.overworld(),new com.mojang.authlib.GameProfile(UUID.fromString("657bf016-419a-43dd-9b37-e0f29f08009c"),"TitleTest"));
+        var p=OriginSmoke.player(server,UUID.fromString("657bf016-419a-43dd-9b37-e0f29f08009c"));
         var n=ProgressionAPI.profile(p);for(String key:Set.copyOf(n.getAllKeys()))n.remove(key);
         check(TitleConfig.current.titles().size()>=42,"catalog loaded");
         check(!Titles.grant(p,"tnk:invented"),"unknown title rejected");
@@ -18,7 +17,7 @@ public final class TitleSmoke {
         check(!Titles.grant(p,"tnk:ars_mystic"),"duplicate grant idempotent");
         check(Titles.selected(p).equals("tnk:ars_mystic"),"first title equipped");
         String renderedTitle=Component.translatableWithFallback("tnkprogression.title.tnk.ars_mystic","[Mystic]").getString();
-        String expected=LevelBadges.glyph(ProgressionAPI.level(p))+" "+renderedTitle+" TitleTest";
+        String expected=LevelBadges.glyph(ProgressionAPI.level(p))+" "+renderedTitle+" "+p.getGameProfile().getName();
         check(p.getDisplayName().getString().equals(expected),"resolved title badge and name format");
         p.refreshDisplayName();check(p.getDisplayName().getString().equals(expected),"title prefix does not duplicate on refresh");
         check(Titles.grant(p,"tnk:dragon_slayer"),"second title granted");
@@ -52,12 +51,14 @@ public final class TitleSmoke {
         check(!TitleConfig.qualifies(skill,100,Set.of()) && TitleConfig.qualifies(skill,40,Set.of("hunter_subclass_1_mastery")),"node titles require actual converted skill unlock");
         var points=TitleConfig.get("tnk:paragon").orElseThrow();
         check(!TitleConfig.qualifies(points,99,Set.of()) && TitleConfig.qualifies(points,100,Set.of()),"spent points title threshold");
-        Titles.checkSkills(p); // Missing optional Pufferfish never awards a substitute character-level title.
-        check(!Titles.unlocked(p,"tnk:paragon"),"absent integration never invents skill purchases");
+        Titles.checkSkills(p); // No purchased skills: character level is never a substitute.
+        check(!Titles.unlocked(p,"tnk:paragon"),"missing purchased skills never invent a skill-title award");
         check(dispatcher.execute("tnkprogress reward @s tnk:title-smoke 5",p.createCommandSourceStack().withPermission(2))==1,"namespaced one-time XP reward parses");
         check(dispatcher.execute("tnkprogress reward @s tnk:title-smoke 5",p.createCommandSourceStack().withPermission(2))==0,"namespaced XP reward cannot duplicate");
-        check(dispatcher.execute("tnkprogress engineering @s tnk:first_workshop",p.createCommandSourceStack().withPermission(2))==1,"namespaced engineering commission parses");
-        dispatcher.execute("tnkprogress title clear",p.createCommandSourceStack().withPermission(0));check(p.getDisplayName().getString().equals(LevelBadges.glyph(ProgressionAPI.level(p))+" TitleTest"),"hiding title retains only level and username");
+        long questXp=n.getLong("xp");boolean retired=false;
+        try{dispatcher.execute("tnkprogress engineering @s tnk:first_workshop",p.createCommandSourceStack().withPermission(2));}catch(com.mojang.brigadier.exceptions.CommandSyntaxException expectedRemoval){retired=true;}
+        check(retired&&n.getLong("xp")==questXp&&!ProgressionAPI.engineeringObjective(p,"tnk:first_workshop"),"retired engineering command/API cannot create duplicate quest rewards");
+        dispatcher.execute("tnkprogress title clear",p.createCommandSourceStack().withPermission(0));check(p.getDisplayName().getString().equals(LevelBadges.glyph(ProgressionAPI.level(p))+" "+p.getGameProfile().getName()),"hiding title retains only level and username");
         TnkProgression.LOG.info("TNK_TITLES_SMOKE_OK");
     }
 }

@@ -1,0 +1,4 @@
+[14:00:55] [Server thread/INFO] [de.mi.tn.TnkProgression/]: TNK_HUD_DEFAULT_SMOKE_OK: config migration, default hidden, explicit opt-in/out, saved preference and unchanged progress
+[14:00:55] [Server thread/INFO] [de.mi.tn.TnkProgression/]: TNK_STARCATCHER_SMOKE_OK: real Starcatcher 3.1.4.1 common/rare/epic/legendary catches, failed minigame, repeat/already-paid rejection and transformed exception cleanup
+[14:00:55] [Server thread/INFO] [de.mi.tn.TnkProgression/]: TNK_XP_AUDIT_SMOKE_OK: overflow/ceilings, corrupt counters, multi-place/piston provenance, 5000-entry harvest ledger, idle/automated campfires, idle exploration and UUID persistence
+[14:00:55] [Server thread/INFO] [de.mi.tn.TnkProgression/]: TNK_DIRECT_XP_SMOKE_OK: migration, Ascension, fractional XP, natural/placed ores, level rewards, quest commands, real cooking mixins, automation exclusion, curve, UI payload and ceiling

@@ -29,7 +29,8 @@ public final class Origins {
     public static double bonus(net.minecraft.world.entity.player.Player player, OriginRules.Perk perk) {
         if (player instanceof ServerPlayer serverPlayer) {
             if (serverPlayer.server == null || serverPlayer.server.overworld() == null) return 0;
-            return OriginRules.bonus(selected(serverPlayer), revision(serverPlayer), perk);
+            var profile=ProgressionAPI.profile(serverPlayer);
+            return OriginRules.bonus(profile.getString(KEY), Math.max(1,profile.getInt("origin_revision")), perk);
         }
         var state = CharacterClientState.current;
         return player.isLocalPlayer() && state != null ? OriginRules.bonus(state.origin(), state.originRevision(), perk) : 0;

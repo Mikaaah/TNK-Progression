@@ -18,9 +18,12 @@ public final class ActivityEvents {
     public static void place(BlockEvent.EntityPlaceEvent event) {
         if(!(event.getLevel() instanceof ServerLevel world))return;
         if(event instanceof BlockEvent.EntityMultiPlaceEvent multi) {
-            for(var snap:multi.getReplacedBlockSnapshots()) if(protectedBlock(world.getBlockState(snap.getPos())))ActivityGuard.mark(world,snap.getPos());
-        } else if(protectedBlock(event.getPlacedBlock())) ActivityGuard.mark(world,event.getPos());
-        if(fruit(event.getPlacedBlock())){var data=ProgressionData.get(world.getServer());data.entry("placed_fruit_v3").putBoolean(world.dimension().location()+"/"+event.getPos().asLong(),true);data.setDirty();}
+            for(var snap:multi.getReplacedBlockSnapshots())recordPlacement(world,snap.getPos(),world.getBlockState(snap.getPos()));
+        } else recordPlacement(world,event.getPos(),event.getPlacedBlock());
+    }
+    private static void recordPlacement(ServerLevel world,BlockPos pos,BlockState state){
+        if(protectedBlock(state))ActivityGuard.mark(world,pos);
+        if(fruit(state)){var data=ProgressionData.get(world.getServer());data.entry("placed_fruit_v3").putBoolean(world.dimension().location()+"/"+pos.asLong(),true);data.setDirty();}
     }
     @SubscribeEvent(priority=EventPriority.LOWEST)
     public static void generated(BlockEvent.FluidPlaceBlockEvent event) {
@@ -67,6 +70,9 @@ public final class ActivityEvents {
     }
     private record HarvestAttempt(ServerPlayer player,ServerLevel world,BlockPos pos,BlockState before) {}
     private static final java.util.Map<java.util.UUID,HarvestAttempt> HARVEST_ATTEMPTS=new java.util.HashMap<>();
+    private static final java.util.Map<net.minecraft.server.MinecraftServer,Long> HARVEST_SWEEPS=new java.util.WeakHashMap<>();
+    private static long harvestSweepCount;
+    static long harvestSweeps(){return harvestSweepCount;}
     private static boolean ripe(BlockState state) {
         return mature(state) || (state.getBlock() instanceof net.minecraft.world.level.block.SweetBerryBushBlock && state.getValue(net.minecraft.world.level.block.SweetBerryBushBlock.AGE)>1)
             || net.minecraft.world.level.block.CaveVines.hasGlowBerries(state);
@@ -82,14 +88,21 @@ public final class ActivityEvents {
             if(attempt.player().server!=event.getServer())continue;
             HARVEST_ATTEMPTS.remove(attempt.player().getUUID());
             var after=attempt.world().getBlockState(attempt.pos());
-            if(after.getBlock()==attempt.before().getBlock() && !ripe(after))creditHarvest(attempt.player(),attempt.world(),attempt.pos(),attempt.before());
+            if(attempt.player().level()==attempt.world() && attempt.player().isAlive() && attempt.player().distanceToSqr(attempt.pos().getCenter())<=64*64
+                && after.getBlock()==attempt.before().getBlock() && !ripe(after))creditHarvest(attempt.player(),attempt.world(),attempt.pos(),attempt.before());
         }
     }
-    @SubscribeEvent public static void stopped(net.neoforged.neoforge.event.server.ServerStoppedEvent event) {HARVEST_ATTEMPTS.clear();}
+    @SubscribeEvent public static void stopped(net.neoforged.neoforge.event.server.ServerStoppedEvent event) {HARVEST_ATTEMPTS.clear();HARVEST_SWEEPS.remove(event.getServer());}
     private static void creditHarvest(ServerPlayer p,ServerLevel world,BlockPos pos,BlockState state) {
         var d=ProgressionData.get(p.server);var times=d.entry("harvest_times");
         String key=world.dimension().location()+"/"+pos.asLong();long now=ActivityGuard.now(p);
-        if(p.tickCount%100==0 || times.size()>4096)for(String k:java.util.Set.copyOf(times.getAllKeys()))if(ActivityRules.elapsed(now,times.getLong(k),ProgressionConfig.current.harvestCooldownTicks))times.remove(k);
+        Long previousSweep=HARVEST_SWEEPS.get(p.server);
+        if(previousSweep==null || ActivityRules.elapsed(now,previousSweep,100)){
+            HARVEST_SWEEPS.put(p.server,now);harvestSweepCount++;
+            boolean changed=false;
+            for(String k:java.util.Set.copyOf(times.getAllKeys()))if(ActivityRules.elapsed(now,times.getLong(k),ProgressionConfig.current.harvestCooldownTicks)){times.remove(k);changed=true;}
+            if(changed)d.setDirty();
+        }
         if(times.contains(key) && !ActivityRules.elapsed(now,times.getLong(key),ProgressionConfig.current.harvestCooldownTicks))return;
         times.putLong(key,now);d.setDirty();ProgressionAPI.awardSourceXp(p,"farming",DirectXpConfig.current.farming(state));
     }

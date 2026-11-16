@@ -1,0 +1,14 @@
+<div style="font-family:'Segoe UI',Tahoma,Verdana,Arial,sans-serif;font-size:16px;line-height:1.65">
+<p style="text-align:center"><img src="https://i.imgur.com/JGT2lvz.png" alt="Changelog" width="728" height="125" style="display:block;width:100%;height:auto;margin:auto"></p>
+<h2 style="font-family:'Arial Black',Impact,Arial,sans-serif;font-size:27px;color:#729aa1;text-align:center"><strong>TNK PROGRESSION — 1.1.6</strong></h2>
+<p style="color:#729aa1;text-align:center"><strong>Minecraft 1.21.1 · NeoForge 21.1.262 · Java 21</strong></p>
+<h2 style="color:#c09473">Progression and persistence fixes</h2>
+<ul><li>Repair invalid saved XP counters and effective ceilings without erasing player progress.</li><li>Protect secondary placed fruit and stale harvest/cooking ownership; clean up interrupted cooking and fishing scopes.</li><li>Apply Origin and skill potion-duration bonuses together once. Create hunting rewards in the victim's world.</li></ul>
+<h2 style="color:#c09473">Titles and character updates</h2>
+<ul><li>Keep title modifiers stable without stacking or healing. Preserve explicit empty passive choices, manual quest rewards, legacy ownership and the blue Owner badge.</li><li>Reject duplicate archived title IDs and restore previous runtime settings when paired configuration reloads fail.</li><li>Send compact incremental character updates and pace full refresh requests independently.</li><li>Abbreviate extended display help in exceptionally large configurations while retaining every title ID, ownership and selection.</li></ul>
+<h2 style="color:#c09473">Combat and optional integrations</h2>
+<ul><li>Preserve injured loaded mobs and late arena reinforcements; keep actual boss-phase classification, saved levels and visible badges consistent.</li><li>Retain party damage scaling once across supported owned sources.</li><li>Preserve current boss balance, fixed Abyss floors, ordinary loot caps and Loot's exact authored rewards.</li><li>Cache optional API bindings while reading live team and skill state.</li></ul>
+<h2 style="color:#c09473">Server performance</h2>
+<ul><li>Remove added recipe checks from empty/unowned campfires, amortize harvest-ledger cleanup and skip stationary exploration work.</li><li>Compile passive conditions once and avoid repeated static help construction in periodic updates.</li><li>No continuous world-wide entity scans or additional reward grants.</li></ul>
+<p style="color:#729aa1"><strong>Update clients and server together.</strong> Character protocol is now 10. Compilation, automated server checks and remaining playtest limits are detailed in the technical audit report; no whole-modpack TPS gain is claimed.</p>
+</div>

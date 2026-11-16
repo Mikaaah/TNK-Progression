@@ -1,6 +1,8 @@
 package dev.mikaaah.tnkprogression.mixin;
 import dev.mikaaah.tnkprogression.StarcatcherFishing;
 import net.minecraft.server.level.ServerPlayer;
+import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -8,8 +10,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Pseudo
 @Mixin(targets="com.wdiscute.starcatcher.fish.FishApi",remap=false)
 public abstract class StarcatcherCatchMixin {
- @Inject(method="spawnFishFromPlayerFishing",at=@At("HEAD"),require=0,remap=false)
- private static void tnk$before(ServerPlayer player,boolean completed,int time,boolean treasure,boolean perfect,int hits,CallbackInfo ci){StarcatcherFishing.begin(player,completed);}
- @Inject(method="spawnFishFromPlayerFishing",at=@At("RETURN"),require=0,remap=false)
- private static void tnk$after(ServerPlayer player,boolean completed,int time,boolean treasure,boolean perfect,int hits,CallbackInfo ci){StarcatcherFishing.finish(player);}
+ @WrapMethod(method="spawnFishFromPlayerFishing",require=0,remap=false)
+ private static void tnk$catch(ServerPlayer player,boolean completed,int time,boolean treasure,boolean perfect,int hits,Operation<Void> original){
+  StarcatcherFishing.begin(player,completed);
+  try{original.call(player,completed,time,treasure,perfect,hits);StarcatcherFishing.finish(player);}finally{StarcatcherFishing.clear();}
+ }
 }

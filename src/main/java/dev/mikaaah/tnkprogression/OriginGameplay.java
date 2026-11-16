@@ -64,7 +64,7 @@ public final class OriginGameplay {
             ItemStack stack = drop.getItem();
             if (!stack.is(Tags.Items.FOODS_RAW_MEAT) && !stack.is(Tags.Items.FOODS_COOKED_MEAT) && !stack.is(Tags.Items.LEATHERS)) continue;
             int extra = Origins.extra(player, "hunt_yield", stack.getCount(), fraction);
-            if (extra > 0) event.getDrops().add(new ItemEntity(player.serverLevel(), drop.getX(), drop.getY(), drop.getZ(), stack.copyWithCount(extra)));
+            if (extra > 0) event.getDrops().add(new ItemEntity(event.getEntity().level(), drop.getX(), drop.getY(), drop.getZ(), stack.copyWithCount(extra)));
         }
     }
 

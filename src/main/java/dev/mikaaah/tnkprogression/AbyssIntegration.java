@@ -18,6 +18,7 @@ import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 public final class AbyssIntegration {
     static final String CONTEXT = "tnkprogression_abyss_v1";
     static final String RUN = "spiral_abyss_run", DAMAGE = "spiral_abyss_damage_scale";
+    private static final String PHASE = "spiral_abyss_phase_boss";
     private static final ResourceLocation DIMENSION = ResourceLocation.parse("spiral_abyss:spiral_abyss");
     private static final ResourceLocation HEALTH = ResourceLocation.parse("spiral_abyss:health");
     private AbyssIntegration() {}
@@ -51,7 +52,7 @@ public final class AbyssIntegration {
     }
     record Run(UUID id, int floor, int wave, Object controller) {}
     private static boolean dimension(Entity entity) {
-        return entity.level() instanceof ServerLevel && entity.level().dimension().location().equals(DIMENSION);
+        return entity!=null && entity.level() instanceof ServerLevel && entity.level().dimension().location().equals(DIMENSION);
     }
     /** An untrusted floor tag or proximity alone never identifies an arena encounter. */
     private static Run liveRun(Mob mob) {
@@ -146,6 +147,10 @@ public final class AbyssIntegration {
     public static boolean healthBaseline(Mob mob) { return mob.getPersistentData().getCompound(CONTEXT).getBoolean("healthBaseline"); }
     public static boolean damageBaseline(Mob mob) { return mob.getPersistentData().getCompound(CONTEXT).getBoolean("damageBaseline"); }
     public static boolean fullBoss(Mob mob) { return assigned(mob) && mob.getPersistentData().getCompound(CONTEXT).getBoolean("boss"); }
+    static boolean nativePhase(Mob mob) {
+        var data=mob.getPersistentData();
+        return data.contains(PHASE,Tag.TAG_STRING) && data.getBoolean("spiral_abyss_wave_boss");
+    }
 
     /** Native phase transfer completed; preserve the root's snapshot rather than today's rotation. */
     public static void phase(Mob root, Mob child) {
@@ -157,20 +162,31 @@ public final class AbyssIntegration {
     public static void adopted(Mob mob) {
         if (!ProgressionConfig.current.abyss.enabled || assigned(mob)) return;
         Run run=liveRun(mob); if (run==null) return;
-        if (!valid(mob,mob.getPersistentData().getCompound(CONTEXT))) {
+        var data=mob.getPersistentData();
+        boolean phase=nativePhase(mob);
+        if (!valid(mob,data.getCompound(CONTEXT))) {
             try {
                 // A bounded current-stage roster, never a world-wide scan or nearest-player guess.
                 for (Object entity:(List<?>)Api.ENEMIES.invoke(run.controller())) {
                     if (!(entity instanceof Mob root) || !assigned(root)) continue;
                     var saved=root.getPersistentData().getCompound(CONTEXT).copy();
-                    if (!saved.getUUID("run").equals(run.id())) continue;
-                    boolean phase=mob.getPersistentData().contains("spiral_abyss_phase_boss")
-                            && mob.getPersistentData().getBoolean("spiral_abyss_wave_boss");
-                    saved.putBoolean("boss",phase); saved.putBoolean("assigned",false);
-                    saved.putInt("level",AbyssRules.level(saved.getInt("target"),phase,BossLevels.baseLevel(mob)));
-                    mob.getPersistentData().put(CONTEXT,saved); break;
+                    if (!saved.getUUID("run").equals(run.id()) || saved.getInt("floor")!=run.floor() || saved.getInt("wave")!=run.wave()) continue;
+                    // A phase belongs to its actual native root, not merely the first
+                    // mob in the stage. Native BOSS tags alone can also mark phases
+                    // of MINI_BOSS encounters, so retain the root's classification.
+                    if (phase && !net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getKey(root.getType()).toString().equals(data.getString(PHASE))) continue;
+                    saved.putBoolean("boss",phase && saved.getBoolean("boss")); saved.putBoolean("assigned",false);
+                    if(!phase)saved.putInt("level",AbyssRules.level(saved.getInt("target"),false,0));
+                    data.put(CONTEXT,saved); break;
                 }
             } catch (ReflectiveOperationException failure) { throw new IllegalStateException("Cannot read Spiral reinforcement roster",failure); }
+        } else if (!phase) {
+            // Split/conversion inheritance can already contain a valid boss snapshot.
+            // Ordinary children are regular floor enemies, never additional full bosses.
+            var saved=data.getCompound(CONTEXT);
+            saved.putBoolean("boss",false);
+            saved.putInt("level",AbyssRules.level(saved.getInt("target"),false,0));
+            data.put(CONTEXT,saved);
         }
         ProgressionEvents.join(new net.neoforged.neoforge.event.entity.EntityJoinLevelEvent(mob,mob.level()));
     }
@@ -192,18 +208,28 @@ public final class AbyssIntegration {
         }
     }
     private static Entity owner(Entity source) {
-        Set<UUID> visited=new HashSet<>();
-        for (int depth=0;source!=null && depth<8 && visited.add(source.getUUID());depth++) {
+        // The depth bound prevents ownership cycles without allocating a set per hit.
+        for (int depth=0;source!=null && depth<8;depth++) {
             if (assigned(source)) return source;
             Entity next=CombatProgression.magicOwner(source);
             if (next==null) next=source instanceof OwnableEntity own?own.getOwner():source instanceof TraceableEntity trace?trace.getOwner():null;
-            if (next==null) return null; source=next;
+            if (next==null || next==source) return null; source=next;
         }
         return null;
     }
+    private static boolean nativeDamageScaling(Entity source) {
+        if(source==null || !source.getPersistentData().hasUUID(RUN))return false;
+        double scale=source.getPersistentData().getDouble(DAMAGE);
+        // Match Spiral's actual predicate, rather than assuming RUN alone is enough.
+        return Double.isFinite(scale) && scale>0;
+    }
     @SubscribeEvent public static void damage(LivingIncomingDamageEvent event) {
-        var source=event.getSource(); Entity attacker=owner(source.getEntity());
-        if (attacker==null) attacker=owner(source.getDirectEntity());
+        var source=event.getSource();
+        // Almost every hit on a normal server is unrelated to an Abyss encounter.
+        // Reject it before ownership/reflection work; no global entities are scanned.
+        if(!dimension(source.getEntity()) && !dimension(source.getDirectEntity()))return;
+        Entity attacker=owner(source.getEntity());
+        if (attacker==null && source.getDirectEntity()!=source.getEntity()) attacker=owner(source.getDirectEntity());
         if (!(attacker instanceof Mob mob)) return;
         var saved=mob.getPersistentData().getCompound(CONTEXT);
         if (!saved.getBoolean("damageBaseline")) return;
@@ -212,8 +238,13 @@ public final class AbyssIntegration {
         // receives this factor once, even a fixed area attack using the MOB_ATTACK type.
         double factor=melee || ProgressionConfig.current.abyss.scaleIndirectDamage
                 ? 1+ProgressionConfig.current.damagePerLevel*(ProgressionAPI.mobLevel(mob)-1) : 1;
-        // Spiral scales sources whose getEntity has RUN; owned indirect sources may lack it.
-        if (source.getEntity()==null || !source.getEntity().getPersistentData().hasUUID(RUN)) factor*=saved.getDouble("party");
-        event.setAmount((float)(event.getAmount()*factor));
+        // Some owned proxies carry RUN but no usable damage tag; Spiral skips those.
+        if (!nativeDamageScaling(source.getEntity())) factor*=saved.getDouble("party");
+        float original=event.getAmount();
+        if (original==0) return;
+        double scaled=original*factor;
+        // Valid double-valued config settings can exceed the float damage range.
+        // Saturate at the engine boundary instead of introducing infinite damage.
+        event.setAmount(!Double.isFinite(scaled) || scaled>Float.MAX_VALUE ? Float.MAX_VALUE : (float)scaled);
     }
 }

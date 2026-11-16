@@ -41,6 +41,17 @@ public final class SpiralChecks {
  static MobCatalog.ScalingSnapshot plans(MobCategory cat,ResourceLocation id,int floor) {
   return new MobCatalog.ScalingSnapshot(Map.of(cat,Map.of(id,new MobScaling.Plan(Map.of(floor,new MobScaling.Floor(new MobScaling.Health(cat==MobCategory.BOSS,cat==MobCategory.BOSS?10000:10),5))))),Map.of());
  }
+ // Spiral 2.0.6 broadens the first parameter from Mob to LivingEntity. Resolve the
+ // actual fixture entry point so one driver can exercise both original JARs.
+ static void scaling(String method,Mob mob,Class<?>[] tail,Object... args) throws Exception {
+  Method target=null;
+  for(Class<?> entity:List.of(Mob.class,LivingEntity.class)){
+   var signature=new Class<?>[tail.length+1];signature[0]=entity;System.arraycopy(tail,0,signature,1,tail.length);
+   try{target=WaveScaling.class.getMethod(method,signature);break;}catch(NoSuchMethodException ignored){}
+  }
+  check(target!=null,"native scaling entry point exists: "+method);
+  var values=new Object[args.length+1];values[0]=mob;System.arraycopy(args,0,values,1,args.length);target.invoke(null,values);
+ }
  static void near(double actual,double expected,String message){check(Math.abs(actual-expected)<.02,message+": "+actual+" vs "+expected);}
  static float hit(Mob attacker,LivingEntity victim,DamageSource source) {
   var neo=new LivingIncomingDamageEvent(victim,new DamageContainer(source,10));
@@ -89,6 +100,8 @@ public final class SpiralChecks {
      near(hit(mob,low,new DamageSource(level.registryAccess().lookupOrThrow(net.minecraft.core.registries.Registries.DAMAGE_TYPE).getOrThrow(DamageTypes.MAGIC),mob)),17.5*(1+originConfig.damagePerLevel*(target-1)),"spell damage");
      var cloud=EntityType.AREA_EFFECT_CLOUD.create(level);cloud.setOwner(mob);
      near(hit(mob,low,new DamageSource(level.registryAccess().lookupOrThrow(net.minecraft.core.registries.Registries.DAMAGE_TYPE).getOrThrow(DamageTypes.INDIRECT_MAGIC),cloud,mob)),17.5*(1+originConfig.damagePerLevel*(target-1)),"area damage");
+     cloud.getPersistentData().putUUID(WaveSpawner.RUN_TAG,mob.getPersistentData().getUUID(WaveSpawner.RUN_TAG));
+     near(hit(mob,low,new DamageSource(level.registryAccess().lookupOrThrow(net.minecraft.core.registries.Registries.DAMAGE_TYPE).getOrThrow(DamageTypes.INDIRECT_MAGIC),cloud)),17.5*(1+originConfig.damagePerLevel*(target-1)),"owned source with RUN but no native damage tag still receives party scaling once");
      mob.discard();checks++;
     }
    }
@@ -104,12 +117,19 @@ public final class SpiralChecks {
    check(ProgressionAPI.mobLevel(max)==110,"level 110 combat");
    var buffer=new net.minecraft.network.RegistryFriendlyByteBuf(io.netty.buffer.Unpooled.buffer(),level.registryAccess());
    var packet=new MobLevelPayload(max.getId(),max.getUUID(),110);MobLevelPayload.CODEC.encode(buffer,packet);check(MobLevelPayload.CODEC.decode(buffer).level()==110,"badge wire level 110");buffer.release();
+   double normalDamage=originConfig.damagePerLevel;
+   try {
+    originConfig.damagePerLevel=1e100;
+    check(hit(max,low,level.damageSources().mobAttack(max))==Float.MAX_VALUE,"oversized finite damage config saturates at float boundary");
+    var zero=new LivingIncomingDamageEvent(low,new DamageContainer(level.damageSources().mobAttack(max),0));
+    AbyssIntegration.damage(zero);check(zero.getAmount()==0,"damage saturation preserves zero damage");
+   } finally {originConfig.damagePerLevel=normalDamage;}
    context(b,2,1);high.setPos(b.bounds().center());var other=spawn(b,high,2,MobCategory.MINI_BOSS,EntityType.VILLAGER,1);
    check(ProgressionAPI.mobLevel(other)==(bridge?55:60)&&!AbyssIntegration.fullBoss(other),"independent second party and non-Enemy miniboss");
    check(ProgressionAPI.mobLevel(max)==110,"second party cannot rewrite first party");
    // A real native scaling call honors SkipRaisingHealth, including TNK's own health modifier.
    context(a,5,3);var skip=EntityType.ZOMBIE.create(level);skip.setPos(a.bounds().center());skip.getPersistentData().putUUID(WaveSpawner.RUN_TAG,a.controller().runId());skip.getPersistentData().putBoolean(WaveSpawner.BOSS_TAG,true);skip.getPersistentData().putBoolean("SkipRaisingHealth",true);
-   WaveScaling.apply(skip,5,MobCategory.BOSS,EntityType.getKey(skip.getType()),2,plans(MobCategory.BOSS,EntityType.getKey(skip.getType()),5));level.addFreshEntity(skip);
+   scaling("apply",skip,new Class<?>[]{int.class,MobCategory.class,ResourceLocation.class,double.class,MobCatalog.ScalingSnapshot.class},5,MobCategory.BOSS,EntityType.getKey(skip.getType()),2d,plans(MobCategory.BOSS,EntityType.getKey(skip.getType()),5));level.addFreshEntity(skip);
    near(skip.getMaxHealth(),skip.getAttribute(Attributes.MAX_HEALTH).getBaseValue(),"SkipRaisingHealth skips TNK and party HP");
    // Adopt an already-present reinforcement through Spiral's real discover method.
    context(a,3,1);var root=spawn(a,low,3,MobCategory.COMMON_MOB,EntityType.ZOMBIE,1.5);
@@ -117,6 +137,21 @@ public final class SpiralChecks {
    var reinforcement=EntityType.HUSK.create(level);reinforcement.setPos(a.bounds().center().add(3,0,0));level.addFreshEntity(reinforcement);reinforcement.setHealth(8);
    var reinforcements=new EncounterReinforcements(a);reinforcements.begin(List.of(root));reinforcements.discover(a.controller().runId(),stages::add);
    check(AbyssIntegration.assigned(reinforcement)&&ProgressionAPI.mobLevel(reinforcement)==ProgressionAPI.mobLevel(root)&&reinforcement.getHealth()<=8,"native reinforcement adoption without healing");
+   // Native discovery accepts non-monster regular reinforcements only when they
+   // target an admitted participant; an ordinary friendly villager is excluded.
+   a.admit(low);
+   var neutralReinforcement=EntityType.VILLAGER.create(level);neutralReinforcement.setPos(a.bounds().center().add(3,0,1));neutralReinforcement.setHealth(5);neutralReinforcement.setTarget(low);level.addFreshEntity(neutralReinforcement);
+   reinforcements.discover(a.controller().runId(),stages::add);
+   check(neutralReinforcement.getPersistentData().hasUUID(WaveSpawner.RUN_TAG),"native discovery accepts a non-Enemy targeting an admitted participant");
+   check(AbyssIntegration.assigned(neutralReinforcement)&&!AbyssIntegration.fullBoss(neutralReinforcement)&&ProgressionAPI.mobLevel(neutralReinforcement)==ProgressionAPI.mobLevel(root),"late first assignment of a non-Enemy regular reinforcement uses the regular target");
+   check(neutralReinforcement.getHealth()<=5,"late first assignment of a non-Enemy regular reinforcement preserves injured health");
+   // Spiral marks all native phases BOSS, even phases of regular/mini encounters.
+   // An injured non-Enemy phase must keep both the actual root category and health.
+   var regularPhase=EntityType.VILLAGER.create(level);regularPhase.setPos(a.bounds().center().add(4,0,0));regularPhase.setHealth(5);level.addFreshEntity(regularPhase);
+   ((Map<ResourceLocation,Mob>)field(reinforcements,"phases")).put(EntityType.getKey(regularPhase.getType()),root);
+   reinforcements.discover(a.controller().runId(),stages::add);
+   check(AbyssIntegration.assigned(regularPhase)&&!AbyssIntegration.fullBoss(regularPhase)&&ProgressionAPI.mobLevel(regularPhase)==ProgressionAPI.mobLevel(root),"native phase flag cannot promote a regular encounter to a full boss");
+   check(regularPhase.getHealth()<=7.51,"fresh non-Enemy phase keeps injured health after native party transfer");
    // Actual damage/death pipeline, not an injected XP command.
    low.setPos(a.bounds().center());ProgressionAPI.profile(low).putInt("level",1);ProgressionAPI.profile(low).putInt("ceiling",100);double before=ProgressionAPI.profile(low).getDouble("combat_xp_earned");
    root.hurt(level.damageSources().playerAttack(low),root.getMaxHealth()*2);
@@ -129,9 +164,10 @@ public final class SpiralChecks {
    var phases=new EncounterReinforcements(a);phases.begin(List.of(phaseRoot));((Map<ResourceLocation,Mob>)field(phases,"phases")).put(EntityType.getKey(phase.getType()),phaseRoot);
    phases.discover(a.controller().runId(),stages::add);
    check(AbyssIntegration.fullBoss(phase)&&ProgressionAPI.mobLevel(phase)==110&&phase.getHealth()<=12.01,"native boss phase inherits level without extra healing");
-   var converted=EntityType.HUSK.create(level);converted.setPos(a.bounds().center().add(7,0,0));AbyssIntegration.inherit(phaseRoot,converted);
+   var converted=EntityType.ZOMBIE_VILLAGER.create(level);converted.setPos(a.bounds().center().add(7,0,0));AbyssIntegration.inherit(phaseRoot,converted);
    check(!converted.getPersistentData().hasUUID(WaveSpawner.RUN_TAG),"inherited child leaves native stage adoption to Spiral");level.addFreshEntity(converted);phases.discover(a.controller().runId(),stages::add);
    check(AbyssIntegration.assigned(converted)&&stages.enemies().contains(converted),"inherited child remains in native stage roster");
+   check(!AbyssIntegration.fullBoss(converted)&&ProgressionAPI.mobLevel(converted)==(bridge?75:100),"a non-phase child of a full boss uses its regular floor target, not boss level 110");
    // Both compatibility switches preserve native Spiral stats without TNK counting them again.
    context(b,5,3);originConfig.abyss.tnkHealthBaseline=false;originConfig.abyss.tnkDamageBaseline=false;
    var nativeStats=spawn(b,high,5,MobCategory.BOSS,EntityType.ZOMBIE,1.5);
@@ -141,7 +177,7 @@ public final class SpiralChecks {
    // No native run, even inside a real arena: forged bridge fields cannot create fixed levels.
    var forged=EntityType.ZOMBIE.create(level);forged.setPos(a.bounds().center());forged.getPersistentData().putInt("tnk_abyss_floor",6);forged.getPersistentData().putInt("tnk_abyss_target_level",100);level.addFreshEntity(forged);check(!AbyssIntegration.assigned(forged),"unowned in-dimension mob not arena");
    // Endless entry point is untouched and cannot capture a normal-floor context.
-   var endless=EntityType.ZOMBIE.create(level);endless.setPos(a.bounds().center());endless.getPersistentData().putUUID(WaveSpawner.RUN_TAG,UUID.randomUUID());WaveScaling.applyEndless(endless,20,MobCategory.COMMON_MOB,2);check(!AbyssIntegration.assigned(endless),"Endless excluded");
+   var endless=EntityType.ZOMBIE.create(level);endless.setPos(a.bounds().center());endless.getPersistentData().putUUID(WaveSpawner.RUN_TAG,UUID.randomUUID());scaling("applyEndless",endless,new Class<?>[]{int.class,MobCategory.class,double.class},20,MobCategory.COMMON_MOB,2d);check(!AbyssIntegration.assigned(endless),"Endless excluded");
    report.addProperty("floor_player_cases",checks);report.addProperty("boss_slots",3);report.addProperty("reload_damage_scaling_reinforcements_XP",true);
   } finally {if(oldMinimum==null)originConfig.bossBaseLevels.remove("minecraft:zombie");else originConfig.bossBaseLevels.put("minecraft:zombie",oldMinimum);}
  }

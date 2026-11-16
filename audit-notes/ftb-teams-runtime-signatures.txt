@@ -1,0 +1,188 @@
+# javap -public -s against the original official Maven artifact
+# FTB Teams NeoForge2101.1.12 SHA256 b3f33436070b7ae4a706280561f1d2f1d1eb1a089cb13ec9851e99646165aed2
+Compiled from "FTBTeamsAPI.java"
+public class dev.ftb.mods.ftbteams.api.FTBTeamsAPI {
+  public static final java.lang.String MOD_ID;
+    descriptor: Ljava/lang/String;
+  public static final java.lang.String MOD_NAME;
+    descriptor: Ljava/lang/String;
+  public dev.ftb.mods.ftbteams.api.FTBTeamsAPI();
+    descriptor: ()V
+
+  public static dev.ftb.mods.ftbteams.api.FTBTeamsAPI$API api();
+    descriptor: ()Ldev/ftb/mods/ftbteams/api/FTBTeamsAPI$API;
+
+  public static net.minecraft.resources.ResourceLocation rl(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lnet/minecraft/resources/ResourceLocation;
+
+  public static void _init(dev.ftb.mods.ftbteams.api.FTBTeamsAPI$API);
+    descriptor: (Ldev/ftb/mods/ftbteams/api/FTBTeamsAPI$API;)V
+}
+Compiled from "FTBTeamsAPI.java"
+public interface dev.ftb.mods.ftbteams.api.FTBTeamsAPI$API {
+  public abstract boolean isManagerLoaded();
+    descriptor: ()Z
+
+  public abstract dev.ftb.mods.ftbteams.api.TeamManager getManager();
+    descriptor: ()Ldev/ftb/mods/ftbteams/api/TeamManager;
+
+  public abstract boolean isClientManagerLoaded();
+    descriptor: ()Z
+
+  public abstract dev.ftb.mods.ftbteams.api.client.ClientTeamManager getClientManager();
+    descriptor: ()Ldev/ftb/mods/ftbteams/api/client/ClientTeamManager;
+
+  public abstract dev.ftb.mods.ftbteams.api.CustomPartyCreationHandler setCustomPartyCreationHandler(dev.ftb.mods.ftbteams.api.CustomPartyCreationHandler);
+    descriptor: (Ldev/ftb/mods/ftbteams/api/CustomPartyCreationHandler;)Ldev/ftb/mods/ftbteams/api/CustomPartyCreationHandler;
+
+  public abstract dev.ftb.mods.ftbteams.api.CustomPartyCreationHandler getCustomPartyCreationHandler();
+    descriptor: ()Ldev/ftb/mods/ftbteams/api/CustomPartyCreationHandler;
+
+  public abstract void setPartyCreationFromAPIOnly(boolean);
+    descriptor: (Z)V
+
+  public abstract void addPartyCreationValidator(dev.ftb.mods.ftbteams.api.PartyCreationValidator);
+    descriptor: (Ldev/ftb/mods/ftbteams/api/PartyCreationValidator;)V
+
+  public abstract dev.ftb.mods.ftbteams.api.TeamMessage createMessage(java.util.UUID, net.minecraft.network.chat.Component);
+    descriptor: (Ljava/util/UUID;Lnet/minecraft/network/chat/Component;)Ldev/ftb/mods/ftbteams/api/TeamMessage;
+}
+Compiled from "TeamManager.java"
+public interface dev.ftb.mods.ftbteams.api.TeamManager {
+  public abstract net.minecraft.server.MinecraftServer getServer();
+    descriptor: ()Lnet/minecraft/server/MinecraftServer;
+
+  public abstract java.util.UUID getId();
+    descriptor: ()Ljava/util/UUID;
+
+  public abstract java.util.Collection<dev.ftb.mods.ftbteams.api.Team> getTeams();
+    descriptor: ()Ljava/util/Collection;
+
+  public abstract java.util.Optional<dev.ftb.mods.ftbteams.api.Team> getTeamForPlayerID(java.util.UUID);
+    descriptor: (Ljava/util/UUID;)Ljava/util/Optional;
+
+  public abstract java.util.Optional<dev.ftb.mods.ftbteams.api.Team> getTeamForPlayer(net.minecraft.server.level.ServerPlayer);
+    descriptor: (Lnet/minecraft/server/level/ServerPlayer;)Ljava/util/Optional;
+
+  public abstract java.util.Optional<dev.ftb.mods.ftbteams.api.Team> getPlayerTeamForPlayerID(java.util.UUID);
+    descriptor: (Ljava/util/UUID;)Ljava/util/Optional;
+
+  public abstract java.util.Optional<dev.ftb.mods.ftbteams.api.Team> getTeamByName(java.lang.String);
+    descriptor: (Ljava/lang/String;)Ljava/util/Optional;
+
+  public abstract java.util.Optional<dev.ftb.mods.ftbteams.api.Team> getTeamByID(java.util.UUID);
+    descriptor: (Ljava/util/UUID;)Ljava/util/Optional;
+
+  public abstract boolean arePlayersInSameTeam(java.util.UUID, java.util.UUID);
+    descriptor: (Ljava/util/UUID;Ljava/util/UUID;)Z
+
+  public abstract java.util.Map<java.util.UUID, ? extends dev.ftb.mods.ftbteams.api.Team> getKnownPlayerTeams();
+    descriptor: ()Ljava/util/Map;
+
+  public abstract net.minecraft.nbt.CompoundTag getExtraData();
+    descriptor: ()Lnet/minecraft/nbt/CompoundTag;
+
+  public abstract void markDirty();
+    descriptor: ()V
+
+  public abstract dev.ftb.mods.ftbteams.api.Team createPartyTeam(net.minecraft.server.level.ServerPlayer, java.lang.String, java.lang.String, dev.ftb.mods.ftblibrary.icon.Color4I) throws com.mojang.brigadier.exceptions.CommandSyntaxException;
+    descriptor: (Lnet/minecraft/server/level/ServerPlayer;Ljava/lang/String;Ljava/lang/String;Ldev/ftb/mods/ftblibrary/icon/Color4I;)Ldev/ftb/mods/ftbteams/api/Team;
+
+  public abstract dev.ftb.mods.ftbteams.api.Team createServerTeam(net.minecraft.commands.CommandSourceStack, java.lang.String, java.lang.String, dev.ftb.mods.ftblibrary.icon.Color4I, java.util.UUID) throws com.mojang.brigadier.exceptions.CommandSyntaxException;
+    descriptor: (Lnet/minecraft/commands/CommandSourceStack;Ljava/lang/String;Ljava/lang/String;Ldev/ftb/mods/ftblibrary/icon/Color4I;Ljava/util/UUID;)Ldev/ftb/mods/ftbteams/api/Team;
+
+  public default dev.ftb.mods.ftbteams.api.Team createServerTeam(net.minecraft.commands.CommandSourceStack, java.lang.String, java.lang.String, dev.ftb.mods.ftblibrary.icon.Color4I) throws com.mojang.brigadier.exceptions.CommandSyntaxException;
+    descriptor: (Lnet/minecraft/commands/CommandSourceStack;Ljava/lang/String;Ljava/lang/String;Ldev/ftb/mods/ftblibrary/icon/Color4I;)Ldev/ftb/mods/ftbteams/api/Team;
+
+  public abstract void setChatRedirected(net.minecraft.server.level.ServerPlayer, boolean);
+    descriptor: (Lnet/minecraft/server/level/ServerPlayer;Z)V
+
+  public abstract boolean isChatRedirected(net.minecraft.server.level.ServerPlayer);
+    descriptor: (Lnet/minecraft/server/level/ServerPlayer;)Z
+}
+Compiled from "Team.java"
+public interface dev.ftb.mods.ftbteams.api.Team {
+  public abstract java.util.UUID getId();
+    descriptor: ()Ljava/util/UUID;
+
+  public abstract java.util.UUID getTeamId();
+    descriptor: ()Ljava/util/UUID;
+
+  public abstract java.lang.String getShortName();
+    descriptor: ()Ljava/lang/String;
+
+  public abstract java.util.UUID getOwner();
+    descriptor: ()Ljava/util/UUID;
+
+  public abstract dev.ftb.mods.ftbteams.api.property.TeamPropertyCollection getProperties();
+    descriptor: ()Ldev/ftb/mods/ftbteams/api/property/TeamPropertyCollection;
+
+  public abstract <T> T getProperty(dev.ftb.mods.ftbteams.api.property.TeamProperty<T>);
+    descriptor: (Ldev/ftb/mods/ftbteams/api/property/TeamProperty;)Ljava/lang/Object;
+
+  public abstract <T> void setProperty(dev.ftb.mods.ftbteams.api.property.TeamProperty<T>, T);
+    descriptor: (Ldev/ftb/mods/ftbteams/api/property/TeamProperty;Ljava/lang/Object;)V
+
+  public default boolean isPlayerTeam();
+    descriptor: ()Z
+
+  public default boolean isPartyTeam();
+    descriptor: ()Z
+
+  public default boolean isServerTeam();
+    descriptor: ()Z
+
+  public abstract java.util.List<dev.ftb.mods.ftbteams.api.TeamMessage> getMessageHistory();
+    descriptor: ()Ljava/util/List;
+
+  public abstract dev.ftb.mods.ftbteams.api.TeamRank getRankForPlayer(java.util.UUID);
+    descriptor: (Ljava/util/UUID;)Ldev/ftb/mods/ftbteams/api/TeamRank;
+
+  public abstract net.minecraft.network.chat.Component getName();
+    descriptor: ()Lnet/minecraft/network/chat/Component;
+
+  public abstract void sendMessage(java.util.UUID, java.lang.String);
+    descriptor: (Ljava/util/UUID;Ljava/lang/String;)V
+
+  public abstract void sendMessage(java.util.UUID, net.minecraft.network.chat.Component);
+    descriptor: (Ljava/util/UUID;Lnet/minecraft/network/chat/Component;)V
+
+  public abstract java.util.List<net.minecraft.network.chat.Component> getTeamInfo();
+    descriptor: ()Ljava/util/List;
+
+  public abstract java.util.Map<java.util.UUID, dev.ftb.mods.ftbteams.api.TeamRank> getPlayersByRank(dev.ftb.mods.ftbteams.api.TeamRank);
+    descriptor: (Ldev/ftb/mods/ftbteams/api/TeamRank;)Ljava/util/Map;
+
+  public abstract java.util.Set<java.util.UUID> getMembers();
+    descriptor: ()Ljava/util/Set;
+
+  public abstract java.lang.String getTypeTranslationKey();
+    descriptor: ()Ljava/lang/String;
+
+  public default boolean isClientTeam();
+    descriptor: ()Z
+
+  public abstract net.minecraft.nbt.CompoundTag getExtraData();
+    descriptor: ()Lnet/minecraft/nbt/CompoundTag;
+
+  public abstract void markDirty();
+    descriptor: ()V
+
+  public abstract java.util.Collection<net.minecraft.server.level.ServerPlayer> getOnlineMembers();
+    descriptor: ()Ljava/util/Collection;
+
+  public abstract net.minecraft.network.chat.Component getColoredName();
+    descriptor: ()Lnet/minecraft/network/chat/Component;
+
+  public abstract boolean isValid();
+    descriptor: ()Z
+
+  public abstract dev.ftb.mods.ftbteams.api.Team createParty(java.lang.String, dev.ftb.mods.ftblibrary.icon.Color4I);
+    descriptor: (Ljava/lang/String;Ldev/ftb/mods/ftblibrary/icon/Color4I;)Ldev/ftb/mods/ftbteams/api/Team;
+
+  public abstract <T> void syncOnePropertyToAll(net.minecraft.server.MinecraftServer, dev.ftb.mods.ftbteams.api.property.TeamProperty<T>, T);
+    descriptor: (Lnet/minecraft/server/MinecraftServer;Ldev/ftb/mods/ftbteams/api/property/TeamProperty;Ljava/lang/Object;)V
+
+  public abstract <T> void syncOnePropertyToTeam(dev.ftb.mods.ftbteams.api.property.TeamProperty<T>, T);
+    descriptor: (Ldev/ftb/mods/ftbteams/api/property/TeamProperty;Ljava/lang/Object;)V
+}

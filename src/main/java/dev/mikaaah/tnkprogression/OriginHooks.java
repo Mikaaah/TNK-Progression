@@ -23,12 +23,19 @@ public final class OriginHooks {
 
     public static void beginDrink(LivingEntity entity) { if (!entity.level().isClientSide) DRINKING.set(entity); }
     public static void endDrink() { DRINKING.remove(); }
+    public static LivingEntity drinkContext() { return DRINKING.get(); }
+    public static void restoreDrink(LivingEntity previous) { if(previous==null)endDrink();else DRINKING.set(previous); }
     public static boolean drinking(LivingEntity entity) { return DRINKING.get() == entity; }
 
     public static MobEffectInstance effect(Player player, MobEffectInstance original) {
         double scale = 1;
         if (original.getEffect().value().getCategory() == MobEffectCategory.HARMFUL) scale -= Origins.bonus(player, HARMFUL_DURATION_REDUCTION);
-        else if (drinking(player) && original.getEffect().value().getCategory() == MobEffectCategory.BENEFICIAL) scale += Origins.bonus(player, POTION_DURATION);
+        else if (drinking(player) && original.getEffect().value().getCategory() == MobEffectCategory.BENEFICIAL) {
+            scale += Origins.bonus(player, POTION_DURATION);
+            // Apply the native skill bonus at the original drink boundary too. Reapplying the
+            // raw potion at Finish overwrote the origin's extension (and could revive removed effects).
+            if(player instanceof ServerPlayer serverPlayer)scale *= 1+Math.clamp(TreePassives.stats(serverPlayer).getOrDefault("potion_duration",0.0),0,.5);
+        }
         if (scale == 1 || original.isInfiniteDuration()) return original;
         return copyDuration(original, scale);
     }

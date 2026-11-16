@@ -48,6 +48,8 @@ public final class AbyssSmoke {
    normal.getPersistentData().putInt("tnk_level",110);
    check(ProgressionAPI.mobLevel(normal)==110&&ProgressionAPI.lootLevel(player,normal)==10&&ProgressionAPI.rarityCap(player)==1,"combat and ordinary loot caps remain separate");
    report.addProperty("ordinary_world_and_API",true);
+   AuditChecks.run(server,report);
+   SkillsAuditChecks.run(server,report);
    boolean spiral=ModList.get().isLoaded("spiral_abyss"),loot=ModList.get().isLoaded("tnkloot");
    if(spiral)SpiralChecks.run(server,report);
    if(loot)LootChecks.run(server,player,report,spiral);

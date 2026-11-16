@@ -69,6 +69,7 @@ public final class ProgressionConfig {
     if(c.healthPerLevel==0.035)c.healthPerLevel=0.03;if(c.damagePerLevel==0.015)c.damagePerLevel=0.0125;
    }
    if(c.ceilings.length!=c.rarityCaps.length || c.ceilings.length==0 || c.ceilings[c.ceilings.length-1]!=100 || c.mobLevelVariance<0 || c.mobLevelVariance>99 || !Double.isFinite(c.healthPerLevel) || !Double.isFinite(c.damagePerLevel) || c.healthPerLevel<0 || c.damagePerLevel<0) throw new IllegalArgumentException("Invalid balance settings");
+   if(!Double.isFinite(c.healthPerLevel*(BossLevels.MAX_LEVEL-1)) || !Double.isFinite(c.damagePerLevel*(BossLevels.MAX_LEVEL-1)))throw new IllegalArgumentException("Level scaling overflows at the boss level limit");
    int prev=0;
    for(int i=0;i<c.ceilings.length;i++){ if(c.ceilings[i]<=prev || c.rarityCaps[i]<0 || c.rarityCaps[i]>5) throw new IllegalArgumentException("Invalid milestones"); prev=c.ceilings[i]; }
    for (var entry:defaults().entrySet()) c.activities.putIfAbsent(entry.getKey(),entry.getValue());

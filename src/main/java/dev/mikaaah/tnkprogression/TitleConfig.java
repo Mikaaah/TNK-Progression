@@ -20,6 +20,9 @@ public final class TitleConfig {
     public static Catalog current=new Catalog(true,List.of());
     private static Map<String,Definition> byId=Map.of();
     private static List<Definition> legacy=List.of();
+    record RuntimeState(Catalog catalog,Map<String,Definition> definitions,List<Definition> archived) {}
+    static RuntimeState checkpoint(){return new RuntimeState(current,byId,legacy);}
+    static void restore(RuntimeState state){current=state.catalog();byId=state.definitions();legacy=state.archived();}
     public static List<Definition> legacy(){return legacy;}
     public static List<Definition> all(){var all=new ArrayList<>(current.titles());all.addAll(legacy);return List.copyOf(all);}
     private static final Map<String,String> LEGACY_TREE_SKILLS=Map.of("wayfarer_10","hunter_subclass_1_mastery","delver_10","miner_mastery","homesteader_10","cook_mastery","artificer_10","blacksmith_mastery","survivor_10","blacksmith_defensive_keystone_1","adventurer_10","hunter_mastery");
@@ -33,6 +36,7 @@ public final class TitleConfig {
             }
             Catalog next=gson.fromJson(Files.readString(path),Catalog.class);
             if(next==null || next.titles()==null || next.titles().size()>256)throw new IllegalArgumentException("Invalid catalog size");
+            TitleCatalogRules.requireUniqueIds(next.titles());
             boolean migrated=false;List<Definition> updated=new ArrayList<>();
             Map<String,String> previousDescriptions;
             Map<String,Definition> defaultsById=new HashMap<>();
@@ -84,6 +88,7 @@ public final class TitleConfig {
             if(Files.exists(archivePath)){
                 var saved=gson.fromJson(Files.readString(archivePath),Catalog.class);
                 if(saved==null || saved.titles()==null || saved.titles().size()>256)throw new IllegalArgumentException("Invalid legacy title catalogue");
+                TitleCatalogRules.requireUniqueIds(saved.titles());
                 saved.titles().forEach(d->archived.put(d.id(),d));
             }
             var split=TitleCatalogRules.split(updated,List.copyOf(archived.values()));

@@ -63,18 +63,19 @@ public final class Titles {
     }
     public static boolean select(ServerPlayer p,String id){
         if(!id.isEmpty() && (!unlocked(p,id) || TitleConfig.get(id).isEmpty()))return false;
-        passive(p);
-        ProgressionAPI.profile(p).putString("title_selected",id);ProgressionData.get(p.server).setDirty();LevelBadges.appearanceChanged(p);return true;
+        passive(p);var n=ProgressionAPI.profile(p);
+        if(n.contains("title_selected") && id.equals(n.getString("title_selected")))return true;
+        n.putString("title_selected",id);ProgressionData.get(p.server).setDirty();LevelBadges.appearanceChanged(p);return true;
     }
     public static boolean selectPassive(ServerPlayer p,String id){
         String before=passive(p);
         if(!id.isEmpty() && (cosmeticOnly(id) || !unlocked(p,id) || TitleConfig.get(id).isEmpty()))return false;
-        if(id.equals(before))return true;
+        if(id.equals(before) && ProgressionAPI.profile(p).contains("title_passive"))return true;
         if(!id.isEmpty() && TitlePerks.cooldown(p)>0)return false;
         var n=ProgressionAPI.profile(p);
         // Clearing removes benefits immediately but never clears the swap lockout.
         if(!id.isEmpty())n.putLong("title_swap_after",p.server.overworld().getGameTime()+20L*TitlePerks.current.swapCooldownSeconds());
-        n.putString("title_passive",id);ProgressionData.get(p.server).setDirty();TitlePerks.apply(p);CharacterState.sendFull(p);return true;
+        n.putString("title_passive",id);ProgressionData.get(p.server).setDirty();TitlePerks.apply(p);CharacterState.send(p);return true;
     }
     public static boolean revoke(ServerPlayer p,String id){
         if(TitleConfig.get(id).isEmpty() && !unlocked(p,id))return false;
@@ -93,8 +94,9 @@ public final class Titles {
     public static void checkSkills(ServerPlayer p){
         if(!ActivityGuard.player(p))return;
         Map<String,Optional<SkillBridge.TitleSnapshot>> snapshots=new HashMap<>();
+        var profile=ProgressionAPI.profile(p);var owned=profile.getCompound("titles_unlocked");var revoked=profile.getCompound("titles_revoked");
         for(var def:TitleConfig.current.titles()) {
-            if(!def.automatic() || unlocked(p,def.id()))continue;
+            if(!def.automatic() || owned.getBoolean(def.id()) || revoked.getBoolean(def.id()))continue;
             var snapshot=snapshots.computeIfAbsent(def.skillCategory(),category->SkillBridge.titleSnapshot(p,category));
             if(snapshot.isPresent() && TitleConfig.qualifies(def,snapshot.get().spent(),snapshot.get().unlocked()))earn(p,def.id());
         }

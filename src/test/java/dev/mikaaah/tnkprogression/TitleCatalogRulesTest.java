@@ -34,6 +34,14 @@ class TitleCatalogRulesTest {
         assertEquals(List.of(original),split.active());assertEquals(List.of(variant),split.legacy());
         assertEquals(split,TitleCatalogRules.split(split.active(),split.legacy()));
     }
+    @Test void repeatedRetiredIdsAreRejectedBeforeArchivingCanOverwriteThem(){
+        var original=catalog("default_legacy_titles.json").titles().getFirst();
+        var duplicate=new TitleConfig.Definition(original.id(),"Edited legacy",original.artwork(),original.style(),original.colour(),original.description(),original.skillCategory(),original.minSpentPoints(),original.requiredSkills());
+        assertThrows(IllegalArgumentException.class,()->TitleCatalogRules.split(List.of(original,duplicate),List.of()));
+        assertThrows(IllegalArgumentException.class,()->TitleCatalogRules.split(List.of(),List.of(original,duplicate)));
+        // The active legacy entry intentionally overrides the bundled archive during migration.
+        assertEquals(List.of(duplicate),TitleCatalogRules.split(List.of(duplicate),List.of(original)).legacy());
+    }
     @Test void fullUnlockInfoShowsSkillProgressAndExplicitQuestRewardSource(){
         var list=catalog("default_titles.json").titles();
         var points=list.stream().filter(d->d.id().equals("tnk:paragon")).findFirst().orElseThrow();

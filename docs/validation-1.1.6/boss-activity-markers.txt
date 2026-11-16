@@ -1,0 +1,1 @@
+[13:55:38] [Server thread/INFO] [de.mi.tn.TnkProgression/]: TNK_BOSS_ACTIVITY_SMOKE_OK: boss floor, +10, caps 100/110, Apotheosis flags, saved-level migration, miniboss NBT persistence, neutral bosses, codec, badge and all activity help

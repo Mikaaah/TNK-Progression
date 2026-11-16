@@ -6,7 +6,7 @@
 
 <p align="center"><a href="https://www.curseforge.com/minecraft/mc-mods/towns-kingdoms-progression">Download</a> · <a href="docs/CHARACTER-GUIDE.md">Player guide</a> · <a href="https://github.com/Mikaaah/TNK-Progression/wiki">Wiki</a> · <a href="CHANGELOG.md">Changelog</a> · <a href="https://github.com/Mikaaah/TNK-Progression/issues">Report an issue</a></p>
 
-<p align="center"><img src="https://img.shields.io/badge/Progression-1.1.2-7f384a?style=flat-square" alt="Progression 1.1.2"> <img src="https://img.shields.io/badge/Minecraft-1.21.1-5b8731?style=flat-square" alt="Minecraft 1.21.1"> <img src="https://img.shields.io/badge/Loader-NeoForge-d77828?style=flat-square" alt="NeoForge"></p>
+<p align="center"><img src="https://img.shields.io/badge/Progression-1.1.6-7f384a?style=flat-square" alt="Progression 1.1.6"> <img src="https://img.shields.io/badge/Minecraft-1.21.1-5b8731?style=flat-square" alt="Minecraft 1.21.1"> <img src="https://img.shields.io/badge/Loader-NeoForge-d77828?style=flat-square" alt="NeoForge"></p>
 
 ## Make everyday adventures count
 
@@ -29,11 +29,11 @@ Optional [Spiral Abyss integration](docs/ABYSS-COMPATIBILITY.md) adds fixed norm
 
 Direct XP replaces the old activity milestones. The default journey from level 1 to 100 costs **4,950,000 XP**. Starcatcher catches have configurable rarity rewards, and the Sigil of Ascension uses the supplied purple token artwork. Crafting and engineering no longer award automatic XP.
 
-[What changed](CHANGELOG.md) · [XP rewards and migration](docs/DIRECT-XP.md) · [Version history and aliases](docs/VERSIONING.md)
+[Technical audit](docs/TECHNICAL-AUDIT-1.1.6.md) · [What changed](CHANGELOG.md) · [XP rewards and migration](docs/DIRECT-XP.md) · [Version history and aliases](docs/VERSIONING.md)
 
 ## Install
 
-1. Put **`tnkprogression-1.1.2-neoforge-1.21.1.jar`** in `mods/` on the server and clients. Replace the previous Progression JAR.
+1. Put **`tnkprogression-1.1.6-neoforge-1.21.1.jar`** in `mods/` on the server and clients. Replace the previous Progression JAR.
 2. For the TNK skill tree, install the pack’s matching Pufferfish Skills/Attributes setup and the external [588-node configuration](skilltree/rebuilt588/README.md). Keep the configuration on both sides.
 3. Pack authors can add [quest rewards](docs/QUEST-ROLES.md) and the optional [title integrations](integration/README.md).
 

@@ -1,0 +1,18 @@
+{
+  "tests": 60,
+  "failures": 0,
+  "errors": 0,
+  "suites": [
+    "dev.mikaaah.tnkprogression.ProgressionMathTest",
+    "dev.mikaaah.tnkprogression.TreePassiveRulesTest",
+    "dev.mikaaah.tnkprogression.ActivityRulesTest",
+    "dev.mikaaah.tnkprogression.NearbyPlayerIndexTest",
+    "dev.mikaaah.tnkprogression.TitleCatalogRulesTest",
+    "dev.mikaaah.tnkprogression.CharacterSyncRulesTest",
+    "dev.mikaaah.tnkprogression.OriginRulesTest",
+    "dev.mikaaah.tnkprogression.AbyssRulesTest",
+    "dev.mikaaah.tnkprogression.MobLevelRulesTest",
+    "dev.mikaaah.tnkprogression.TitleRulesTest",
+    "dev.mikaaah.tnkprogression.BossLevelDefaultsTest"
+  ]
+}

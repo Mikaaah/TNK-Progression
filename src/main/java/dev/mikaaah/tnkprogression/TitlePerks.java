@@ -42,16 +42,22 @@ public final class TitlePerks {
  public static boolean available(ServerPlayer p,Perk perk){return BuiltInRegistries.ATTRIBUTE.getHolder(ResourceLocation.parse(perk.attribute())).map(h->p.getAttribute(h)!=null).orElse(false);}
  public static List<Perk> forTitle(String id){return Titles.cosmeticOnly(id)?List.of():current.titles().getOrDefault(id,List.of());}
  public static void apply(ServerPlayer p){
-  var n=ProgressionAPI.profile(p);var previous=n.getList("title_perk_attributes",Tag.TAG_STRING);Set<String> attributes=new HashSet<>();
-  for(var tag:previous)attributes.add(tag.getAsString());
+  var n=ProgressionAPI.profile(p);var previous=n.getList("title_perk_attributes",Tag.TAG_STRING);
+  Set<String> attributes=new HashSet<>();for(var tag:previous)attributes.add(tag.getAsString());
   for(var list:current.titles().values())for(var perk:list)attributes.add(perk.attribute());
-  for(String id:attributes)BuiltInRegistries.ATTRIBUTE.getHolder(ResourceLocation.parse(id)).ifPresent(h->{var a=p.getAttribute(h);if(a!=null)a.removeModifier(modifier(id));});
+  Map<String,Perk> desired=new LinkedHashMap<>();for(var perk:forTitle(Titles.passive(p)))desired.put(perk.attribute(),perk);
   ListTag active=new ListTag();
-  for(var perk:forTitle(Titles.passive(p)))BuiltInRegistries.ATTRIBUTE.getHolder(ResourceLocation.parse(perk.attribute())).ifPresent(h->{
-   var a=p.getAttribute(h);if(a==null)return;
-   a.addTransientModifier(new AttributeModifier(modifier(perk.attribute()),perk.amount(),perk.operation().equals("add")?AttributeModifier.Operation.ADD_VALUE:AttributeModifier.Operation.ADD_MULTIPLIED_BASE));active.add(StringTag.valueOf(perk.attribute()));
-  });
-  n.put("title_perk_attributes",active);ProgressionData.get(p.server).setDirty();
+  for(String id:attributes){
+   var key=ResourceLocation.tryParse(id);if(key==null)continue;
+   BuiltInRegistries.ATTRIBUTE.getHolder(key).ifPresent(h->{
+    var a=p.getAttribute(h);if(a==null)return;var perk=desired.get(id);
+    if(perk==null)a.removeModifier(modifier(id));
+    else Origins.modifier(a,"title/"+id.replace(':','/'),perk.amount(),perk.operation().equals("add")?AttributeModifier.Operation.ADD_VALUE:AttributeModifier.Operation.ADD_MULTIPLIED_BASE);
+   });
+  }
+  // Keep deterministic authored order in saved cleanup metadata, independent of the removal set.
+  for(var perk:desired.values())if(available(p,perk))active.add(StringTag.valueOf(perk.attribute()));
+  if(!previous.equals(active)){n.put("title_perk_attributes",active);ProgressionData.get(p.server).setDirty();}
   if(p.getHealth()>p.getMaxHealth())p.setHealth(p.getMaxHealth()); // Swapping never heals.
  }
  public static long cooldown(ServerPlayer p){return Math.max(0,ProgressionAPI.profile(p).getLong("title_swap_after")-p.server.overworld().getGameTime());}

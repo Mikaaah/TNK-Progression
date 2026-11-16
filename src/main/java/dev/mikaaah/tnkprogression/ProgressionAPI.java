@@ -21,7 +21,7 @@ public final class ProgressionAPI {
  public static int ceiling(ServerPlayer p){
   int personal=profile(p).getInt("ceiling");
   int team=TeamBridge.key(p).map(k->ProgressionData.get(p.server).entry(k).getInt("ceiling")).orElse(0);
-  return Math.max(ProgressionConfig.current.ceilings[0],Math.max(personal,team));
+  return ProgressionMath.effectiveCeiling(ProgressionConfig.current.ceilings[0],personal,team);
  }
  public static int rarityCap(ServerPlayer p){int cap=ceiling(p),i=0;while(i+1<ProgressionConfig.current.ceilings.length && cap>=ProgressionConfig.current.ceilings[i+1])i++;return ProgressionConfig.current.rarityCaps[i];}
  /** Actual saved combat level, including bosses at 110. Never recipient-capped. */
@@ -29,10 +29,12 @@ public final class ProgressionAPI {
  /** Ordinary mob loot only. Authored dungeon rewards use Loot's own saved source/tier/rarity. */
  public static int lootLevel(ServerPlayer p,LivingEntity mob){return Math.min(mobLevel(mob),ceiling(p));}
  public static long awardXp(ServerPlayer p,long amount){
-  if(amount<=0 || level(p)>=ceiling(p) || level(p)>=100)return 0;
-  CompoundTag n=profile(p);int level=level(p),old=level;long xp=Math.clamp(n.getLong("xp"),0,ProgressionMath.levelCost(level)-1);
+  if(amount<=0)return 0;
+  CompoundTag n=profile(p);int level=level(p),old=level,cap=ceiling(p);
+  if(level>=cap || level>=100)return 0;
+  long xp=Math.clamp(n.getLong("xp"),0,ProgressionMath.levelCost(level)-1);
   long remaining=amount;
-  while(remaining>0 && level<ceiling(p) && level<100){long needed=ProgressionMath.levelCost(level)-xp;long take=Math.min(remaining,needed);xp+=take;remaining-=take;if(xp>=ProgressionMath.levelCost(level)){level++;xp=0;}}
+  while(remaining>0 && level<cap && level<100){long needed=ProgressionMath.levelCost(level)-xp;long take=Math.min(remaining,needed);xp+=take;remaining-=take;if(xp>=ProgressionMath.levelCost(level)){level++;xp=0;}}
   n.putInt("level",level);n.putLong("xp",xp);ProgressionData.get(p.server).setDirty();
   if(level!=old){MobLevels.invalidate(p.serverLevel());p.sendSystemMessage(Component.literal("Character level "+level+" — "+ProgressionMath.skillPoints(level)+" skill points earned"));SkillBridge.sync(p);LevelBadges.changed(p);}
   return amount-remaining;
@@ -52,10 +54,10 @@ public final class ProgressionAPI {
   if(!CharacterState.ACTIVITIES.contains(key)||(key.equals("quest")?p instanceof net.neoforged.neoforge.common.util.FakePlayer:!ActivityGuard.player(p))||!Double.isFinite(amount)||amount<=0||level(p)>=ceiling(p)||level(p)>=100)return 0;
   var n=profile(p);double adjusted=Math.min(1_000_000_000,amount);
   if(key.equals("quest"))adjusted*=1+Origins.bonus(p,OriginRules.Perk.ENGINEERING_XP);
-  String remainder=key+"_xp_remainder";double total=n.getDouble(remainder)+adjusted;
+  String remainder=key+"_xp_remainder";double total=ProgressionMath.fractionalRemainder(n.getDouble(remainder))+adjusted;
   long paid=awardXp(p,(long)Math.floor(total));
   n.putDouble(remainder,level(p)>=ceiling(p)||level(p)>=100?0:total-Math.floor(total));
-  n.putDouble(key+"_xp_earned",n.getDouble(key+"_xp_earned")+paid);
+  n.putDouble(key+"_xp_earned",ProgressionMath.nonNegativeFinite(n.getDouble(key+"_xp_earned"))+paid);
   n.putDouble(key+"_xp_last",paid);n.putLong(key+"_actions",n.getLong(key+"_actions")+1);
   if(paid>0){var history=n.getList("activity_history",net.minecraft.nbt.Tag.TAG_STRING);String line=key+"  +"+paid+" XP";
    if(history.isEmpty()||!history.getString(0).equals(line))history.add(0,net.minecraft.nbt.StringTag.valueOf(line));

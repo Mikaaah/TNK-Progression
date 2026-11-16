@@ -89,11 +89,34 @@ public final class TreeSmoke {
    Object poison=((Optional<?>)type.getMethod("getSkill",String.class).invoke(categoryApi,"alchemist_offensive_1")).orElseThrow();skillType.getMethod("unlock",net.minecraft.server.level.ServerPlayer.class).invoke(poison,active);
    var victim=net.minecraft.world.entity.EntityType.CREEPER.create(server.overworld());
    victim.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.ARMOR).setBaseValue(0);victim.setHealth(20);victim.invulnerableTime=0;
-   victim.hurt(active.damageSources().playerAttack(active),4);check(Math.abs(victim.getHealth()-16)<.01,"source poisoned-target bonus is inactive on a clean target");
-   victim.setHealth(20);victim.invulnerableTime=0;victim.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.POISON,100));
-   victim.hurt(active.damageSources().playerAttack(active),4);check(Math.abs(victim.getHealth()-15.8)<.01,"source +5% damage applies to an actually poisoned victim");
+   var source=active.damageSources().playerAttack(active);
+   // Assert TNK's exact contribution at its real handler boundary. Other installed mods may
+   // legitimately alter the final hurt amount; neither their modifiers nor their listeners are disabled.
+   var cleanHit=new net.neoforged.neoforge.event.entity.living.LivingDamageEvent.Pre(victim,new net.neoforged.neoforge.common.damagesource.DamageContainer(source,4));
+   SourceTreeBonuses.damage(cleanHit);check(Math.abs(cleanHit.getNewDamage()-4)<.0001,"source poisoned-target bonus is inactive on a clean target");
+   victim.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.POISON,100));
+   var poisonedHit=new net.neoforged.neoforge.event.entity.living.LivingDamageEvent.Pre(victim,new net.neoforged.neoforge.common.damagesource.DamageContainer(source,4));
+   SourceTreeBonuses.damage(poisonedHit);check(Math.abs(poisonedHit.getNewDamage()-4.2)<.0001,"source +5% damage applies to an actually poisoned victim");
+   victim.hurt(source,4);check(Float.isFinite(victim.getHealth()),"complete native damage pipeline remains safe alongside all installed listeners");
    type.getMethod("resetSkills",net.minecraft.server.level.ServerPlayer.class).invoke(categoryApi,active);SourceTreeBonuses.refresh(active);
-   for(var title:TitleConfig.current.titles())if(title.id().startsWith("tnk:mastery_")){check(TitleConfig.qualifies(title,60,Set.copyOf(title.requiredSkills())),"mastery title unlock criteria");check(!TitleConfig.qualifies(title,59,Set.copyOf(title.requiredSkills())),"mastery title spending requirement enforced");}
+   check(TitleConfig.current.titles().stream().noneMatch(title->TitleCatalogRules.retiredBuiltin(title.id())),"retired mastery/subclass badges never return to automatic catalogue");
+   check(TitleConfig.current.titles().stream().filter(TitleConfig.Definition::automatic).count()==10,"only ten authored purchase-based skill titles unlock automatically");
+   check(TitleConfig.legacy().size()==16,"all retired definitions remain available to saved owners");
+   check(SkillBridge.spentPoints(active,"puffish_skills:character").orElseThrow()==0,"cheap spent-point query reflects full native respec");
+   Object alchemist=((Optional<?>)type.getMethod("getSkill",String.class).invoke(categoryApi,"alchemist_class")).orElseThrow();
+   skillType.getMethod("unlock",net.minecraft.server.level.ServerPlayer.class).invoke(alchemist,active);
+   check(SkillBridge.spentPoints(active,"puffish_skills:character").orElseThrow()==1,"cheap spent-point query observes purchase without cached player state");
+   Origins.adminSet(active,"tnk:apothecary");active.removeAllEffects();
+   var potion=new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.POTION);
+   potion.set(net.minecraft.core.component.DataComponents.POTION_CONTENTS,new net.minecraft.world.item.alchemy.PotionContents(Optional.empty(),Optional.empty(),List.of(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.MOVEMENT_SPEED,1000))));
+   var originalPotion=potion.copy();var bottle=potion.finishUsingItem(server.overworld(),active);
+   net.neoforged.neoforge.event.EventHooks.onItemUseFinish(active,originalPotion,0,bottle);
+   check(active.getEffect(net.minecraft.world.effect.MobEffects.MOVEMENT_SPEED).getDuration()==1610,"origin and purchased potion skill extend the original drink once, including Finish event");
+   check(!OriginHooks.drinking(active),"potion context clears after drink");
+   active.removeAllEffects();active.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.MOVEMENT_SPEED,1000));
+   check(active.getEffect(net.minecraft.world.effect.MobEffects.MOVEMENT_SPEED).getDuration()==1000,"drink bonuses do not affect splash or unrelated effect applications");
+   active.removeAllEffects();type.getMethod("resetSkills",net.minecraft.server.level.ServerPlayer.class).invoke(categoryApi,active);Origins.adminReset(active);
+   TnkProgression.LOG.info("TNK_POTION_SKILL_ORIGIN_LIVE_OK: native skill purchase, 40% skill plus15% origin, one original effect application, no Finish reapply or scope leak");
    TnkProgression.LOG.info("TNK_SOURCE_VALUES_LIVE_OK: +2 conditional Health, no stacking, condition removal, respec and +5% poisoned-target damage; active title requirements validated; retired subclass badges excluded");
    TnkProgression.LOG.info("TNK_SECOND_WIND_LIVE_OK: real damage, recovery and saved cooldown through respec");
    TnkProgression.LOG.info("TNK_PUFFERFISH_LIVE_POINTS_RESPEC_OK: actual loaded mod, 175 points, no duplicates, attributes/tags and full respec verified");

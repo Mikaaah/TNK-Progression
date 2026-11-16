@@ -32,6 +32,10 @@ public final class DirectXpConfig {
  public Map<String,Double> cookingItems=new LinkedHashMap<>();
  public Map<String,Double> mobMultipliers=new LinkedHashMap<>();
  public Set<String> minibosses=new HashSet<>(Set.of("deeperdarker:stalker"));
+ private record MiningTag(TagKey<Block> tag,double xp){}
+ private static final TagKey<Block> ORES=TagKey.create(Registries.BLOCK,ResourceLocation.parse("c:ores"));
+ private transient Map<String,Double> cachedMiningSource=Map.of();
+ private transient List<MiningTag> cachedMiningTags=List.of();
  public static DirectXpConfig current=new DirectXpConfig();
  public static boolean reload(){try{
   var path=FMLPaths.CONFIGDIR.get().resolve("tnk-xp.json");var gson=new GsonBuilder().setPrettyPrinting().create();
@@ -45,15 +49,23 @@ public final class DirectXpConfig {
   if(c.minibosses==null)throw new IllegalArgumentException("Null miniboss list");
   for(var map:List.of(c.miningBlocks,c.miningTags,c.cookingItems,c.mobMultipliers))for(String id:map.keySet())ResourceLocation.parse(id);
   for(String id:c.minibosses)ResourceLocation.parse(id);
-  current=c;return true;
+  c.compileMiningTags();current=c;return true;
  }catch(Exception ex){TnkProgression.LOG.error("Keeping previous direct XP config",ex);return false;}}
  private static void valid(double value){if(!Double.isFinite(value)||value<0||value>1_000_000)throw new IllegalArgumentException("XP values must be finite, 0..1000000");}
  public double mining(BlockState state){
   Double exact=miningBlocks.get(BuiltInRegistries.BLOCK.getKey(state.getBlock()).toString());if(exact!=null)return exact;
+  compileMiningTags();
   double reward=0;boolean matched=false;
-  for(var e:miningTags.entrySet())if(!e.getKey().equals("c:ores")&&state.is(TagKey.create(Registries.BLOCK,ResourceLocation.parse(e.getKey())))){matched=true;reward=Math.max(reward,e.getValue());}
-  if(!matched && state.is(TagKey.create(Registries.BLOCK,ResourceLocation.parse("c:ores"))))return miningTags.getOrDefault("c:ores",0d);
+  for(var e:cachedMiningTags)if(state.is(e.tag())){matched=true;reward=Math.max(reward,e.xp());}
+  if(!matched && state.is(ORES))return miningTags.getOrDefault("c:ores",0d);
   return reward;
+ }
+ private void compileMiningTags(){
+  // Public maps remain editable by integrations; detect in-place edits as well as config reloads.
+  if(cachedMiningSource.equals(miningTags))return;
+  var tags=new ArrayList<MiningTag>();
+  miningTags.forEach((id,xp)->{if(!id.equals("c:ores"))tags.add(new MiningTag(TagKey.create(Registries.BLOCK,ResourceLocation.parse(id)),xp));});
+  cachedMiningTags=List.copyOf(tags);cachedMiningSource=Map.copyOf(miningTags);
  }
  public double farming(BlockState state){
   if(state.is(Blocks.PUMPKIN)||state.is(Blocks.MELON))return fruit;

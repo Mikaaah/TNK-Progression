@@ -1,0 +1,63 @@
+# Skills, origins and titles technical audit
+
+Baseline: Progression `a01e74172cb266896cb1ee85d508560a5660eaad` (1.1.5), audited on branch `audit/technical-checkup-1.1.6`. Target: Minecraft 1.21.1, NeoForge 21.1.262, Java 21.
+
+## Confirmed issues and changes
+
+| Finding | Effect before the change | Resolution |
+| --- | --- | --- |
+| Skill API reflection repeated for every invocation | Periodic character summaries/title checks repeatedly resolved the same classes and Methods; full title snapshots also enumerated unlocked nodes when the caller needed only the spent-point count. | `SkillBridge` binds the actual optional API once. Added `spentPoints(ServerPlayer,String)` for the periodic scalar read. Category and player state remain live; absent/broken APIs never invent points or unlocks. Streams are closed. |
+| Skill and origin potion duration extensions competed | NeoForge's `LivingEntity.completeUsingItem` calls `finishUsingItem` before posting `LivingEntityUseItemEvent.Finish`. The origin was applied during the drink, then the skill handler reapplied the unmodified source potion after the origin context ended. The second application could replace the origin's longer effect and could reintroduce effects removed by another listener. | Both authored duration factors are applied once to the original beneficial drink effect in `OriginHooks.effect`. Removed the Finish-time potion reapplication. Food recovery stays in its existing Finish handler. Infinite effects, harmful-effect handling, instant-heal handling and splash/unrelated effects keep their boundaries. |
+| Drink scope used HEAD/RETURN cleanup | A mod throwing from `PotionItem.finishUsingItem` could leave the drinking ThreadLocal active until the end-of-tick fallback. Nested drinks could also clear an outer scope. | `OriginPotionMixin` uses the loader's existing MixinExtras `WrapMethod` with `finally`, restoring the prior context. No new dependency. |
+| Original-source bonus JSON was interpreted repeatedly | Every five player ticks, each owned source bonus reparsed kinds, numeric fields, nested conditions and resource identifiers; damage handlers repeated that work too. Players without source bonuses still allocated a reconciliation map. | Parse root definitions and nested expressions once when the existing configuration is loaded. Runtime code evaluates only current equipment/effects/food/health/target state. Empty unowned states return early. Existing modifier equality checks and downward-only health clamp remain. Invalid source identifiers now fail at configuration load instead of during a player tick. |
+| Title passive refresh removed/readded identical modifiers | Login/refresh/selection re-created unchanged modifiers and unconditionally dirtied the profile, despite stable modifier IDs already preventing stat stacking. | `TitlePerks.apply` reconciles desired modifiers using the existing stable origin modifier helper, retaining identical instances and cleaning removed/config-replaced attributes from saved cleanup metadata. Writes metadata only when changed; never heals. |
+| Title reload could publish half of a configuration pair | The catalogue loader committed before perk validation. A rejected perk file left a new catalogue active with old perks, while feedback claimed the old catalogue was kept. | The command checkpoints and restores catalogue, ID lookup, legacy list and perks together on failure. Feedback accurately distinguishes retained runtime state from migration writes already completed on disk. |
+| Title clear command ignored its selection result | The command unconditionally reported success without checking the selection API. | Propagate the selection result and return failure if rejected, while retaining the existing immediate-clear and preserved-cooldown policy. |
+| Repeating a cosmetic selection rebuilt appearance state | The same selected cosmetic ID caused another profile write and appearance broadcast. Passive selections rebuilt a full catalogue even though ownership did not change. | Selections are idempotent. Successful passive changes send the existing lightweight character state; grants and revokes retain full ownership synchronization. |
+| Clearing a never-selected passive was not persisted | Returning early for an empty passive before the first grant left no explicit passive selection. A later first title could autoequip a passive the player had cleared. | Save the first explicit empty passive choice; subsequent identical choices remain idempotent. Existing cooldown rules are unchanged. |
+| Duplicate legacy title IDs silently overwrote earlier definitions | Active retired definitions and saved archive definitions were merged by map before the normal duplicate validator ran. A malformed catalogue could silently discard one definition. | Reject duplicate IDs within each supplied active/archive list before merging. The intentional saved legacy override of a bundled default remains supported. Invalid reloads keep the live catalogue and player ownership. |
+| Hunting drops used the killer's current world | An owned projectile kill after a player dimension change could construct the bonus meat/leather entity in the player's new world before NeoForge inserted all victim drops into the victim's world. | Construct the additional drop in the victim's world, preserving the source stack components, coordinates and amount. |
+| Repeated server profile reads in origin bonus queries | One bonus read fetched the UUID profile separately for selected ID and revision. | Read the same authoritative profile once per query. No player-state cache or changed legacy-origin semantics. |
+
+`Titles.checkSkills` also reads ownership/revocation compounds once per pass and skips revoked automatic rewards before querying Pufferfish. Authorized explicit grants still clear revocations by the existing policy.
+
+## Dependency evidence
+
+* Actual JAR API signatures were inspected with Java 21 `javap` for Pufferfish's Skills 0.16.8, 0.17.3 and 0.19.2 (`*-1.21-neoforge.jar`). Every method bound by `SkillBridge` exists in all three: `SkillsAPI.getCategory`, `Category.getSpentPoints`, `streamUnlockedSkills`, `setPoints`, `streamSkills`, `openScreen`, and `Skill.getId`.
+* Detailed optional API behavior was checked against official Pufferfish source branch `1.21`, commit `78485d944719516667e648398e6d469b059c8c32`, and `puffish_skills-0.19.2-1.21-neoforge.jar` (official Modrinth version `8tfcI2wU`, SHA-256 `d96e4b5735bd05c7210892f75bf078a0a4cac67a8d99f28076e5a4a57fd4e2cd`).
+* `Category.setPoints(player, tnkprogression:character_level, total)` replaces that source's absolute entitlement. Progression continues to use this mechanism; it does not increment on reconnect or duplicate other point sources. Actual spending/refund costs remain Pufferfish-owned.
+* `SkillsAPI.getCategory` constructs a new ID wrapper; wrapper identity cannot safely identify reloads. Erase/import/silent writes and configuration reload do not all emit the public unlock/lock/new-point callbacks. Accordingly this change caches Methods, not player snapshots or permanent category data. Respec/import remain immediately visible to queries.
+* Potion event ordering was verified directly in the target generated `neoforge-21.1.262-sources.jar`: `LivingEntity.completeUsingItem` lines 3195–3204 and `EventHooks.onItemUseFinish` lines 472–475. `PotionItem.finishUsingItem` applies noninstant effects with `LivingEntity.addEffect`.
+* NeoForge 21.1.262 supplies MixinExtras 0.5.5 in its actual artifact manifest; the finally-scoped wrapper uses that supplied API.
+* Pufferfish's Minecraft 1.21 metadata is accepted on Minecraft 1.21.1 by FML's explicit version-support override. The apparent exclusive upper bound in its raw TOML is not reported as a compatibility defect.
+
+## Persistence and preserved behavior
+
+* Origins, origin revision, Ascension unlock, selection requests, independent cosmetic/passive title IDs, ownership, revocations, passive cooldowns and fractional origin credits remain in Progression's existing UUID-owned SavedData. No schema conversion, capability replacement or title-ID renaming was introduced.
+* Legacy origin profiles retain their original revision-1 bonuses; choosing/resetting an origin retains existing revision-2 and refund-credit behavior. Stable resource-location attribute IDs already prevented origin stacking; that behavior is preserved.
+* Ascension remains an authored sigil/admin action with the existing gated selection list. The reusable reselection path consumes another sigil by design; it is not changed into an automatic level reward.
+* Pufferfish tags are reversible native reward ownership. Target NeoForge 21.1.262 `PlayerList.respawn` explicitly copies every old scoreboard tag to the replacement player after `restoreFrom` (lines 457–469), before the respawn event. No blanket tag reconstruction is needed. Native respec removes the corresponding rewards; periodic reconciliation still removes stale tags left by a removed/replaced category. No fake skill-point or character-level substitute was added.
+* Active catalogue remains 42 unique titles, with 16 legacy definitions retained outside the new-player catalogue. Ten titles use actual purchased skills/points; the 29 authored quest/boss rewards remain manual command rewards. Staff badges stay explicit assignment and cosmetic only; Owner remains blue `7DABF2`. No new title or automatic quest/boss reward was added.
+* Existing resource gathering, combat perks, second-wind/leech cooldowns, no-heal modifier refresh, title swap cooldowns, other optional attributes and authorized quest commands retain their balances and access rules.
+* No new tick listener, entity/world scan, strong player-retaining cache or mandatory optional dependency was added. Existing weak caches and explicit source-bonus logout/clone/server-stop cleanup remain.
+
+## Validation
+
+Executed by this audit owner:
+
+* Java 21 `javap` inspection of the three actual Pufferfish JARs listed above: passed; exact consumed methods present.
+* Inspection of the target NeoForge patched source/event ordering and loader dependency manifest: completed.
+* `git diff --check`: passed after the edits.
+
+Added focused checks for the coordinator's build/server run (not claimed as executed here):
+
+* `TitleCatalogRulesTest.repeatedRetiredIdsAreRejectedBeforeArchivingCanOverwriteThem`: duplicate active/archived legacy IDs are rejected, intentional migration override remains valid.
+* `TitleCleanupSmoke`: identical passive refresh retains its modifier object without healing; repeating current selections works during cooldown; a deliberately duplicated saved legacy ID rejects reload while preserving the live catalogue, then restores the disposable config. Negative input tests intentionally emit one `Keeping previous title catalog` and one `Keeping previous title perks` entry. A command-level test supplies a valid changed catalogue plus invalid perks and requires complete runtime rollback before restoring files.
+* `TreeSmoke`: actual Pufferfish spent count changes from zero after respec to one after native purchase; the real alchemist purchase plus Apothecary produces a 1610-tick beneficial drink from a 1000-tick source (40% skill and 15% origin), including NeoForge's Finish event; drinking context ends and an unrelated effect remains 1000 ticks.
+* Existing tree smoke checks continue to exercise 588 nodes/669 links/six roots, exactly 175 sourced points, repeat synchronization, native respec, conditional source health, no stacking, equipment condition removal, source poisoned-target damage and persistent Second Wind cooldowns.
+* `OriginExpandedSmoke`: a victim in the Nether with its credited killer in the Overworld creates its extra hunting drop in the victim dimension.
+* Existing title/origin smoke suites continue to cover independent selections, legacy ownership, revoked rewards, command access, JSON and SavedData roundtrips, legacy origin revision, origin/Founder coexistence and optional mana gating.
+
+The isolated `SkillsAuditChecks.run(MinecraftServer, JsonObject)` wrapper runs the non-halting origin/title suites, the native tree suite when Pufferfish is present, explicit absence checks otherwise, and all 15 ascended origins through real sigil use, repeated lifecycle callbacks, saved ownership/point/cooldown checks and UUID replacement/clone hydration. It uses only disposable verification fixtures.
+
+Whole-project compilation, automated JUnit results and dedicated-server smoke outcomes are coordinated and recorded separately by the root audit. No manual in-game client test was performed by this audit owner.
