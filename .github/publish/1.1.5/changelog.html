@@ -1,0 +1,41 @@
+<div style="font-family:'Segoe UI',Tahoma,Verdana,Arial,sans-serif;font-size:16px;line-height:1.65">
+<p style="text-align:center"><img src="https://i.imgur.com/JGT2lvz.png" alt="Changelog" width="728" height="125" style="display:block;width:100%;height:auto;margin:auto"></p>
+<h2 style="font-family:'Arial Black',Impact,Arial,sans-serif;font-size:27px;color:#729aa1;text-align:center"><strong>TNK PROGRESSION — 1.1.5</strong></h2>
+<p style="color:#729aa1;text-align:center"><strong>Minecraft 1.21.1 · NeoForge 21.1.262 · Java 21</strong></p>
+<h2 style="font-family:'Trebuchet MS',Verdana,Arial,sans-serif;font-size:23px;font-weight:800;color:#c09473">A clearer title catalogue</h2>
+<ul><li>Reduce the default catalogue from 58 to <strong>42 distinct titles</strong>, removing repeated colour/name variants and unused extra badges from the new-player catalogue.</li>
+<li>Keep previously earned retired titles under <strong>Legacy Titles</strong>, with their original artwork, passive bonuses and saved selections.</li>
+<li>Add <strong>Unlock Info</strong> with full acquisition requirements, explicit reward sources and current skill-point/node progress.</li>
+<li>Update chapter descriptions to the current TNK3 chapter names. Keep customized descriptions when migrating existing configuration files.</li></ul>
+<h2 style="font-family:'Trebuchet MS',Verdana,Arial,sans-serif;font-size:23px;font-weight:800;color:#c09473">Quest rewards and staff titles</h2>
+<ul><li>Keep all <strong>29 quest and boss titles</strong> as manually configured quest rewards. No automatic boss-kill grants or quest assignments are added.</li>
+<li>Provide exact FTB Quests command rewards using <strong>{p}</strong> and permission level <strong>2</strong>, with intended chapter and Adventure placements.</li>
+<li>Keep ten skill titles tied to real Pufferfish Skills purchases. Old activity ranks do not grant them.</li>
+<li>Replace Owner's gold badge with the supplied original <strong>clean blue</strong> badge. Owner and Admin remain command-only cosmetics and grant no permissions.</li></ul>
+<h2 style="font-family:'Trebuchet MS',Verdana,Arial,sans-serif;font-size:23px;font-weight:800;color:#c09473">Boss minimums</h2>
+<ul>
+<li>Set the Warden minimum to <strong>35</strong>, Clawdian to <strong>30</strong>, Kraken to <strong>45</strong>, Magnetron to <strong>30</strong> and Brainiac to <strong>20</strong>.</li>
+<li>Keep all 16 End Remastered eye-boss default minimums below 60. Ignis, Harbinger, Maledictus, Leviathan, Ancient Remnant, Luxtructosaurus, Helvar and Possessed Paladin use <strong>55</strong>.</li>
+<li>Add Last of Deepslate at <strong>55</strong>, using its verified Archaion entity ID.</li>
+<li>Set the Ender Dragon minimum to <strong>75</strong>.</li>
+<li>Reduce native miniboss minimums to at most <strong>35</strong>. Cataclysm minibosses associated with level-55 eye bosses use <strong>25</strong>; Ender Golem and Clawdian use <strong>30</strong>.</li>
+<li>Reduce Legendary Monsters roaming miniboss minimums while retaining the full-boss classification of Possessed Paladin, Cloud Golem and Obliterator.</li>
+</ul>
+<h2 style="font-family:'Trebuchet MS',Verdana,Arial,sans-serif;font-size:23px;font-weight:800;color:#c09473">Roaming encounters and level caps</h2>
+<ul>
+<li>Apotheosis invaders spawn at <strong>nearest eligible player level +5</strong>, capped at <strong>100</strong>, without random variance or native dungeon-boss minimums.</li>
+<li>Apotheosis elites use ordinary nearby-player variance without inheriting native boss minimums. Preserve Apotheosis equipment, effects, stat bonuses, rewards and spawn frequency.</li>
+<li>Native minibosses retain their reduced minimum or player +10 rule and cap at <strong>100</strong>. Full bosses retain the <strong>110</strong> cap.</li>
+<li>Keep verified Spiral arena levels and full-boss groups separate from the normal-world miniboss rules.</li>
+</ul>
+<h2 style="font-family:'Trebuchet MS',Verdana,Arial,sans-serif;font-size:23px;font-weight:800;color:#c09473">Saves and compatibility</h2>
+<ul>
+<li>Migrate unchanged old config defaults once. Preserve custom values and removed old entries; add the newly supported Last of Deepslate entry when missing.</li>
+<li>Preserve saved enemy levels, except non-arena miniboss levels above 100 clamp at load without healing or stacking modifiers. New minimums apply to new level assignments.</li>
+<li>Preserve character progress, HUD preferences, normal loot rules and explicit dungeon rewards.</li>
+<li>Retain the Spiral Abyss 2.0.5/2.0.6 crash fixes from 1.1.3 and safe loading when optional mods are absent.</li>
+</ul>
+<h2 style="font-family:'Trebuchet MS',Verdana,Arial,sans-serif;font-size:23px;font-weight:800;color:#c09473">Preservation and validation</h2>
+<p>Preserve saved title ownership, revocations, cosmetic/passive choices, cooldowns, original passive bonuses and character progress. Keep the 1.1.4 boss balance and existing Spiral/Loot compatibility. Replace the JAR on clients and server; do not reset player data.</p>
+<p><strong>Validation:</strong> Java 21 build, 50 automated tests, quest/default-title script fixtures and dedicated-server title checks passed. The original blue Owner PNG and all 58 retained badge assets were byte-verified. No full modpack or graphical client test was performed.</p>
+</div>
