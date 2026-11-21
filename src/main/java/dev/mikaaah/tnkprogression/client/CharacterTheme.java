@@ -7,7 +7,6 @@ import net.minecraft.network.chat.Component;
 /** Slate, copper and pixel keylines shared by the character sheet and HUD. */
 public final class CharacterTheme {
  public static final int BROWN=0xFF446077,EDGE=0xFF729AA1,LIGHT=0xFFF4EBE5,PAPER=0xFF905C49,CARD=0xFF7A4841,INK=0xFFF4EBE5,MUTED=0xFFA9C3C8,GREEN=0xFFA9C887,TEAL=0xFF729AA1,GOLD=0xFFC09473,ROSE=0xFFCF8D7C,PURPLE=0xFF9BAFC6;
- // Small clipped corners, a warm keyline and a single highlight replace heavy square outlines.
  public static void rounded(GuiGraphics g,int x,int y,int w,int h,int colour){g.fill(x+2,y,x+w-2,y+h,colour);g.fill(x+1,y+1,x+w-1,y+h-1,colour);g.fill(x,y+2,x+w,y+h-2,colour);}
  private static int tint(int colour,int target,double amount){int value=colour&0xFF000000;for(int shift=16;shift>=0;shift-=8)value|=(int)Math.round(((colour>>shift)&255)*(1-amount)+((target>>shift)&255)*amount)<<shift;return value;}
  /** Opaque overlapping strips share the same vertical ramp and keep the clipped pixel corners. */

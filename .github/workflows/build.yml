@@ -13,20 +13,28 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: setup java
+        uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '21'
-      - uses: gradle/actions/setup-gradle@v4
-      - uses: actions/setup-node@v4
+      - name: setup gradle
+        uses: gradle/actions/setup-gradle@v4
+      - name: setup node
+        uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: node tools/check_title_bindings.cjs
-      - run: node tools/check_default_titles.cjs
-      - run: python3 tools/balance_report.py
-      - run: ./gradlew build --stacktrace
-      - name: Dedicated server assertions
+      - name: check title bindings
+        run: node tools/check_title_bindings.cjs
+      - name: check default titles
+        run: node tools/check_default_titles.cjs
+      - name: balance report
+        run: python3 tools/balance_report.py
+      - name: build
+        run: ./gradlew build --stacktrace
+      - name: server smoke tests
         run: |
           mkdir -p run
           mkdir -p run/config
@@ -36,7 +44,8 @@ jobs:
           timeout 300 ./gradlew runServer -PtnkDirectXpSmoke -PtnkBossActivityServerSmoke --console=plain 2>&1 | tee smoke.log
           grep -q TNK_DIRECT_XP_SMOKE_OK smoke.log
           grep -q TNK_BOSS_ACTIVITY_SMOKE_OK smoke.log
-      - uses: actions/upload-artifact@v4
+      - name: upload artifacts
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: tnkprogression-1.1.0-neoforge-1.21.1

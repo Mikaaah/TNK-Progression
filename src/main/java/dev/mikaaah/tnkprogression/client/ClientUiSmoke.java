@@ -15,7 +15,12 @@ public final class ClientUiSmoke {
  private static int ticks,stage,totalTicks;private static boolean seeded;private static java.util.UUID mobId;private static Double hoverX,hoverY;
  @SubscribeEvent public static void tick(ClientTickEvent.Post event){
   if(!Boolean.getBoolean("tnkprogression.uiSmoke"))return;
-  var mc=Minecraft.getInstance();if(++totalTicks>2400){TnkProgression.LOG.error("TNK_CLIENT_UI_SMOKE_FAILED: timed out");mc.stop();return;}if(mc.player==null || mc.getSingleplayerServer()==null){if(totalTicks%200==0){TnkProgression.LOG.info("TNK_UI_STARTUP: {}",mc.screen==null?"none":mc.screen.getClass().getSimpleName());shot(mc,"TNK-Startup.png");}return;}
+  var mc=Minecraft.getInstance();
+  if(++totalTicks>2400){TnkProgression.LOG.error("TNK_CLIENT_UI_SMOKE_FAILED: timed out");mc.stop();return;}
+  if(mc.player==null || mc.getSingleplayerServer()==null){
+   if(totalTicks%200==0)shot(mc,"TNK-Startup.png");
+   return;
+  }
   try {
    if(hoverX!=null&&mc.screen!=null){forceMouse(mc,"xpos",hoverX);forceMouse(mc,"ypos",hoverY);}
    if(!seeded){seeded=true;var id=mc.player.getUUID();mc.options.guiScale().set(2);mc.resizeDisplay();

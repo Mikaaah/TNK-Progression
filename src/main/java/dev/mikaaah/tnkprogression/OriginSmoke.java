@@ -121,7 +121,6 @@ public final class OriginSmoke {
         player.onEnchantmentPerformed(new ItemStack(Items.IRON_PICKAXE), 3);
         check(Origins.experiencePoints(player) == OriginRules.pointsAtLevel(27), "non-Librarian receives no enchanting refund");
 
-        // A real anvil output slot charges levels, consumes materials, then refunds only the origin share.
         Origins.adminSet(player, "tnk:blacksmith");
         var anvilPos = new BlockPos(850, 64, 850);
         player.serverLevel().setBlockAndUpdate(anvilPos, Blocks.ANVIL.defaultBlockState());

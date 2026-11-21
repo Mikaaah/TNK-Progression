@@ -184,7 +184,7 @@ public final class Origins {
             int level = OriginRules.levelForPoints(target);
             serverPlayer.setExperienceLevels(level);
             serverPlayer.setExperiencePoints((int) (target - OriginRules.pointsAtLevel(level)));
-            serverPlayer.totalExperience = (int) Math.clamp((long) serverPlayer.totalExperience + refund.points(), 0, Integer.MAX_VALUE);
+            serverPlayer.totalExperience = Math.clamp((long) serverPlayer.totalExperience + refund.points(), 0, Integer.MAX_VALUE);
         }
     }
 

@@ -58,7 +58,6 @@ public final class MobLevelSmoke {
    MobLevels.invalidate(world);ProgressionConfig.current.mobLevelVariance=0;check(MobLevels.assign(world,mob)==20,"zero variance gives exact nearest level");
    var existing=EntityType.ZOMBIE.create(world);existing.getPersistentData().putInt("tnk_level",73);
    ProgressionEvents.join(new EntityJoinLevelEvent(existing,world));check(ProgressionAPI.mobLevel(existing)==73,"older saved mobs keep their existing level");
-   // Exercise vanilla despawning with the real generated label, including a saved/reloaded entity.
    var despawning=EntityType.ZOMBIE.create(world);despawning.setPos(200000,64,0);
    ProgressionEvents.join(new EntityJoinLevelEvent(despawning,world));
    check(!despawning.hasCustomName() && !despawning.isPersistenceRequired() && !despawning.requiresCustomPersistence(),"badge needs no custom name or persistence");
