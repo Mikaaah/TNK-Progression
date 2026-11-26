@@ -1,0 +1,21 @@
+{
+  "project_id": 1789363,
+  "version": "1.1.8",
+  "filename": "tnkprogression-1.1.8-neoforge-1.21.1.jar",
+  "sha256": "8107f40b7b03477022a4b88f9c29459fd4c0fcaba4d6f782dbff56afd0ddffb6",
+  "changelog_sha256": "c4a527045b35086b9aafedcb8315798312af7df616c7b0e7faaa84a8fcbcc36f",
+  "game_versions": [
+    "1.21.1",
+    "NeoForge",
+    "Client",
+    "Server"
+  ],
+  "transport_parts": [
+    "artifact.jar.part01",
+    "artifact.jar.part02",
+    "artifact.jar.part03",
+    "artifact.jar.part04",
+    "artifact.jar.part05"
+  ],
+  "publication_attempt": 1
+}

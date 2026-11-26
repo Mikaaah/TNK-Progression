@@ -1,17 +1,17 @@
-name: Publish approved TNK Progression 1.1.7
+name: Publish approved TNK Progression 1.1.8
 on:
   push:
-    branches: [publish/curseforge-1.1.7]
+    branches: [publish/curseforge-1.1.8]
     paths:
-      - '.github/publish/1.1.7/request.json'
+      - '.github/publish/1.1.8/request.json'
 concurrency:
-  group: curseforge-tnk-progression-1789363-1.1.7
+  group: curseforge-tnk-progression-1789363-1.1.8
   cancel-in-progress: false
 permissions:
   contents: read
 jobs:
   publish:
-    if: github.repository == 'Mikaaah/TNK-Progression' && github.ref == 'refs/heads/publish/curseforge-1.1.7'
+    if: github.repository == 'Mikaaah/TNK-Progression' && github.ref == 'refs/heads/publish/curseforge-1.1.8'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -27,5 +27,5 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: TNK-Progression-1.1.7-CurseForge-receipt
+          name: TNK-Progression-1.1.8-CurseForge-receipt
           path: curseforge-upload-receipt.json
